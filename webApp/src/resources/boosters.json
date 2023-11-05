@@ -1,0 +1,234 @@
+{
+    "title": "FFX Boosters% CSR - Tidus Route",
+    "keywords": ["x4", "Auto Attack"],
+    "introduction": {
+        "text": ""
+    },
+    "chapters": [
+        {
+            "title": "Zanarkand",
+            "entries": [
+                { "type": "bullets",
+                    "text": "Turn on:", 
+                    "guide": [
+                        "Speed Boost x4 (Double Tap F1)",
+                        "Super Charge (F2)",
+                        "No Encounters (Double Tap F3)"
+                    ],
+                    "trailingBreak": true
+                },
+                { "type": "info", "text": "Remember to re-enable them if you have to load an autosave", "trailingBreak": true },
+                { "type": "info", "text": "Begin Booster Menu (Press Esc):", "bold": true },
+                { "type": "bullets", 
+                    "text": "Parameters:",
+                    "guide": [
+                        "All Skills",
+                        "All Items"
+                    ],
+                    "trailingBreak": true
+                },
+                {
+                    "type": "battle",
+                    "enemy": "Sinscales",
+                    "guide": [
+                        "Disable 4x to skip dialoge then re-enable",
+                        "Tidus Defend",
+                        "Enable Auto Attack",
+                        "Disable 4x to skip dialoge then re-enable",
+                        "Once fight is over, disable Auto Attack"
+                    ],
+                    "trailingBreak": true
+                },
+                {
+                    "type": "battle",
+                    "enemy": "Sinspawn Ammes",
+                    "health": 2400,
+                    "guide": [
+                        "Disable 4x to skip dialoge then re-enable",
+                        "Auron Overdrive Dragonfang",
+                        "Tidus Use Ice Gem"
+                    ],
+                    "trailingBreak": true
+                },
+                {
+                    "type": "battle",
+                    "enemy": "Tanker",
+                    "health": 1000,
+                    "guide": [
+                        "Tidus Switch Weapon",
+                        "Auron Attack Self",
+                        "Tidus Switch Weapon x2",
+                        "Tidus Use Ice Gem on Tanker"
+                    ],
+                    "trailingBreak": true
+                }
+            ]
+        },
+        {
+            "title": "Baaj",
+            "entries": [
+                {
+                    "type": "battle",
+                    "enemy": "Sahagins",
+                    "guide": [
+                        "Tidus Use Grenade (or Frag Grenade/Sleeping Powder/Dream Powder/Silence Grenade/Smoke Bomb)"
+                    ],
+                    "trailingBreak": true
+                },
+                {
+                    "type": "battle",
+                    "enemy": "Geosgaeno",
+                    "guide": [
+                        "Tidus Defend until battle ends"
+                    ],
+                    "trailingBreak": true
+                },
+                {
+                    "type": "itemsort", "trailingBreak": true,
+                    "guide": [
+                        "Al Bhed Potion with Shining Gem, R2 Confirm R2 ↓ Confirm",
+                        "Smoke Bomb with Healing Water, ↑ Confirm L2 → Confirm",
+                        "Master Sphere with Power Sphere, R2 R2 R2 ← Confirm ↑↑↑↑↑{x5} Confirm",
+                        "Ability Sphere with Clear Sphere, →↓ Confirm R2 ↓ Confirm",
+                        "Strength Sphere Mana Sphere, ↑↑↑↑{x4} Confirm L2 ↓↓ Confirm",
+                        "Speed Sphere with Warp Sphere, ←↓ Confirm R2 →↓↓↓ Confirm",
+                        "Dark Matter with Tetra Elemental*, L2 L2 ↑↑↑ Confirm L2  ←↑↑↑↑↑{x5} Confirm"
+                    ]
+                },
+                {
+                    "type": "bullets", "trailingBreak": true,
+                    "text": "Config:",
+                    "guide": [
+                        "Cursor > Memory",
+                        "Aeons > Short"
+                    ]
+                },
+                {
+                    "type": "battle",
+                    "enemy": "Klikk",
+                    "health": 1500,
+                    "guide": [
+                        "Disable 4x to skip dialoge then re-enable",
+                        "Tidus use Shining Gem",
+                        "Disable 4x to skip dialoge then re-enable",
+                        "Rikku use Shining Gem"
+                    ],
+                    "trailingBreak": true
+                }
+            ]
+        },
+        {
+            "title": "The Boat",
+            "entries": [
+                { "type": "info", "text": "TODO: Sort out sphere grids...", "trailingBreak": true },
+                {
+                    "type": "battle",
+                    "enemy": "Pirhanas",
+                    "guide": ["Any Use Smoke Bomb (hope you like your fish smoked)"],
+                    "trailingBreak": true
+                },
+                {
+                    "type": "battle",
+                    "enemy": "Tros",
+                    "health": 2200,
+                    "guide": ["Tidus Attack"],
+                    "trailingBreak": true
+                }
+            ]
+        },
+        {
+            "title": "Besaid",
+            "entries": [
+                {
+                    "type": "battle",
+                    "enemy": "Tidus and Wakka Tutorial",
+                    "guide": [
+                        "Disable 4x to skip dialoge then re-enable",
+                        "Tidus Attack",
+                        "Disable 4x to skip dialoge then re-enable",
+                        "Wakka Attack"
+                    ],
+                    "trailingBreak": true
+                },
+                {
+                    "type": "battle",
+                    "enemy": "Lulu Magic Tutorial",
+                    "guide": [
+                        "Disable 4x to skip dialoge then re-enable",
+                        "Tidus Attack",
+                        "Disable 4x to skip dialoge then re-enable"
+                    ],
+                    "trailingBreak": true
+                },
+                { "type": "info", "text": "Enable Auto Attack", "trailingBreak": true },
+                {
+                    "type": "battle",
+                    "enemy": "Kimahri",
+                    "health": 750,
+                    "guide": ["Tidus Auto Attack"],
+                    "trailingBreak": true
+                },
+                { "type": "info", "text": "TODO: Sort out sphere grids...", "trailingBreak": true },
+                {
+                    "type": "battle",
+                    "enemy": "Yuna Aeon Tutorial",
+                    "guide": [
+                        "Disable 4x to skip dialoge then re-enable",
+                        "Yuna Summon Valefor",
+                        "Valefor Attack"
+                    ],
+                    "trailingBreak": true
+                },
+                {
+                    "type": "bullets", "text": "Formation:",
+                    "guide": ["Wakka out, Tidus in"],
+                    "trailingBreak": true
+                },
+                {
+                    "type": "encounter", "trailingBreak": true,
+                    "guide": ["Flee all encounters until S.S. Liki"]
+                }
+            ]
+        },
+        {
+            "title": "S.S. Liki",
+            "entries": [
+                {
+                    "type": "battle",
+                    "enemy": "Sin Fin & Sinspawn Echuilles",
+                    "guide": [
+                        "Any Use Sining gem on Sin Fin",
+                        "Enable Auto Attack",
+                        "Tidus Auto Attack"
+                    ],
+                    "trailingBreak": true
+                }
+            ]
+        },
+        {
+            "title": "Kilika",
+            "entries": [
+                {
+                    "type": "battle",
+                    "enemy": "Lancet Tutorial",
+                    "guide": [
+                        "Disable 4x to skip dialoge then re-enable",
+                        "Kimahri Flee"
+                    ],
+                    "trailingBreak": true
+                },
+                { "type": "info", "text": "Enable Auto Attack", "trailingBreak": true },
+                {
+                    "type": "battle",
+                    "enemy": "Sinspawn Geneaux",
+                    "guide": ["Tidus Auto Attack"],
+                    "trailingBreak": true
+                },
+                { "type": "info", "text": "Disable Auto Attack", "trailingBreak": false }
+            ]
+        },
+        {
+            "title": "Luca"
+        }
+    ]
+}
