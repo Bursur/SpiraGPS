@@ -1,4 +1,4 @@
-package spiragps.views
+package spiragps.views.panels
 
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
@@ -8,13 +8,14 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import spiragps.data.Entry
 import spiragps.utils.highlightKeywords
 
 @Composable
-fun InfoView(text: String, bold: Boolean = false) {
+fun InfoView(entry: Entry) {
     Text(
-        text = highlightKeywords(text),
-        fontWeight = if (bold) FontWeight.Bold else FontWeight.Normal,
+        text = highlightKeywords(entry.text),
+        fontWeight = if (entry.bold) FontWeight.Bold else FontWeight.Normal,
         modifier = Modifier.fillMaxWidth(.5f).padding(bottom = 5.dp)
     )
 }

@@ -1,4 +1,4 @@
-package spiragps.views
+package spiragps.views.panels
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.padding
@@ -7,21 +7,23 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
+import spiragps.data.Entry
 import spiragps.utils.formatWithCommas
 import spiragps.style.SpiraGPSColours
+import spiragps.views.BulletedList
 
 @Composable
-fun ShopView(cost: Int, buy: ArrayList<String> = arrayListOf(), sell: ArrayList<String> = arrayListOf()) {
-    BasePanelView(title = "SHOP - ${cost.formatWithCommas()}", border = SpiraGPSColours.shopBorder) {
+fun ShopView(entry: Entry) {
+    BasePanelView(title = "SHOP - ${entry.cost.formatWithCommas()}", border = SpiraGPSColours.shopBorder) {
         Column(modifier = Modifier.padding(vertical = 30.dp, horizontal = 40.dp)) {
-            if (buy.isNotEmpty()) {
+            if (entry.buy.isNotEmpty()) {
                 Text("Buy:", fontWeight = FontWeight.Bold)
-                BulletedList(points = buy)
+                BulletedList(points = entry.buy)
             }
 
-            if (sell.isNotEmpty()) {
+            if (entry.sell.isNotEmpty()) {
                 Text("Sell:", fontWeight = FontWeight.Bold)
-                BulletedList(points = sell)
+                BulletedList(points = entry.sell)
             }
         }
     }

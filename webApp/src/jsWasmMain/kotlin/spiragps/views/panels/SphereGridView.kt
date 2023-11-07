@@ -1,4 +1,4 @@
-package spiragps.views
+package spiragps.views.panels
 
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -7,15 +7,17 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import spiragps.data.Entry
 import spiragps.style.SpiraGPSColours
+import spiragps.views.BulletedList
 
 @Composable
-fun SphereGridView(spheres: ArrayList<String>) {
+fun SphereGridView(entry: Entry) {
     Column {
         Text("TODO: WORK SOMETHING OUT FOR THE SPHERE GRIDS")
         BasePanelView(title = "SPHERE GRID", border = SpiraGPSColours.sphereGridBorder) {
             Box(modifier = Modifier.padding(vertical = 30.dp, horizontal = 40.dp)) {
-                BulletedList(points = spheres)
+                BulletedList(entry)
             }
         }
     }

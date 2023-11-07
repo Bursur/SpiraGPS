@@ -12,10 +12,32 @@ import androidx.compose.ui.text.style.TextIndent
 import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import spiragps.data.Entry
 import spiragps.utils.highlightKeywords
 
 private const val BULLET_CHAR = "\u2022"
 private val paragraphStyle = ParagraphStyle(textIndent = TextIndent(restLine = 12.sp), lineHeight = 24.sp)
+
+@Composable
+fun BulletedList(entry: Entry) {
+    Column(modifier = Modifier.fillMaxWidth(.5f)) {
+        if(entry.text.isNotEmpty())
+            Text(entry.text)
+
+        Text(
+            buildAnnotatedString {
+                entry.guide.forEach {
+                    withStyle(paragraphStyle) {
+                        append(BULLET_CHAR)
+                        append(" ")
+                        append(highlightKeywords(it))
+                    }
+                }
+            },
+            modifier = Modifier.padding(horizontal = 10.dp)
+        )
+    }
+}
 
 @Composable
 fun BulletedList(title: String = "", points: ArrayList<String>) {

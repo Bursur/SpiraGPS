@@ -1,4 +1,4 @@
-package spiragps.views
+package spiragps.views.panels
 
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.foundation.BorderStroke

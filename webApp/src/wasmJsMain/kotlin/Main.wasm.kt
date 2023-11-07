@@ -6,6 +6,6 @@ import kotlin.wasm.unsafe.*
 @OptIn(ExperimentalComposeUiApi::class)
 fun main() {
     CanvasBasedWindow("Spira GPS") {
-        SpiraGPSWeb()
+        SpiraGPS()
     }
 }

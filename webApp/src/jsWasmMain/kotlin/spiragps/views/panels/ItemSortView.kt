@@ -1,4 +1,4 @@
-package spiragps.views
+package spiragps.views.panels
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
@@ -11,16 +11,17 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
+import spiragps.data.Entry
 import spiragps.style.SpiraGPSColours
 
 @Composable
-fun ItemSortView(items: ArrayList<String>) {
+fun ItemSortView(entry: Entry) {
     BasePanelView(title = "ITEM SORT", border = SpiraGPSColours.itemSortBorder) {
         Column(
             modifier = Modifier
                 .padding(vertical = 30.dp, horizontal = 20.dp)
         ) {
-            items.forEachIndexed { index, it ->
+            entry.guide.forEachIndexed { index, it ->
                 Item(
                     name = it,
                     background = SpiraGPSColours.itemSortBackground[index % 2],
