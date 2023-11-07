@@ -11,7 +11,6 @@ import spiragps.views.panels.BlitzballView
 import spiragps.views.panels.CustomiseView
 import spiragps.views.panels.EncounterView
 import spiragps.views.panels.EquipmentView
-import spiragps.views.panels.InfoView
 import spiragps.views.panels.ItemSortView
 import spiragps.views.panels.ShopView
 import spiragps.views.panels.SphereGridView

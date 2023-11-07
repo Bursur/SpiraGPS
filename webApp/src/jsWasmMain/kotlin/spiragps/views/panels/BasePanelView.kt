@@ -30,8 +30,6 @@ fun BasePanelView(title: String, border: Color, content: @Composable () -> Unit)
         shape = RoundedCornerShape(10.dp),
         border = BorderStroke(2.dp, border),
         color = SpiraGPSColours.infoBackground,
-        modifier = Modifier
-            .fillMaxWidth(.5f)
     ) {
         Column {
             Text(

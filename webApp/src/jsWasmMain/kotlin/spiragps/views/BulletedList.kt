@@ -20,7 +20,7 @@ private val paragraphStyle = ParagraphStyle(textIndent = TextIndent(restLine = 1
 
 @Composable
 fun BulletedList(entry: Entry) {
-    Column(modifier = Modifier.fillMaxWidth(.5f)) {
+    Column(modifier = Modifier.fillMaxWidth()) {
         if(entry.text.isNotEmpty())
             Text(entry.text)
 
@@ -41,7 +41,7 @@ fun BulletedList(entry: Entry) {
 
 @Composable
 fun BulletedList(title: String = "", points: ArrayList<String>) {
-    Column(modifier = Modifier.fillMaxWidth(.5f)) {
+    Column(modifier = Modifier.fillMaxWidth()) {
         if(title.isNotEmpty())
             Text(title)
 

@@ -14,7 +14,7 @@ import spiragps.style.SpiraGPSColours
 
 @Composable
 fun TitleView(title: String) {
-    Column(modifier = Modifier.fillMaxWidth(.5f)) {
+    Column {
         Text(text = title, textAlign = TextAlign.Right, fontWeight = FontWeight.Bold, fontSize = 24.sp, modifier = Modifier.fillMaxWidth())
         Divider(color = SpiraGPSColours.black, thickness = 2.dp)
     }

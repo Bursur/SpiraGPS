@@ -1,4 +1,4 @@
-package spiragps.views.panels
+package spiragps.views
 
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
@@ -16,6 +16,6 @@ fun InfoView(entry: Entry) {
     Text(
         text = highlightKeywords(entry.text),
         fontWeight = if (entry.bold) FontWeight.Bold else FontWeight.Normal,
-        modifier = Modifier.fillMaxWidth(.5f).padding(bottom = 5.dp)
+        modifier = Modifier.fillMaxWidth().padding(bottom = 5.dp)
     )
 }
