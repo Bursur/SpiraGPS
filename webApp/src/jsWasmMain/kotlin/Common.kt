@@ -13,6 +13,7 @@ import spiragps.style.SpiraGPSColours
 import spiragps.style.SpiraGPSTheme
 import spiragps.data.placeholderRoute
 import spiragps.data.Route
+import spiragps.views.HeaderView
 import spiragps.views.RouteView
 
 @Composable
@@ -25,11 +26,10 @@ internal fun SpiraGPS() {
             modifier = Modifier
                 .fillMaxSize()
         ) {
-            Text(text = "This is VERY WIP route for Boosters%. Full credits to Mtbanger for these notes. The notes are Mtbangers notes.", modifier = Modifier.fillMaxWidth(.5f))
-            Text(text = "Credits from Mt's notes: Credit to psychonauter, MorphaSRDC, and ChrisTenarium for original Booster% notes and route, MrTyton for the Zanarkand Trials map, to CrimsonInferno and the FFX Blitzball Haters Club HQ Big Nerds for helping me make this bad idea almost good.", modifier = Modifier.fillMaxWidth(.5f))
+            // Header
+            HeaderView(data.conditions)
 
-            Divider(color = SpiraGPSColours.background, modifier = Modifier.padding(vertical = 10.dp))
-
+            // Contents/Route
             RouteView(data)
         }
     }

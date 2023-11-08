@@ -16,7 +16,7 @@ import spiragps.views.BulletedList
 fun SphereGridView(entry: Entry) {
     Column(modifier = Modifier.fillMaxWidth()) {
         Text("TODO: WORK SOMETHING OUT FOR THE SPHERE GRIDS", modifier = Modifier.fillMaxWidth())
-        BasePanelView(title = "SPHERE GRID", border = SpiraGPSColours.sphereGridBorder) {
+        BasePanelView(title = "SPHERE GRID", border = SpiraGPSColours.sphereGridBorder, minimised = entry.minimised) {
             Box(modifier = Modifier.padding(vertical = 30.dp, horizontal = 40.dp)) {
                 BulletedList(entry)
             }

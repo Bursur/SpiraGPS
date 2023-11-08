@@ -1,6 +1,10 @@
 {
     "title": "FFX Boosters% CSR - Tidus Route",
     "keywords": ["x4", "Auto Attack"],
+    "conditions": [
+        { "name": "TerraSkip", "defaultState": false },
+        { "name": "BlitzWin", "defaultState": true }
+    ],
     "introduction": {
         "text": ""
     },
@@ -142,6 +146,7 @@
                 {
                     "type": "battle",
                     "enemy": "Tidus and Wakka Tutorial",
+                    "minimised": true,
                     "guide": [
                         "Disable 4x to skip dialoge then re-enable",
                         "Tidus Attack",

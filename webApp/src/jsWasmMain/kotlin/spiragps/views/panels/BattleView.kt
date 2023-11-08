@@ -17,7 +17,7 @@ fun BattleView(entry: Entry) {
     else
         entry.enemy
 
-    BasePanelView(title = title, border = SpiraGPSColours.battleBorder) {
+    BasePanelView(title = title, border = SpiraGPSColours.battleBorder, minimised = entry.minimised) {
         Box(modifier = Modifier.padding(vertical = 30.dp, horizontal = 40.dp)) {
             BulletedList(entry)
         }

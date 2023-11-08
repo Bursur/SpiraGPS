@@ -11,6 +11,8 @@ data class Entry(
     val image: String = "",
     val bold: Boolean = false,
     val trailingBreak: Boolean = false,
+    val minimised: Boolean = false,
+    val requirement: Requirement? = null,
 
     // Info
     val text: String = "",

@@ -22,8 +22,8 @@ import androidx.compose.ui.unit.dp
 import spiragps.style.SpiraGPSColours
 
 @Composable
-fun BasePanelView(title: String, border: Color, content: @Composable () -> Unit) {
-    var expanded by remember { mutableStateOf(true) }
+fun BasePanelView(title: String, border: Color, minimised: Boolean = false, content: @Composable () -> Unit) {
+    var expanded by remember { mutableStateOf(!minimised) }
 
     Surface(
         elevation = 5.dp,

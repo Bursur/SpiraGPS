@@ -11,7 +11,7 @@ import spiragps.views.BulletedList
 
 @Composable
 fun TrialsView(entry: Entry) {
-    BasePanelView("CLOISTER OF TRIALS", SpiraGPSColours.trialsBorder) {
+    BasePanelView("CLOISTER OF TRIALS", SpiraGPSColours.trialsBorder, minimised = entry.minimised) {
         Box(modifier = Modifier.padding(vertical = 30.dp, horizontal = 40.dp)) {
             BulletedList(entry)
         }

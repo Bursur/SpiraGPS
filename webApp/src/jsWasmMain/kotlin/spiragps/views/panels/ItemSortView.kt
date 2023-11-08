@@ -16,7 +16,7 @@ import spiragps.style.SpiraGPSColours
 
 @Composable
 fun ItemSortView(entry: Entry) {
-    BasePanelView(title = "ITEM SORT", border = SpiraGPSColours.itemSortBorder) {
+    BasePanelView(title = "ITEM SORT", border = SpiraGPSColours.itemSortBorder, minimised = entry.minimised) {
         Column(
             modifier = Modifier
                 .padding(vertical = 30.dp, horizontal = 20.dp)

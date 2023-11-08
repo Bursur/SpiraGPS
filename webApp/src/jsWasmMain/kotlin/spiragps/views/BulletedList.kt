@@ -8,6 +8,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.ParagraphStyle
 import androidx.compose.ui.text.buildAnnotatedString
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextIndent
 import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.unit.dp
@@ -22,7 +23,7 @@ private val paragraphStyle = ParagraphStyle(textIndent = TextIndent(restLine = 1
 fun BulletedList(entry: Entry) {
     Column(modifier = Modifier.fillMaxWidth()) {
         if(entry.text.isNotEmpty())
-            Text(entry.text)
+            Text(entry.text, fontWeight = if(entry.bold) FontWeight.Bold else FontWeight.Normal)
 
         Text(
             buildAnnotatedString {
