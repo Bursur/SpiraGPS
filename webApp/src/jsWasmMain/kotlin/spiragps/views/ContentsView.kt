@@ -1,5 +1,6 @@
 package spiragps.views
 
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.gestures.Orientation
 import androidx.compose.foundation.gestures.scrollable
 import androidx.compose.foundation.layout.Column
@@ -13,9 +14,10 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import spiragps.data.Chapter
+import spiragps.data.ContentsState
 
 @Composable
-fun ContentsView(modifier: Modifier = Modifier, chapters: ArrayList<Chapter>) {
+fun ContentsView(modifier: Modifier = Modifier, chapters: ArrayList<Chapter>, contentsState: ContentsState) {
     val scrollState = rememberScrollState()
 
     Column(
@@ -33,7 +35,12 @@ fun ContentsView(modifier: Modifier = Modifier, chapters: ArrayList<Chapter>) {
                 Text(
                     text = it.title,
                     fontSize = 15.sp,
-                    modifier = Modifier.fillMaxWidth().padding(vertical = 5.dp)
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(vertical = 5.dp)
+                        .clickable {
+                            contentsState.selectedChapter = it.title
+                        }
                 )
             }
         }

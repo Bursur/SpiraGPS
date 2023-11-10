@@ -15,6 +15,7 @@ import spiragps.style.SpiraGPSTheme
 import spiragps.data.placeholderRoute
 import spiragps.data.Route
 import spiragps.data.rememberConditionState
+import spiragps.data.rememberContentsState
 import spiragps.views.ContentsView
 import spiragps.views.HeaderView
 import spiragps.views.RouteView
@@ -22,10 +23,11 @@ import spiragps.views.RouteView
 @Composable
 internal fun SpiraGPS() {
     val data = Json.decodeFromString<Route>(placeholderRoute)
+    val contentsState = rememberContentsState()
 
     SpiraGPSTheme {
         Row(modifier = Modifier.fillMaxSize()) {
-            ContentsView(chapters = data.chapters, modifier = Modifier.weight(.2f))
+            ContentsView(chapters = data.chapters, contentsState = contentsState, modifier = Modifier.weight(.2f))
 
             Column(
                 horizontalAlignment = Alignment.CenterHorizontally,
@@ -38,7 +40,7 @@ internal fun SpiraGPS() {
                 HeaderView(data.conditions, conditionState)
 
                 // Contents/Route
-                RouteView(data, conditionState)
+                RouteView(data, conditionState, contentsState)
             }
         }
     }

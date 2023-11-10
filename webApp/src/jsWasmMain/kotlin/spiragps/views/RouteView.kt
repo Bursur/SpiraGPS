@@ -1,11 +1,13 @@
 package spiragps.views
 
+import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.wrapContentHeight
 import androidx.compose.foundation.layout.wrapContentSize
+import androidx.compose.foundation.relocation.BringIntoViewRequester
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.Divider
@@ -22,12 +24,13 @@ import androidx.compose.ui.unit.dp
 import kotlinx.coroutines.launch
 import spiragps.data.Chapter
 import spiragps.data.ConditionState
+import spiragps.data.ContentsState
 import spiragps.data.Entry
 import spiragps.data.Route
 import spiragps.style.SpiraGPSColours
 
 @Composable
-fun RouteView(route: Route, conditionState: ConditionState) {
+fun RouteView(route: Route, conditionState: ConditionState, contentsState: ContentsState) {
     val scrollableState = rememberScrollState()
     val scope = rememberCoroutineScope()
 
@@ -48,14 +51,14 @@ fun RouteView(route: Route, conditionState: ConditionState) {
             Text(text = "Credits from Mt's notes: Credit to psychonauter, MorphaSRDC, and ChrisTenarium for original Booster% notes and route, MrTyton for the Zanarkand Trials map, to CrimsonInferno and the FFX Blitzball Haters Club HQ Big Nerds for helping me make this bad idea almost good.")
 
             // Title
-            TitleView(title = route.title)
+            TitleView(title = route.title, contentsState = contentsState)
 
             // Intro
             IntroductionView(route.introduction)
 
             // Chapters
             route.chapters.forEach { chapter: Chapter ->
-                ChapterView(chapter = chapter, conditionState = conditionState)
+                ChapterView(chapter = chapter, conditionState = conditionState, contentsState = contentsState)
             }
 
             Divider(

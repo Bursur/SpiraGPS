@@ -1,10 +1,13 @@
 package spiragps.views
 
 import androidx.compose.animation.AnimatedVisibility
+import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.relocation.BringIntoViewRequester
+import androidx.compose.foundation.relocation.bringIntoViewRequester
 import androidx.compose.material.Divider
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
@@ -16,15 +19,16 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import spiragps.data.Chapter
 import spiragps.data.ConditionState
+import spiragps.data.ContentsState
 import spiragps.data.Entry
 import spiragps.style.SpiraGPSColours
 
 @Composable
-fun ChapterView(chapter: Chapter, conditionState: ConditionState) {
+fun ChapterView(chapter: Chapter, conditionState: ConditionState, contentsState: ContentsState) {
     var expanded by remember { mutableStateOf(true) }
 
     Column(modifier = Modifier.fillMaxWidth()) {
-        TitleView(title = chapter.title, modifier = Modifier.clickable { expanded = !expanded })
+        TitleView(title = chapter.title, contentsState = contentsState, modifier = Modifier.clickable { expanded = !expanded })
 
         AnimatedVisibility(visible = expanded) {
             Column (modifier = Modifier.padding(vertical = 10.dp)) {
