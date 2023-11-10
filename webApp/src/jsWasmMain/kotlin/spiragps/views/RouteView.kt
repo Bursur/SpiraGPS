@@ -6,6 +6,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.wrapContentHeight
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
+import androidx.compose.material.Divider
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -15,6 +16,7 @@ import spiragps.data.Chapter
 import spiragps.data.ConditionState
 import spiragps.data.Entry
 import spiragps.data.Route
+import spiragps.style.SpiraGPSColours
 
 @Composable
 fun RouteView(route: Route, conditionState: ConditionState) {
@@ -46,6 +48,11 @@ fun RouteView(route: Route, conditionState: ConditionState) {
             ChapterView(chapter = chapter, conditionState = conditionState)
         }
 
+        Divider(
+            color = SpiraGPSColours.background,
+            modifier = Modifier.padding(vertical = 50.dp)
+        )
+
         BulletedList(
             entry = Entry(
                 text = "ToDo: (In no particular order)",
@@ -55,11 +62,12 @@ fun RouteView(route: Route, conditionState: ConditionState) {
                     "Add a TableView, this should have a columns value and be told if it should be vertically or horizontally aligned.",
                     "Add new keywords to the keywords array (Split from palette?)",
                     "Make a landing page with some info on it while you chose a route.",
-                    "Make an anchored header that allows you to change the route on the fly.",
-                    "Finish the example Boosters% notes",
                     "Externalise the notes properly",
                     "Contents page/section",
-                    "Version history dialog"
+                    "Version history dialog",
+                    "Fix the spacing on the Customise View",
+                    "Clean up Blitzball formatting",
+                    "Route Editor?"
                 )
             )
         )

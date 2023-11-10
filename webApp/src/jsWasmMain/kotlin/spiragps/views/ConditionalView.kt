@@ -17,7 +17,7 @@ fun ConditionalView(condition: Condition, conditionState: ConditionState) {
     var checked by remember { mutableStateOf(condition.defaultState) }
 
     Row(verticalAlignment = Alignment.CenterVertically) {
-        Text(text = "${condition.name} - $checked")
+        Text(text = condition.name)
         Switch(
             checked = checked,
             onCheckedChange = {
