@@ -1,4 +1,5 @@
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
@@ -14,6 +15,7 @@ import spiragps.style.SpiraGPSTheme
 import spiragps.data.placeholderRoute
 import spiragps.data.Route
 import spiragps.data.rememberConditionState
+import spiragps.views.ContentsView
 import spiragps.views.HeaderView
 import spiragps.views.RouteView
 
@@ -22,18 +24,22 @@ internal fun SpiraGPS() {
     val data = Json.decodeFromString<Route>(placeholderRoute)
 
     SpiraGPSTheme {
-        Column(
-            horizontalAlignment = Alignment.CenterHorizontally,
-            modifier = Modifier
-                .fillMaxSize()
-        ) {
-            val conditionState = rememberConditionState(data.conditions)
+        Row(modifier = Modifier.fillMaxSize()) {
+            ContentsView(chapters = data.chapters, modifier = Modifier.weight(.2f))
 
-            // Header
-            HeaderView(data.conditions, conditionState)
+            Column(
+                horizontalAlignment = Alignment.CenterHorizontally,
+                modifier = Modifier
+                    .weight(1f)
+            ) {
+                val conditionState = rememberConditionState(data.conditions)
 
-            // Contents/Route
-            RouteView(data, conditionState)
+                // Header
+                HeaderView(data.conditions, conditionState)
+
+                // Contents/Route
+                RouteView(data, conditionState)
+            }
         }
     }
 }

@@ -16,6 +16,9 @@ object SpiraGPSColours {
     val text = Color(0xFF000000)
     val infoBackground = Color(0xFFF2F2F2)
 
+    val fabBackgroundColour = Color(0xFFD3D3D3)
+    val fabIconColour = Color(0xFF414A4C)
+
     val battleBorder = Color(0xFFFF8080)
     val encounterBorder = Color(0xFFF5ACCD)
     val trialsBorder = Color(0xFFDE9A73)
