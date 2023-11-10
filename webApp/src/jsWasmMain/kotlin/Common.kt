@@ -13,6 +13,7 @@ import spiragps.style.SpiraGPSColours
 import spiragps.style.SpiraGPSTheme
 import spiragps.data.placeholderRoute
 import spiragps.data.Route
+import spiragps.data.rememberConditionState
 import spiragps.views.HeaderView
 import spiragps.views.RouteView
 
@@ -26,11 +27,13 @@ internal fun SpiraGPS() {
             modifier = Modifier
                 .fillMaxSize()
         ) {
+            val conditionState = rememberConditionState(data.conditions)
+
             // Header
-            HeaderView(data.conditions)
+            HeaderView(data.conditions, conditionState)
 
             // Contents/Route
-            RouteView(data)
+            RouteView(data, conditionState)
         }
     }
 }

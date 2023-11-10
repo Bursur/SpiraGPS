@@ -11,16 +11,25 @@ import androidx.compose.runtime.saveable.rememberSaveable
 @Stable
 interface ConditionState {
     var conditions: MutableMap<String, Boolean>
+    var lastChange: Int
+
+    fun setCondition(name: String, enabled: Boolean)
 }
 
-private class ConditionsStateImpl(conditions: MutableMap<String, Boolean> = mutableMapOf()) : ConditionState {
+private class ConditionsStateImpl(conditions: MutableMap<String, Boolean> = mutableMapOf(), lastChange: Int = 0) : ConditionState {
     override var conditions: MutableMap<String, Boolean> by mutableStateOf(conditions)
+    override var lastChange: Int by mutableStateOf(lastChange)
+
+    override fun setCondition(name: String, enabled: Boolean) {
+        conditions[name] = enabled
+        lastChange++
+    }
 
     companion object {
         val saver = Saver<ConditionsStateImpl, List<Any>>(
-            save = { listOf(it.conditions) },
+            save = { listOf(it.conditions, it.lastChange) },
             restore = {
-                ConditionsStateImpl(it[0] as MutableMap<String, Boolean>)
+                ConditionsStateImpl(it[0] as MutableMap<String, Boolean>, it[1] as Int)
             }
         )
     }

@@ -12,11 +12,12 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import spiragps.data.Chapter
+import spiragps.data.ConditionState
 import spiragps.data.Entry
 import spiragps.data.Route
 
 @Composable
-fun RouteView(route: Route) {
+fun RouteView(route: Route, conditionState: ConditionState) {
     val scrollableState = rememberScrollState()
 
     Column(
@@ -42,7 +43,7 @@ fun RouteView(route: Route) {
 
         // Chapters
         route.chapters.forEach { chapter: Chapter ->
-            ChapterView(chapter)
+            ChapterView(chapter = chapter, conditionState = conditionState)
         }
 
         BulletedList(
@@ -55,8 +56,6 @@ fun RouteView(route: Route) {
                     "Add new keywords to the keywords array (Split from palette?)",
                     "Make a landing page with some info on it while you chose a route.",
                     "Make an anchored header that allows you to change the route on the fly.",
-                    "Add in Requirements for entries.",
-                    "Look at setting it all up with a view model thingumy dingle.",
                     "Finish the example Boosters% notes",
                     "Externalise the notes properly",
                     "Contents page/section",

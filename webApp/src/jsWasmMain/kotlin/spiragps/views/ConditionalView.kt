@@ -10,17 +10,19 @@ import androidx.compose.runtime.setValue
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import spiragps.data.Condition
+import spiragps.data.ConditionState
 
 @Composable
-fun ConditionalView(condition: Condition) {
+fun ConditionalView(condition: Condition, conditionState: ConditionState) {
     var checked by remember { mutableStateOf(condition.defaultState) }
 
     Row(verticalAlignment = Alignment.CenterVertically) {
-        Text(text = condition.name)
+        Text(text = "${condition.name} - $checked")
         Switch(
             checked = checked,
             onCheckedChange = {
                 checked = it
+                conditionState.setCondition(condition.name, checked)
             }
         )
     }
