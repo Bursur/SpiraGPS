@@ -59,6 +59,7 @@ fun RouteView(route: Route, conditionState: ConditionState, contentsState: Conte
                 ChapterView(chapter = chapter, conditionState = conditionState, contentsState = contentsState)
             }
 
+            // TODO LIST REMOVE THIS!!
             Divider(
                 color = SpiraGPSColours.background,
                 modifier = Modifier.padding(vertical = 50.dp)
@@ -68,8 +69,6 @@ fun RouteView(route: Route, conditionState: ConditionState, contentsState: Conte
                 entry = Entry(
                     text = "ToDo: (In no particular order)",
                     guide = arrayListOf(
-                        "Add an ImageView, mostly for the spheregrids.",
-                        "Spheregrids will likely be an array of entries, much like blitzball.",
                         "Add a TableView, this should have a columns value and be told if it should be vertically or horizontally aligned.",
                         "Add new keywords to the keywords array (Split from palette?)",
                         "Make a landing page with some info on it while you chose a route.",
@@ -81,6 +80,11 @@ fun RouteView(route: Route, conditionState: ConditionState, contentsState: Conte
                         "Sort out Arrows in text!"
                     )
                 )
+            )
+
+            Divider(
+                color = SpiraGPSColours.background,
+                modifier = Modifier.padding(vertical = 50.dp)
             )
         }
 
