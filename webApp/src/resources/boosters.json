@@ -134,7 +134,13 @@
         {
             "title": "The Boat",
             "entries": [
-                { "type": "info", "text": "TODO: Sort out sphere grids...", "trailingBreak": true },
+                { 
+                    "type": "spheregrid", "trailingBreak": true,
+                    "entries": [
+                        { "type": "info", "text": "Use 34 Strengths, 13 Warps, 10 Clears, and 48 Master Spheres to get to this grid layout. Start from the right of the image, use Masters as you go until you reach warp point 5 (next to the Agi node), at which point stop using Masters until you reach the final warp point (14). At that point you spam masters until the grid is complete.", "trailingBreak": true },
+                        { "type": "image", "image": "tidus_sg.png", "trailingBreak": true }
+                    ]
+                },
                 {
                     "type": "battle",
                     "enemy": "Pirhanas",
@@ -182,7 +188,19 @@
                     "guide": ["Tidus Auto Attack"],
                     "trailingBreak": true
                 },
-                { "type": "info", "text": "TODO: Sort out sphere grids...", "trailingBreak": true },
+                { 
+                    "type": "spheregrid", "trailingBreak": true,
+                    "entries": [
+                        { 
+                            "type": "bullets", "trailingBreak": true, "text": "Yuna",
+                            "guide": [
+                                "Attribute Sphere x13",
+                                "Attribute Sphere ^",
+                                "TODO: SORT OUT ARROWS!!"
+                            ]
+                        }
+                    ]
+                },
                 {
                     "type": "battle",
                     "enemy": "Yuna Aeon Tutorial",
@@ -774,7 +792,7 @@
         {
             "title": "Zanarkand",
             "entries": [
-                { "type": "info", "text": "TODO: ADD TETRIS MAPS", "trailingBreak": true },
+                { "type": "image", "image": "tetris.png", "trailingBreak": true },
                 {
                     "type": "battle",
                     "enemy": "Spectral Keeper",
@@ -853,7 +871,7 @@
         {
             "title": "Inside Sin",
             "entries": [
-                { "type": "info", "text": "TODO: ADD SIN MAP", "trailingBreak": true },
+                { "type": "image", "image": "sin_path.png", "trailingBreak": true },
                 {
                     "type": "battle",
                     "enemy": "Seymour Omnis",

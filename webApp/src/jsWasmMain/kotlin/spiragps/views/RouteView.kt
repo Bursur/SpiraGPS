@@ -78,6 +78,7 @@ fun RouteView(route: Route, conditionState: ConditionState, contentsState: Conte
                         "Fix the spacing on the Customise View",
                         "Clean up Blitzball formatting",
                         "Route Editor?",
+                        "Sort out Arrows in text!"
                     )
                 )
             )

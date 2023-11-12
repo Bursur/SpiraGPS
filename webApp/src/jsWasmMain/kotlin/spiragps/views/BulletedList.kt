@@ -23,7 +23,7 @@ private val paragraphStyle = ParagraphStyle(textIndent = TextIndent(restLine = 1
 fun BulletedList(entry: Entry) {
     Column(modifier = Modifier.fillMaxWidth()) {
         if(entry.text.isNotEmpty())
-            Text(entry.text, fontWeight = if(entry.bold) FontWeight.Bold else FontWeight.Normal)
+            Text(highlightKeywords(entry.text), fontWeight = if(entry.bold) FontWeight.Bold else FontWeight.Normal)
 
         Text(
             buildAnnotatedString {

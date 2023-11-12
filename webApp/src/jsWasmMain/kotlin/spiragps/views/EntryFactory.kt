@@ -30,6 +30,7 @@ fun createEntry(entry: Entry) {
         "customise" -> CustomiseView(entry)
         "blitzball" -> BlitzballView(entry)
         "bullets" -> BulletedList(entry)
+        "image" -> ImageView(entry)
         else -> Text("Unknown Entry Type", fontWeight = FontWeight.Bold, color = Color.Red, textDecoration = TextDecoration.Underline)
     }
 }

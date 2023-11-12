@@ -14,12 +14,10 @@ import spiragps.views.BulletedList
 @Composable
 fun CustomiseView(entry: Entry) {
     BasePanelView("CUSTOMISE", border = SpiraGPSColours.customiseBorder, minimised = entry.minimised) {
-        Column(modifier = Modifier.padding(vertical = 30.dp)) {
+        Column(modifier = Modifier.padding(vertical = 30.dp, horizontal = 40.dp)) {
             Text(
                 text = entry.item,
-                fontWeight = FontWeight.Bold,
-                modifier = Modifier
-                    .padding(top = 10.dp, start = 40.dp, end = 40.dp)
+                fontWeight = FontWeight.Bold
             )
 
             BulletedList(entry)
