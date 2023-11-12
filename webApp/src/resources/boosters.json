@@ -138,7 +138,7 @@
                     "type": "spheregrid", "trailingBreak": true,
                     "entries": [
                         { "type": "info", "text": "Use 34 Strengths, 13 Warps, 10 Clears, and 48 Master Spheres to get to this grid layout. Start from the right of the image, use Masters as you go until you reach warp point 5 (next to the Agi node), at which point stop using Masters until you reach the final warp point (14). At that point you spam masters until the grid is complete.", "trailingBreak": true },
-                        { "type": "image", "image": "tidus_sg.png", "trailingBreak": true },
+                        { "type": "image", "image": "SpiraGPS/tidus_sg.png", "trailingBreak": true },
                         { 
                             "type": "table", "trailingBreak": true, "columns": 2, 
                             "guide": [
@@ -848,7 +848,7 @@
         {
             "title": "Zanarkand",
             "entries": [
-                { "type": "image", "image": "tetris.png", "trailingBreak": true },
+                { "type": "image", "image": "SpiraGPS/tetris.png", "trailingBreak": true },
                 {
                     "type": "battle",
                     "enemy": "Spectral Keeper",
@@ -927,7 +927,7 @@
         {
             "title": "Inside Sin",
             "entries": [
-                { "type": "image", "image": "sin_path.png", "trailingBreak": true },
+                { "type": "image", "image": "SpiraGPS/sin_path.png", "trailingBreak": true },
                 {
                     "type": "battle",
                     "enemy": "Seymour Omnis",
