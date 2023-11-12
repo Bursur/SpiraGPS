@@ -32,13 +32,13 @@ export async function instantiate(imports={}, runInitializer=true) {
                 arrayIndex++;
             }     
              },
-        'kotlin.wasm.internal.externrefToInt' : (ref) => Number(ref),
         'kotlin.wasm.internal.importStringFromWasm' : (address, length, prefix) => { 
             const mem16 = new Uint16Array(wasmExports.memory.buffer, address, length);
             const str = String.fromCharCode.apply(null, mem16);
             return (prefix == null) ? str : prefix + str;
              },
         'kotlin.wasm.internal.getJsEmptyString' : () => '',
+        'kotlin.wasm.internal.externrefToInt' : (ref) => Number(ref),
         'kotlin.wasm.internal.externrefToString' : (ref) => String(ref),
         'kotlin.wasm.internal.externrefEquals' : (lhs, rhs) => lhs === rhs,
         'kotlin.wasm.internal.externrefHashCode' : 
@@ -103,6 +103,11 @@ export async function instantiate(imports={}, runInitializer=true) {
         'kotlin.random.initialSeed' : () => ((Math.random() * Math.pow(2, 32)) | 0),
         'kotlinx.browser.window_$external_prop_getter' : () => window,
         'kotlinx.browser.document_$external_prop_getter' : () => document,
+        'org.w3c.dom.length_$external_prop_getter' : (_this) => _this.length,
+        'org.khronos.webgl.byteLength_$external_prop_getter' : (_this) => _this.byteLength,
+        'org.khronos.webgl.ArrayBuffer_$external_class_instanceof' : (x) => x instanceof ArrayBuffer,
+        'org.khronos.webgl.Int8Array_$external_fun' : (p0, p1, p2, isDefault0, isDefault1) => new Int8Array(p0, isDefault0 ? undefined : p1, isDefault1 ? undefined : p2, ),
+        'org.khronos.webgl.length_$external_prop_getter' : (_this) => _this.length,
         'org.w3c.dom.css.height_$external_prop_setter' : (_this, v) => _this.height = v,
         'org.w3c.dom.css.width_$external_prop_setter' : (_this, v) => _this.width = v,
         'org.w3c.dom.css.style_$external_prop_getter' : (_this) => _this.style,
@@ -142,18 +147,27 @@ export async function instantiate(imports={}, runInitializer=true) {
         'org.w3c.dom.createElement_$external_fun' : (_this, p0, p1, isDefault0) => _this.createElement(p0, isDefault0 ? undefined : p1, ),
         'org.w3c.dom.createTextNode_$external_fun' : (_this, p0) => _this.createTextNode(p0),
         'org.w3c.dom.getElementById_$external_fun' : (_this, p0) => _this.getElementById(p0),
+        'org.w3c.dom.namespaceURI_$external_prop_getter' : (_this) => _this.namespaceURI,
+        'org.w3c.dom.localName_$external_prop_getter' : (_this) => _this.localName,
         'org.w3c.dom.clientWidth_$external_prop_getter' : (_this) => _this.clientWidth,
         'org.w3c.dom.clientHeight_$external_prop_getter' : (_this) => _this.clientHeight,
+        'org.w3c.dom.getAttribute_$external_fun' : (_this, p0) => _this.getAttribute(p0),
+        'org.w3c.dom.getAttributeNS_$external_fun' : (_this, p0, p1) => _this.getAttributeNS(p0, p1),
         'org.w3c.dom.setAttribute_$external_fun' : (_this, p0, p1) => _this.setAttribute(p0, p1),
         'org.w3c.dom.getElementsByTagName_$external_fun' : (_this, p0) => _this.getElementsByTagName(p0),
+        'org.w3c.dom.Element_$external_class_instanceof' : (x) => x instanceof Element,
         'org.w3c.dom.userAgent_$external_prop_getter' : (_this) => _this.userAgent,
         'org.w3c.dom.language_$external_prop_getter' : (_this) => _this.language,
+        'org.w3c.dom.nodeName_$external_prop_getter' : (_this) => _this.nodeName,
         'org.w3c.dom.parentElement_$external_prop_getter' : (_this) => _this.parentElement,
+        'org.w3c.dom.childNodes_$external_prop_getter' : (_this) => _this.childNodes,
         'org.w3c.dom.textContent_$external_prop_setter' : (_this, v) => _this.textContent = v,
         'org.w3c.dom.cloneNode_$external_fun' : (_this, p0, isDefault0) => _this.cloneNode(isDefault0 ? undefined : p0, ),
+        'org.w3c.dom.lookupPrefix_$external_fun' : (_this, p0) => _this.lookupPrefix(p0),
         'org.w3c.dom.appendChild_$external_fun' : (_this, p0) => _this.appendChild(p0),
         'org.w3c.dom.replaceChild_$external_fun' : (_this, p0, p1) => _this.replaceChild(p0, p1),
         'org.w3c.dom.item_$external_fun' : (_this, p0) => _this.item(p0),
+        'org.w3c.dom.item_$external_fun_1' : (_this, p0) => _this.item(p0),
         'org.w3c.dom.HTMLTitleElement_$external_class_instanceof' : (x) => x instanceof HTMLTitleElement,
         'org.w3c.dom.type_$external_prop_setter' : (_this, v) => _this.type = v,
         'org.w3c.dom.HTMLStyleElement_$external_class_instanceof' : (x) => x instanceof HTMLStyleElement,
@@ -162,8 +176,16 @@ export async function instantiate(imports={}, runInitializer=true) {
         'org.w3c.dom.height_$external_prop_getter' : (_this) => _this.height,
         'org.w3c.dom.height_$external_prop_setter' : (_this, v) => _this.height = v,
         'org.w3c.dom.HTMLCanvasElement_$external_class_instanceof' : (x) => x instanceof HTMLCanvasElement,
+        'org.w3c.dom.parsing.DOMParser_$external_fun' : () => new DOMParser(),
+        'org.w3c.dom.parsing.parseFromString_$external_fun' : (_this, p0, p1) => _this.parseFromString(p0, p1),
         'org.w3c.performance.performance_$external_prop_getter' : (_this) => _this.performance,
         'org.w3c.performance.now_$external_fun' : (_this, ) => _this.now(),
+        'org.w3c.xhr.XMLHttpRequest_$external_fun' : () => new XMLHttpRequest(),
+        'org.w3c.xhr.responseType_$external_prop_setter' : (_this, v) => _this.responseType = v,
+        'org.w3c.xhr.response_$external_prop_getter' : (_this) => _this.response,
+        'org.w3c.xhr.open_$external_fun' : (_this, p0, p1, p2, p3, p4, isDefault0, isDefault1) => _this.open(p0, p1, p2, isDefault0 ? undefined : p3, isDefault1 ? undefined : p4, ),
+        'org.w3c.xhr.send_$external_fun' : (_this, p0) => _this.send(p0),
+        'org.w3c.xhr.onload_$external_prop_setter' : (_this, v) => _this.onload = v,
         'kotlinx.coroutines.tryGetProcess' : () => (typeof(process) !== 'undefined' && typeof(process.nextTick) === 'function') ? process : null,
         'kotlinx.coroutines.tryGetWindow' : () => (typeof(window) !== 'undefined' && window != null && typeof(window.addEventListener) === 'function') ? window : null,
         'kotlinx.coroutines.nextTick_$external_fun' : (_this, p0) => _this.nextTick(p0),
@@ -214,6 +236,11 @@ export async function instantiate(imports={}, runInitializer=true) {
         'androidx.compose.ui.text.intl.baseName_$external_prop_getter' : (_this) => _this.baseName,
         'androidx.compose.ui.text.intl.getUserPreferredLanguagesAsArray' : () => window.navigator.languages,
         'androidx.compose.ui.window.setCursor' : (elementId, value) => document.getElementById(elementId).style.cursor = value,
+        'org.jetbrains.compose.resources.jsExportInt8ArrayToWasm' :  (src, size, dstAddr) => {
+                const mem8 = new Int8Array(wasmExports.memory.buffer, dstAddr, size);
+                mem8.set(src);
+            }
+        ,
         'kotlinx.datetime.internal.JSJoda.compareTo_$external_fun' : (_this, p0) => _this.compareTo(p0),
         'kotlinx.datetime.internal.JSJoda.equals_$external_fun' : (_this, p0) => _this.equals(p0),
         'kotlinx.datetime.internal.JSJoda.hashCode_$external_fun' : (_this, ) => _this.hashCode(),

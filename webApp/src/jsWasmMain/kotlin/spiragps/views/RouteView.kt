@@ -69,7 +69,6 @@ fun RouteView(route: Route, conditionState: ConditionState, contentsState: Conte
                 entry = Entry(
                     text = "ToDo: (In no particular order)",
                     guide = arrayListOf(
-                        "Add a TableView, this should have a columns value and be told if it should be vertically or horizontally aligned.",
                         "Add new keywords to the keywords array (Split from palette?)",
                         "Make a landing page with some info on it while you chose a route.",
                         "Externalise the notes properly",
@@ -77,7 +76,8 @@ fun RouteView(route: Route, conditionState: ConditionState, contentsState: Conte
                         "Fix the spacing on the Customise View",
                         "Clean up Blitzball formatting",
                         "Route Editor?",
-                        "Sort out Arrows in text!"
+                        "Sort out Arrows in text!",
+                        "Contents Scrolling to the top of the page"
                     )
                 )
             )

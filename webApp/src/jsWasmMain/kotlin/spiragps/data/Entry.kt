@@ -13,6 +13,7 @@ data class Entry(
     val trailingBreak: Boolean = false,
     val minimised: Boolean = false,
     val requirement: Requirement? = null,
+    val columns: Int = 1,
 
     // Info
     val text: String = "",

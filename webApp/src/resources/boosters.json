@@ -139,6 +139,51 @@
                     "entries": [
                         { "type": "info", "text": "Use 34 Strengths, 13 Warps, 10 Clears, and 48 Master Spheres to get to this grid layout. Start from the right of the image, use Masters as you go until you reach warp point 5 (next to the Agi node), at which point stop using Masters until you reach the final warp point (14). At that point you spam masters until the grid is complete.", "trailingBreak": true },
                         { "type": "image", "image": "tidus_sg.png", "trailingBreak": true },
+                        { 
+                            "type": "table", "trailingBreak": true, "columns": 2, 
+                            "guide": [
+                                "1. Strength x2",
+                                "2. Master x2",
+                                "3. Warp ↑↑ Left ←←←←←(x5)",
+                                "4. Clear",
+                                "5. Strength x4",
+                                "6. Master x6",
+                                "7. Warp ←←",
+                                "8. Strength x3",
+                                "9. Master x3",
+                                "10. Warp ↓↓↓",
+                                "11. Strength x2",
+                                "12. Master x4",
+                                "13. Warp ←←←←←←←(x7)",
+                                "14. Clear x2",
+                                "15. Strength x3",
+                                "16. Warp ←←, ↑↑↑",
+                                "17. Strength",
+                                "18. Warp ←←←",
+                                "19. Strength x2",
+                                "20. Warp (no direction needed)",
+                                "21. Clear (no direction needed)",
+                                "22 Strength x2",
+                                "23. Warp → →",
+                                "24. Clear",
+                                "25. Strength x3",
+                                "26. Warp ↓, →",
+                                "27. Strength x2",
+                                "28. Warp ↓↓",
+                                "29. Clear x2",
+                                "30. Strength x3",
+                                "31. Warp (no direction needed)",
+                                "32. Strength x3",
+                                "33. Warp ←←",
+                                "34. Clear (no direction needed)",
+                                "35. Strength x2",
+                                "36. Warp ↑↑, ←←",
+                                "37. Clear x2",
+                                "38. Strength x2",
+                                "39. Master x32",
+                                "40. Master ↓"
+                            ]
+                        },
                         {
                             "type": "bullets", "text": "Tidus should end with:", "trailingBreak": true, "bold": true,
                             "guide": [
@@ -202,9 +247,8 @@
                         { 
                             "type": "bullets", "trailingBreak": true, "text": "Yuna",
                             "guide": [
-                                "Attribute Sphere x13",
-                                "Attribute Sphere ^",
-                                "TODO: SORT OUT ARROWS!!"
+                                "Attribute x13",
+                                "Attribute ↑"
                             ]
                         },
                         {
