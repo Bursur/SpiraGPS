@@ -12,7 +12,7 @@
         function getData() {
             return JSON.stringify(jsonData);
         }
-        fetch('SpiraGPS/boosters.json')
+        fetch('boosters.json')
             .then(response => response.json())
             .then(data => {
                 jsonData = data;
