@@ -25,7 +25,13 @@ fun LandingPage(navigationState: NavigationState) {
             fontFamily = SpiraGPSText.fontFamily,
             fontSize = 50.sp,
             textAlign = TextAlign.Center,
-            modifier = Modifier.padding(top = 50.dp)
+            modifier = Modifier.padding(top = 50.dp, bottom = 10.dp)
+        )
+
+        Text(
+            text = "Select a route from the list below. You can click on the titles in the route to expand and contract those sections.",
+            fontFamily = SpiraGPSText.fontFamily,
+            textAlign = TextAlign.Center
         )
 
         FlowRow(maxItemsInEachRow = 3, modifier = Modifier.padding(top = 25.dp)) {
