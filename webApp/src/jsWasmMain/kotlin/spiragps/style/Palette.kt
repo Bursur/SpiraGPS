@@ -11,6 +11,13 @@ import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.platform.Font
 import androidx.compose.ui.unit.sp
+import org.jetbrains.compose.resources.ExperimentalResourceApi
+import org.jetbrains.compose.resources.resource
+
+@OptIn(ExperimentalResourceApi::class)
+internal suspend fun loadResource(resourcePath: String): ByteArray {
+    return resource(resourcePath).readBytes()
+}
 
 object SpiraGPSText {
     /*val fontFamily = FontFamily(
@@ -20,6 +27,28 @@ object SpiraGPSText {
             style = FontStyle.Normal
         )
     )*/
+
+    var fontFamily: FontFamily? = null
+
+    suspend fun loadFonts() {
+        FontFamily(
+            Font(
+                identity = "Kanit-Light",
+                data = loadResource("fonts/Kanit-Light.ttf"),
+                weight = FontWeight.Light
+            ),
+            Font(
+                identity = "Kanit-Regular",
+                data = loadResource("fonts/Kanit-Regular.ttf"),
+                weight = FontWeight.Normal
+            ),
+            Font(
+                identity = "Kanit-Bold",
+                data = loadResource("fonts/Kanit-Bold.ttf"),
+                weight = FontWeight.Bold
+            )
+        )
+    }
 
     val keywords = arrayListOf(
         // Characters

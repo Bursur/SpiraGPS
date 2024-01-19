@@ -5,6 +5,8 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import kotlinx.serialization.json.Json
+import org.jetbrains.compose.resources.ExperimentalResourceApi
+import org.jetbrains.compose.resources.resource
 import spiragps.style.SpiraGPSTheme
 import spiragps.data.Route
 import spiragps.data.rememberConditionState
