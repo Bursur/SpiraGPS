@@ -15,17 +15,30 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import spiragps.data.Chapter
 import spiragps.data.ContentsState
+import spiragps.data.NavigationState
 import spiragps.style.SpiraGPSText
 
 @Composable
-fun ContentsView(modifier: Modifier = Modifier, chapters: ArrayList<Chapter>, contentsState: ContentsState) {
+fun ContentsView(modifier: Modifier = Modifier, chapters: ArrayList<Chapter>, contentsState: ContentsState, navigationState: NavigationState) {
     val scrollState = rememberScrollState()
 
     Column(
         modifier = modifier.padding(10.dp)
     ) {
+
+        // Back Button
+        Text(
+            text = "← Back",
+            fontWeight = FontWeight.Bold,
+            fontSize = 20.sp,
+            fontFamily = SpiraGPSText.fontFamily,
+            modifier = Modifier
+                .padding(bottom = 20.dp)
+                .clickable { navigationState.currentPage = NavigationState.LANDING }
+        )
+
         // Title
-        Text(text = "Chapters:", fontWeight = FontWeight.Bold, fontSize = 20.sp, fontFamily = SpiraGPSText.fontFamily,)
+        Text(text = "Chapters:", fontWeight = FontWeight.Bold, fontSize = 20.sp, fontFamily = SpiraGPSText.fontFamily)
 
         Column(
             modifier = Modifier

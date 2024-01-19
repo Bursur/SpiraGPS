@@ -70,7 +70,6 @@ fun RouteView(route: Route, conditionState: ConditionState, contentsState: Conte
                 entry = Entry(
                     text = "ToDo: (In no particular order)",
                     guide = arrayListOf(
-                        "Add new keywords to the keywords array (Split from palette?)",
                         "Make a landing page with some info on it while you chose a route.",
                         "Make note loading more dynamic/async",
                         "Version history dialog",
