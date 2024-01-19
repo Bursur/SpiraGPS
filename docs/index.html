@@ -6,6 +6,19 @@
     <title>Spira GPS</title>
     <script type="application/javascript" src="skiko.js"></script>
     <script type="application/javascript" src="webApp.js"></script>
+    <script>
+        let jsonData;
+
+        function getData() {
+            return JSON.stringify(jsonData);
+        }
+        fetch('SpiraGPS/boosters.json')
+            .then(response => response.json())
+            .then(data => {
+                jsonData = data;
+            })
+            .catch(error => console.error('Error:', error));
+    </script>
     <style>
         html, body {
             width: 100%;
