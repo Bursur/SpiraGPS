@@ -6,8 +6,54 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.ProvideTextStyle
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.text.font.FontFamily
+import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.platform.Font
 import androidx.compose.ui.unit.sp
+
+object SpiraGPSText {
+    /*val fontFamily = FontFamily(
+        Font(
+            resource = "kanit-light.ttf",
+            weight = FontWeight.W400,
+            style = FontStyle.Normal
+        )
+    )*/
+
+    val keywords = arrayListOf(
+        // Characters
+        "Tidus",
+        "Yuna",
+        "Auron",
+        "Wakka",
+        "Kimahri",
+        "Rikku",
+        "Lulu",
+        "Seymour",
+        "Enemy",
+        "Any",
+        "Jassu",
+        "Keepa",
+        "Balgerda",
+        "Abus",
+
+        // Aeons
+        "Valefor",
+        "Ifrit",
+        "Ixion",
+        "Shiva",
+        "Bahamut",
+        "Anima"
+    )
+
+    fun addKeywords(newKeywords: ArrayList<String>) {
+        newKeywords.forEach {
+            if(!keywords.contains(it))
+                keywords.add(it)
+        }
+    }
+}
 
 object SpiraGPSColours {
     val background = Color(0xFFFFFFFF)
@@ -53,42 +99,6 @@ object SpiraGPSColours {
 
     // Misc.
     val black = Color(0xFF000000)
-
-    val keywords = arrayListOf(
-        // Characters
-        "Tidus",
-        "Yuna",
-        "Auron",
-        "Wakka",
-        "Kimahri",
-        "Rikku",
-        "Lulu",
-        "Seymour",
-        "Enemy",
-        "Any",
-        "Jassu",
-        "Keepa",
-        "Balgerda",
-        "Abus",
-
-        // Aeons
-        "Valefor",
-        "Ifrit",
-        "Ixion",
-        "Shiva",
-        "Bahamut",
-        "Anima",
-
-        // Misc.
-        "Overdrive",
-        "CS",
-        "SD",
-        "Touch the Save Sphere",
-        "Skippable",
-        "FMV",
-        "Start",
-        "Never Use Max Gil"
-    )
 }
 
 @Composable

@@ -33,7 +33,7 @@ allprojects {
                 // kotlinx-datetime-wasm-js:0.4.1-wasm0 depends on outdated kotlinx-serialization-core:1.5.2-wasm0
                 requested.version == "1.5.2-wasm0"
             ) {
-                useVersion("1.6.1-wasm0")
+                useVersion("1.6.1-wasm1")
             }
         }
     }

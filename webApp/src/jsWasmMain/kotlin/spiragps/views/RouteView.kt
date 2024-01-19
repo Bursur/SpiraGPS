@@ -71,10 +71,8 @@ fun RouteView(route: Route, conditionState: ConditionState, contentsState: Conte
                     guide = arrayListOf(
                         "Add new keywords to the keywords array (Split from palette?)",
                         "Make a landing page with some info on it while you chose a route.",
-                        "Externalise the notes properly",
+                        "Make note loading more dynamic/async",
                         "Version history dialog",
-                        "Fix the spacing on the Customise View",
-                        "Clean up Blitzball formatting",
                         "Route Editor?",
                         "Sort out Arrows in text!",
                         "Contents Scrolling to the top of the page"
