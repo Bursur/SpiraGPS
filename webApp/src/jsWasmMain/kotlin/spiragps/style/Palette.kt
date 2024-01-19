@@ -34,17 +34,17 @@ object SpiraGPSText {
         FontFamily(
             Font(
                 identity = "Kanit-Light",
-                data = loadResource("fonts/Kanit-Light.ttf"),
+                data = loadResource("SpiraGPS/fonts/Kanit-Light.ttf"),
                 weight = FontWeight.Light
             ),
             Font(
                 identity = "Kanit-Regular",
-                data = loadResource("fonts/Kanit-Regular.ttf"),
+                data = loadResource("SpiraGPS/fonts/Kanit-Regular.ttf"),
                 weight = FontWeight.Normal
             ),
             Font(
                 identity = "Kanit-Bold",
-                data = loadResource("fonts/Kanit-Bold.ttf"),
+                data = loadResource("SpiraGPS/fonts/Kanit-Bold.ttf"),
                 weight = FontWeight.Bold
             )
         )
