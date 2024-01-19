@@ -20,6 +20,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import spiragps.style.SpiraGPSColours
+import spiragps.style.SpiraGPSText
 
 @Composable
 fun BasePanelView(title: String, border: Color, minimised: Boolean = false, content: @Composable () -> Unit) {
@@ -35,6 +36,7 @@ fun BasePanelView(title: String, border: Color, minimised: Boolean = false, cont
             Text(
                 text = title,
                 textAlign = TextAlign.Center,
+                fontFamily = SpiraGPSText.fontFamily,
                 modifier = Modifier
                     .background(border)
                     .fillMaxWidth()

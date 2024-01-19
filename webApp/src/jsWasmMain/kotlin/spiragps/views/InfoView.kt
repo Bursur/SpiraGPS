@@ -9,12 +9,14 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import spiragps.data.Entry
+import spiragps.style.SpiraGPSText
 import spiragps.utils.highlightKeywords
 
 @Composable
 fun InfoView(entry: Entry) {
     Text(
         text = highlightKeywords(entry.text),
+        fontFamily = SpiraGPSText.fontFamily,
         fontWeight = if (entry.bold) FontWeight.Bold else FontWeight.Normal,
         modifier = Modifier.fillMaxWidth().padding(bottom = 5.dp)
     )

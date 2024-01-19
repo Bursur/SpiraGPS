@@ -7,45 +7,20 @@ import androidx.compose.material3.ProvideTextStyle
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontFamily
-import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.platform.Font
 import androidx.compose.ui.unit.sp
-import org.jetbrains.compose.resources.ExperimentalResourceApi
-import org.jetbrains.compose.resources.resource
-
-@OptIn(ExperimentalResourceApi::class)
-internal suspend fun loadResource(resourcePath: String): ByteArray {
-    return resource(resourcePath).readBytes()
-}
+import spiragps.utils.loadResource
 
 object SpiraGPSText {
-    /*val fontFamily = FontFamily(
-        Font(
-            resource = "kanit-light.ttf",
-            weight = FontWeight.W400,
-            style = FontStyle.Normal
-        )
-    )*/
-
     var fontFamily: FontFamily? = null
 
     suspend fun loadFonts() {
-        FontFamily(
+        fontFamily = FontFamily(
             Font(
-                identity = "Kanit-Light",
+                identity = "Kanit",
                 data = loadResource("SpiraGPS/fonts/Kanit-Light.ttf"),
-                weight = FontWeight.Light
-            ),
-            Font(
-                identity = "Kanit-Regular",
-                data = loadResource("SpiraGPS/fonts/Kanit-Regular.ttf"),
                 weight = FontWeight.Normal
-            ),
-            Font(
-                identity = "Kanit-Bold",
-                data = loadResource("SpiraGPS/fonts/Kanit-Bold.ttf"),
-                weight = FontWeight.Bold
             )
         )
     }

@@ -14,6 +14,7 @@ import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import spiragps.data.Entry
+import spiragps.style.SpiraGPSText
 import spiragps.utils.highlightKeywords
 
 private const val BULLET_CHAR = "\u2022"
@@ -23,7 +24,7 @@ private val paragraphStyle = ParagraphStyle(textIndent = TextIndent(restLine = 1
 fun BulletedList(entry: Entry) {
     Column(modifier = Modifier.fillMaxWidth()) {
         if(entry.text.isNotEmpty())
-            Text(highlightKeywords(entry.text), fontWeight = if(entry.bold) FontWeight.Bold else FontWeight.Normal)
+            Text(highlightKeywords(entry.text), fontWeight = if(entry.bold) FontWeight.Bold else FontWeight.Normal, fontFamily = SpiraGPSText.fontFamily)
 
         Text(
             buildAnnotatedString {
@@ -35,6 +36,7 @@ fun BulletedList(entry: Entry) {
                     }
                 }
             },
+            fontFamily = SpiraGPSText.fontFamily,
             modifier = Modifier.padding(horizontal = 10.dp)
         )
     }

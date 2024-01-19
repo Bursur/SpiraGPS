@@ -26,6 +26,7 @@ import spiragps.data.ContentsState
 import spiragps.data.Entry
 import spiragps.data.Route
 import spiragps.style.SpiraGPSColours
+import spiragps.style.SpiraGPSText
 
 @Composable
 fun RouteView(route: Route, conditionState: ConditionState, contentsState: ContentsState) {
@@ -45,8 +46,8 @@ fun RouteView(route: Route, conditionState: ConditionState, contentsState: Conte
                 )
         ) {
             // Disclaimers (Move this later)
-            Text(text = "This is VERY WIP route for Boosters%. Full credits to Mtbanger for these notes. The notes are Mtbangers notes.")
-            Text(text = "Credits from Mt's notes: Credit to psychonauter, MorphaSRDC, and ChrisTenarium for original Booster% notes and route, MrTyton for the Zanarkand Trials map, to CrimsonInferno and the FFX Blitzball Haters Club HQ Big Nerds for helping me make this bad idea almost good.")
+            Text(text = "This is VERY WIP route for Boosters%. Full credits to Mtbanger for these notes. The notes are Mtbangers notes.", fontFamily = SpiraGPSText.fontFamily)
+            Text(text = "Credits from Mt's notes: Credit to psychonauter, MorphaSRDC, and ChrisTenarium for original Booster% notes and route, MrTyton for the Zanarkand Trials map, to CrimsonInferno and the FFX Blitzball Haters Club HQ Big Nerds for helping me make this bad idea almost good.", fontFamily = SpiraGPSText.fontFamily)
 
             // Title
             TitleView(title = route.title, contentsState = contentsState)
@@ -74,7 +75,6 @@ fun RouteView(route: Route, conditionState: ConditionState, contentsState: Conte
                         "Make note loading more dynamic/async",
                         "Version history dialog",
                         "Route Editor?",
-                        "Sort out Arrows in text!",
                         "Contents Scrolling to the top of the page"
                     )
                 )

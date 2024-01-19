@@ -9,6 +9,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import spiragps.data.Entry
 import spiragps.style.SpiraGPSColours
+import spiragps.style.SpiraGPSText
 
 @Composable
 fun TableView(entry: Entry) {
@@ -33,6 +34,7 @@ fun TableColumn(modifier: Modifier = Modifier, entries: List<String>) {
             Text(
                 text = text,
                 fontWeight = SpiraGPSColours.itemSortWeights[index % 2],
+                fontFamily = SpiraGPSText.fontFamily,
                 modifier = Modifier
                     .fillMaxWidth()
                     .background(SpiraGPSColours.itemSortBackground[index % 2])

@@ -10,11 +10,12 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import spiragps.data.Introduction
 import spiragps.style.SpiraGPSColours
+import spiragps.style.SpiraGPSText
 
 @Composable
 fun IntroductionView(intro: Introduction) {
     Column(modifier = Modifier.fillMaxWidth()) {
-        Text(intro.text, modifier = Modifier.fillMaxWidth())
+        Text(intro.text, modifier = Modifier.fillMaxWidth(), fontFamily = SpiraGPSText.fontFamily)
         Divider(color = SpiraGPSColours.background, modifier = Modifier.padding(vertical = 10.dp))
     }
 }

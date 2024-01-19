@@ -11,13 +11,14 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import spiragps.data.Condition
 import spiragps.data.ConditionState
+import spiragps.style.SpiraGPSText
 
 @Composable
 fun ConditionalView(condition: Condition, conditionState: ConditionState) {
     var checked by remember { mutableStateOf(condition.defaultState) }
 
     Row(verticalAlignment = Alignment.CenterVertically) {
-        Text(text = condition.name)
+        Text(text = condition.name, fontFamily = SpiraGPSText.fontFamily,)
         Switch(
             checked = checked,
             onCheckedChange = {

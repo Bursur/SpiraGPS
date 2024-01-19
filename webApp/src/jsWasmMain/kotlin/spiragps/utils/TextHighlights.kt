@@ -21,6 +21,7 @@ fun highlightKeywords(text: String): AnnotatedString {
 
             builder.addStyle(
                 style = SpanStyle(
+                    fontFamily = SpiraGPSText.fontFamily,
                     color = getKeywordColour(it),
                     fontWeight = FontWeight.Bold
                 ),

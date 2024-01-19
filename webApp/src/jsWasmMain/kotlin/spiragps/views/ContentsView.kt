@@ -15,6 +15,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import spiragps.data.Chapter
 import spiragps.data.ContentsState
+import spiragps.style.SpiraGPSText
 
 @Composable
 fun ContentsView(modifier: Modifier = Modifier, chapters: ArrayList<Chapter>, contentsState: ContentsState) {
@@ -24,7 +25,7 @@ fun ContentsView(modifier: Modifier = Modifier, chapters: ArrayList<Chapter>, co
         modifier = modifier.padding(10.dp)
     ) {
         // Title
-        Text(text = "Chapters:", fontWeight = FontWeight.Bold, fontSize = 20.sp)
+        Text(text = "Chapters:", fontWeight = FontWeight.Bold, fontSize = 20.sp, fontFamily = SpiraGPSText.fontFamily,)
 
         Column(
             modifier = Modifier
@@ -35,6 +36,7 @@ fun ContentsView(modifier: Modifier = Modifier, chapters: ArrayList<Chapter>, co
                 Text(
                     text = it.title,
                     fontSize = 15.sp,
+                    fontFamily = SpiraGPSText.fontFamily,
                     modifier = Modifier
                         .fillMaxWidth()
                         .padding(vertical = 5.dp)

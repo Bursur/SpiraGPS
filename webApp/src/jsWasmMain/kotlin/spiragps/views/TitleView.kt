@@ -16,6 +16,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import spiragps.data.ContentsState
 import spiragps.style.SpiraGPSColours
+import spiragps.style.SpiraGPSText
 
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
@@ -26,6 +27,7 @@ fun TitleView(modifier: Modifier = Modifier, title: String, contentsState: Conte
             text = title,
             textAlign = TextAlign.Right,
             fontWeight = FontWeight.Bold,
+            fontFamily = SpiraGPSText.fontFamily,
             fontSize = 24.sp,
             modifier = modifier
                 .fillMaxWidth()
