@@ -4,6 +4,11 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import kotlinx.serialization.json.Json
@@ -12,39 +17,51 @@ import spiragps.data.Route
 import spiragps.data.rememberConditionState
 import spiragps.data.rememberContentsState
 import spiragps.style.SpiraGPSText
+import spiragps.utils.loadResource
 import spiragps.views.ContentsView
 import spiragps.views.HeaderView
+import spiragps.views.LoadingView
 import spiragps.views.RouteView
-
-external fun getData(): String
 
 @Composable
 fun RoutePage(navigationState: NavigationState) {
-    val data = Json.decodeFromString<Route>(getData())
-    SpiraGPSText.addKeywords(data.keywords)
+    var loading by remember { mutableStateOf(true) }
+    var data: Route by remember { mutableStateOf(Route()) }
 
-    val contentsState = rememberContentsState()
+    if(!loading) {
+        val contentsState = rememberContentsState()
+        Row(modifier = Modifier.fillMaxSize()) {
+            ContentsView(
+                chapters = data.chapters,
+                contentsState = contentsState,
+                navigationState = navigationState,
+                modifier = Modifier.weight(.2f)
+            )
 
-    Row(modifier = Modifier.fillMaxSize()) {
-        ContentsView(
-            chapters = data.chapters,
-            contentsState = contentsState,
-            navigationState = navigationState,
-            modifier = Modifier.weight(.2f)
-        )
+            Column(
+                horizontalAlignment = Alignment.CenterHorizontally,
+                modifier = Modifier
+                    .weight(1f)
+            ) {
+                val conditionState = rememberConditionState(data.conditions)
 
-        Column(
-            horizontalAlignment = Alignment.CenterHorizontally,
-            modifier = Modifier
-                .weight(1f)
-        ) {
-            val conditionState = rememberConditionState(data.conditions)
+                // Header
+                HeaderView(data.conditions, conditionState)
 
-            // Header
-            HeaderView(data.conditions, conditionState)
-
-            // Contents/Route
-            RouteView(data, conditionState, contentsState)
+                // Contents/Route
+                RouteView(data, conditionState, contentsState)
+            }
         }
+    }
+    else
+        LoadingView()
+
+    LaunchedEffect(Unit) {
+        val jsonString = loadResource(navigationState.selectedRouteUrl).decodeToString()
+        Json.decodeFromString<Route>(jsonString).let {
+            SpiraGPSText.addKeywords(it.keywords)
+            data = it
+        }
+        loading = false
     }
 }

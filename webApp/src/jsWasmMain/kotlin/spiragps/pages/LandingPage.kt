@@ -40,6 +40,7 @@ fun LandingPage(navigationState: NavigationState) {
                 fontFamily = SpiraGPSText.fontFamily,
                 fontSize = 25.sp,
                 modifier = Modifier.clickable {
+                    navigationState.selectedRouteUrl = "boosters.json"
                     navigationState.currentPage = NavigationState.ROUTE
                 }
             )

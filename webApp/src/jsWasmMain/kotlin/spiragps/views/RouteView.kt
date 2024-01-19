@@ -70,8 +70,7 @@ fun RouteView(route: Route, conditionState: ConditionState, contentsState: Conte
                 entry = Entry(
                     text = "ToDo: (In no particular order)",
                     guide = arrayListOf(
-                        "Make a landing page with some info on it while you chose a route.",
-                        "Make note loading more dynamic/async",
+                        "Make the landing page load routes from a json file.",
                         "Version history dialog",
                         "Route Editor?",
                         "Contents Scrolling to the top of the page"
