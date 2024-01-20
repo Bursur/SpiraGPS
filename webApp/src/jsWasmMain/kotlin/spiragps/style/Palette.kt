@@ -19,7 +19,7 @@ object SpiraGPSText {
         fontFamily = FontFamily(
             Font(
                 identity = "Kanit",
-                data = loadResource("fonts/Kanit-Light.ttf"),
+                data = loadResource("SpiraGPS/fonts/Kanit-Light.ttf"),
                 weight = FontWeight.Normal
             )
         )
