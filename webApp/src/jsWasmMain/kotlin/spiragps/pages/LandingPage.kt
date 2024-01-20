@@ -14,6 +14,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import spiragps.data.NavigationState
+import spiragps.pages.components.RouteSelectButton
 import spiragps.style.SpiraGPSText
 
 @OptIn(ExperimentalLayoutApi::class)
@@ -35,15 +36,7 @@ fun LandingPage(navigationState: NavigationState) {
         )
 
         FlowRow(maxItemsInEachRow = 3, modifier = Modifier.padding(top = 25.dp)) {
-            Text(
-                text = "CSR Any% w/Boosters",
-                fontFamily = SpiraGPSText.fontFamily,
-                fontSize = 25.sp,
-                modifier = Modifier.clickable {
-                    navigationState.selectedRouteUrl = "SpiraGPS/boosters.json"
-                    navigationState.currentPage = NavigationState.ROUTE
-                }
-            )
+            RouteSelectButton(routeName = "CSR Any% w/Boosters", dataUrl = "SpiraGPS/boosters.json", navigationState = navigationState)
         }
     }
 }
