@@ -78,8 +78,10 @@ fun RouteView(route: Route, conditionState: ConditionState, contentsState: Conte
                 entry = Entry(
                     text = "ToDo: (In no particular order)",
                     guide = arrayListOf(
-                        "Route Editor?",
-                        "Load Local Route jsons?"
+                        "Route Editor",
+                        "Load Local Route json file, if possible",
+                        "Update Cloisters to use the entities model",
+                        "Add Cloisters to the boosters route (toggled off by default)"
                     )
                 )
             )

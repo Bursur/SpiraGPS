@@ -32,7 +32,7 @@ fun HelpDialog(onDismissRequest: () -> Unit) {
             ) {
                 Row {
                     Text(text = "Spira GPS", fontFamily = SpiraGPSText.fontFamily, fontSize = 30.sp, fontWeight = FontWeight.Bold)
-                    Text(text = "v0.1.0", fontFamily = SpiraGPSText.fontFamily)
+                    Text(text = "v0.1.1", fontFamily = SpiraGPSText.fontFamily)
                 }
                 Text(
                     text = "The intention of this tool is to gather routes in one place. " +
