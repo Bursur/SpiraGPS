@@ -46,7 +46,7 @@ fun BulletedList(entry: Entry) {
 fun BulletedList(title: String = "", points: ArrayList<String>) {
     Column(modifier = Modifier.fillMaxWidth()) {
         if(title.isNotEmpty())
-            Text(title)
+            Text(title, fontFamily = SpiraGPSText.fontFamily)
 
         Text(
             buildAnnotatedString {
@@ -58,6 +58,7 @@ fun BulletedList(title: String = "", points: ArrayList<String>) {
                     }
                 }
             },
+            fontFamily = SpiraGPSText.fontFamily,
             modifier = Modifier.padding(horizontal = 10.dp)
         )
     }
