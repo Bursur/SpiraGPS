@@ -14,8 +14,12 @@ import spiragps.style.SpiraGPSText
 
 @Composable
 fun IntroductionView(intro: Introduction) {
-    Column(modifier = Modifier.fillMaxWidth()) {
-        Text(intro.text, modifier = Modifier.fillMaxWidth(), fontFamily = SpiraGPSText.fontFamily)
-        Divider(color = SpiraGPSColours.background, modifier = Modifier.padding(vertical = 10.dp))
+    Column(modifier = Modifier.fillMaxWidth().padding(bottom = 5.dp)) {
+        intro.entries.forEach {
+            createEntry(it)
+
+            if (it.trailingBreak)
+                Divider(color = SpiraGPSColours.background, thickness = 15.dp)
+        }
     }
 }

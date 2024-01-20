@@ -1,6 +1,7 @@
 package spiragps.dialogs
 
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.material3.Card
@@ -29,7 +30,10 @@ fun HelpDialog(onDismissRequest: () -> Unit) {
                     .width(500.dp)
                     .padding(10.dp)
             ) {
-                Text(text = "Spira GPS", fontFamily = SpiraGPSText.fontFamily, fontSize = 30.sp, fontWeight = FontWeight.Bold)
+                Row {
+                    Text(text = "Spira GPS", fontFamily = SpiraGPSText.fontFamily, fontSize = 30.sp, fontWeight = FontWeight.Bold)
+                    Text(text = "v0.1.0", fontFamily = SpiraGPSText.fontFamily)
+                }
                 Text(
                     text = "The intention of this tool is to gather routes in one place. " +
                         "It also provides a way to edit new or existing runs with a visual editor.\n\n" +

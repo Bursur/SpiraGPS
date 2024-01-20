@@ -1,11 +1,37 @@
 {
     "title": "FFX Boosters% CSR - Tidus Route",
-    "keywords": ["4x", "4x", "Auto Attack"],
+    "keywords": ["4x", "4x", "Auto Attack", "never use Max Gil", "Full credits to Mtbanger for these notes. The notes are Mtbangers notes."],
     "conditions": [
         { "name": "TerraSkip", "defaultState": true }
     ],
     "introduction": {
-        "text": ""
+        "entries": [
+            {
+                "type": "info",
+                "text": "This is VERY WIP route for Boosters%. Full credits to Mtbanger for these notes. The notes are Mtbangers notes. Credits from Mt's notes: Credit to psychonauter, MorphaSRDC, and ChrisTenarium for original Booster% notes and route, MrTyton for the Zanarkand Trials map, to CrimsonInferno and the FFX Blitzball Haters Club HQ Big Nerds for helping me make this bad idea almost good.",
+                "trailingBreak": true
+            },
+            {
+                "type": "info",
+                "text": "This guide is intended for readers familiar with either the Any% Speedrun or just generally the critical story path of the game, and as such will not provide directions on where to go - only what to do once you get there. If you’re unfamiliar with the critical path of the game (including Cloisters of Trials), I would recommend reading the Any% notes first - they can be found on Speedrun.com or in the Blitzball Haters Club Headquarters Discord.",
+                "trailingBreak": true
+            },
+            {
+                "type": "info",
+                "text": "If using CSR with Boosters, never use Max Gil as this causes the game to lock after certain boss encounters.",
+                "trailingBreak": true
+            },
+            {
+                "type": "info",
+                "text": "Some boss encounters disable Auto Attack and do not allow its reactivation - I’ve tried my best to map this out in these notes. Auto Attack is always faster than normal attack, so you should always try and enable it when directed in the notes (and always ensure it’s disabled when directed in the notes).",
+                "trailingBreak": true
+            },
+            {
+                "type": "info",
+                "text": "Finally Boosters% is, as you would expect, extremely forgiving. Basically every backup is to get the death machine involved ASAP and attack. Almost all of the strats in this guide are for speed reasons, most of the fights are literally unloseable, so if you mess up don’t panic - just attack until you win!",
+                "trailingBreak": true
+            }
+        ]
     },
     "chapters": [
         {

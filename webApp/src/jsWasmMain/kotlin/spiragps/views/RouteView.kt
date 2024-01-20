@@ -10,14 +10,16 @@ import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.Divider
 import androidx.compose.material.Icon
-import androidx.compose.material.Text
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.KeyboardArrowUp
 import androidx.compose.material3.SmallFloatingActionButton
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.layout.onGloballyPositioned
+import androidx.compose.ui.layout.positionInRoot
 import androidx.compose.ui.unit.dp
 import kotlinx.coroutines.launch
 import spiragps.data.route.Chapter
@@ -26,14 +28,22 @@ import spiragps.data.route.ContentsState
 import spiragps.data.route.Entry
 import spiragps.data.route.Route
 import spiragps.style.SpiraGPSColours
-import spiragps.style.SpiraGPSText
 
 @Composable
 fun RouteView(route: Route, conditionState: ConditionState, contentsState: ContentsState) {
     val scrollableState = rememberScrollState()
     val scope = rememberCoroutineScope()
 
-    Box(modifier = Modifier.wrapContentSize()) {
+    val titlePositions: MutableMap<String, Float> = mutableMapOf()
+    var scrollOffset: Float = 0f
+
+    Box(
+        modifier = Modifier
+            .wrapContentSize()
+            .onGloballyPositioned {
+                scrollOffset = it.positionInRoot().y
+            }
+    ) {
         Column(
             horizontalAlignment = Alignment.CenterHorizontally,
             modifier = Modifier
@@ -45,19 +55,17 @@ fun RouteView(route: Route, conditionState: ConditionState, contentsState: Conte
                     enabled = true
                 )
         ) {
-            // Disclaimers (Move this later)
-            Text(text = "This is VERY WIP route for Boosters%. Full credits to Mtbanger for these notes. The notes are Mtbangers notes.", fontFamily = SpiraGPSText.fontFamily)
-            Text(text = "Credits from Mt's notes: Credit to psychonauter, MorphaSRDC, and ChrisTenarium for original Booster% notes and route, MrTyton for the Zanarkand Trials map, to CrimsonInferno and the FFX Blitzball Haters Club HQ Big Nerds for helping me make this bad idea almost good.", fontFamily = SpiraGPSText.fontFamily)
-
             // Title
-            TitleView(title = route.title, contentsState = contentsState)
+            TitleView(title = route.title)
 
             // Intro
             IntroductionView(route.introduction)
 
             // Chapters
             route.chapters.forEach { chapter: Chapter ->
-                ChapterView(chapter = chapter, conditionState = conditionState, contentsState = contentsState)
+                ChapterView(chapter = chapter, conditionState = conditionState) { name: String, position: Float ->
+                    titlePositions[name] = position
+                }
             }
 
             // TODO LIST REMOVE THIS!!
@@ -70,9 +78,7 @@ fun RouteView(route: Route, conditionState: ConditionState, contentsState: Conte
                 entry = Entry(
                     text = "ToDo: (In no particular order)",
                     guide = arrayListOf(
-                        "Version history dialog",
                         "Route Editor?",
-                        "Contents Scrolling to the top of the page",
                         "Load Local Route jsons?"
                     )
                 )
@@ -96,5 +102,10 @@ fun RouteView(route: Route, conditionState: ConditionState, contentsState: Conte
         ) {
             Icon(Icons.Filled.KeyboardArrowUp, "")
         }
+    }
+
+    LaunchedEffect(contentsState.selectedChapter) {
+        if(titlePositions.containsKey(contentsState.selectedChapter))
+            scrollableState.animateScrollTo((titlePositions[contentsState.selectedChapter]!!.toInt() + scrollableState.value) - scrollOffset.toInt())
     }
 }

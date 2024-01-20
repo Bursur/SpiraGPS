@@ -3,6 +3,10 @@
         {
             "name": "Any% w/Boosters",
             "data": "SpiraGPS/boosters.json"
+        },
+        {
+            "name": "Random Bits n Stuff",
+            "data": "SpiraGPS/boosters-back.json"
         }
     ]
 }

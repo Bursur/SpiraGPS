@@ -20,11 +20,13 @@ import spiragps.data.route.Entry
 import spiragps.style.SpiraGPSColours
 
 @Composable
-fun ChapterView(chapter: Chapter, conditionState: ConditionState, contentsState: ContentsState) {
+fun ChapterView(chapter: Chapter, conditionState: ConditionState, titlePositionCallback: (String, Float) -> Unit = { _: String, _: Float -> }) {
     var expanded by remember { mutableStateOf(true) }
 
     Column(modifier = Modifier.fillMaxWidth()) {
-        TitleView(title = chapter.title, contentsState = contentsState, modifier = Modifier.clickable { expanded = !expanded })
+        TitleView(title = chapter.title, modifier = Modifier.clickable { expanded = !expanded }) { name: String, position: Float ->
+            titlePositionCallback(name, position)
+        }
 
         AnimatedVisibility(visible = expanded) {
             Column (modifier = Modifier.padding(vertical = 10.dp)) {

@@ -4,5 +4,5 @@ import kotlinx.serialization.Serializable
 
 @Serializable
 data class Introduction(
-    val text: String = ""
+    val entries: ArrayList<Entry> = arrayListOf()
 )
