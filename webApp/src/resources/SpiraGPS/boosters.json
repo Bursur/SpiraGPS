@@ -1,0 +1,953 @@
+{
+    "title": "FFX Boosters% CSR - Tidus Route",
+    "keywords": ["4x", "4x", "Auto Attack"],
+    "conditions": [
+        { "name": "TerraSkip", "defaultState": true }
+    ],
+    "introduction": {
+        "text": ""
+    },
+    "chapters": [
+        {
+            "title": "Zanarkand",
+            "entries": [
+                { "type": "bullets",
+                    "text": "Turn on:", 
+                    "guide": [
+                        "Speed Boost x4 (Double Tap F1)",
+                        "Super Charge (F2)",
+                        "No Encounters (Double Tap F3)"
+                    ],
+                    "trailingBreak": true
+                },
+                { "type": "info", "text": "Remember to re-enable them if you have to load an autosave", "trailingBreak": true },
+                { "type": "info", "text": "Begin Booster Menu (Press Esc):", "bold": true },
+                { "type": "bullets", 
+                    "text": "Parameters:",
+                    "guide": [
+                        "All Skills",
+                        "All Items"
+                    ],
+                    "trailingBreak": true
+                },
+                {
+                    "type": "battle",
+                    "enemy": "Sinscales",
+                    "guide": [
+                        "Disable 4x to skip dialoge then re-enable",
+                        "Tidus Defend",
+                        "Enable Auto Attack",
+                        "Disable 4x to skip dialoge then re-enable",
+                        "Once fight is over, disable Auto Attack"
+                    ],
+                    "trailingBreak": true
+                },
+                {
+                    "type": "battle",
+                    "enemy": "Sinspawn Ammes",
+                    "health": 2400,
+                    "guide": [
+                        "Disable 4x to skip dialoge then re-enable",
+                        "Auron Overdrive Dragonfang",
+                        "Tidus Use Ice Gem"
+                    ],
+                    "trailingBreak": true
+                },
+                {
+                    "type": "battle",
+                    "enemy": "Tanker",
+                    "health": 1000,
+                    "guide": [
+                        "Tidus Switch Weapon",
+                        "Auron Attack Self",
+                        "Tidus Switch Weapon x2",
+                        "Tidus Use Ice Gem on Tanker"
+                    ],
+                    "trailingBreak": true
+                }
+            ]
+        },
+        {
+            "title": "Baaj",
+            "entries": [
+                {
+                    "type": "battle",
+                    "enemy": "Sahagins",
+                    "guide": [
+                        "Tidus Use Grenade (or Frag Grenade/Sleeping Powder/Dream Powder/Silence Grenade/Smoke Bomb)"
+                    ],
+                    "trailingBreak": true
+                },
+                {
+                    "type": "battle",
+                    "enemy": "Geosgaeno",
+                    "guide": [
+                        "Tidus Defend until battle ends"
+                    ],
+                    "trailingBreak": true
+                },
+                {
+                    "type": "itemsort", "trailingBreak": true,
+                    "guide": [
+                        "Al Bhed Potion with Shining Gem, R2 Confirm R2 ↓ Confirm",
+                        "Smoke Bomb with Healing Water, ↑ Confirm L2 → Confirm",
+                        "Master Sphere with Power Sphere, R2 R2 R2 ← Confirm ↑↑↑↑↑(x5) Confirm",
+                        "Ability Sphere with Clear Sphere, →↓ Confirm R2 ↓ Confirm",
+                        "Strength Sphere Mana Sphere, ↑↑↑↑(x4) Confirm L2 ↓↓ Confirm",
+                        "Speed Sphere with Warp Sphere, ←↓ Confirm R2 →↓↓↓ Confirm",
+                        "Dark Matter with Tetra Elemental, L2 L2 ↑↑↑ Confirm L2  ←↑↑↑↑↑(x5) Confirm"
+                    ]
+                },
+                {
+                    "type": "bullets", "trailingBreak": true,
+                    "text": "Config:",
+                    "guide": [
+                        "Cursor > Memory",
+                        "Aeons > Short"
+                    ]
+                },
+                {
+                    "type": "battle",
+                    "enemy": "Klikk",
+                    "health": 1500,
+                    "guide": [
+                        "Disable 4x to skip dialoge then re-enable",
+                        "Tidus use Shining Gem",
+                        "Disable 4x to skip dialoge then re-enable",
+                        "Rikku use Shining Gem"
+                    ],
+                    "trailingBreak": true
+                }
+            ]
+        },
+        {
+            "title": "The Boat",
+            "entries": [
+                { 
+                    "type": "spheregrid", "trailingBreak": true,
+                    "entries": [
+                        { "type": "info", "text": "Use 34 Strengths, 13 Warps, 10 Clears, and 48 Master Spheres to get to this grid layout. Start from the right of the image, use Masters as you go until you reach warp point 5 (next to the Agi node), at which point stop using Masters until you reach the final warp point (14). At that point you spam masters until the grid is complete.", "trailingBreak": true },
+                        { "type": "image", "image": "SpiraGPS/tidus_sg.png", "trailingBreak": true },
+                        { 
+                            "type": "table", "trailingBreak": true, "columns": 2, 
+                            "guide": [
+                                "1. Strength x2",
+                                "2. Master x2",
+                                "3. Warp ↑↑ Left ←←←←←(x5)",
+                                "4. Clear",
+                                "5. Strength x4",
+                                "6. Master x6",
+                                "7. Warp ←←",
+                                "8. Strength x3",
+                                "9. Master x3",
+                                "10. Warp ↓↓↓",
+                                "11. Strength x2",
+                                "12. Master x4",
+                                "13. Warp ←←←←←←←(x7)",
+                                "14. Clear x2",
+                                "15. Strength x3",
+                                "16. Warp ←←, ↑↑↑",
+                                "17. Strength",
+                                "18. Warp ←←←",
+                                "19. Strength x2",
+                                "20. Warp (no direction needed)",
+                                "21. Clear (no direction needed)",
+                                "22 Strength x2",
+                                "23. Warp → →",
+                                "24. Clear",
+                                "25. Strength x3",
+                                "26. Warp ↓, →",
+                                "27. Strength x2",
+                                "28. Warp ↓↓",
+                                "29. Clear x2",
+                                "30. Strength x3",
+                                "31. Warp (no direction needed)",
+                                "32. Strength x3",
+                                "33. Warp ←←",
+                                "34. Clear (no direction needed)",
+                                "35. Strength x2",
+                                "36. Warp ↑↑, ←←",
+                                "37. Clear x2",
+                                "38. Strength x2",
+                                "39. Master x32",
+                                "40. Master ↓"
+                            ]
+                        },
+                        {
+                            "type": "bullets", "text": "Tidus should end with:", "trailingBreak": true, "bold": true,
+                            "guide": [
+                                "173 Strength",
+                                "22 Agility",
+                                "52 MP"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type": "battle",
+                    "enemy": "Pirhanas",
+                    "guide": ["Any Use Smoke Bomb (hope you like your fish smoked)"],
+                    "trailingBreak": true
+                },
+                {
+                    "type": "battle",
+                    "enemy": "Tros",
+                    "health": 2200,
+                    "guide": ["Tidus Attack"],
+                    "trailingBreak": true
+                }
+            ]
+        },
+        {
+            "title": "Besaid",
+            "entries": [
+                {
+                    "type": "battle",
+                    "enemy": "Tidus and Wakka Tutorial",
+                    "guide": [
+                        "Disable 4x to skip dialoge then re-enable",
+                        "Tidus Attack",
+                        "Disable 4x to skip dialoge then re-enable",
+                        "Wakka Attack"
+                    ],
+                    "trailingBreak": true
+                },
+                {
+                    "type": "battle",
+                    "enemy": "Lulu Magic Tutorial",
+                    "guide": [
+                        "Disable 4x to skip dialoge then re-enable",
+                        "Tidus Attack",
+                        "Disable 4x to skip dialoge then re-enable"
+                    ],
+                    "trailingBreak": true
+                },
+                { "type": "info", "text": "Enable Auto Attack", "trailingBreak": true },
+                {
+                    "type": "battle",
+                    "enemy": "Kimahri",
+                    "health": 750,
+                    "guide": ["Tidus Auto Attack"],
+                    "trailingBreak": true
+                },
+                { 
+                    "type": "spheregrid", "trailingBreak": true,
+                    "entries": [
+                        { 
+                            "type": "bullets", "trailingBreak": true, "text": "Yuna",
+                            "guide": [
+                                "Attribute x13",
+                                "Attribute ↑"
+                            ]
+                        },
+                        {
+                            "type": "bullets", "text": "Yuna should end with:", "trailingBreak": true, "bold": true,
+                            "guide": ["49 Strength"]
+                        }
+                    ]
+                },
+                {
+                    "type": "battle",
+                    "enemy": "Yuna Aeon Tutorial",
+                    "guide": [
+                        "Disable 4x to skip dialoge then re-enable",
+                        "Yuna Summon Valefor",
+                        "Valefor Attack"
+                    ],
+                    "trailingBreak": true
+                },
+                {
+                    "type": "bullets", "text": "Formation:",
+                    "guide": ["Wakka out, Tidus in"],
+                    "trailingBreak": true
+                },
+                {
+                    "type": "encounter", "trailingBreak": true,
+                    "guide": ["Flee all encounters until S.S. Liki"]
+                }
+            ]
+        },
+        {
+            "title": "S.S. Liki",
+            "entries": [
+                {
+                    "type": "battle",
+                    "enemy": "Sin Fin & Sinspawn Echuilles",
+                    "guide": [
+                        "Any Use Sining gem on Sin Fin",
+                        "Enable Auto Attack",
+                        "Tidus Auto Attack"
+                    ],
+                    "trailingBreak": true
+                }
+            ]
+        },
+        {
+            "title": "Kilika",
+            "entries": [
+                {
+                    "type": "battle",
+                    "enemy": "Lancet Tutorial",
+                    "guide": [
+                        "Disable 4x to skip dialoge then re-enable",
+                        "Kimahri Flee"
+                    ],
+                    "trailingBreak": true
+                },
+                { "type": "info", "text": "Enable Auto Attack", "trailingBreak": true },
+                {
+                    "type": "battle",
+                    "enemy": "Sinspawn Geneaux",
+                    "guide": ["Tidus Auto Attack"],
+                    "trailingBreak": true
+                },
+                { "type": "info", "text": "Disable Auto Attack", "trailingBreak": false }
+            ]
+        },
+        {
+            "title": "Luca",
+            "entries": [
+                {
+                    "type": "battle",
+                    "enemy": "Machina Encounters",
+                    "guide": [
+                        "1st Encounter:",
+                        "Disable 4x to skip dialoge then re-enable",
+                        "Any Use Smoke Bomb",
+                        "3rd Encounter:",
+                        "Disable 4x to skip dialoge then re-enable after 1st and 2nd wave",
+                        "Any Use Smoke Bomb"
+                    ],
+                    "trailingBreak": true
+                },
+                { "type": "info", "text": "Enable Auto Attack", "trailingBreak": true },
+                {
+                    "type": "battle",
+                    "enemy": "Oblizerator",
+                    "guide": [
+                        "Disable 4x to skip dialoge then re-enable",
+                        "Tidus Auto Attack"
+                    ],
+                    "trailingBreak": true
+                },
+                { "type": "info", "text": "Disable Auto Attack", "trailingBreak": false },
+                {
+                    "type": "blitzball", "trailingBreak": true,
+                    "entries": [
+                        {
+                            "type": "info", "trailingBreak": true,
+                            "text": "The goal here is to lose, unless you're 0-0 when Wakka shows up and you win the Blitz Off - at which point you try to win. The fastest Blitz Off combo is Win 2, lose 1 so hope for that!"
+                        },
+                        {
+                            "type": "info", "bold": true, "trailingBreak": true,
+                            "text": "1st half:"
+                        },
+                        {
+                            "type": "info", "bold": true,
+                            "text": "If you win Blitz off"
+                        },
+                        {
+                            "type": "bullets",  "trailingBreak": true,
+                            "guide": [
+                                "Change to Manual A > Normal",
+                                "Pass to Jassu",
+                                "Hide behind Keepa til half time"
+                            ]
+                        },
+                        {
+                            "type": "info", "bold": true,
+                            "text": "If you lose Blitz off"
+                        },
+                        {
+                            "type": "bullets", "trailingBreak": true,
+                            "guide": [
+                                "Change to Mark Mode and let them score",
+                                "Pass to Jassu and hide behind Keepa/avoid Goers with Jassu (Choo-Choo!) til half time"
+                            ]
+                        },
+                        {
+                            "type": "info", "bold": true, "trailingBreak": true,
+                            "text": "2nd half (Tidus):"
+                        },
+                        {
+                            "type": "info", "bold": true,
+                            "text": "If you win Blitz off"
+                        },
+                        {
+                            "type": "bullets", "trailingBreak": true,
+                            "guide": [
+                                "Pass to Jassu and hide behind Keepa til Wakka arrives"
+                            ]
+                        },
+                        {
+                            "type": "info", "bold": true,
+                            "text": "If you lose Blitz off"
+                        },
+                        {
+                            "type": "bullets", "trailingBreak": true,
+                            "guide": [
+                                "Change to Mark Mode and let them score",
+                                "Pass to Jassu and hide behind Keepa/avoid Goers with Jassu til Wakka arrives"
+                            ]
+                        },
+                        {
+                            "type": "info", "bold": true, "trailingBreak": true,
+                            "text": "2nd half (Wakka):"
+                        },
+                        {
+                            "type": "info", "bold": true,
+                            "text": "If you win Blitz off and are not losing"
+                        },
+                        {
+                            "type": "bullets", "trailingBreak": true,
+                            "guide": [
+                                "Pass to Jassu",
+                                "Hide just to the right of the 6 o’clock position on the radar til 4:20",
+                                "Swim forward til you agro Balgerda",
+                                "Swim away from her until Wakka is free",
+                                "Pass to Wakka",
+                                "Wakka > Venom Shot to win",
+                                "If you get aggro’d by Abus, break + dribble to get him away from you."
+                            ]
+                        },
+                        {
+                            "type": "info", "bold": true,
+                            "text": "If you win Blitz off and are losing"
+                        },
+                        {
+                            "type": "bullets", "trailingBreak": true,
+                            "guide": [
+                                "Pass to Jassu and hide behind Keepa/avoid Goers with Jassu til full time"
+                            ]
+                        },
+                        {
+                            "type": "info", "bold": true,
+                            "text": "If you lose Blitz off and are losing"
+                        },
+                        {
+                            "type": "bullets", "trailingBreak": true,
+                            "guide": [
+                                "Change to Mark Mode and let them score",
+                                "Pass to Jassu and hide behind Keepa/avoid Goers with Jassu til full time"
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "title": "Luca 2",
+            "entries": [
+                {
+                    "type": "battle",
+                    "enemy": "Sahagins",
+                    "guide": [
+                        "Any Use Smoke Bomb",
+                        "Enable Auto Attack for final Sahagin"
+                    ],
+                    "trailingBreak": true
+                },
+                {
+                    "type": "battle",
+                    "enemy": "Voivre",
+                    "guide": ["Auron Auto Attack"],
+                    "trailingBreak": true
+                },
+                {
+                    "type": "battle",
+                    "enemy": "Sahagins",
+                    "guide": ["Tidus Auto Attack"],
+                    "trailingBreak": true
+                }
+            ]
+        },
+        {
+            "title": "Mi'ihen Highroad",
+            "entries": [
+                {
+                    "type": "battle",
+                    "enemy": "Raldo",
+                    "guide": [
+                        "Disable 4x to skip dialoge then re-enable",
+                        "Tidus Auto Attack"
+                    ],
+                    "trailingBreak": true
+                },
+                { "type": "info", "text": "Do Mi'ihen skip if able", "bold": true, "trailingBreak": true },
+                {
+                    "type": "battle",
+                    "enemy": "Chocobo Eater",
+                    "guide": [
+                        "Tidus Auto Attack",
+                        "Disable 4x to skip dialoge then re-enable",
+                        "Yuna Auto Attack",
+                        "No little hop (Sorry, khaegar)"
+                    ],
+                    "trailingBreak": true
+                },
+                { "type": "info", "text": "Disable Auto Attack", "trailingBreak": true },
+                { "type": "info", "text": "Talk to Chocobo Lady", "trailingBreak": true }
+            ]
+        },
+        {
+            "title": "Mushroom Rock Road",
+            "entries": [
+                { "type": "info", "text": "Do Clasko skip if able", "bold": true, "trailingBreak": true },
+                { "type": "info", "text": "Do Terra Skip if able", "bold": true, "trailingBreak": true, "requirement": { "condition": "TerraSkip", "state": true } },
+                {
+                    "type": "battle",
+                    "enemy": "Sinspawn Gui",
+                    "guide":["Any Use Dark Matter"],
+                    "trailingBreak": true,
+                    "requirement": { "condition": "TerraSkip", "state": false }
+                },
+                {
+                    "type": "battle",
+                    "enemy": "Sinspawn Gui 2",
+                    "guide":["Any Use Dark Matter"],
+                    "trailingBreak": true,
+                    "requirement": { "condition": "TerraSkip", "state": false }
+                }
+            ]
+        },
+        {
+            "title": "Djose Highroad",
+            "entries":[
+                { "type": "info", "text": "Wait at the start of Highroad until you see Crusader in blue (looks like Beclam from FFX-2). Speak to him x2 and obtain Variable Steel", "trailingBreak": true }
+            ]
+        },
+        {
+            "title": "Moonflow",
+            "entries": [
+                {
+                    "type": "battle",
+                    "enemy": "Extractor",
+                    "guide":["Tidus Attack (Auto Attack doesn't work here)"],
+                    "trailingBreak": true
+                },
+                {
+                    "type": "battle",
+                    "enemy": "Steal/Mix Tutorial",
+                    "guide":[
+                        "Disable 4x to skip dialoge then re-enable",
+                        "Rikku Flee"
+                    ],
+                    "trailingBreak": true
+                },
+                { "type": "info", "text": "Enable Auto Attack", "trailingBreak": true }
+            ]
+        },
+        {
+            "title": "Guadosalam",
+            "entries": [
+                {
+                    "type": "customise",
+                    "item": "Buckler",
+                    "guide": ["Auto-Haste"],
+                    "trailingBreak": true
+                },
+                {
+                    "type": "customise",
+                    "item": "Variable Steel",
+                    "guide": [
+                        "Piercing",
+                        "First Strike",
+                        "Break Damage Limit"
+                    ],
+                    "trailingBreak": true
+                },
+                {
+                    "type": "equipment", "trailingBreak": true,
+                    "guide": [ "Tidus: Excalibur" ]
+                },
+                { "type": "info", "text": "Do Guado skip if able", "bold": true, "trailingBreak": true }
+            ]
+        },
+        {
+            "title": "Macalania",
+            "entries": [
+                {
+                    "type": "battle",
+                    "enemy": "Spherimorph",
+                    "guide":["Tidus Auto Attack"],
+                    "trailingBreak": true
+                },
+                {
+                    "type": "battle",
+                    "enemy": "Crawler",
+                    "guide":["Tidus Attack (Auto Attack doesn't work here)"],
+                    "trailingBreak": true
+                },
+                {
+                    "type": "battle",
+                    "enemy": "Seymour",
+                    "guide":[
+                        "Any Use Dark Matter",
+                        "Disable 4x to skip dialoge then re-enable"
+                    ],
+                    "trailingBreak": true
+                },
+                { "type": "info", "text": "Enable Auto Attack during Anima summon animation", "trailingBreak": true },
+                {
+                    "type": "battle",
+                    "enemy": "Anima",
+                    "guide":[
+                        "Disable 4x to skip dialoge then re-enable",
+                        "Tidus Auto Attack",
+                        "Disable 4x to skip dialoge then re-enable"
+                    ],
+                    "trailingBreak": true
+                },
+                {
+                    "type": "battle",
+                    "enemy": "Anima",
+                    "guide": [ "Tidus Auto Attack" ],
+                    "trailingBreak": true
+                },
+                { "type": "info", "text": "Disable Auto Attack", "trailingBreak": true },
+                { "type": "info", "text": "CSR: Try your best to avoid a guado guard encounter here as it can cause a crash, disable 4x if needed (strongly recommended)", "bold": true, "trailingBreak": true },
+                {
+                    "type": "battle",
+                    "enemy": "Wendigo",
+                    "guide": [ 
+                        "Tidus Attack Wendigo",
+                        "Enable Auto Attack",
+                        "Tidus Auto Attack"
+                    ],
+                    "trailingBreak": true
+                },
+                { "type": "info", "text": "Disable Auto Attack", "trailingBreak": true }
+            ]
+        },
+        {
+            "title": "Bikanel",
+            "entries": [
+                {
+                    "type": "battle",
+                    "enemy": "Zu",
+                    "guide": [ 
+                        "Tidus Attack Self until Auron arrives",
+                        "Disable 4x to skip dialoge then re-enable",
+                        "Any Defend until Lulu arrives",
+                        "Lulu Arrives",
+                        "Disable 4x to skip dialoge then re-enable",
+                        "Any Flee"
+                    ],
+                    "trailingBreak": true
+                },
+                {
+                    "type": "battle",
+                    "enemy": "Machina Tutorial",
+                    "guide": [ 
+                        "Disable 4x to skip dialoge then re-enable",
+                        "Tidus Flee"
+                    ],
+                    "trailingBreak": true
+                },
+                {
+                    "type": "battle",
+                    "enemy": "Sandragora",
+                    "guide": [ 
+                        "Enable Auto Attack",
+                        "Tidus Auto Attack",
+                        "Disable Auto Attack"
+                    ],
+                    "trailingBreak": true
+                }
+            ]
+        },
+        {
+            "title": "Home",
+            "entries": [
+                {
+                    "type": "battle",
+                    "enemy": "Bombs",
+                    "guide": [ "Any Use Dark Matter" ],
+                    "trailingBreak": true
+                },
+                {
+                    "type": "battle",
+                    "enemy": "Dual Horn",
+                    "guide": [ 
+                        "If Ambush or Perempt: Any Use Dark Matter",
+                        "Else: Enable Auto Attack, Tidus Auto Attack"
+                    ],
+                    "trailingBreak": true
+                },
+                { "type": "info", "text": "Disable Auto Attack", "trailingBreak": true },
+                {
+                    "type": "battle",
+                    "enemy": "Chimeras",
+                    "guide": [ 
+                        "If Ambush or Perempt: Any Use Dark Matter",
+                        "Else: Enable Auto Attack, Tidus Auto Attack"
+                    ],
+                    "trailingBreak": true
+                }
+            ]
+        },
+        {
+            "title": "Bevelle",
+            "entries": [
+                {
+                    "type": "battle",
+                    "enemy": "Evrae",
+                    "guide": [ 
+                        "Tidus Attack (Auto Attack doesn't work here)"
+                    ],
+                    "trailingBreak": true
+                },
+                { "type": "info", "text": "Enable Auto Attack", "trailingBreak": true },
+                {
+                    "type": "battle",
+                    "enemy": "Bevelle Guard Fights 1-4",
+                    "guide": [ 
+                        "Tidus Auto Attack"
+                    ],
+                    "trailingBreak": true
+                },
+                { "type": "info", "text": "Disable Auto Attack", "trailingBreak": true },
+                {
+                    "type": "battle",
+                    "enemy": "Bevelle Guard Fights 5",
+                    "guide": [ 
+                        "Tidus Use Dark Matter"
+                    ],
+                    "trailingBreak": true
+                },
+                {
+                    "type": "battle",
+                    "enemy": "Issaru - Ifrit",
+                    "guide": [ 
+                        "Disable 4x to skip dialoge then re-enable",
+                        "Yuna Summon Ixion",
+                        "Ixion Attack"
+                    ],
+                    "trailingBreak": true
+                },
+                {
+                    "type": "battle",
+                    "enemy": "Issaru - Valefor",
+                    "guide": [ 
+                        "Disable 4x to skip dialoge then re-enable",
+                        "Yuna Summon Ixion",
+                        "Ixion Attack x2"
+                    ],
+                    "trailingBreak": true
+                },
+                {
+                    "type": "battle",
+                    "enemy": "Issaru - Bahamut",
+                    "guide": [ 
+                        "Disable 4x to skip dialoge then re-enable",
+                        "Yuna Summon Ixion",
+                        "Ixion Attack x3"
+                    ],
+                    "trailingBreak": true
+                },
+                { "type": "info", "text": "Enable Auto Attack", "trailingBreak": true },
+                {
+                    "type": "battle",
+                    "enemy": "Evrae Altana",
+                    "guide": [ 
+                        "Tidus Auto Attack"
+                    ],
+                    "trailingBreak": true
+                },
+                {
+                    "type": "battle",
+                    "enemy": "Seymour Natus",
+                    "guide": [ 
+                        "Tidus Attack (Auto Attack doesn't work here)"
+                    ],
+                    "trailingBreak": true
+                },
+                { "type": "info", "text": "Enable Auto Attack", "trailingBreak": true }
+            ]
+        },
+        {
+            "title": "Calm Lands",
+            "entries": [
+                {
+                    "type": "battle",
+                    "enemy": "Defender X",
+                    "guide": [ 
+                        "Tidus Auto Attack"
+                    ],
+                    "trailingBreak": true
+                },
+                { "type": "info", "text": "Disable Auto Attack", "trailingBreak": true }
+            ]
+        },
+        {
+            "title": "Mt. Gagazet",
+            "entries": [
+                {
+                    "type": "battle",
+                    "enemy": "Biran & Yenke",
+                    "guide":[
+                        "Disable 4x to skip dialoge then re-enable",
+                        "Any Use Dark Matter",
+                        "Disable 4x to skip dialoge then re-enable"
+                    ],
+                    "trailingBreak": true,
+                    "requirement": { "condition": "TerraSkip", "state": false }
+                },
+                {
+                    "type": "battle",
+                    "enemy": "Seymour",
+                    "guide":[
+                        "Disable 4x to skip dialoge then re-enable",
+                        "Any Use Shining Gem x2",
+                        "Disable 4x to skip dialoge then re-enable"
+                    ],
+                    "trailingBreak": true,
+                    "requirement": { "condition": "TerraSkip", "state": true }
+                },
+                {
+                    "type": "battle",
+                    "enemy": "Seymour Flux",
+                    "guide": [ 
+                        "Tidus Attack (Auto Attack doesn't work here)"
+                    ],
+                    "trailingBreak": true
+                },
+                { "type": "info", "text": "Enable Auto Attack", "trailingBreak": true },
+                {
+                    "type": "battle",
+                    "enemy": "Sanctuary Keeper",
+                    "guide": [ 
+                        "Tidus Auto Attack"
+                    ],
+                    "trailingBreak": true
+                }
+            ]
+        },
+        {
+            "title": "Zanarkand",
+            "entries": [
+                { "type": "image", "image": "SpiraGPS/tetris.png", "trailingBreak": true },
+                {
+                    "type": "battle",
+                    "enemy": "Spectral Keeper",
+                    "guide": [ 
+                        "Tidus Auto Attack"
+                    ],
+                    "trailingBreak": true
+                },
+                {
+                    "type": "battle",
+                    "enemy": "Yunalesca",
+                    "guide": [ 
+                        "Tidus Auto Attack"
+                    ],
+                    "trailingBreak": true
+                },
+                { "type": "info", "text": "Disable Auto Attack", "trailingBreak": true }
+            ]
+        },
+        {
+            "title": "The Skies Above",
+            "entries": [
+                {
+                    "type": "battle",
+                    "enemy": "Sin Fin Left",
+                    "guide": [ 
+                        "Any Non-Tidus Defend",
+                        "Tidus Talk: Move Closer",
+                        "Disable 4x to skip dialoge then re-enable",
+                        "Tidus Attack other party members until you close in",
+                        "Disable 4x to skip dialoge then re-enable",
+                        "Enable Auto Attack",
+                        "Tidus Auto Attack"
+                    ],
+                    "trailingBreak": true
+                },
+                { "type": "info", "text": "Disable Auto Attack", "trailingBreak": true },
+                {
+                    "type": "battle",
+                    "enemy": "Sin Fin Right",
+                    "guide": [ 
+                        "Any Non-Tidus Defend",
+                        "Tidus Talk: Move Closer",
+                        "Disable 4x to skip dialoge then re-enable",
+                        "Tidus Attack other party members until you close in",
+                        "Disable 4x to skip dialoge then re-enable",
+                        "Enable Auto Attack",
+                        "Tidus Auto Attack"
+                    ],
+                    "trailingBreak": true
+                },
+                {
+                    "type": "battle",
+                    "enemy": "Sinspawn Geneaux and Sin Core",
+                    "guide": [ 
+                        "Tidus Auto Attack"
+                    ],
+                    "trailingBreak": true
+                },
+                { "type": "info", "text": "Disable Auto Attack", "trailingBreak": true },
+                {
+                    "type": "battle",
+                    "enemy": "Overdrive Sin",
+                    "guide": [ 
+                        "Any Non-Tidus Defend",
+                        "Tidus Attack other party members until Sin draws you in three times",
+                        "Enable Auto Attack during third drawing in animation",
+                        "Tidus Auto Attack x2",
+                        "Any Defend"
+                    ],
+                    "trailingBreak": true
+                },
+                { "type": "info", "text": "Disable Auto Attack", "trailingBreak": true }
+            ]
+        },
+        {
+            "title": "Inside Sin",
+            "entries": [
+                { "type": "image", "image": "SpiraGPS/sin_path.png", "trailingBreak": true },
+                {
+                    "type": "battle",
+                    "enemy": "Seymour Omnis",
+                    "guide": [ 
+                        "Any ratJAM",
+                        "Tidus Armour Break",
+                        "If Armour Break hit: Tidus Quick Hit",
+                        "If Armour Break Missed or Seymour is still alive after Quick Hit: Tidus Blitzace (Must be 'Great!')"
+                    ],
+                    "trailingBreak": true
+                },
+                {
+                    "type": "battle",
+                    "enemy": "Braska's Final Aeon",
+                    "guide": [ 
+                        "Tidus Quick Hit",
+                        "Disable 4x (if you don’t do this there is a chance the game will soft lock when Tidus Talk)",
+                        "Tidus Talk to BFA",
+                        "Once dialog is finished, Enabled 4x",
+                        "Tidus Quick Hit x2"
+                    ],
+                    "trailingBreak": true
+                }
+            ]
+        },
+        {
+            "title": "On A Gigantic Floating Sword",
+            "entries": [
+                {
+                    "type": "battle",
+                    "enemy": "Aeons",
+                    "guide": [ "Any Use Shining Gem"],
+                    "trailingBreak": true
+                },
+                { "type": "info", "text": "Once the Bahamut death sequence starts, Enable Auto Attack", "trailingBreak": true },
+                {
+                    "type": "battle",
+                    "enemy": "Yu Yevon",
+                    "guide": [ "Tidus Auto Attack"],
+                    "trailingBreak": true
+                }
+            ]
+        }
+    ]
+}

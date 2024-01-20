@@ -72,7 +72,8 @@ fun RouteView(route: Route, conditionState: ConditionState, contentsState: Conte
                     guide = arrayListOf(
                         "Version history dialog",
                         "Route Editor?",
-                        "Contents Scrolling to the top of the page"
+                        "Contents Scrolling to the top of the page",
+                        "Load Local Route jsons?"
                     )
                 )
             )
