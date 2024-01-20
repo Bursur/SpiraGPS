@@ -8,7 +8,7 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import spiragps.data.Introduction
+import spiragps.data.route.Introduction
 import spiragps.style.SpiraGPSColours
 import spiragps.style.SpiraGPSText
 

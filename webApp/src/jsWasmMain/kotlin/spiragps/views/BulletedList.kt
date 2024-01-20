@@ -13,7 +13,7 @@ import androidx.compose.ui.text.style.TextIndent
 import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import spiragps.data.Entry
+import spiragps.data.route.Entry
 import spiragps.style.SpiraGPSText
 import spiragps.utils.highlightKeywords
 

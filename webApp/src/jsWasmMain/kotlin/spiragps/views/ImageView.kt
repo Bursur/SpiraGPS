@@ -4,7 +4,7 @@ import androidx.compose.foundation.Image
 import androidx.compose.runtime.Composable
 import org.jetbrains.compose.resources.ExperimentalResourceApi
 import org.jetbrains.compose.resources.painterResource
-import spiragps.data.Entry
+import spiragps.data.route.Entry
 
 @OptIn(ExperimentalResourceApi::class)
 @Composable

@@ -1,6 +1,7 @@
 import androidx.compose.runtime.*
-import spiragps.data.NavigationState
-import spiragps.data.rememberNavigationState
+import spiragps.data.destinations.SpiraDestinations
+import spiragps.data.route.NavigationState
+import spiragps.data.route.rememberNavigationState
 import spiragps.pages.EditorPage
 import spiragps.pages.LandingPage
 import spiragps.pages.LoadingPage
@@ -27,6 +28,7 @@ internal fun SpiraGPS() {
 
         LaunchedEffect(Unit) {
             SpiraGPSText.loadFonts()
+            SpiraDestinations.loadDestinations()
             loading = false
         }
     }

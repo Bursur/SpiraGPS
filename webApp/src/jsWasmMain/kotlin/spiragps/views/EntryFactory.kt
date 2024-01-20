@@ -5,7 +5,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextDecoration
-import spiragps.data.Entry
+import spiragps.data.route.Entry
 import spiragps.views.panels.BattleView
 import spiragps.views.panels.BlitzballView
 import spiragps.views.panels.CustomiseView

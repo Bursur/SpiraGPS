@@ -12,10 +12,10 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import kotlinx.serialization.json.Json
-import spiragps.data.NavigationState
-import spiragps.data.Route
-import spiragps.data.rememberConditionState
-import spiragps.data.rememberContentsState
+import spiragps.data.route.NavigationState
+import spiragps.data.route.Route
+import spiragps.data.route.rememberConditionState
+import spiragps.data.route.rememberContentsState
 import spiragps.style.SpiraGPSText
 import spiragps.utils.loadResource
 import spiragps.views.ContentsView

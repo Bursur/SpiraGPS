@@ -9,8 +9,8 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
-import spiragps.data.Condition
-import spiragps.data.ConditionState
+import spiragps.data.route.Condition
+import spiragps.data.route.ConditionState
 import spiragps.style.SpiraGPSText
 
 @Composable

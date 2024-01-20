@@ -1,6 +1,6 @@
 package spiragps.pages
 
-import androidx.compose.foundation.clickable
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.ExperimentalLayoutApi
 import androidx.compose.foundation.layout.FlowRow
@@ -13,7 +13,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import spiragps.data.NavigationState
+import spiragps.data.destinations.SpiraDestinations
+import spiragps.data.route.NavigationState
 import spiragps.pages.components.RouteSelectButton
 import spiragps.style.SpiraGPSText
 
@@ -30,13 +31,20 @@ fun LandingPage(navigationState: NavigationState) {
         )
 
         Text(
-            text = "Select a route from the list below. You can click on the titles in the route to expand and contract those sections.",
+            text = "Select your destination",
             fontFamily = SpiraGPSText.fontFamily,
             textAlign = TextAlign.Center
         )
 
-        FlowRow(maxItemsInEachRow = 3, modifier = Modifier.padding(top = 25.dp)) {
-            RouteSelectButton(routeName = "CSR Any% w/Boosters", dataUrl = "SpiraGPS/boosters.json", navigationState = navigationState)
+        FlowRow(
+            maxItemsInEachRow = 3,
+            horizontalArrangement = Arrangement.spacedBy(20.dp, Alignment.CenterHorizontally),
+            verticalArrangement = Arrangement.spacedBy(20.dp, Alignment.Top),
+            modifier = Modifier.padding(top = 25.dp)
+        ) {
+            SpiraDestinations.list.destinations.forEach {
+                RouteSelectButton(routeName = it.name, dataUrl = it.data, navigationState = navigationState)
+            }
         }
     }
 }

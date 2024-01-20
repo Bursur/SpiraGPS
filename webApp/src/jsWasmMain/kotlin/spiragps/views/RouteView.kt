@@ -20,11 +20,11 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import kotlinx.coroutines.launch
-import spiragps.data.Chapter
-import spiragps.data.ConditionState
-import spiragps.data.ContentsState
-import spiragps.data.Entry
-import spiragps.data.Route
+import spiragps.data.route.Chapter
+import spiragps.data.route.ConditionState
+import spiragps.data.route.ContentsState
+import spiragps.data.route.Entry
+import spiragps.data.route.Route
 import spiragps.style.SpiraGPSColours
 import spiragps.style.SpiraGPSText
 
@@ -70,7 +70,6 @@ fun RouteView(route: Route, conditionState: ConditionState, contentsState: Conte
                 entry = Entry(
                     text = "ToDo: (In no particular order)",
                     guide = arrayListOf(
-                        "Make the landing page load routes from a json file.",
                         "Version history dialog",
                         "Route Editor?",
                         "Contents Scrolling to the top of the page"

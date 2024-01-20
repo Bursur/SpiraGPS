@@ -1,0 +1,8 @@
+{
+    "destinations": [
+        {
+            "name": "Any% w/Boosters",
+            "data": "SpiraGPS/boosters.json"
+        }
+    ]
+}

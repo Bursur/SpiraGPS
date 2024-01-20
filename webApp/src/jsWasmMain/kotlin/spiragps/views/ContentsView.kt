@@ -13,9 +13,9 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import spiragps.data.Chapter
-import spiragps.data.ContentsState
-import spiragps.data.NavigationState
+import spiragps.data.route.Chapter
+import spiragps.data.route.ContentsState
+import spiragps.data.route.NavigationState
 import spiragps.style.SpiraGPSText
 
 @Composable

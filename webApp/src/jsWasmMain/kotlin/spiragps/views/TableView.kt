@@ -7,7 +7,7 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import spiragps.data.Entry
+import spiragps.data.route.Entry
 import spiragps.style.SpiraGPSColours
 import spiragps.style.SpiraGPSText
 

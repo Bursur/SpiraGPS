@@ -14,7 +14,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import spiragps.data.ContentsState
+import spiragps.data.route.ContentsState
 import spiragps.style.SpiraGPSColours
 import spiragps.style.SpiraGPSText
 
