@@ -47,7 +47,7 @@ fun LandingPage(navigationState: NavigationState) {
                 RouteSelectButton(routeName = it.name, dataUrl = it.data, navigationState = navigationState)
             }
 
-            LocalRouteSelectButton(navigationState)
+            //LocalRouteSelectButton(navigationState)
         }
     }
 }
