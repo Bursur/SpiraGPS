@@ -1,6 +1,6 @@
 {
     "title": "FFX Boosters% CSR - Tidus Route",
-    "keywords": ["4x", "4x", "Auto Attack", "never use Max Gil", "Full credits to Mtbanger for these notes. The notes are Mtbangers notes."],
+    "keywords": ["2x", "4x", "Auto Attack", "never use Max Gil", "Full credits to Mtbanger for these notes. The notes are Mtbangers notes."],
     "conditions": [
         { "name": "TerraSkip", "defaultState": true },
         { "name":  "Cloisters", "defaultState": false }
@@ -710,7 +710,7 @@
                 },
                 {
                     "type": "battle",
-                    "enemy": "Anima",
+                    "enemy": "Seymour",
                     "guide": [ "Tidus Auto Attack" ],
                     "trailingBreak": true
                 },
@@ -1108,6 +1108,15 @@
                         "If Armour Break Missed or Seymour is still alive after Quick Hit: Tidus Blitzace (Must be 'Great!')"
                     ],
                     "trailingBreak": true
+                },
+                { "type": "info", "text": "Nucleus is almost impossible at 4x, 2x is good compromise (even if you get a couple of encounters it’s a timesave.", "bold":  true},
+                {
+                    "type": "encounter", "trailingBreak": true,
+                    "guide": [
+                        "Enable 4x",
+                        "Tidus Flee",
+                        "Enable 2x/disable 4x after results screen"
+                    ]
                 },
                 {
                     "type": "battle",

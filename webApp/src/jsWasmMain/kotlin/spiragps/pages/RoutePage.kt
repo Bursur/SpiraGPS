@@ -13,6 +13,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import kotlinx.coroutines.delay
+import kotlinx.datetime.Clock
 import kotlinx.serialization.json.Json
 import spiragps.data.route.NavigationState
 import spiragps.data.route.Route
@@ -59,7 +60,7 @@ fun RoutePage(navigationState: NavigationState) {
         LoadingView("Calculating Route...")
 
     LaunchedEffect(Unit) {
-        val jsonString = loadResource(navigationState.selectedRouteUrl).decodeToString()
+        val jsonString = loadResource("${navigationState.selectedRouteUrl}?cb=${Clock.System.now()}").decodeToString()
         Json.decodeFromString<Route>(jsonString).let {
             SpiraGPSText.addKeywords(it.keywords)
             data = it
