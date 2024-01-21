@@ -15,6 +15,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import spiragps.data.destinations.SpiraDestinations
 import spiragps.data.route.NavigationState
+import spiragps.pages.components.LocalRouteSelectButton
 import spiragps.pages.components.RouteSelectButton
 import spiragps.style.SpiraGPSText
 
@@ -45,6 +46,8 @@ fun LandingPage(navigationState: NavigationState) {
             SpiraDestinations.list.destinations.forEach {
                 RouteSelectButton(routeName = it.name, dataUrl = it.data, navigationState = navigationState)
             }
+
+            LocalRouteSelectButton(navigationState)
         }
     }
 }

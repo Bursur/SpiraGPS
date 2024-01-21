@@ -10,7 +10,7 @@ data class Entry(
     val guide: ArrayList<String> = arrayListOf(),
     val image: String = "",
     val bold: Boolean = false,
-    val trailingBreak: Boolean = false,
+    val trailingBreak: Boolean = true,
     val minimised: Boolean = false,
     val requirement: Requirement? = null,
     val columns: Int = 1,

@@ -8,7 +8,6 @@ object SpiraDestinations {
 
     suspend fun loadDestinations() {
         val jsonString = loadResource("SpiraGPS/routes.json").decodeToString()
-        println(jsonString)
         list = Json.decodeFromString(jsonString)
     }
 }

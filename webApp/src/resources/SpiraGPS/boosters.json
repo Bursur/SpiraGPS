@@ -2,7 +2,8 @@
     "title": "FFX Boosters% CSR - Tidus Route",
     "keywords": ["4x", "4x", "Auto Attack", "never use Max Gil", "Full credits to Mtbanger for these notes. The notes are Mtbangers notes."],
     "conditions": [
-        { "name": "TerraSkip", "defaultState": true }
+        { "name": "TerraSkip", "defaultState": true },
+        { "name":  "Cloisters", "defaultState": false }
     ],
     "introduction": {
         "entries": [
@@ -228,6 +229,26 @@
             "title": "Besaid",
             "entries": [
                 {
+                    "type": "trial",
+                    "entries": [
+                        {
+                            "type": "bullets", "trailingBreak": true,
+                            "guide": [
+                                "Touch the wall at the end",
+                                "Touch the wall on the right",
+                                "Go down the steps and pickup the sphere from the wall",
+                                "Go down the steps and place the sphere in the door",
+                                "Go down the corridor past the first pedestal",
+                                "Touch the wall opposite the second pedestal to open the hidden room",
+                                "Pickup the sphere in the hidden room, place it on the second pedestal",
+                                "Push the pedestal to complete the trials"
+                            ]
+                        }
+                    ],
+                    "image": "",
+                    "requirement": { "condition": "Cloisters", "state": true }
+                },
+                {
                     "type": "battle",
                     "enemy": "Tidus and Wakka Tutorial",
                     "guide": [
@@ -327,7 +348,32 @@
                     "guide": ["Tidus Auto Attack"],
                     "trailingBreak": true
                 },
-                { "type": "info", "text": "Disable Auto Attack", "trailingBreak": false }
+                { "type": "info", "text": "Disable Auto Attack", "trailingBreak": true },
+                {
+                    "type": "trial",
+                    "entries": [
+                        {
+                            "type": "bullets", "trailingBreak": true,
+                            "guide": [
+                                "Take the sphere from the pedestal.",
+                                "Place into the door, take it out of the door.",
+                                "Place sphere into the next door, take the sphere back.",
+                                "Place the sphere into the right holder",
+                                "Touch glpyh",
+                                "Take the sphere from the next room",
+                                "Place it into the left holder",
+                                "Take the glyph sphere from the pedestal",
+                                "Place it in the Fire Room",
+                                "Take the sphere that you put into the right holder",
+                                "Use it to open the door in the Fire Room",
+                                "Take the sphere off the door",
+                                "Enter the Fayth room"
+                            ]
+                        }
+                    ],
+                    "image": "",
+                    "requirement": { "condition": "Cloisters", "state": true }
+                }
             ]
         },
         {
@@ -539,7 +585,45 @@
         {
             "title": "Djose Highroad",
             "entries":[
-                { "type": "info", "text": "Wait at the start of Highroad until you see Crusader in blue (looks like Beclam from FFX-2). Speak to him x2 and obtain Variable Steel", "trailingBreak": true }
+                { "type": "info", "text": "Wait at the start of Highroad until you see Crusader in blue (looks like Beclam from FFX-2). Speak to him x2 and obtain Variable Steel", "trailingBreak": true },
+                {
+                    "type": "trial",
+                    "entries": [
+                        {
+                            "type": "bullets", "trailingBreak": true,
+                            "guide": [
+                                "Take the sphere from the left wall",
+                                "Place into door",
+                                "Take the sphere from the right wall",
+                                "Place into door",
+                                "Take the sphere from the left wall",
+                                "Push pedestal to the right",
+                                "Put sphere into the far right wall",
+                                "Take right sphere",
+                                "Place into the far right wall",
+                                "CS",
+                                "Take sphere from far right wall",
+                                "Reset puzzle with the far left tile",
+                                "Place sphere into pedestal",
+                                "Take the pedestal sphere",
+                                "Put sphere into right wall",
+                                "Take the far right sphere",
+                                "Put into pedestal",
+                                "Push pedestal through the door",
+                                "Jump onto pedestal",
+                                "Push the second pedestal, return to main room",
+                                "Take the charged sphere from the right wall",
+                                "Place charged sphere into the left wall",
+                                "Reset",
+                                "Place the two pedestal spheres in the first left and right walls",
+                                "Go onto the lift in the center",
+                                "Push all the pedestals in, walk up the stairs"
+                            ]
+                        }
+                    ],
+                    "image": "",
+                    "requirement": { "condition": "Cloisters", "state": true }
+                }
             ]
         },
         {
@@ -631,6 +715,28 @@
                     "trailingBreak": true
                 },
                 { "type": "info", "text": "Disable Auto Attack", "trailingBreak": true },
+                {
+                    "type": "trial",
+                    "entries": [
+                        {
+                            "type": "bullets", "trailingBreak": true,
+                            "guide": [
+                                "Slide pedestal to the right",
+                                "Take sphere from the right wall, place into pedestal",
+                                "Push pedestal up",
+                                "Take Glyph sphere from middle pillar",
+                                "Go downstairs and push pedestal to the right",
+                                "Place Glyph sphere in far left slot in the wall",
+                                "Go upstairs, pick up new sphere",
+                                "Go downstairs, place sphere in pillar",
+                                "Go upstairs, take the sphere at the top of the slope",
+                                "Place in last pillar"
+                            ]
+                        }
+                    ],
+                    "image": "",
+                    "requirement": { "condition": "Cloisters", "state": true }
+                },
                 { "type": "info", "text": "CSR: Try your best to avoid a guado guard encounter here as it can cause a crash, disable 4x if needed (strongly recommended)", "bold": true, "trailingBreak": true },
                 {
                     "type": "battle",
@@ -740,6 +846,66 @@
                         "Tidus Use Dark Matter"
                     ],
                     "trailingBreak": true
+                },
+                {
+                    "type": "trial",
+                    "entries": [
+                        {
+                            "type": "bullets", "trailingBreak": true, "text": "Upper Section:",
+                            "guide": [
+                                "Push the pedestal in",
+                                "Press X",
+                                "Go left at the 2nd junction",
+                                "Take sphere, push pedestal back",
+                                "At the 3rd junction, go back (hold X)",
+                                "Go left at the 2nd junction",
+                                "Place sphere into wall, push pedestal back",
+                                "At the 3rd junction, go back (hold X)",
+                                "Go left at the 1st junction"
+                            ]
+                        },
+                        {
+                            "type": "bullets", "trailingBreak": true, "text": "Lower Section (1st Visit):",
+                            "guide": [
+                                "The platform will automatically stop at the 1st junction",
+                                "After the platform stops, press X the 2nd time the arrow is pointing left",
+                                "Go right at the 3rd junction (hold X after the 2nd junction)",
+                                "Take Glyph sphere from wall, push pedestal back",
+                                "At the 4th junction go right (hold X)",
+                                "Place Glyph sphere into pedestal",
+                                "Take Bevelle sphere from pedestal",
+                                "Place Bevelle sphere into the wall",
+                                "Take the Glyph sphere",
+                                "Place Glyph sphere into the next wall",
+                                "Take Destruction sphere from the new wall",
+                                "Place Destruction sphere on the pedestal",
+                                "Take Bevelle sphere from the wall",
+                                "Push pedestal back and fall off the edge"
+                            ]
+                        },
+                        {
+                            "type": "bullets", "trailingBreak": true, "text": "Lower Section (2nd Visit):",
+                            "guide": [
+                                "Go straight (hold X)",
+                                "At the 3rd junction go right (hold X after the 2nd junction)",
+                                "Place Bevelle sphere on the pedestal",
+                                "Take Destruction sphere from the pedestal",
+                                "Place Destruction sphere into wall",
+                                "Push pedestal back and fall off the edge"
+                            ]
+                        },
+                        {
+                            "type": "bullets", "trailingBreak": true, "text": "Lower Section (3rd Visit):",
+                            "guide": [
+                                "Go straight",
+                                "At the 2nd junction go right (hold X)",
+                                "Push pedestal",
+                                "Go up the stairs, open the chest"
+                            ]
+                        }
+                    ],
+                    "image": "",
+                    "requirement": { "condition": "Cloisters", "state": true }
                 },
                 {
                     "type": "battle",
