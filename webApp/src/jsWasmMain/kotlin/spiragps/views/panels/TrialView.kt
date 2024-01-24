@@ -16,7 +16,7 @@ fun TrialsView(entry: Entry) {
         Column(modifier = Modifier.padding(vertical = 30.dp, horizontal = 40.dp)) {
             entry.entries.forEach { entry: Entry ->
                 Column {
-                    createEntry(entry)
+                    createEntry(entry = entry)
 
                     if (entry.trailingBreak)
                         Divider(

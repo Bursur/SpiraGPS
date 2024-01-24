@@ -41,7 +41,7 @@ fun ChapterView(chapter: Chapter, conditionState: ConditionState, titlePositionC
 
                     AnimatedVisibility(visible = showEntry) {
                         Column {
-                            createEntry(entry)
+                            createEntry(entry = entry)
 
                             if (entry.trailingBreak)
                                 Divider(

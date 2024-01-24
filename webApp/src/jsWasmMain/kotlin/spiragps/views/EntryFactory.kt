@@ -2,6 +2,7 @@ package spiragps.views
 
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextDecoration
@@ -17,9 +18,9 @@ import spiragps.views.panels.SphereGridView
 import spiragps.views.panels.TrialsView
 
 @Composable
-fun createEntry(entry: Entry) {
+fun createEntry(modifier: Modifier = Modifier, entry: Entry) {
     return when(entry.type) {
-        "info" -> InfoView(entry)
+        "info" -> InfoView(entry = entry, modifier = modifier)
         "battle" -> BattleView(entry)
         "encounter" -> EncounterView(entry)
         "trial" -> TrialsView(entry)
@@ -30,7 +31,7 @@ fun createEntry(entry: Entry) {
         "customise" -> CustomiseView(entry)
         "blitzball" -> BlitzballView(entry)
         "bullets" -> BulletedList(entry)
-        "image" -> ImageView(entry)
+        "image" -> ImageView(entry = entry, modifier = modifier)
         "table" -> TableView(entry)
         else -> Text("Unknown Entry Type", fontWeight = FontWeight.Bold, color = Color.Red, textDecoration = TextDecoration.Underline)
     }

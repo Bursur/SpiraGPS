@@ -12,11 +12,11 @@ import spiragps.style.SpiraGPSText
 import spiragps.utils.highlightKeywords
 
 @Composable
-fun InfoView(entry: Entry) {
+fun InfoView(modifier: Modifier = Modifier, entry: Entry) {
     Text(
         text = highlightKeywords(entry.text),
         fontFamily = SpiraGPSText.fontFamily,
         fontWeight = if (entry.bold) FontWeight.Bold else FontWeight.Normal,
-        modifier = Modifier.fillMaxWidth().padding(bottom = 5.dp)
+        modifier = modifier.fillMaxWidth().padding(bottom = 5.dp)
     )
 }

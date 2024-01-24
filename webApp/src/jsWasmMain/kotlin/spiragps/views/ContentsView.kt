@@ -9,6 +9,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
@@ -17,6 +18,7 @@ import spiragps.data.route.Chapter
 import spiragps.data.route.ContentsState
 import spiragps.data.route.NavigationState
 import spiragps.style.SpiraGPSText
+import spiragps.views.components.BackButton
 
 @Composable
 fun ContentsView(modifier: Modifier = Modifier, chapters: ArrayList<Chapter>, contentsState: ContentsState, navigationState: NavigationState) {
@@ -27,15 +29,7 @@ fun ContentsView(modifier: Modifier = Modifier, chapters: ArrayList<Chapter>, co
     ) {
 
         // Back Button
-        Text(
-            text = "← Back",
-            fontWeight = FontWeight.Bold,
-            fontSize = 20.sp,
-            fontFamily = SpiraGPSText.fontFamily,
-            modifier = Modifier
-                .padding(bottom = 20.dp)
-                .clickable { navigationState.currentPage = NavigationState.LANDING }
-        )
+        BackButton(navigationState = navigationState)
 
         // Title
         Text(text = "Chapters:", fontWeight = FontWeight.Bold, fontSize = 20.sp, fontFamily = SpiraGPSText.fontFamily)

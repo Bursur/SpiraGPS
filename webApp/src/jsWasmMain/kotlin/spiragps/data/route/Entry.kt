@@ -43,5 +43,5 @@ data class Entry(
     // Use guide (more formatting options?)
 
     // Customise
-    val item: String = "",
+    val item: String = ""
 )

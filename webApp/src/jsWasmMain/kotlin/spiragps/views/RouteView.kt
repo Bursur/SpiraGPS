@@ -79,7 +79,11 @@ fun RouteView(route: Route, conditionState: ConditionState, contentsState: Conte
                     text = "ToDo: (In no particular order)",
                     guide = arrayListOf(
                         "Route Editor",
-                        "Load Local Route json file, if possible"
+                        "Load Local Route json file, if possible",
+                        "Bursur's notes toggle",
+                        "Hints Panel",
+                        "Hints toggle",
+                        "Add Hints panel for Terra SKip"
                     )
                 )
             )

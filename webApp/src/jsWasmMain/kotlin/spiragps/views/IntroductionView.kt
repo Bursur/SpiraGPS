@@ -16,7 +16,7 @@ import spiragps.style.SpiraGPSText
 fun IntroductionView(intro: Introduction) {
     Column(modifier = Modifier.fillMaxWidth().padding(bottom = 5.dp)) {
         intro.entries.forEach {
-            createEntry(it)
+            createEntry(entry = it)
 
             if (it.trailingBreak)
                 Divider(color = SpiraGPSColours.background, thickness = 15.dp)

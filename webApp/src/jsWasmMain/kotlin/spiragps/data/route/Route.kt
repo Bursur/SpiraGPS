@@ -4,10 +4,10 @@ import kotlinx.serialization.Serializable
 
 @Serializable
 data class Route(
-    val title: String = "",
-    val introduction: Introduction = Introduction(),
-    val keywords: ArrayList<String> = arrayListOf(),
-    val chapters: ArrayList<Chapter> = arrayListOf(),
+    var title: String = "",
+    var introduction: Introduction = Introduction(),
+    var keywords: ArrayList<String> = arrayListOf(),
+    var chapters: ArrayList<Chapter> = arrayListOf(),
 
-    val conditions: ArrayList<Condition> = arrayListOf()
+    var conditions: ArrayList<Condition> = arrayListOf()
 )
