@@ -67,31 +67,6 @@ fun RouteView(route: Route, conditionState: ConditionState, contentsState: Conte
                     titlePositions[name] = position
                 }
             }
-
-            // TODO LIST REMOVE THIS!!
-            Divider(
-                color = SpiraGPSColours.background,
-                modifier = Modifier.padding(vertical = 50.dp)
-            )
-
-            BulletedList(
-                entry = Entry(
-                    text = "ToDo: (In no particular order)",
-                    guide = arrayListOf(
-                        "Route Editor",
-                        "Load Local Route json file, if possible",
-                        "Bursur's notes toggle",
-                        "Hints Panel",
-                        "Hints toggle",
-                        "Add Hints panel for Terra SKip"
-                    )
-                )
-            )
-
-            Divider(
-                color = SpiraGPSColours.background,
-                modifier = Modifier.padding(vertical = 50.dp)
-            )
         }
 
         SmallFloatingActionButton(

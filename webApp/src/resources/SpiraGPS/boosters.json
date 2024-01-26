@@ -3,7 +3,9 @@
     "keywords": ["2x", "4x", "Auto Attack", "never use Max Gil", "Full credits to Mtbanger for these notes. The notes are Mtbangers notes."],
     "conditions": [
         { "name": "TerraSkip", "defaultState": true },
-        { "name":  "Cloisters", "defaultState": false }
+        { "name":  "Cloisters", "defaultState": false },
+        { "name":  "Tips", "defaultState": false },
+        { "name":  "Bursur's Bits", "defaultState": false }
     ],
     "introduction": {
         "entries": [
@@ -555,7 +557,17 @@
                         "Yuna Auto Attack",
                         "No little hop (Sorry, khaegar)"
                     ],
-                    "trailingBreak": true
+                    "trailingBreak": true,
+                    "requirement": { "condition": "Bursur's Bits", "state": true }
+                },
+                {
+                    "type": "battle",
+                    "enemy": "Chocobo Eater",
+                    "guide": [
+                        "Tidus Use Dark Matter"
+                    ],
+                    "trailingBreak": true,
+                    "requirement": { "condition": "Bursur's Bits", "state": false }
                 },
                 { "type": "info", "text": "Disable Auto Attack", "trailingBreak": true },
                 { "type": "info", "text": "Talk to Chocobo Lady", "trailingBreak": true }
@@ -765,7 +777,19 @@
                         "Disable 4x to skip dialoge then re-enable",
                         "Any Flee"
                     ],
-                    "trailingBreak": true
+                    "trailingBreak": true,
+                    "requirement": { "condition": "Bursur's Bits", "state": false }
+                },
+                {
+                    "type": "battle",
+                    "enemy": "Zu",
+                    "guide": [
+                        "Tidus Auto Attack x2",
+                        "Wait until Zu death animation is almost complete",
+                        "Disable 4x to skip dialoge then re-enable"
+                    ],
+                    "trailingBreak": true,
+                    "requirement": { "condition": "Bursur's Bits", "state": true }
                 },
                 {
                     "type": "battle",

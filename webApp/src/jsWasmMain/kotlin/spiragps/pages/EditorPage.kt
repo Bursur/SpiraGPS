@@ -1,5 +1,7 @@
 package spiragps.pages
 
+import androidx.compose.foundation.ExperimentalFoundationApi
+import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.gestures.Orientation
 import androidx.compose.foundation.gestures.scrollable
@@ -16,6 +18,7 @@ import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.Checkbox
+import androidx.compose.material.Divider
 import androidx.compose.material.Surface
 import androidx.compose.material.Text
 import androidx.compose.material.TextButton
@@ -34,6 +37,7 @@ import androidx.compose.runtime.key
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
@@ -49,6 +53,7 @@ import spiragps.views.editor.EntryEditorButton
 import spiragps.views.editor.TitleEditor
 import spiragps.views.editor.createEditorPanel
 
+@OptIn(ExperimentalFoundationApi::class)
 @Composable
 fun EditorPage(navigationState: NavigationState) {
     val editorState = rememberEditorState()
@@ -63,37 +68,55 @@ fun EditorPage(navigationState: NavigationState) {
             modifier = Modifier.align(Alignment.TopStart).padding(all = 10.dp)
         )
 
-        Column(
-            horizontalAlignment = Alignment.CenterHorizontally,
-            modifier = Modifier
-                .fillMaxWidth(0.6f)
-                .align(Alignment.TopCenter)
-                .padding(top = 25.dp)
-                .verticalScroll(state = scrollState, enabled = true)
-        ) {
-            // Title
-            TitleEditor(title = title) {
-                title = it
-                route.title = it
-            }
+        key(editorState.updateCounter) {
+            LazyColumn(
+                horizontalAlignment = Alignment.CenterHorizontally,
+                modifier = Modifier
+                    .fillMaxWidth(0.6f)
+                    .align(Alignment.TopCenter)
+                    .padding(top = 25.dp)
+                //.verticalScroll(state = scrollState, enabled = true)
+            ) {
+                // Title
+                item {
+                    TitleEditor(title = title) {
+                        title = it
+                        route.title = it
+                    }
+                    Divider(color = SpiraGPSColours.infoBackground, modifier = Modifier.padding(vertical = 10.dp))
+                }
 
-            key(editorState.updateCounter) {
+                stickyHeader { StickyHeader("Introduction") }
+
                 // Intro
-                route.introduction.entries.forEach {
+                items(route.introduction.entries) {
                     createEntry(entry = it)
                 }
 
-                EntryEditorButton(entry = Entry()) {
-                    if (it != null) {
-                        route.introduction.entries.add(it)
-                        ++editorState.updateCounter
+                item {
+                    EntryEditorButton(entry = Entry()) {
+                        if (it != null) {
+                            route.introduction.entries.add(it)
+                            ++editorState.updateCounter
+                        }
                     }
+                    Divider(color = SpiraGPSColours.infoBackground, modifier = Modifier.padding(vertical = 10.dp))
                 }
 
                 // Chapters
+                stickyHeader { StickyHeader("Chapters") }
                 // ---> Entries
             }
         }
     }
+}
+
+@Composable
+private fun StickyHeader(title: String) {
+    Text(
+        text = title,
+        fontFamily = SpiraGPSText.fontFamily,
+        modifier = Modifier.fillMaxWidth().background(SpiraGPSColours.background).alpha(.5f)
+    )
 }
 

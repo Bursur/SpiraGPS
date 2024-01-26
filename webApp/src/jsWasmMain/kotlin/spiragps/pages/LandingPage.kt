@@ -6,6 +6,7 @@ import androidx.compose.foundation.layout.ExperimentalLayoutApi
 import androidx.compose.foundation.layout.FlowRow
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.material.Divider
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -14,11 +15,14 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import spiragps.data.destinations.SpiraDestinations
+import spiragps.data.route.Entry
 import spiragps.data.route.NavigationState
 import spiragps.pages.components.EditorSelectButton
 import spiragps.pages.components.LocalRouteSelectButton
 import spiragps.pages.components.RouteSelectButton
+import spiragps.style.SpiraGPSColours
 import spiragps.style.SpiraGPSText
+import spiragps.views.BulletedList
 
 @OptIn(ExperimentalLayoutApi::class)
 @Composable
@@ -51,5 +55,25 @@ fun LandingPage(navigationState: NavigationState) {
             //LocalRouteSelectButton(navigationState)
             EditorSelectButton(navigationState)
         }
+
+        // TODO LIST REMOVE THIS!!
+        Divider(
+            color = SpiraGPSColours.infoBackground,
+            modifier = Modifier.padding(vertical = 10.dp)
+        )
+
+        BulletedList(
+            entry = Entry(
+                text = "ToDo: (In no particular order)",
+                guide = arrayListOf(
+                    "Route Editor",
+                    "Load Local Route json file, if possible",
+                    "Hints Panel",
+                    "Add Hints panel for Terra Skip",
+                    "Add cloister section for Gagazet",
+                    "DRAG AND DROP!!"
+                )
+            )
+        )
     }
 }

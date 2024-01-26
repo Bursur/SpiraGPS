@@ -71,6 +71,11 @@ object SpiraGPSColours {
     val fabBackgroundColour = Color(0xFFD3D3D3)
     val fabIconColour = Color(0xFF414A4C)
 
+    val toggleSelectedTrackColour = Color(0xFF77DD77)
+    val toggleUnselectedTrackColour = Color(0xFFFF8080)
+    val toggleSelectedThumbColour = Color(0xFFD3D3D3)
+    val toggleUnselectedThumbColour = Color(0xFFD3D3D3)
+
     val loadingColour = Color(0xFFAEC6CF)
     val loadingTrack = Color(0xFFCFCFC4)
     val loadingText = Color(0xFFAEC6CF)
