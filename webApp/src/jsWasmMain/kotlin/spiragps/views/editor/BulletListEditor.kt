@@ -10,6 +10,7 @@ import androidx.compose.material.Checkbox
 import androidx.compose.material.Text
 import androidx.compose.material.TextButton
 import androidx.compose.material.TextField
+import androidx.compose.material.TextFieldDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.key
@@ -24,7 +25,10 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import spiragps.data.route.Entry
+import spiragps.style.SpiraGPSColours
 import spiragps.style.SpiraGPSText
+
+private fun makeEntry(entries: ArrayList<String>, title: String, isBold: Boolean): Entry = Entry(type = "bullets", guide = entries, text = title, bold = isBold)
 
 @Composable
 fun BulletEditorPanel(entry: Entry, onUpdated: (Entry) -> Unit) {
@@ -51,8 +55,13 @@ fun BulletEditorPanel(entry: Entry, onUpdated: (Entry) -> Unit) {
             value = title,
             onValueChange = {
                 title = it
-                onUpdated(Entry(type = "bullets", guide = entries, text = title, bold = isBold))
+                onUpdated(makeEntry(entries, title, isBold))
             },
+            colors = TextFieldDefaults.textFieldColors(
+                cursorColor = SpiraGPSColours.text,
+                backgroundColor = SpiraGPSColours.infoBackground,
+                focusedIndicatorColor = SpiraGPSColours.toggleSelectedTrackColour
+            ),
             textStyle = TextStyle(
                 fontFamily = SpiraGPSText.fontFamily,
                 fontWeight = if (isBold) FontWeight.Bold else FontWeight.Normal
@@ -81,7 +90,12 @@ fun BulletEditorPanel(entry: Entry, onUpdated: (Entry) -> Unit) {
                 onValueChange = {
                     newPoint = it
                 },
-                textStyle = TextStyle(fontFamily = SpiraGPSText.fontFamily,),
+                colors = TextFieldDefaults.textFieldColors(
+                    cursorColor = SpiraGPSColours.text,
+                    backgroundColor = SpiraGPSColours.infoBackground,
+                    focusedIndicatorColor = SpiraGPSColours.toggleSelectedTrackColour
+                ),
+                textStyle = TextStyle(fontFamily = SpiraGPSText.fontFamily),
                 placeholder = {
                     Text(
                         text = "Enter New Point...",
@@ -89,14 +103,14 @@ fun BulletEditorPanel(entry: Entry, onUpdated: (Entry) -> Unit) {
                         modifier = Modifier.fillMaxWidth()
                     )
                 },
-                modifier = Modifier.weight(1f)
+                modifier = Modifier.weight(1f).padding(end = 5.dp)
             )
 
             TextButton(
                 onClick = {
                     entries.add(newPoint)
                     newPoint = ""
-                    onUpdated(Entry(type = "bullets", guide = entries, text = title, bold = isBold))
+                    onUpdated(makeEntry(entries, title, isBold))
                 }
             ) {
                 Text(text = "Add", style = TextStyle(fontFamily = SpiraGPSText.fontFamily, color = Color.Black))

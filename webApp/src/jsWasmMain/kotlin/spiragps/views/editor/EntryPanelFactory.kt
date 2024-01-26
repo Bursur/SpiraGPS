@@ -13,7 +13,7 @@ fun createEditorPanel(entry: Entry, onUpdate: (Entry) -> Unit) {
         "info" -> InfoEditorPanel(entry = entry, onUpdated = onUpdate)
         "image" -> ImageEditorPanel(entry = entry, onUpdated = onUpdate)
         "bullets" -> BulletEditorPanel(entry = entry, onUpdated = onUpdate)
-        //"table" ->
+        "table" -> TableEditorPanel(entry = entry, onUpdated = onUpdate)
         else -> Text("Unknown Editor Type", fontWeight = FontWeight.Bold, color = Color.Red, textDecoration = TextDecoration.Underline)
     }
 }

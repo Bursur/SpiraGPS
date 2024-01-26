@@ -44,7 +44,7 @@ fun EntryEditorButton(modifier: Modifier = Modifier, entry: Entry, onDismiss: (E
         contentColor = SpiraGPSColours.fabIconColour,
         modifier = modifier
     ) {
-        Text(text = "Entry Editor", fontFamily = SpiraGPSText.fontFamily)
+        Text(text = "Add Entry", fontFamily = SpiraGPSText.fontFamily)
     }
 
     if(openAlertDialog)
@@ -59,7 +59,7 @@ fun EntryEditor(sourceEntry: Entry, onDismiss: (Entry?) -> Unit) {
     var entry by remember { mutableStateOf(sourceEntry) }
 
     Dialog(
-        onDismissRequest = { onDismiss(entry) },
+        onDismissRequest = { onDismiss(null) },
     ) {
         var selectedEntryType by remember { mutableStateOf("info") }
         var entryTypeExpanded by remember { mutableStateOf(false) }

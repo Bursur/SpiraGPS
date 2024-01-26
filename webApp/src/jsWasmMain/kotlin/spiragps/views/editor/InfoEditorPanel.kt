@@ -7,6 +7,8 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.material.Checkbox
 import androidx.compose.material.Text
 import androidx.compose.material.TextField
+import androidx.compose.material.TextFieldColors
+import androidx.compose.material.TextFieldDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -19,6 +21,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import spiragps.data.route.Entry
+import spiragps.style.SpiraGPSColours
 import spiragps.style.SpiraGPSText
 
 @Composable
@@ -44,6 +47,11 @@ fun InfoEditorPanel(entry: Entry, onUpdated: (Entry) -> Unit) {
             Text(text = "Text:", fontFamily = SpiraGPSText.fontFamily, fontSize = 20.sp)
             TextField(
                 value = infoText,
+                colors = TextFieldDefaults.textFieldColors(
+                    cursorColor = SpiraGPSColours.text,
+                    backgroundColor = SpiraGPSColours.infoBackground,
+                    focusedIndicatorColor = SpiraGPSColours.toggleSelectedTrackColour
+                ),
                 onValueChange = {
                     infoText = it
                     onUpdated(Entry(text = infoText, bold = isBold, type = "info"))

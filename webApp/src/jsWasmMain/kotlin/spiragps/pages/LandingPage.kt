@@ -68,10 +68,11 @@ fun LandingPage(navigationState: NavigationState) {
                 guide = arrayListOf(
                     "Route Editor",
                     "Load Local Route json file, if possible",
-                    "Hints Panel",
+                    "Create Hints Panel Entry",
                     "Add Hints panel for Terra Skip",
                     "Add cloister section for Gagazet",
-                    "DRAG AND DROP!!"
+                    "DRAGON DROP!!",
+                    "BUG: Tables HAVE to have entries totaling a multiple of 2, this shouldn't be the case"
                 )
             )
         )
