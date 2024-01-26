@@ -17,7 +17,6 @@ import spiragps.data.route.Entry
 import spiragps.style.SpiraGPSText
 import spiragps.utils.highlightKeywords
 
-private const val BULLET_CHAR = "\u2022"
 private val paragraphStyle = ParagraphStyle(textIndent = TextIndent(restLine = 12.sp), lineHeight = 24.sp)
 
 @Composable
@@ -30,7 +29,7 @@ fun BulletedList(entry: Entry) {
             buildAnnotatedString {
                 entry.guide.forEach {
                     withStyle(paragraphStyle) {
-                        append(BULLET_CHAR)
+                        append(SpiraGPSText.BULLET_CHAR)
                         append(" ")
                         append(highlightKeywords(it))
                     }
@@ -52,7 +51,7 @@ fun BulletedList(title: String = "", points: ArrayList<String>) {
             buildAnnotatedString {
                 points.forEach {
                     withStyle(paragraphStyle) {
-                        append(BULLET_CHAR)
+                        append(SpiraGPSText.BULLET_CHAR)
                         append(" ")
                         append(highlightKeywords(it))
                     }

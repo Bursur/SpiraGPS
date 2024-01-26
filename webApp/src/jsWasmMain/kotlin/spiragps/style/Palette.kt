@@ -15,6 +15,8 @@ import spiragps.utils.loadResource
 object SpiraGPSText {
     var fontFamily: FontFamily? = null
 
+    const val BULLET_CHAR = "\u2022"
+
     suspend fun loadFonts() {
         fontFamily = FontFamily(
             Font(

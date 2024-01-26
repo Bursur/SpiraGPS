@@ -18,9 +18,9 @@ import spiragps.views.panels.SphereGridView
 import spiragps.views.panels.TrialsView
 
 @Composable
-fun createEntry(modifier: Modifier = Modifier, entry: Entry) {
+fun createEntry(entry: Entry) {
     return when(entry.type) {
-        "info" -> InfoView(entry = entry, modifier = modifier)
+        "info" -> InfoView(entry)
         "battle" -> BattleView(entry)
         "encounter" -> EncounterView(entry)
         "trial" -> TrialsView(entry)
@@ -31,7 +31,7 @@ fun createEntry(modifier: Modifier = Modifier, entry: Entry) {
         "customise" -> CustomiseView(entry)
         "blitzball" -> BlitzballView(entry)
         "bullets" -> BulletedList(entry)
-        "image" -> ImageView(entry = entry, modifier = modifier)
+        "image" -> ImageView(entry)
         "table" -> TableView(entry)
         else -> Text("Unknown Entry Type", fontWeight = FontWeight.Bold, color = Color.Red, textDecoration = TextDecoration.Underline)
     }

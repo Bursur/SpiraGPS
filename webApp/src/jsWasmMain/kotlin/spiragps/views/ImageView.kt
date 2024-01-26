@@ -9,10 +9,9 @@ import spiragps.data.route.Entry
 
 @OptIn(ExperimentalResourceApi::class)
 @Composable
-fun ImageView(modifier: Modifier = Modifier, entry: Entry) {
+fun ImageView(entry: Entry) {
     Image(
         painter = painterResource(entry.image),
-        contentDescription = "",
-        modifier = modifier
+        contentDescription = ""
     )
 }

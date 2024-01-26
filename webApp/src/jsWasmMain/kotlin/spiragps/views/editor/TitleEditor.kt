@@ -15,7 +15,7 @@ import spiragps.style.SpiraGPSColours
 import spiragps.style.SpiraGPSText
 
 @Composable
-fun TitleEditor(modifier: Modifier = Modifier, title: String, onValueChange: (String) -> Unit) {
+fun TitleEditor(title: String, onValueChange: (String) -> Unit) {
     TextField(
         value = title,
         onValueChange = {

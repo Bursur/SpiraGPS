@@ -1,5 +1,7 @@
 package spiragps.views.editor
 
+import androidx.compose.animation.Crossfade
+import androidx.compose.animation.animateContentSize
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -71,7 +73,7 @@ fun EntryEditor(sourceEntry: Entry, onDismiss: (Entry?) -> Unit) {
         Surface(elevation = 5.dp, shape = RoundedCornerShape(20.dp), color = SpiraGPSColours.background) {
             Column(
                 horizontalAlignment = Alignment.CenterHorizontally,
-                modifier = Modifier.fillMaxWidth(0.9f).wrapContentHeight().padding(10.dp)
+                modifier = Modifier.fillMaxWidth(0.9f).wrapContentHeight().padding(10.dp).animateContentSize()
             ) {
                 Text(text= "Edit Entry", fontFamily = SpiraGPSText.fontFamily, fontSize = 35.sp, fontWeight = FontWeight.Bold, modifier = Modifier.padding(bottom = 15.dp))
 
@@ -98,8 +100,10 @@ fun EntryEditor(sourceEntry: Entry, onDismiss: (Entry?) -> Unit) {
                 }
 
                 // Entry Editor Panel
-                createEditorPanel(Entry(type = selectedEntryType)) {
-                    entry = it
+                Crossfade(targetState = selectedEntryType) {
+                    createEditorPanel(Entry(type = selectedEntryType)) {
+                        entry = it
+                    }
                 }
 
                 // Save Button

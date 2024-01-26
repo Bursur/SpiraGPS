@@ -36,7 +36,7 @@ fun EditorSelectButton(navigationState: NavigationState) {
                 }
         ) {
             Image(
-                painter = painterResource("SpiraGPS/placeholder-map.jpg"),
+                painter = painterResource("SpiraGPS/editor.png"),
                 contentDescription = ""
             )
 
