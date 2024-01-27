@@ -93,7 +93,7 @@ fun EditorPage(navigationState: NavigationState) {
                 }
 
                 item {
-                    EntryEditorButton(entry = Entry()) {
+                    EntryEditorButton(entry = Entry(type = "info")) {
                         if (it != null) {
                             route.introduction.entries.add(it)
                             ++editorState.updateCounter
@@ -106,9 +106,7 @@ fun EditorPage(navigationState: NavigationState) {
                 stickyHeader { StickyHeader("Chapters") }
 
                 items(route.chapters) {
-                    ChapterEditor(it) {
-
-                    }
+                    ChapterEditor(it)
                 }
 
                 item {

@@ -25,7 +25,7 @@ import spiragps.style.SpiraGPSColours
 import spiragps.style.SpiraGPSText
 
 @Composable
-fun InfoEditorPanel(entry: Entry, onUpdated: (Entry) -> Unit) {
+fun InfoEditorPanel(entry: Entry) {
     var infoText by remember { mutableStateOf(entry.text) }
     var isBold by remember { mutableStateOf(entry.bold) }
 
@@ -38,7 +38,7 @@ fun InfoEditorPanel(entry: Entry, onUpdated: (Entry) -> Unit) {
             Text(text = "Bold:", fontFamily = SpiraGPSText.fontFamily, fontSize = 20.sp)
             Checkbox(checked = isBold, onCheckedChange = {
                 isBold = it
-                onUpdated(Entry(text = infoText, bold = isBold, type = "info"))
+                entry.bold = isBold
             })
         }
 
@@ -54,7 +54,7 @@ fun InfoEditorPanel(entry: Entry, onUpdated: (Entry) -> Unit) {
                 ),
                 onValueChange = {
                     infoText = it
-                    onUpdated(Entry(text = infoText, bold = isBold, type = "info"))
+                    entry.text = infoText
                 },
                 textStyle = TextStyle(
                     fontFamily = SpiraGPSText.fontFamily,

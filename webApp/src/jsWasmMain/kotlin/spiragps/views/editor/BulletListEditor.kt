@@ -28,10 +28,8 @@ import spiragps.data.route.Entry
 import spiragps.style.SpiraGPSColours
 import spiragps.style.SpiraGPSText
 
-private fun makeEntry(entries: ArrayList<String>, title: String, isBold: Boolean): Entry = Entry(type = "bullets", guide = entries, text = title, bold = isBold)
-
 @Composable
-fun BulletEditorPanel(entry: Entry, onUpdated: (Entry) -> Unit) {
+fun BulletEditorPanel(entry: Entry) {
     val entries: ArrayList<String> by remember { mutableStateOf(entry.guide) }
     var newPoint by remember { mutableStateOf("") }
     var isBold by remember { mutableStateOf(entry.bold) }
@@ -46,7 +44,7 @@ fun BulletEditorPanel(entry: Entry, onUpdated: (Entry) -> Unit) {
             Text(text = "Bold:", fontFamily = SpiraGPSText.fontFamily, fontSize = 20.sp)
             Checkbox(checked = isBold, onCheckedChange = {
                 isBold = it
-                onUpdated(Entry(type = "bullets", guide = entries, text = title, bold = isBold))
+                entry.bold = isBold
             })
         }
 
@@ -55,7 +53,7 @@ fun BulletEditorPanel(entry: Entry, onUpdated: (Entry) -> Unit) {
             value = title,
             onValueChange = {
                 title = it
-                onUpdated(makeEntry(entries, title, isBold))
+                entry.text = title
             },
             colors = TextFieldDefaults.textFieldColors(
                 cursorColor = SpiraGPSColours.text,
@@ -110,7 +108,7 @@ fun BulletEditorPanel(entry: Entry, onUpdated: (Entry) -> Unit) {
                 onClick = {
                     entries.add(newPoint)
                     newPoint = ""
-                    onUpdated(makeEntry(entries, title, isBold))
+                    entry.guide = entries
                 }
             ) {
                 Text(text = "Add", style = TextStyle(fontFamily = SpiraGPSText.fontFamily, color = Color.Black))

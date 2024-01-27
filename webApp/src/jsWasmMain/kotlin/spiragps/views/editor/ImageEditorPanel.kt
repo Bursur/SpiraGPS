@@ -26,7 +26,7 @@ import spiragps.style.SpiraGPSText
 
 @OptIn(ExperimentalResourceApi::class)
 @Composable
-fun ImageEditorPanel(entry: Entry, onUpdated: (Entry) -> Unit) {
+fun ImageEditorPanel(entry: Entry) {
     var url by remember { mutableStateOf(entry.image) }
 
     Column {
@@ -37,7 +37,7 @@ fun ImageEditorPanel(entry: Entry, onUpdated: (Entry) -> Unit) {
                 value = url,
                 onValueChange = {
                     url = it
-                    onUpdated(Entry(image = url, type = "image"))
+                    entry.image = url
                 },
                 colors = TextFieldDefaults.textFieldColors(
                     cursorColor = SpiraGPSColours.text,

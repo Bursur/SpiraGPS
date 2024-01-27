@@ -6,14 +6,15 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextDecoration
 import spiragps.data.route.Entry
+import spiragps.style.SpiraGPSText
 
 @Composable
-fun createEditorPanel(entry: Entry, onUpdate: (Entry) -> Unit) {
+fun createEditorPanel(entry: Entry) {
     return when(entry.type) {
-        "info" -> InfoEditorPanel(entry = entry, onUpdated = onUpdate)
-        "image" -> ImageEditorPanel(entry = entry, onUpdated = onUpdate)
-        "bullets" -> BulletEditorPanel(entry = entry, onUpdated = onUpdate)
-        "table" -> TableEditorPanel(entry = entry, onUpdated = onUpdate)
-        else -> Text("Unknown Editor Type", fontWeight = FontWeight.Bold, color = Color.Red, textDecoration = TextDecoration.Underline)
+        "info" -> InfoEditorPanel(entry = entry)
+        "image" -> ImageEditorPanel(entry = entry)
+        "bullets" -> BulletEditorPanel(entry = entry)
+        "table" -> TableEditorPanel(entry = entry)
+        else -> Text("Select an Entry type", fontFamily = SpiraGPSText.fontFamily, fontWeight = FontWeight.Bold)
     }
 }

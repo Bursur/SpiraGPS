@@ -68,9 +68,9 @@ fun LandingPage(navigationState: NavigationState) {
                 guide = arrayListOf(
                     "Editor: Load and Save",
                     "Editor: Drag and Drop",
-                    "Editor: Chapters",
                     "Editor: Panels",
                     "Editor: Conditions",
+                    "Editor: Make the entries editable",
                     "Editor: Make it pretty",
                     "Routes: Load Local Route json file. if possible",
                     "Routes: Multiple Conditions",

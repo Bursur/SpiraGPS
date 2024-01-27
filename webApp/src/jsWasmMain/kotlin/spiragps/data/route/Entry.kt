@@ -5,30 +5,30 @@ import kotlinx.serialization.Serializable
 @Serializable
 data class Entry(
     // Misc.
-    val type: String = "",
-    val entries: ArrayList<Entry> = arrayListOf(),
-    val guide: ArrayList<String> = arrayListOf(),
-    val image: String = "",
-    val bold: Boolean = false,
-    val trailingBreak: Boolean = true,
-    val minimised: Boolean = false,
-    val requirement: Requirement? = null,
-    val columns: Int = 1,
+    var type: String = "",
+    var entries: ArrayList<Entry> = arrayListOf(),
+    var guide: ArrayList<String> = arrayListOf(),
+    var image: String = "",
+    var bold: Boolean = false,
+    var trailingBreak: Boolean = true,
+    var minimised: Boolean = false,
+    var requirement: Requirement = Requirement(),
+    var columns: Int = 1,
 
     // Info
-    val text: String = "",
+    var text: String = "",
 
     // Battle
-    val enemy: String = "",
-    val health: Int = 0,
+    var enemy: String = "",
+    var health: Int = 0,
 
     // Trial
     // Use image and guide
 
     // Shop
-    val cost: Int = 0,
-    val buy: ArrayList<String> = arrayListOf(),
-    val sell: ArrayList<String> = arrayListOf(),
+    var cost: Int = 0,
+    var buy: ArrayList<String> = arrayListOf(),
+    var sell: ArrayList<String> = arrayListOf(),
 
     // Equipment
     // Use guide
@@ -43,5 +43,5 @@ data class Entry(
     // Use guide (more formatting options?)
 
     // Customise
-    val item: String = ""
+    var item: String = ""
 )

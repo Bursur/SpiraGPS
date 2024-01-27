@@ -46,16 +46,14 @@ fun EntryEditorButton(modifier: Modifier = Modifier, entry: Entry, onDismiss: (E
     }
 
     if(openAlertDialog)
-        EntryEditor(sourceEntry = entry) {
+        EntryEditor(entry) {
             openAlertDialog = false
             onDismiss(it)
         }
 }
 
 @Composable
-fun EntryEditor(sourceEntry: Entry, onDismiss: (Entry?) -> Unit) {
-    var entry by remember { mutableStateOf(sourceEntry) }
-
+fun EntryEditor(entry: Entry, onDismiss: (Entry?) -> Unit) {
     Dialog(
         onDismissRequest = { onDismiss(null) },
     ) {
@@ -65,7 +63,7 @@ fun EntryEditor(sourceEntry: Entry, onDismiss: (Entry?) -> Unit) {
         val typeSelectedCallback: (String) -> Unit = { entryType: String ->
             selectedEntryType = entryType
             entryTypeExpanded = false
-            entry = Entry(type = selectedEntryType)
+            entry.type = selectedEntryType
         }
 
         Surface(elevation = 5.dp, shape = RoundedCornerShape(20.dp), color = SpiraGPSColours.background) {
@@ -78,7 +76,7 @@ fun EntryEditor(sourceEntry: Entry, onDismiss: (Entry?) -> Unit) {
                 // Selector Type
                 Row {
                     Text(
-                        text = "Type (Click To Change): $selectedEntryType",
+                        text = "Type: $selectedEntryType",
                         fontFamily = SpiraGPSText.fontFamily,
                         fontSize = 20.sp,
                         modifier = Modifier.clickable { entryTypeExpanded = true }.padding(bottom = 10.dp)
@@ -99,9 +97,7 @@ fun EntryEditor(sourceEntry: Entry, onDismiss: (Entry?) -> Unit) {
 
                 // Entry Editor Panel
                 Crossfade(targetState = selectedEntryType) {
-                    createEditorPanel(Entry(type = selectedEntryType)) {
-                        entry = it
-                    }
+                    createEditorPanel(entry)
                 }
 
                 // Save Button

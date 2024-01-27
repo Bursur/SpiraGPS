@@ -19,34 +19,34 @@ import spiragps.style.SpiraGPSColours
 import spiragps.views.createEntry
 
 @Composable
-fun ChapterEditor(chapter: Chapter, onUpdated: (Chapter) -> Unit) {
+fun ChapterEditor(chapter: Chapter) {
     var title by remember { mutableStateOf(chapter.title) }
     val entries by remember { mutableStateOf(chapter.entries) }
 
     var updateCount by remember { mutableStateOf(0) }
 
-    key(updateCount) {
-        Column {
-            TitleEditor(title) {
-                title = it
-                onUpdated(Chapter(title = title, entries = entries))
-            }
+    Column {
+        TitleEditor(title) {
+            title = it
+            chapter.title = title
+        }
 
+        key(updateCount) {
             entries.forEach {
                 createEntry(entry = it)
             }
-
-            EntryEditorButton(entry = Entry()) {
-                if (it != null) {
-                    entries.add(it)
-                    ++updateCount
-                    onUpdated(Chapter(title = title, entries = entries))
-                }
-            }
-            Divider(
-                color = SpiraGPSColours.background,
-                modifier = Modifier.padding(vertical = 10.dp)
-            )
         }
+
+        EntryEditorButton(entry = Entry()) {
+            if (it != null) {
+                entries.add(it)
+                ++updateCount
+                chapter.entries = entries
+            }
+        }
+        Divider(
+            color = SpiraGPSColours.background,
+            modifier = Modifier.padding(vertical = 10.dp)
+        )
     }
 }

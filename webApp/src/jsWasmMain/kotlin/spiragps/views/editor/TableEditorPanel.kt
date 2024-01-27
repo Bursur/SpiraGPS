@@ -22,9 +22,11 @@ import spiragps.style.SpiraGPSText
 import spiragps.views.TableView
 
 @Composable
-fun TableEditorPanel(entry: Entry, onUpdated: (Entry) -> Unit) {
+fun TableEditorPanel(entry: Entry) {
     val entries: ArrayList<String> by remember { mutableStateOf(entry.guide) }
     var newItem by remember { mutableStateOf("") }
+
+    entry.columns = 2
 
     Column {
         // Entries
@@ -58,7 +60,7 @@ fun TableEditorPanel(entry: Entry, onUpdated: (Entry) -> Unit) {
                 onClick = {
                     entries.add(newItem)
                     newItem = ""
-                    onUpdated(Entry(type = "table", guide = entries, columns = 2))
+                    entry.guide = entries
                 }
             ) {
                 Text(text = "Add", style = TextStyle(fontFamily = SpiraGPSText.fontFamily, color = Color.Black))
