@@ -23,6 +23,7 @@ import org.jetbrains.compose.resources.painterResource
 import spiragps.data.route.Entry
 import spiragps.style.SpiraGPSColours
 import spiragps.style.SpiraGPSText
+import spiragps.views.components.TextEdit
 
 @OptIn(ExperimentalResourceApi::class)
 @Composable
@@ -33,27 +34,11 @@ fun ImageEditorPanel(entry: Entry) {
         // Text
         Row(verticalAlignment = Alignment.CenterVertically, modifier = Modifier.padding(vertical = 20.dp)) {
             Text(text = "Image URL:", fontFamily = SpiraGPSText.fontFamily, fontSize = 20.sp)
-            TextField(
-                value = url,
-                onValueChange = {
-                    url = it
-                    entry.image = url
-                },
-                colors = TextFieldDefaults.textFieldColors(
-                    cursorColor = SpiraGPSColours.text,
-                    backgroundColor = SpiraGPSColours.infoBackground,
-                    focusedIndicatorColor = SpiraGPSColours.toggleSelectedTrackColour
-                ),
-                textStyle = TextStyle(fontFamily = SpiraGPSText.fontFamily),
-                placeholder = {
-                    Text(
-                        text = "Enter URL...",
-                        fontFamily = SpiraGPSText.fontFamily,
-                        modifier = Modifier.fillMaxWidth()
-                    )
-                },
-                modifier = Modifier.fillMaxWidth()
-            )
+
+            TextEdit(text = url, placeholderText = "Enter URL...") {
+                url = it
+                entry.image = url
+            }
         }
 
         if(url.isNotEmpty())

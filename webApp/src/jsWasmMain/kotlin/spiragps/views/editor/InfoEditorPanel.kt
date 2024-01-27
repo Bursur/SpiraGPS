@@ -23,6 +23,7 @@ import androidx.compose.ui.unit.sp
 import spiragps.data.route.Entry
 import spiragps.style.SpiraGPSColours
 import spiragps.style.SpiraGPSText
+import spiragps.views.components.TextEdit
 
 @Composable
 fun InfoEditorPanel(entry: Entry) {
@@ -45,30 +46,10 @@ fun InfoEditorPanel(entry: Entry) {
         // Text
         Row(verticalAlignment = Alignment.CenterVertically) {
             Text(text = "Text:", fontFamily = SpiraGPSText.fontFamily, fontSize = 20.sp)
-            TextField(
-                value = infoText,
-                colors = TextFieldDefaults.textFieldColors(
-                    cursorColor = SpiraGPSColours.text,
-                    backgroundColor = SpiraGPSColours.infoBackground,
-                    focusedIndicatorColor = SpiraGPSColours.toggleSelectedTrackColour
-                ),
-                onValueChange = {
-                    infoText = it
-                    entry.text = infoText
-                },
-                textStyle = TextStyle(
-                    fontFamily = SpiraGPSText.fontFamily,
-                    fontWeight = if (isBold) FontWeight.Bold else FontWeight.Normal
-                ),
-                placeholder = {
-                    Text(
-                        text = "Enter Text...",
-                        fontFamily = SpiraGPSText.fontFamily,
-                        modifier = Modifier.fillMaxWidth()
-                    )
-                },
-                modifier = Modifier.fillMaxWidth()
-            )
+            TextEdit(text = infoText, placeholderText = "Enter Text...") {
+                infoText = it
+                entry.text = infoText
+            }
         }
     }
 }

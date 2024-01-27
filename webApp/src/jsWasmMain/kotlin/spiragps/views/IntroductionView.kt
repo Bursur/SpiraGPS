@@ -15,7 +15,7 @@ import spiragps.style.SpiraGPSText
 @Composable
 fun IntroductionView(intro: Introduction) {
     Column(modifier = Modifier.fillMaxWidth().padding(bottom = 5.dp)) {
-        intro.entries.forEach {
+        intro.entries.forEachIndexed { index, it ->
             createEntry(entry = it)
 
             if (it.trailingBreak)

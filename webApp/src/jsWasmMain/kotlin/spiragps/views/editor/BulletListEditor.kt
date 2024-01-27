@@ -27,6 +27,7 @@ import androidx.compose.ui.unit.sp
 import spiragps.data.route.Entry
 import spiragps.style.SpiraGPSColours
 import spiragps.style.SpiraGPSText
+import spiragps.views.components.TextEdit
 
 @Composable
 fun BulletEditorPanel(entry: Entry) {
@@ -49,29 +50,10 @@ fun BulletEditorPanel(entry: Entry) {
         }
 
         // Title
-        TextField(
-            value = title,
-            onValueChange = {
-                title = it
-                entry.text = title
-            },
-            colors = TextFieldDefaults.textFieldColors(
-                cursorColor = SpiraGPSColours.text,
-                backgroundColor = SpiraGPSColours.infoBackground,
-                focusedIndicatorColor = SpiraGPSColours.toggleSelectedTrackColour
-            ),
-            textStyle = TextStyle(
-                fontFamily = SpiraGPSText.fontFamily,
-                fontWeight = if (isBold) FontWeight.Bold else FontWeight.Normal
-            ),
-            placeholder = {
-                Text(
-                    text = "Enter Title...",
-                    fontFamily = SpiraGPSText.fontFamily,
-                    modifier = Modifier.fillMaxWidth()
-                )
-            }
-        )
+        TextEdit(text = title, placeholderText = "Enter Title...", isBold = isBold) {
+            title = it
+            entry.text = title
+        }
 
         // Entries
         key(entries.size) {
@@ -83,26 +65,11 @@ fun BulletEditorPanel(entry: Entry) {
         }
 
         Row {
-            TextField(
-                value = newPoint,
-                onValueChange = {
-                    newPoint = it
-                },
-                colors = TextFieldDefaults.textFieldColors(
-                    cursorColor = SpiraGPSColours.text,
-                    backgroundColor = SpiraGPSColours.infoBackground,
-                    focusedIndicatorColor = SpiraGPSColours.toggleSelectedTrackColour
-                ),
-                textStyle = TextStyle(fontFamily = SpiraGPSText.fontFamily),
-                placeholder = {
-                    Text(
-                        text = "Enter New Point...",
-                        fontFamily = SpiraGPSText.fontFamily,
-                        modifier = Modifier.fillMaxWidth()
-                    )
-                },
-                modifier = Modifier.weight(1f).padding(end = 5.dp)
-            )
+            TextEdit(
+                text = newPoint,
+                placeholderText = "Enter New Point...",
+                modifier = Modifier.weight(1f)
+            ) { newPoint = it }
 
             TextButton(
                 onClick = {

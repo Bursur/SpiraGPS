@@ -1,6 +1,7 @@
 package spiragps.views.editor
 
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
@@ -17,6 +18,7 @@ import androidx.compose.ui.unit.dp
 import spiragps.data.route.Entry
 import spiragps.style.SpiraGPSColours
 import spiragps.views.createEntry
+import spiragps.views.editor.panels.PanelEditorButton
 
 @Composable
 fun ChapterEditor(chapter: Chapter) {
@@ -37,11 +39,19 @@ fun ChapterEditor(chapter: Chapter) {
             }
         }
 
-        EntryEditorButton(entry = Entry()) {
-            if (it != null) {
-                entries.add(it)
-                ++updateCount
-                chapter.entries = entries
+        Row {
+            EntryEditorButton(entry = Entry(type = "info")) {
+                if (it != null) {
+                    entries.add(it)
+                    ++updateCount
+                }
+            }
+
+            PanelEditorButton(entry = Entry(type = "battle")) {
+                if (it != null) {
+                    entries.add(it)
+                    ++updateCount
+                }
             }
         }
         Divider(

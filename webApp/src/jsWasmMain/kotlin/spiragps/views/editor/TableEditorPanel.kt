@@ -20,6 +20,7 @@ import spiragps.data.route.Entry
 import spiragps.style.SpiraGPSColours
 import spiragps.style.SpiraGPSText
 import spiragps.views.TableView
+import spiragps.views.components.TextEdit
 
 @Composable
 fun TableEditorPanel(entry: Entry) {
@@ -35,26 +36,11 @@ fun TableEditorPanel(entry: Entry) {
         }
 
         Row {
-            TextField(
-                value = newItem,
-                onValueChange = {
-                    newItem = it
-                },
-                colors = TextFieldDefaults.textFieldColors(
-                    cursorColor = SpiraGPSColours.text,
-                    backgroundColor = SpiraGPSColours.infoBackground,
-                    focusedIndicatorColor = SpiraGPSColours.toggleSelectedTrackColour
-                ),
-                textStyle = TextStyle(fontFamily = SpiraGPSText.fontFamily,),
-                placeholder = {
-                    Text(
-                        text = "Enter New Point...",
-                        fontFamily = SpiraGPSText.fontFamily,
-                        modifier = Modifier.fillMaxWidth()
-                    )
-                },
+            TextEdit(
+                text = newItem,
+                placeholderText = "Enter New Point...",
                 modifier = Modifier.weight(1f)
-            )
+            ) { newItem = it }
 
             TextButton(
                 onClick = {

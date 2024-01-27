@@ -7,6 +7,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextDecoration
 import spiragps.data.route.Entry
 import spiragps.style.SpiraGPSText
+import spiragps.views.editor.panels.BattleEditorPanel
 
 @Composable
 fun createEditorPanel(entry: Entry) {
@@ -15,6 +16,7 @@ fun createEditorPanel(entry: Entry) {
         "image" -> ImageEditorPanel(entry = entry)
         "bullets" -> BulletEditorPanel(entry = entry)
         "table" -> TableEditorPanel(entry = entry)
+        "battle" -> BattleEditorPanel(entry = entry)
         else -> Text("Select an Entry type", fontFamily = SpiraGPSText.fontFamily, fontWeight = FontWeight.Bold)
     }
 }
