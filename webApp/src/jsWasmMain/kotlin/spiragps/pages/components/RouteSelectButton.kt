@@ -15,13 +15,14 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import org.jetbrains.compose.resources.ExperimentalResourceApi
 import org.jetbrains.compose.resources.painterResource
+import spiragps.data.destinations.Destination
 import spiragps.data.route.NavigationState
 import spiragps.style.SpiraGPSColours
 import spiragps.style.SpiraGPSText
 
 @OptIn(ExperimentalResourceApi::class)
 @Composable
-fun RouteSelectButton(routeName: String, dataUrl: String, navigationState: NavigationState) {
+fun RouteSelectButton(destination: Destination, navigationState: NavigationState) {
 
     Surface(
         elevation = 5.dp,
@@ -32,17 +33,17 @@ fun RouteSelectButton(routeName: String, dataUrl: String, navigationState: Navig
             modifier = Modifier
                 .width(200.dp)
                 .clickable {
-                    navigationState.selectedRouteUrl = dataUrl
+                    navigationState.selectedRouteUrl = destination.data
                     navigationState.currentPage = NavigationState.ROUTE
                 }
         ) {
             Image(
-                painter = painterResource("SpiraGPS/placeholder-map.jpg"),
+                painter = if(destination.image.isEmpty()) painterResource("SpiraGPS/placeholder-map.jpg") else painterResource(destination.image),
                 contentDescription = ""
             )
 
             Text(
-                text = routeName,
+                text = destination.name,
                 fontFamily = SpiraGPSText.fontFamily,
                 fontSize = 15.sp,
                 textAlign = TextAlign.Center,

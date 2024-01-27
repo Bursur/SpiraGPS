@@ -50,7 +50,10 @@ object SpiraGPSText {
         "Ixion",
         "Shiva",
         "Bahamut",
-        "Anima"
+        "Anima",
+
+        // Internal
+        "BUG!"
     )
 
     fun addKeywords(newKeywords: ArrayList<String>) {
@@ -89,6 +92,7 @@ object SpiraGPSColours {
     val itemSortBorder = Color(0xFF77DD77)
     val shopBorder = Color(0xFF8080FF)
     val customiseBorder = Color(0xFFAEC6CF)
+    val tipBorder = Color(0xFFFDFD96)
 
     // Items Sort
     val itemSortBackground: ArrayList<Color> = arrayListOf(Color(0xFFDDDDDD), infoBackground)
@@ -114,6 +118,7 @@ object SpiraGPSColours {
 
     // Misc.
     val black = Color(0xFF000000)
+    val bug = Color(0xFFFF0000)
 }
 
 @Composable
@@ -146,5 +151,6 @@ fun getKeywordColour(word: String): Color = when(word) {
     "Ixion" -> SpiraGPSColours.ixion
     "Shiva" -> SpiraGPSColours.shiva
     "Bahamut" -> SpiraGPSColours.bahamut
+    "BUG!" -> SpiraGPSColours.bug
     else -> SpiraGPSColours.black
 }

@@ -49,7 +49,7 @@ fun LandingPage(navigationState: NavigationState) {
             modifier = Modifier.padding(top = 25.dp)
         ) {
             SpiraDestinations.list.destinations.forEach {
-                RouteSelectButton(routeName = it.name, dataUrl = it.data, navigationState = navigationState)
+                RouteSelectButton(destination = it, navigationState = navigationState)
             }
 
             //LocalRouteSelectButton(navigationState)
@@ -66,13 +66,22 @@ fun LandingPage(navigationState: NavigationState) {
             entry = Entry(
                 text = "ToDo: (In no particular order)",
                 guide = arrayListOf(
-                    "Route Editor",
-                    "Load Local Route json file, if possible",
-                    "Create Hints Panel Entry",
-                    "Add Hints panel for Terra Skip",
-                    "Add cloister section for Gagazet",
-                    "DRAGON DROP!!",
-                    "BUG: Tables HAVE to have entries totaling a multiple of 2, this shouldn't be the case"
+                    "Editor: Load and Save",
+                    "Editor: Drag and Drop",
+                    "Editor: Chapters",
+                    "Editor: Panels",
+                    "Editor: Conditions",
+                    "Editor: Make it pretty",
+                    "Routes: Load Local Route json file, if possible",
+                    "Routes: Add Hints panel for Terra Skip",
+                    "Routes: Multiple Conditions",
+                    "Misc: Credits Page",
+                    "Misc: Help Page",
+                    "Misc: ToDo List Page",
+                    "Routes: BUG! Tables HAVE to have entries totaling a multiple of 2, this shouldn't be the case",
+                    "Routes: BUG! Update the contents page to use indices as using chapter names causes conflicts with ambiguous chapter names",
+                    "Editor: BUG! Table items are not editable",
+                    "Editor: BUG! Bullet items are not editable"
                 )
             )
         )

@@ -247,7 +247,6 @@
                             ]
                         }
                     ],
-                    "image": "",
                     "requirement": { "condition": "Cloisters", "state": true }
                 },
                 {
@@ -373,7 +372,6 @@
                             ]
                         }
                     ],
-                    "image": "",
                     "requirement": { "condition": "Cloisters", "state": true }
                 }
             ]
@@ -506,6 +504,16 @@
                             ]
                         }
                     ]
+                },
+                {
+                    "type": "tip", "trailingBreak": true, "minimised": true,
+                    "entries": [
+                        { "type": "info", "text": "If you are losing or Wakka isn't in the Sphere yet, you should pass the ball to Jassu and hide behind Keepa." },
+                        { "type": "image", "image": "SpiraGPS/blitzball_1.png" },
+                        { "type": "info", "text": "If you are drawing when Wakka is on the Sphere, pass the ball to Jassu and hide just to the right of the 6 o’clock position on the radar." },
+                        { "type": "image", "image": "SpiraGPS/blitzball_2.png" }
+                    ],
+                    "requirement": { "condition": "Tips", "state": true }
                 }
             ]
         },
@@ -547,6 +555,7 @@
                     ],
                     "trailingBreak": true
                 },
+                { "type": "info", "text": "Disable Auto Attack", "trailingBreak": true, "requirement": { "condition": "Bursur's Bits", "state": false } },
                 { "type": "info", "text": "Do Mi'ihen skip if able", "bold": true, "trailingBreak": true },
                 {
                     "type": "battle",
@@ -569,7 +578,7 @@
                     "trailingBreak": true,
                     "requirement": { "condition": "Bursur's Bits", "state": false }
                 },
-                { "type": "info", "text": "Disable Auto Attack", "trailingBreak": true },
+                { "type": "info", "text": "Disable Auto Attack", "trailingBreak": true, "requirement": { "condition": "Bursur's Bits", "state": true } },
                 { "type": "info", "text": "Talk to Chocobo Lady", "trailingBreak": true }
             ]
         },
@@ -578,6 +587,26 @@
             "entries": [
                 { "type": "info", "text": "Do Clasko skip if able", "bold": true, "trailingBreak": true },
                 { "type": "info", "text": "Do Terra Skip if able", "bold": true, "trailingBreak": true, "requirement": { "condition": "TerraSkip", "state": true } },
+                {
+                    "type": "tip", "trailingBreak": true, "minimised": true,
+                    "entries": [
+                        { "type": "info", "text": "Terra (MRR) Skip.", "bold": true },
+                        { "type": "info", "text": "CSR: Run pas Clasko as if you were proceeding normally, once you change to the next screen head back to where Clasko was." },
+                        { "type": "info", "text": "Boosters: Turn off x4 when getting into position or talking to the chap, but feel free to activate it while you wait for him to come back to you." },
+                        { "type": "info", "text": "For the first push I use the grid on the radar to get myself into position. First run right up to the invisible wall then align the centre vertical line with the edge of the polygon on the rock pillar in the foreground. See the picture below for an example." },
+                        { "type": "image", "image": "SpiraGPS/terra_skip_0.png" },
+                        { "type": "info", "text": "It's difficult to see on the screen shot, but in game it's a little more obvious. Once you have that aligned, hold the walk button and flick down so that Tidus turns to face the camera without moving." },
+                        { "type": "info", "text": "There is a chance when the chap runs past you that he pushes you out of position, be ready to move back into position and wait for him coming back from the bottom of the screen." },
+                        { "type": "info", "text": "If everything has gone to plan it should look similar to this:" },
+                        { "type": "image", "image": "SpiraGPS/terra_skip_1.png" },
+                        { "type": "info", "text": "When the chap comes running back, wait until he is close to you and then start mashing the X button (A on Xbox controllers, B on Switch Controllers or C on the default keyboard layout). If you're lined up correctly you will be pushed back each time you talk to him. Eventually he'll be past you and you may need to line up for a second push." },
+                        { "type": "info", "text": "For the second push I use the rocks behind Tidus's head, I try to position him so that he looks like he had bunny ears:" },
+                        { "type": "image", "image": "SpiraGPS/terra_skip_2.png" },
+                        { "type": "info", "text": "Like last time, hold walk and then flick down so Tidus faces the camera and wait for the chap to return and start mashing X again. With luck you'll be through and can head off down the beach without any worries of fighting Sinspawn Gui!" },
+                        { "type": "info", "text": "If you get stuck anywhere you might need to reload from the last auto-save (or the safety save you totally didn't forget to make at the end of the Old Road)." }
+                    ],
+                    "requirement": { "condition": "Tips", "state": true }
+                },
                 {
                     "type": "battle",
                     "enemy": "Sinspawn Gui",
@@ -633,7 +662,6 @@
                             ]
                         }
                     ],
-                    "image": "",
                     "requirement": { "condition": "Cloisters", "state": true }
                 }
             ]
@@ -746,7 +774,6 @@
                             ]
                         }
                     ],
-                    "image": "",
                     "requirement": { "condition": "Cloisters", "state": true }
                 },
                 { "type": "info", "text": "CSR: Try your best to avoid a guado guard encounter here as it can cause a crash, disable 4x if needed (strongly recommended)", "bold": true, "trailingBreak": true },
@@ -760,7 +787,7 @@
                     ],
                     "trailingBreak": true
                 },
-                { "type": "info", "text": "Disable Auto Attack", "trailingBreak": true }
+                { "type": "info", "text": "Disable Auto Attack", "requirement": { "condition": "Bursur's Bits", "state": false } }
             ]
         },
         {
@@ -791,6 +818,7 @@
                     "trailingBreak": true,
                     "requirement": { "condition": "Bursur's Bits", "state": true }
                 },
+                { "type": "info", "text": "Disable Auto Attack", "requirement": { "condition": "Bursur's Bits", "state": true } },
                 {
                     "type": "battle",
                     "enemy": "Machina Tutorial",
@@ -928,7 +956,6 @@
                             ]
                         }
                     ],
-                    "image": "",
                     "requirement": { "condition": "Cloisters", "state": true }
                 },
                 {
@@ -1029,6 +1056,17 @@
                     "trailingBreak": true
                 },
                 { "type": "info", "text": "Enable Auto Attack", "trailingBreak": true },
+                {
+                    "type": "trial",
+                    "entries": [
+                        { "type": "info", "text": "For the Wakka part of this Trial you should try to throw the ball when the prongs on either side of the gap are aligned on the left edge as you look at it, see the image below.", "trailingBreak": false },
+                        { "type": "info", "text": "Try to do this the first time they are in alignment as the inner ring can block later throws.", "trailingBreak": false },
+                        { "type": "image", "image": "SpiraGPS/gagazet_2.png" },
+                        { "type": "info", "text": "In the second part of this Trial you need to send Rikku to the green hole, Tidus to the Blue hole and Wakka to the Red hole", "trailingBreak": false },
+                        { "type": "image", "image": "SpiraGPS/gagazet_3.png" }
+                    ],
+                    "requirement": { "condition": "Cloisters", "state": true }
+                },
                 {
                     "type": "battle",
                     "enemy": "Sanctuary Keeper",
@@ -1133,7 +1171,7 @@
                     ],
                     "trailingBreak": true
                 },
-                { "type": "info", "text": "Nucleus is almost impossible at 4x, 2x is good compromise (even if you get a couple of encounters it’s a timesave.", "bold":  true},
+                { "type": "info", "text": "Nucleus is almost impossible at 4x, 2x is good compromise (even if you get a couple of encounters it’s a time save).", "bold":  true},
                 {
                     "type": "encounter", "trailingBreak": true,
                     "guide": [

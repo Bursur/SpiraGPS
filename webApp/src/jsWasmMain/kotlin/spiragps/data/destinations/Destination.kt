@@ -5,5 +5,6 @@ import kotlinx.serialization.Serializable
 @Serializable
 data class Destination(
     val name: String = "",
-    val data: String = ""
+    val data: String = "",
+    val image: String = ""
 )

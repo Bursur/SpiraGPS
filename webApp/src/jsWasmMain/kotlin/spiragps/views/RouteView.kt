@@ -35,7 +35,7 @@ fun RouteView(route: Route, conditionState: ConditionState, contentsState: Conte
     val scope = rememberCoroutineScope()
 
     val titlePositions: MutableMap<String, Float> = mutableMapOf()
-    var scrollOffset: Float = 0f
+    var scrollOffset = 0f
 
     Box(
         modifier = Modifier

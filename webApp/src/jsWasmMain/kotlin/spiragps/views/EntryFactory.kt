@@ -15,6 +15,7 @@ import spiragps.views.panels.EquipmentView
 import spiragps.views.panels.ItemSortView
 import spiragps.views.panels.ShopView
 import spiragps.views.panels.SphereGridView
+import spiragps.views.panels.TipView
 import spiragps.views.panels.TrialsView
 
 @Composable
@@ -33,6 +34,7 @@ fun createEntry(entry: Entry) {
         "bullets" -> BulletedList(entry)
         "image" -> ImageView(entry)
         "table" -> TableView(entry)
+        "tip" -> TipView(entry)
         else -> Text("Unknown Entry Type", fontWeight = FontWeight.Bold, color = Color.Red, textDecoration = TextDecoration.Underline)
     }
 }

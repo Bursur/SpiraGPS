@@ -2,7 +2,8 @@
     "destinations": [
         {
             "name": "Any% w/Boosters",
-            "data": "SpiraGPS/boosters.json"
+            "data": "SpiraGPS/boosters.json",
+            "image": "SpiraGPS/boosters.png"
         },
         {
             "name": "Random Bits n Stuff",
