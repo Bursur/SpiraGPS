@@ -10,17 +10,17 @@ import androidx.compose.runtime.setValue
 
 @Stable
 interface ContentsState {
-    var selectedChapter: String
+    var selectedChapter: Int
 }
 
-private class ContentsStateImpl(selectedChapter: String) : ContentsState {
-    override var selectedChapter: String by mutableStateOf(selectedChapter)
+private class ContentsStateImpl(selectedChapter: Int) : ContentsState {
+    override var selectedChapter: Int by mutableStateOf(selectedChapter)
 
     companion object {
         val saver = Saver<ContentsStateImpl, List<Any>>(
             save = { listOf(it.selectedChapter) },
             restore = {
-                ContentsStateImpl(it[0] as String)
+                ContentsStateImpl(it[0] as Int)
             }
         )
     }
@@ -30,5 +30,5 @@ private class ContentsStateImpl(selectedChapter: String) : ContentsState {
 fun rememberContentsState(): ContentsState = rememberSaveable(
     saver = ContentsStateImpl.saver
 ) {
-    ContentsStateImpl("")
+    ContentsStateImpl(-1)
 }

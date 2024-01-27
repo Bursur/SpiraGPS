@@ -74,11 +74,11 @@ fun LandingPage(navigationState: NavigationState) {
                     "Editor: Make it pretty",
                     "Routes: Load Local Route json file. if possible",
                     "Routes: Multiple Conditions",
+                    "Routes: GIF Support",
                     "Misc: Credits Page",
                     "Misc: Help Page",
                     "Misc: ToDo List Page",
                     "Routes: BUG! Tables HAVE to have entries totaling a multiple of 2, this shouldn't be the case",
-                    "Routes: BUG! Update the contents page to use indices as using chapter names causes conflicts with ambiguous chapter names",
                     "Editor: BUG! Table items are not editable",
                     "Editor: BUG! Bullet items are not editable"
                 )

@@ -39,16 +39,19 @@ fun ContentsView(modifier: Modifier = Modifier, chapters: ArrayList<Chapter>, co
                 .scrollable(state = scrollState, orientation = Orientation.Vertical, enabled = true)
         ) {
             // Chapters
-            chapters.forEach {
+            chapters.forEachIndexed { index, chapter ->
+                if(chapter.index == -1)
+                    chapter.index = index
+
                 Text(
-                    text = it.title,
+                    text = chapter.title,
                     fontSize = 15.sp,
                     fontFamily = SpiraGPSText.fontFamily,
                     modifier = Modifier
                         .fillMaxWidth()
                         .padding(vertical = 5.dp)
                         .clickable {
-                            contentsState.selectedChapter = it.title
+                            contentsState.selectedChapter = chapter.index
                         }
                 )
             }

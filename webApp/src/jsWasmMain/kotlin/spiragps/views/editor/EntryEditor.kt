@@ -36,15 +36,13 @@ import spiragps.style.SpiraGPSText
 fun EntryEditorButton(modifier: Modifier = Modifier, entry: Entry, onDismiss: (Entry?) -> Unit) {
     var openAlertDialog by remember { mutableStateOf(false) }
 
-    SmallFloatingActionButton(
+    TextButton(
         onClick = {
             openAlertDialog = true
         },
-        containerColor = SpiraGPSColours.fabBackgroundColour,
-        contentColor = SpiraGPSColours.fabIconColour,
         modifier = modifier
     ) {
-        Text(text = "Add Entry", fontFamily = SpiraGPSText.fontFamily)
+        Text(text = "Add Entry", style = TextStyle(fontFamily = SpiraGPSText.fontFamily, color = SpiraGPSColours.text))
     }
 
     if(openAlertDialog)

@@ -44,11 +44,13 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.compose.ui.window.Dialog
+import spiragps.data.route.Chapter
 import spiragps.data.route.Entry
 import spiragps.style.SpiraGPSColours
 import spiragps.style.SpiraGPSText
 import spiragps.views.components.BackButton
 import spiragps.views.createEntry
+import spiragps.views.editor.ChapterEditor
 import spiragps.views.editor.EntryEditorButton
 import spiragps.views.editor.TitleEditor
 import spiragps.views.editor.createEditorPanel
@@ -60,7 +62,6 @@ fun EditorPage(navigationState: NavigationState) {
     val route by remember { mutableStateOf(Route()) }
 
     var title by remember { mutableStateOf(route.title) }
-    val scrollState = rememberScrollState()
 
     Box(modifier = Modifier.fillMaxSize()) {
         BackButton(
@@ -70,12 +71,10 @@ fun EditorPage(navigationState: NavigationState) {
 
         key(editorState.updateCounter) {
             LazyColumn(
-                horizontalAlignment = Alignment.CenterHorizontally,
                 modifier = Modifier
                     .fillMaxWidth(0.6f)
                     .align(Alignment.TopCenter)
                     .padding(top = 25.dp)
-                //.verticalScroll(state = scrollState, enabled = true)
             ) {
                 // Title
                 item {
@@ -105,7 +104,21 @@ fun EditorPage(navigationState: NavigationState) {
 
                 // Chapters
                 stickyHeader { StickyHeader("Chapters") }
-                // ---> Entries
+
+                items(route.chapters) {
+                    ChapterEditor(it) {
+
+                    }
+                }
+
+                item {
+                    TextButton(onClick = {
+                        route.chapters.add(Chapter(index = route.chapters.size))
+                        ++editorState.updateCounter
+                    }) {
+                        Text(text = "Add Chapter", style = TextStyle(fontFamily = SpiraGPSText.fontFamily, color = SpiraGPSColours.text))
+                    }
+                }
             }
         }
     }

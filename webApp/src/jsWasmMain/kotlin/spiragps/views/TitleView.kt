@@ -16,7 +16,7 @@ import spiragps.style.SpiraGPSColours
 import spiragps.style.SpiraGPSText
 
 @Composable
-fun TitleView(modifier: Modifier = Modifier, title: String, positionCallback: (String, Float) -> Unit = { _: String, _: Float -> }) {
+fun TitleView(modifier: Modifier = Modifier, title: String, positionCallback: (Float) -> Unit = {_: Float -> }) {
     Column {
         Text(
             text = title,
@@ -27,7 +27,7 @@ fun TitleView(modifier: Modifier = Modifier, title: String, positionCallback: (S
             modifier = modifier
                 .fillMaxWidth()
                 .onGloballyPositioned {
-                    positionCallback(title, it.positionInRoot().y)
+                    positionCallback(it.positionInRoot().y)
                 }
         )
         Divider(color = SpiraGPSColours.black, thickness = 2.dp)

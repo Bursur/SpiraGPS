@@ -34,7 +34,7 @@ fun RouteView(route: Route, conditionState: ConditionState, contentsState: Conte
     val scrollableState = rememberScrollState()
     val scope = rememberCoroutineScope()
 
-    val titlePositions: MutableMap<String, Float> = mutableMapOf()
+    val titlePositions: MutableMap<Int, Float> = mutableMapOf()
     var scrollOffset = 0f
 
     Box(
@@ -63,7 +63,7 @@ fun RouteView(route: Route, conditionState: ConditionState, contentsState: Conte
 
             // Chapters
             route.chapters.forEach { chapter: Chapter ->
-                ChapterView(chapter = chapter, conditionState = conditionState) { name: String, position: Float ->
+                ChapterView(chapter = chapter, conditionState = conditionState) { name: Int, position: Float ->
                     titlePositions[name] = position
                 }
             }
