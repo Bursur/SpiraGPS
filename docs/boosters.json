@@ -43,7 +43,7 @@
                 { "type": "bullets",
                     "text": "Turn on:",
                     "guide": [
-                        "Speed Boost x4 (Double Tap F1)",
+                        "Speed Boost 4x (Double Tap F1)",
                         "Super Charge (F2)",
                         "No Encounters (Double Tap F3)"
                     ],
@@ -592,7 +592,7 @@
                     "entries": [
                         { "type": "info", "text": "Terra (MRR) Skip.", "bold": true },
                         { "type": "info", "text": "CSR: Run pas Clasko as if you were proceeding normally, once you change to the next screen head back to where Clasko was." },
-                        { "type": "info", "text": "Boosters: Turn off x4 when getting into position or talking to the chap, but feel free to activate it while you wait for him to come back to you." },
+                        { "type": "info", "text": "Boosters: Turn off 4x when getting into position or talking to the chap, but feel free to activate it while you wait for him to come back to you." },
                         { "type": "info", "text": "For the first push I use the grid on the radar to get myself into position. First run right up to the invisible wall then align the centre vertical line with the edge of the polygon on the rock pillar in the foreground. See the picture below for an example." },
                         { "type": "image", "image": "SpiraGPS/terra_skip_0.png" },
                         { "type": "info", "text": "It's difficult to see on the screen shot, but in game it's a little more obvious. Once you have that aligned, hold the walk button and flick down so that Tidus turns to face the camera without moving." },
