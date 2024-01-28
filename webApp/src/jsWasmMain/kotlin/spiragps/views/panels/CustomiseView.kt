@@ -9,6 +9,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import spiragps.data.route.Entry
 import spiragps.style.SpiraGPSColours
+import spiragps.style.SpiraGPSText
 import spiragps.views.BulletedList
 
 @Composable
@@ -17,6 +18,7 @@ fun CustomiseView(entry: Entry) {
         Column(modifier = Modifier.padding(vertical = 30.dp, horizontal = 40.dp)) {
             Text(
                 text = entry.item,
+                fontFamily = SpiraGPSText.fontFamily,
                 fontWeight = FontWeight.Bold
             )
 

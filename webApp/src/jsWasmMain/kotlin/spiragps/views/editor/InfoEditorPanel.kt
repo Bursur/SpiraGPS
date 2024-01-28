@@ -46,7 +46,7 @@ fun InfoEditorPanel(entry: Entry) {
         // Text
         Row(verticalAlignment = Alignment.CenterVertically) {
             Text(text = "Text:", fontFamily = SpiraGPSText.fontFamily, fontSize = 20.sp)
-            TextEdit(text = infoText, placeholderText = "Enter Text...") {
+            TextEdit(text = infoText, placeholderText = "Enter Text...", isBold = isBold) {
                 infoText = it
                 entry.text = infoText
             }

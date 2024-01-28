@@ -9,6 +9,7 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.wrapContentHeight
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material.Checkbox
 import androidx.compose.material.Surface
 import androidx.compose.material.TextButton
 import androidx.compose.material3.DropdownMenu
@@ -59,6 +60,7 @@ fun PanelEditor(entry: Entry, onDismiss: (Entry?) -> Unit) {
     ) {
         var selectedEntryType by remember { mutableStateOf(entry.type) }
         var entryTypeExpanded by remember { mutableStateOf(false) }
+        var minimised by remember { mutableStateOf(entry.minimised) }
 
         val typeSelectedCallback: (String) -> Unit = { entryType: String ->
             selectedEntryType = entryType
@@ -104,6 +106,14 @@ fun PanelEditor(entry: Entry, onDismiss: (Entry?) -> Unit) {
                 // Entry Editor Panel
                 Crossfade(targetState = selectedEntryType) {
                     createEditorPanel(entry)
+                }
+
+                Row(verticalAlignment = Alignment.CenterVertically) {
+                    Text(text = "Start Minimised:", fontFamily = SpiraGPSText.fontFamily)
+                    Checkbox(checked = minimised, onCheckedChange = {
+                        minimised = it
+                        entry.minimised = minimised
+                    })
                 }
 
                 // Save Button

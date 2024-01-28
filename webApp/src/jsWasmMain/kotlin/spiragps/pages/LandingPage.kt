@@ -68,19 +68,23 @@ fun LandingPage(navigationState: NavigationState) {
                 guide = arrayListOf(
                     "Editor: Load and Save",
                     "Editor: Drag and Drop",
-                    "Editor: Panels",
                     "Editor: Conditions",
                     "Editor: Make the entries editable",
                     "Editor: Make it pretty",
-                    "Routes: Load Local Route json file. if possible",
-                    "Routes: Multiple Conditions",
-                    "Routes: GIF Support",
+                    "Editor: Enable Pasting text",
+                    "Routes: Load Local Route json file. If possible",
+                    "Routes: Multiple Conditions Handling",
+                    "Routes: GIF Support?",
+                    "Routes: YouTube Video Embedding?",
                     "Misc: Credits Page",
                     "Misc: Help Page",
                     "Misc: ToDo List Page",
+                    "Misc: Version History Page",
                     "Routes: BUG! Tables HAVE to have entries totaling a multiple of 2, this shouldn't be the case",
                     "Editor: BUG! Table items are not editable",
-                    "Editor: BUG! Bullet items are not editable"
+                    "Editor: BUG! Bullet items are not editable",
+                    "Editor: BUG! Caret is all shy",
+                    "Editor/Routes: BUG! Crash when mis-entering an item in an item sort"
                 )
             )
         )
