@@ -83,8 +83,8 @@ fun LandingPage(navigationState: NavigationState) {
                     "Routes: BUG! Tables HAVE to have entries totaling a multiple of 2, this shouldn't be the case",
                     "Editor: BUG! Table items are not editable",
                     "Editor: BUG! Bullet items are not editable",
-                    "Editor: BUG! Caret is all shy",
-                    "Editor/Routes: BUG! Crash when mis-entering an item in an item sort"
+                    "Editor: BUG! Table items are not editable",
+                    "Editor: BUG! Caret is all shy"
                 )
             )
         )

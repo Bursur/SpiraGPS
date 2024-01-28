@@ -36,6 +36,7 @@ fun ChapterEditor(chapter: Chapter) {
         key(updateCount) {
             entries.forEach {
                 createEntry(entry = it)
+                Divider(color = SpiraGPSColours.background, thickness = 10.dp)
             }
         }
 

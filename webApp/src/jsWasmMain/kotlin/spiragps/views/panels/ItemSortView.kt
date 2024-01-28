@@ -38,6 +38,7 @@ private fun Item(name: String, background: Color, weight: FontWeight) {
     val instruction = name.split(",")
     Row(modifier = Modifier.background(background).fillMaxWidth()) {
         Text(text = instruction[0], fontFamily = SpiraGPSText.fontFamily, fontWeight = weight, modifier = Modifier.fillMaxWidth(.35f).padding(4.dp))
-        Text(text = instruction[1], fontFamily = SpiraGPSText.fontFamily, fontWeight = weight, modifier = Modifier.fillMaxWidth(.65f).padding(4.dp))
+        if(instruction.size > 1)
+            Text(text = instruction[1], fontFamily = SpiraGPSText.fontFamily, fontWeight = weight, modifier = Modifier.fillMaxWidth(.65f).padding(4.dp))
     }
 }
