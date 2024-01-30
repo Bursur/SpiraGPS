@@ -15,8 +15,7 @@ import spiragps.utils.highlightKeywords
 fun InfoView(entry: Entry) {
     Text(
         text = highlightKeywords(entry.text),
-        fontFamily = SpiraGPSText.fontFamily,
-        fontWeight = if (entry.bold) FontWeight.Bold else FontWeight.Normal,
+        style = if(entry.bold) SpiraGPSText.typography.bulletTitleBold else SpiraGPSText.typography.bulletTitle,
         modifier = Modifier.fillMaxWidth().padding(bottom = 5.dp)
     )
 }

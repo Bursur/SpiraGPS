@@ -15,41 +15,48 @@ data class TextStyles(
     val routeTitle: TextStyle,
     val chapterTitle: TextStyle,
 
-    val landingTitle: TextStyle
+    val landingTitle: TextStyle,
+
+    val backButton: TextStyle,
+
+    val contentsTitle: TextStyle,
+    val contentsEntry: TextStyle,
+
+    val conditionLabel: TextStyle
 )
 
 val small = TextStyles(
     info = TextStyle(
         fontFamily = SpiraGPSText.fontFamily,
         fontWeight = FontWeight.Normal,
-        fontSize = 20.sp
+        fontSize = 17.sp
     ),
     infoBold = TextStyle(
         fontFamily = SpiraGPSText.fontFamily,
         fontWeight = FontWeight.Bold,
-        fontSize = 20.sp
+        fontSize = 17.sp
     ),
 
     bulletTitle = TextStyle(
         fontFamily = SpiraGPSText.fontFamily,
         fontWeight = FontWeight.Normal,
-        fontSize = 20.sp
+        fontSize = 17.sp
     ),
     bulletTitleBold = TextStyle(
         fontFamily = SpiraGPSText.fontFamily,
         fontWeight = FontWeight.Bold,
-        fontSize = 20.sp
+        fontSize = 17.sp
     ),
     bulletPoint = TextStyle(
         fontFamily = SpiraGPSText.fontFamily,
         fontWeight = FontWeight.Normal,
-        fontSize = 20.sp
+        fontSize = 17.sp
     ),
 
 
     routeTitle = TextStyle(
         fontFamily = SpiraGPSText.fontFamily,
-        fontWeight = FontWeight.Normal,
+        fontWeight = FontWeight.Bold,
         fontSize = 24.sp
     ),
     chapterTitle = TextStyle(
@@ -62,6 +69,29 @@ val small = TextStyles(
         fontFamily = SpiraGPSText.fontFamily,
         fontWeight = FontWeight.Normal,
         fontSize = 50.sp
+    ),
+
+    backButton = TextStyle(
+        fontWeight = FontWeight.Bold,
+        fontSize = 20.sp,
+        fontFamily = SpiraGPSText.fontFamily
+    ),
+
+    contentsTitle = TextStyle(
+        fontSize = 20.sp,
+        fontFamily = SpiraGPSText.fontFamily,
+        fontWeight = FontWeight.Bold
+    ),
+    contentsEntry = TextStyle(
+        fontSize = 15.sp,
+        fontFamily = SpiraGPSText.fontFamily,
+        fontWeight = FontWeight.Normal
+    ),
+
+    conditionLabel = TextStyle(
+        fontFamily = SpiraGPSText.fontFamily,
+        fontWeight = FontWeight.Normal,
+        fontSize = 17.sp
     )
 )
 
@@ -96,7 +126,7 @@ val medium = TextStyles(
 
     routeTitle = TextStyle(
         fontFamily = SpiraGPSText.fontFamily,
-        fontWeight = FontWeight.Normal,
+        fontWeight = FontWeight.Bold,
         fontSize = 24.sp
     ),
     chapterTitle = TextStyle(
@@ -109,6 +139,29 @@ val medium = TextStyles(
         fontFamily = SpiraGPSText.fontFamily,
         fontWeight = FontWeight.Normal,
         fontSize = 50.sp
+    ),
+
+    backButton = TextStyle(
+        fontWeight = FontWeight.Bold,
+        fontSize = 20.sp,
+        fontFamily = SpiraGPSText.fontFamily
+    ),
+
+    contentsTitle = TextStyle(
+        fontSize = 20.sp,
+        fontFamily = SpiraGPSText.fontFamily,
+        fontWeight = FontWeight.Bold
+    ),
+    contentsEntry = TextStyle(
+        fontSize = 15.sp,
+        fontFamily = SpiraGPSText.fontFamily,
+        fontWeight = FontWeight.Normal
+    ),
+
+    conditionLabel = TextStyle(
+        fontFamily = SpiraGPSText.fontFamily,
+        fontWeight = FontWeight.Normal,
+        fontSize = 17.sp
     )
 )
 
@@ -143,7 +196,7 @@ val large = TextStyles(
 
     routeTitle = TextStyle(
         fontFamily = SpiraGPSText.fontFamily,
-        fontWeight = FontWeight.Normal,
+        fontWeight = FontWeight.Bold,
         fontSize = 24.sp
     ),
     chapterTitle = TextStyle(
@@ -156,5 +209,28 @@ val large = TextStyles(
         fontFamily = SpiraGPSText.fontFamily,
         fontWeight = FontWeight.Normal,
         fontSize = 50.sp
+    ),
+
+    backButton = TextStyle(
+        fontWeight = FontWeight.Bold,
+        fontSize = 20.sp,
+        fontFamily = SpiraGPSText.fontFamily
+    ),
+
+    contentsTitle = TextStyle(
+        fontSize = 20.sp,
+        fontFamily = SpiraGPSText.fontFamily,
+        fontWeight = FontWeight.Bold
+    ),
+    contentsEntry = TextStyle(
+        fontSize = 15.sp,
+        fontFamily = SpiraGPSText.fontFamily,
+        fontWeight = FontWeight.Normal
+    ),
+
+    conditionLabel = TextStyle(
+        fontFamily = SpiraGPSText.fontFamily,
+        fontWeight = FontWeight.Normal,
+        fontSize = 17.sp
     )
 )

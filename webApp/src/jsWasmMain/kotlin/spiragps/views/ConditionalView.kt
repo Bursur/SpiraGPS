@@ -23,7 +23,7 @@ fun ConditionalView(condition: Condition, conditionState: ConditionState) {
     var checked by remember { mutableStateOf(condition.defaultState) }
 
     Row(verticalAlignment = Alignment.CenterVertically, modifier = Modifier.padding(horizontal = 20.dp)) {
-        Text(text = condition.name, fontFamily = SpiraGPSText.fontFamily,)
+        Text(text = condition.name, style = SpiraGPSText.typography.conditionLabel)
         Switch(
             checked = checked,
             onCheckedChange = {

@@ -3,12 +3,11 @@ package spiragps.views
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
-import androidx.compose.material.Text
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.ParagraphStyle
 import androidx.compose.ui.text.buildAnnotatedString
-import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextIndent
 import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.unit.dp
@@ -23,7 +22,7 @@ private val paragraphStyle = ParagraphStyle(textIndent = TextIndent(restLine = 1
 fun BulletedList(entry: Entry) {
     Column(modifier = Modifier.fillMaxWidth()) {
         if(entry.text.isNotEmpty())
-            Text(highlightKeywords(entry.text), fontWeight = if(entry.bold) FontWeight.Bold else FontWeight.Normal, fontFamily = SpiraGPSText.fontFamily)
+            Text(highlightKeywords(entry.text), style = if(entry.bold) SpiraGPSText.typography.bulletTitleBold else SpiraGPSText.typography.bulletTitle)
 
         Text(
             buildAnnotatedString {
@@ -35,7 +34,7 @@ fun BulletedList(entry: Entry) {
                     }
                 }
             },
-            fontFamily = SpiraGPSText.fontFamily,
+            style = SpiraGPSText.typography.bulletPoint,
             modifier = Modifier.padding(horizontal = 10.dp)
         )
     }
@@ -45,7 +44,7 @@ fun BulletedList(entry: Entry) {
 fun BulletedList(title: String = "", points: ArrayList<String>) {
     Column(modifier = Modifier.fillMaxWidth()) {
         if(title.isNotEmpty())
-            Text(title, fontFamily = SpiraGPSText.fontFamily)
+            Text(title, style = SpiraGPSText.typography.bulletTitle)
 
         Text(
             buildAnnotatedString {
@@ -57,7 +56,7 @@ fun BulletedList(title: String = "", points: ArrayList<String>) {
                     }
                 }
             },
-            fontFamily = SpiraGPSText.fontFamily,
+            style = SpiraGPSText.typography.bulletPoint,
             modifier = Modifier.padding(horizontal = 10.dp)
         )
     }

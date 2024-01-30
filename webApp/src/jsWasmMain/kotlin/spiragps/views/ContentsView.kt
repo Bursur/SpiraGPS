@@ -32,7 +32,7 @@ fun ContentsView(modifier: Modifier = Modifier, chapters: ArrayList<Chapter>, co
         BackButton(navigationState = navigationState)
 
         // Title
-        Text(text = "Chapters:", fontWeight = FontWeight.Bold, fontSize = 20.sp, fontFamily = SpiraGPSText.fontFamily)
+        Text(text = "Chapters:", style = SpiraGPSText.typography.contentsTitle)
 
         Column(
             modifier = Modifier
@@ -45,8 +45,7 @@ fun ContentsView(modifier: Modifier = Modifier, chapters: ArrayList<Chapter>, co
 
                 Text(
                     text = chapter.title,
-                    fontSize = 15.sp,
-                    fontFamily = SpiraGPSText.fontFamily,
+                    style = SpiraGPSText.typography.contentsEntry,
                     modifier = Modifier
                         .fillMaxWidth()
                         .padding(vertical = 5.dp)

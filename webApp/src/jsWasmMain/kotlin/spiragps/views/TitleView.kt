@@ -21,9 +21,7 @@ fun TitleView(modifier: Modifier = Modifier, title: String, positionCallback: (F
         Text(
             text = title,
             textAlign = TextAlign.Right,
-            fontWeight = FontWeight.Bold,
-            fontFamily = SpiraGPSText.fontFamily,
-            fontSize = 24.sp,
+            style = SpiraGPSText.typography.routeTitle,
             modifier = modifier
                 .fillMaxWidth()
                 .onGloballyPositioned {

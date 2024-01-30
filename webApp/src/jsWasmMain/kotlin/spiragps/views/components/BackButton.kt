@@ -15,9 +15,7 @@ import spiragps.style.SpiraGPSText
 fun BackButton(modifier: Modifier = Modifier, navigationState: NavigationState) {
     Text(
         text = "← Back",
-        fontWeight = FontWeight.Bold,
-        fontSize = 20.sp,
-        fontFamily = SpiraGPSText.fontFamily,
+        style = SpiraGPSText.typography.backButton,
         modifier = modifier
             .padding(bottom = 20.dp)
             .clickable { navigationState.currentPage = NavigationState.LANDING }
