@@ -4,6 +4,8 @@ import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material3.LocalTextStyle
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.ProvideTextStyle
+import androidx.compose.material3.Typography
+import androidx.compose.material3.darkColorScheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontFamily
@@ -14,6 +16,7 @@ import spiragps.utils.loadResource
 
 object SpiraGPSText {
     var fontFamily: FontFamily? = null
+    lateinit var typography: TextStyles
 
     const val BULLET_CHAR = "\u2022"
 
@@ -25,6 +28,8 @@ object SpiraGPSText {
                 weight = FontWeight.Normal
             )
         )
+
+        typography = small
     }
 
     val keywords = arrayListOf(
@@ -64,66 +69,11 @@ object SpiraGPSText {
     }
 }
 
-object SpiraGPSColours {
-    val background = Color(0xFFFFFFFF)
-    val onBackground = Color(0xFF19191C)
-
-    val text = Color(0xFF000000)
-    val infoBackground = Color(0xFFF2F2F2)
-
-    val fabBackgroundColour = Color(0xFFD3D3D3)
-    val fabIconColour = Color(0xFF414A4C)
-
-    val toggleSelectedTrackColour = Color(0xFF77DD77)
-    val toggleUnselectedTrackColour = Color(0xFFFF8080)
-    val toggleSelectedThumbColour = Color(0xFFD3D3D3)
-    val toggleUnselectedThumbColour = Color(0xFFD3D3D3)
-
-    val loadingColour = Color(0xFFAEC6CF)
-    val loadingTrack = Color(0xFFCFCFC4)
-    val loadingText = Color(0xFFAEC6CF)
-
-    val battleBorder = Color(0xFFFF8080)
-    val encounterBorder = Color(0xFFF5ACCD)
-    val trialsBorder = Color(0xFFDE9A73)
-    val sphereGridBorder = Color(0xFFDF809F)
-    val equipmentBorder = Color(0xFFC7C8CA)
-    val blitzballBorder = Color(0xFFD48C82)
-    val itemSortBorder = Color(0xFF77DD77)
-    val shopBorder = Color(0xFF8080FF)
-    val customiseBorder = Color(0xFFAEC6CF)
-    val tipBorder = Color(0xFFFDFD96)
-
-    // Items Sort
-    val itemSortBackground: ArrayList<Color> = arrayListOf(Color(0xFFDDDDDD), infoBackground)
-    val itemSortWeights: ArrayList<FontWeight> = arrayListOf(FontWeight.Light, FontWeight.Bold)
-
-    // Characters
-    val tidus = Color(0xFF0000FE)
-    val yuna = Color(0xFF80818D)
-    val kimahri = Color(0xFF00AFB3)
-    val auron = Color(0xFFF91D02)
-    val wakka = Color(0xFFF6911E)
-    val rikku = Color(0xFF009A57)
-    val lulu = Color(0xFFBF056D)
-    val seymour = Color(0xFFA1CD6F)
-    val enemy = Color(0xFFED058E)
-
-    // Aeons
-    val valefor = Color(0xFFF39188)
-    val ifrit = Color(0xFFEE1580)
-    val ixion = Color(0xFFF39DC4)
-    val shiva = Color(0xFF1CAEEF)
-    val bahamut = Color(0xFF6241A8)
-
-    // Misc.
-    val black = Color(0xFF000000)
-    val bug = Color(0xFFFF0000)
-}
+var SpiraGPSColours = lightScheme
 
 @Composable
-fun SpiraGPSTheme(content: @Composable () -> Unit) {
-    isSystemInDarkTheme()
+fun SpiraGPSTheme(isDarkMode: Boolean = isSystemInDarkTheme(), content: @Composable () -> Unit) {
+    SpiraGPSColours = if (isDarkMode) darkScheme else lightScheme
     MaterialTheme(
         colorScheme = MaterialTheme.colorScheme.copy(
             background = SpiraGPSColours.background,

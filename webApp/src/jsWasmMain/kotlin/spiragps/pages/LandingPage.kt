@@ -30,8 +30,7 @@ fun LandingPage(navigationState: NavigationState) {
     Column(modifier = Modifier.fillMaxWidth(), horizontalAlignment = Alignment.CenterHorizontally) {
         Text(
             text = "Spira GPS",
-            fontFamily = SpiraGPSText.fontFamily,
-            fontSize = 50.sp,
+            style = SpiraGPSText.typography.landingTitle,
             textAlign = TextAlign.Center,
             modifier = Modifier.padding(top = 50.dp, bottom = 10.dp)
         )
