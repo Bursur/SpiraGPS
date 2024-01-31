@@ -23,10 +23,7 @@ fun TextEdit(modifier: Modifier = Modifier, text: String, placeholderText: Strin
             backgroundColor = SpiraGPSColours.infoBackground,
             focusedIndicatorColor = SpiraGPSColours.toggleSelectedTrackColour
         ),
-        textStyle = TextStyle(
-            fontFamily = SpiraGPSText.fontFamily,
-            fontWeight = if (isBold) FontWeight.Bold else FontWeight.Normal
-        ),
+        textStyle = if(isBold) SpiraGPSText.typography.infoBold else SpiraGPSText.typography.info,
         placeholder = {
             Text(
                 text = placeholderText,

@@ -78,7 +78,7 @@ fun BulletEditorPanel(entry: Entry) {
                     entry.guide = entries
                 }
             ) {
-                Text(text = "Add", style = TextStyle(fontFamily = SpiraGPSText.fontFamily, color = Color.Black))
+                Text(text = "Add",style = SpiraGPSText.typography.info, color = SpiraGPSColours.text)
             }
         }
     }

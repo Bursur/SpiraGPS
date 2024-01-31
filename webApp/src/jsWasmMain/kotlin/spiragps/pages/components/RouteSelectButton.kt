@@ -44,8 +44,7 @@ fun RouteSelectButton(destination: Destination, navigationState: NavigationState
 
             Text(
                 text = destination.name,
-                fontFamily = SpiraGPSText.fontFamily,
-                fontSize = 15.sp,
+                style = SpiraGPSText.typography.info,
                 textAlign = TextAlign.Center,
                 modifier = Modifier.fillMaxWidth()
             )

@@ -114,7 +114,7 @@ fun EditorPage(navigationState: NavigationState) {
                         route.chapters.add(Chapter(index = route.chapters.size))
                         ++editorState.updateCounter
                     }) {
-                        Text(text = "Add Chapter", style = TextStyle(fontFamily = SpiraGPSText.fontFamily, color = SpiraGPSColours.text))
+                        Text(text = "Add Chapter", style = SpiraGPSText.typography.info, color = SpiraGPSColours.text)
                     }
                 }
             }

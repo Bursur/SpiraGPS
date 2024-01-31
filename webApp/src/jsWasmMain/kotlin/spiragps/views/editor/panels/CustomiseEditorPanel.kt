@@ -33,14 +33,14 @@ fun CustomisationEditorPanel(entry: Entry) {
             verticalAlignment =Alignment.CenterVertically,
             modifier = Modifier.padding(horizontal = 5.dp)
         ) {
-            Text(text = "Item:", fontFamily = SpiraGPSText.fontFamily)
+            Text(text = "Item:", style = SpiraGPSText.typography.info,)
             TextEdit(text = item, placeholderText = "Item Name...") {
                 item = it
                 entry.item = item
             }
         }
 
-        Text(text = "Customisations:", fontFamily = SpiraGPSText.fontFamily, modifier = Modifier.padding(horizontal = 5.dp))
+        Text(text = "Customisations:", style = SpiraGPSText.typography.info, modifier = Modifier.padding(horizontal = 5.dp))
         key(updates) {
             steps.forEachIndexed { index, step ->
                 BulletPointEditor(
@@ -73,7 +73,7 @@ fun CustomisationEditorPanel(entry: Entry) {
                     entry.guide = steps
                 }
             ) {
-                Text(text = "Add", style = TextStyle(fontFamily = SpiraGPSText.fontFamily, color = Color.Black))
+                Text(text = "Add", style = SpiraGPSText.typography.info, color = SpiraGPSColours.text)
             }
         }
     }

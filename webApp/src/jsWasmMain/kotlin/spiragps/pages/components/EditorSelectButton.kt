@@ -42,8 +42,7 @@ fun EditorSelectButton(navigationState: NavigationState) {
 
             Text(
                 text = "Route Editor",
-                fontFamily = SpiraGPSText.fontFamily,
-                fontSize = 15.sp,
+                style = SpiraGPSText.typography.info,
                 textAlign = TextAlign.Center,
                 modifier = Modifier.fillMaxWidth()
             )

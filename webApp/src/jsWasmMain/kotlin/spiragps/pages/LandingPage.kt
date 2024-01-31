@@ -37,7 +37,7 @@ fun LandingPage(navigationState: NavigationState) {
 
         Text(
             text = "Select your destination",
-            fontFamily = SpiraGPSText.fontFamily,
+            style = SpiraGPSText.typography.info,
             textAlign = TextAlign.Center
         )
 

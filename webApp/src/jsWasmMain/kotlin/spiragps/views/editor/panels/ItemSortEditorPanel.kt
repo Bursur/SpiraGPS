@@ -33,7 +33,7 @@ fun ItemSortEditorPanel(entry: Entry) {
         Divider(color = SpiraGPSColours.infoBackground, thickness = 10.dp)
         Text(
             text = "Steps:\n(These steps should be in a CSV format, e.g. \"Al Bhed Potion with Shining Gem, R2 Confirm R2 ↓ Confirm\")",
-            fontFamily = SpiraGPSText.fontFamily,
+            style = SpiraGPSText.typography.info,
             modifier = Modifier.padding(horizontal = 5.dp)
         )
         key(updates) {
@@ -68,7 +68,7 @@ fun ItemSortEditorPanel(entry: Entry) {
                     entry.guide = steps
                 }
             ) {
-                Text(text = "Add", style = TextStyle(fontFamily = SpiraGPSText.fontFamily, color = Color.Black))
+                Text(text = "Add", style = SpiraGPSText.typography.info, color = SpiraGPSColours.text)
             }
         }
     }

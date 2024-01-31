@@ -35,8 +35,7 @@ fun TitleEditor(title: String, onValueChange: (String) -> Unit) {
         placeholder = {
             Text(
                 text = "Enter Title...",
-                fontFamily = SpiraGPSText.fontFamily,
-                fontSize = 24.sp,
+                style = SpiraGPSText.typography.chapterTitle,
                 textAlign = TextAlign.Right,
                 modifier = Modifier.fillMaxWidth()
             )

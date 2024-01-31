@@ -36,7 +36,7 @@ fun BattleEditorPanel(entry: Entry) {
             verticalAlignment = Alignment.CenterVertically,
             modifier = Modifier.padding(horizontal = 5.dp)
         ) {
-            Text(text = "Enemy:", fontFamily = SpiraGPSText.fontFamily)
+            Text(text = "Enemy:", style = SpiraGPSText.typography.info)
             TextEdit(text = enemy, placeholderText = "Enemy Name...") {
                 enemy = it
                 entry.enemy = enemy
@@ -47,7 +47,7 @@ fun BattleEditorPanel(entry: Entry) {
             verticalAlignment =Alignment.CenterVertically,
             modifier = Modifier.padding(horizontal = 5.dp)
         ) {
-            Text(text = "Health:", fontFamily = SpiraGPSText.fontFamily)
+            Text(text = "Health:", style = SpiraGPSText.typography.info)
             TextEdit(
                 text = if (health != 0) health.toString() else "",
                 placeholderText = "Enemy Health..."
@@ -63,7 +63,7 @@ fun BattleEditorPanel(entry: Entry) {
         }
 
         Divider(color = SpiraGPSColours.infoBackground, thickness = 10.dp)
-        Text(text = "Steps:", fontFamily = SpiraGPSText.fontFamily, modifier = Modifier.padding(horizontal = 5.dp))
+        Text(text = "Steps:", style = SpiraGPSText.typography.info, modifier = Modifier.padding(horizontal = 5.dp))
         key(updates) {
             steps.forEachIndexed { index, step ->
                 BulletPointEditor(
@@ -96,7 +96,7 @@ fun BattleEditorPanel(entry: Entry) {
                     entry.guide = steps
                 }
             ) {
-                Text(text = "Add", style = TextStyle(fontFamily = SpiraGPSText.fontFamily, color = Color.Black))
+                Text(text = "Add", style = SpiraGPSText.typography.info, color = SpiraGPSColours.text)
             }
         }
     }

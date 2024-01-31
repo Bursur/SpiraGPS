@@ -43,7 +43,7 @@ fun PanelEditorButton(modifier: Modifier = Modifier, entry: Entry, onDismiss: (E
         },
         modifier = modifier
     ) {
-        Text(text = "Add Panel", style = TextStyle(fontFamily = SpiraGPSText.fontFamily, color = SpiraGPSColours.text))
+        Text(text = "Add Panel", style = SpiraGPSText.typography.info)
     }
 
     if(openAlertDialog)
@@ -73,14 +73,13 @@ fun PanelEditor(entry: Entry, onDismiss: (Entry?) -> Unit) {
                 horizontalAlignment = Alignment.CenterHorizontally,
                 modifier = Modifier.fillMaxWidth(0.9f).wrapContentHeight().padding(10.dp).animateContentSize()
             ) {
-                Text(text= "Edit Entry", fontFamily = SpiraGPSText.fontFamily, fontSize = 35.sp, fontWeight = FontWeight.Bold, modifier = Modifier.padding(bottom = 15.dp))
+                Text(text= "Edit Panel", style = SpiraGPSText.typography.routeTitle, modifier = Modifier.padding(bottom = 15.dp))
 
                 // Selector Type
                 Row {
                     Text(
                         text = "Type: $selectedEntryType",
-                        fontFamily = SpiraGPSText.fontFamily,
-                        fontSize = 20.sp,
+                        style = SpiraGPSText.typography.info,
                         modifier = Modifier.clickable { entryTypeExpanded = true }.padding(bottom = 10.dp)
                     )
 
@@ -109,7 +108,7 @@ fun PanelEditor(entry: Entry, onDismiss: (Entry?) -> Unit) {
                 }
 
                 Row(verticalAlignment = Alignment.CenterVertically) {
-                    Text(text = "Start Minimised:", fontFamily = SpiraGPSText.fontFamily)
+                    Text(text = "Start Minimised:", style = SpiraGPSText.typography.info)
                     Checkbox(checked = minimised, onCheckedChange = {
                         minimised = it
                         entry.minimised = minimised
@@ -119,12 +118,12 @@ fun PanelEditor(entry: Entry, onDismiss: (Entry?) -> Unit) {
                 // Save Button
                 Row {
                     TextButton(onClick = { onDismiss(entry) }) {
-                        Text(text = "Save", style = TextStyle(fontFamily = SpiraGPSText.fontFamily, color = Color.Black))
+                        Text(text = "Save", style = SpiraGPSText.typography.info)
                     }
 
                     // Cancel Button
                     TextButton(onClick = { onDismiss(null) }) {
-                        Text(text = "Cancel", style = TextStyle(fontFamily = SpiraGPSText.fontFamily, color = Color.Black))
+                        Text(text = "Cancel", style = SpiraGPSText.typography.info)
                     }
                 }
             }
@@ -138,7 +137,7 @@ private fun EntryType(value: String, onClick: (String) -> Unit) {
         text = {
             Text(
                 text = value,
-                fontFamily = SpiraGPSText.fontFamily
+                style = SpiraGPSText.typography.info
             )
         },
         onClick = {
