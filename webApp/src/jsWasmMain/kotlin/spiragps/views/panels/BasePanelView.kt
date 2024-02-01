@@ -1,6 +1,7 @@
 package spiragps.views.panels
 
 import androidx.compose.animation.AnimatedVisibility
+import androidx.compose.animation.animateColorAsState
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
@@ -26,10 +27,12 @@ import spiragps.style.SpiraGPSText
 fun BasePanelView(title: String, border: Color, minimised: Boolean = false, content: @Composable () -> Unit) {
     var expanded by remember { mutableStateOf(!minimised) }
 
+    val borderColour = animateColorAsState(border)
+
     Surface(
         elevation = 5.dp,
         shape = RoundedCornerShape(10.dp),
-        border = BorderStroke(2.dp, border),
+        border = BorderStroke(2.dp, borderColour.value),
         color = SpiraGPSColours.value.infoBackground,
     ) {
         Column {

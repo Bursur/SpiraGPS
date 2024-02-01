@@ -118,11 +118,11 @@ val lightScheme = ColourScheme(
 )
 
 val darkScheme = ColourScheme(
-    background = Color(0xFF000000),
+    background = Color(0xFF222222),
     onBackground = Color(0xFF19191C),
 
-    text = Color(0xFFFFFFFF),
-    infoBackground = Color(0xFF181818),
+    text = Color(0xFFC7C7C7),
+    infoBackground = Color(0xFF3C3C3C),
 
     fabBackgroundColour = Color(0xFFD3D3D3),
     fabIconColour = Color(0xFF414A4C),
@@ -136,23 +136,23 @@ val darkScheme = ColourScheme(
     loadingTrack = Color(0xFFCFCFC4),
     loadingText = Color(0xFFAEC6CF),
 
-    battleBorder = Color(0xFFFF8080),
+    battleBorder = Color(0xFFB73838),
     encounterBorder = Color(0xFFF5ACCD),
-    trialsBorder = Color(0xFFDE9A73),
-    sphereGridBorder = Color(0xFFDF809F),
-    equipmentBorder = Color(0xFFC7C8CA),
-    blitzballBorder = Color(0xFFD48C82),
-    itemSortBorder = Color(0xFF77DD77),
-    shopBorder = Color(0xFF8080FF),
-    customiseBorder = Color(0xFFAEC6CF),
-    tipBorder = Color(0xFFFDFD96),
+    trialsBorder = Color(0xFF96522B),
+    sphereGridBorder = Color(0xFF973857),
+    equipmentBorder = Color(0xFF7F8082),
+    blitzballBorder = Color(0xFF8C443A),
+    itemSortBorder = Color(0xFF2F952F),
+    shopBorder = Color(0xFF2F952F),
+    customiseBorder = Color(0xFF667E87),
+    tipBorder = Color(0xFFB5B54E),
 
     // Items Sort
-    itemSortBackground = arrayListOf(Color(0xFFDDDDDD), Color(0xFFF2F2F2)),
+    itemSortBackground = arrayListOf(Color(0xFF444444), Color(0xFF3C3C3C)),
     itemSortWeights = arrayListOf(FontWeight.Light, FontWeight.Bold),
 
     // Characters
-    tidus = Color(0xFF0000FE),
+    tidus = Color(0xFF5FD7EE),
     yuna = Color(0xFF80818D),
     kimahri = Color(0xFF00AFB3),
     auron = Color(0xFFF91D02),
