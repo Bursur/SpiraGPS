@@ -21,7 +21,7 @@ fun TrialEditorPanel(entry: Entry) {
     val entries by remember { mutableStateOf(entry.entries) }
     var updates by remember { mutableStateOf(0) }
 
-    BasePanelEditor(border = SpiraGPSColours.trialsBorder) {
+    BasePanelEditor(border = SpiraGPSColours.value.trialsBorder) {
         key(updates) {
             LazyColumn(modifier = Modifier.padding(10.dp)) {
                 items(items = entries) {

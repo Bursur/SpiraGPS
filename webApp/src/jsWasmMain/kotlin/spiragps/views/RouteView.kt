@@ -1,5 +1,7 @@
 package spiragps.views
 
+import androidx.compose.animation.animateColorAsState
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -34,6 +36,8 @@ fun RouteView(route: Route, conditionState: ConditionState, contentsState: Conte
     val scrollableState = rememberScrollState()
     val scope = rememberCoroutineScope()
 
+    val bgColour = animateColorAsState(SpiraGPSColours.value.background)
+
     val titlePositions: MutableMap<Int, Float> = mutableMapOf()
     var scrollOffset = 0f
 
@@ -43,6 +47,7 @@ fun RouteView(route: Route, conditionState: ConditionState, contentsState: Conte
             .onGloballyPositioned {
                 scrollOffset = it.positionInRoot().y
             }
+            .background(bgColour.value)
     ) {
         Column(
             horizontalAlignment = Alignment.CenterHorizontally,
@@ -75,8 +80,8 @@ fun RouteView(route: Route, conditionState: ConditionState, contentsState: Conte
                     scrollableState.animateScrollTo(0)
                 }
             },
-            containerColor = SpiraGPSColours.fabBackgroundColour,
-            contentColor = SpiraGPSColours.fabIconColour,
+            containerColor = SpiraGPSColours.value.fabBackgroundColour,
+            contentColor = SpiraGPSColours.value.fabIconColour,
             modifier = Modifier.align(Alignment.BottomEnd).padding(20.dp)
         ) {
             Icon(Icons.Filled.KeyboardArrowUp, "")

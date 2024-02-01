@@ -33,11 +33,11 @@ fun TableColumn(modifier: Modifier = Modifier, entries: List<String>) {
         entries.forEachIndexed { index, text ->
             Text(
                 text = text,
-                fontWeight = SpiraGPSColours.itemSortWeights[index % 2],
+                fontWeight = SpiraGPSColours.value.itemSortWeights[index % 2],
                 style = SpiraGPSText.typography.info,
                 modifier = Modifier
                     .fillMaxWidth()
-                    .background(SpiraGPSColours.itemSortBackground[index % 2])
+                    .background(SpiraGPSColours.value.itemSortBackground[index % 2])
             )
         }
     }

@@ -12,13 +12,13 @@ import spiragps.views.createEntry
 
 @Composable
 fun BlitzballView(entry: Entry) {
-    BasePanelView(title = "BLITZBALL", border = SpiraGPSColours.blitzballBorder, minimised = entry.minimised) {
+    BasePanelView(title = "BLITZBALL", border = SpiraGPSColours.value.blitzballBorder, minimised = entry.minimised) {
         Column(modifier = Modifier.padding(vertical = 30.dp, horizontal = 40.dp)) {
             entry.entries.forEach {
                 createEntry(entry = it)
 
                 if (it.trailingBreak)
-                    Divider(color = SpiraGPSColours.infoBackground, thickness = 15.dp)
+                    Divider(color = SpiraGPSColours.value.infoBackground, thickness = 15.dp)
             }
         }
     }

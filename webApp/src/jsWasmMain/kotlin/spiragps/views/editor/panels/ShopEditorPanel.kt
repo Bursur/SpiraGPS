@@ -31,7 +31,7 @@ fun ShopEditorPanel(entry: Entry) {
     val sellItems by remember { mutableStateOf(entry.sell) }
     var newSellItem by remember { mutableStateOf("") }
 
-    BasePanelEditor(border = SpiraGPSColours.shopBorder) {
+    BasePanelEditor(border = SpiraGPSColours.value.shopBorder) {
         Row(
             verticalAlignment = Alignment.CenterVertically,
             modifier = Modifier.padding(horizontal = 5.dp)
@@ -51,7 +51,7 @@ fun ShopEditorPanel(entry: Entry) {
             }
         }
 
-        Divider(color = SpiraGPSColours.infoBackground, thickness = 5.dp)
+        Divider(color = SpiraGPSColours.value.infoBackground, thickness = 5.dp)
         Text(text = "Buy:", style = SpiraGPSText.typography.info, modifier = Modifier.padding(horizontal = 5.dp))
         key(updates) {
             buyItems.forEachIndexed { index, item ->
@@ -85,11 +85,11 @@ fun ShopEditorPanel(entry: Entry) {
                     entry.guide = buyItems
                 }
             ) {
-                Text(text = "Add", style = SpiraGPSText.typography.info, color = SpiraGPSColours.text)
+                Text(text = "Add", style = SpiraGPSText.typography.info, color = SpiraGPSColours.value.text)
             }
         }
 
-        Divider(color = SpiraGPSColours.infoBackground, thickness = 5.dp)
+        Divider(color = SpiraGPSColours.value.infoBackground, thickness = 5.dp)
         Text(text = "Sell:", fontFamily = SpiraGPSText.fontFamily, modifier = Modifier.padding(horizontal = 5.dp))
         key(updates) {
             sellItems.forEachIndexed { index, item ->

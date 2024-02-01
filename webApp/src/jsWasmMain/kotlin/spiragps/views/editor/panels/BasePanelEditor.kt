@@ -16,7 +16,7 @@ fun BasePanelEditor(border: Color, content: @Composable () -> Unit) {
         elevation = 5.dp,
         shape = RoundedCornerShape(10.dp),
         border = BorderStroke(2.dp, border),
-        color = SpiraGPSColours.infoBackground,
+        color = SpiraGPSColours.value.infoBackground,
     ) {
         Column {
             Divider(color = border, thickness = 20.dp)

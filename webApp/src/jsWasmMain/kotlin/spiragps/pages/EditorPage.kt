@@ -82,7 +82,7 @@ fun EditorPage(navigationState: NavigationState) {
                         title = it
                         route.title = it
                     }
-                    Divider(color = SpiraGPSColours.infoBackground, modifier = Modifier.padding(vertical = 10.dp))
+                    Divider(color = SpiraGPSColours.value.infoBackground, modifier = Modifier.padding(vertical = 10.dp))
                 }
 
                 stickyHeader { StickyHeader("Introduction") }
@@ -99,7 +99,7 @@ fun EditorPage(navigationState: NavigationState) {
                             ++editorState.updateCounter
                         }
                     }
-                    Divider(color = SpiraGPSColours.infoBackground, modifier = Modifier.padding(vertical = 10.dp))
+                    Divider(color = SpiraGPSColours.value.infoBackground, modifier = Modifier.padding(vertical = 10.dp))
                 }
 
                 // Chapters
@@ -114,7 +114,7 @@ fun EditorPage(navigationState: NavigationState) {
                         route.chapters.add(Chapter(index = route.chapters.size))
                         ++editorState.updateCounter
                     }) {
-                        Text(text = "Add Chapter", style = SpiraGPSText.typography.info, color = SpiraGPSColours.text)
+                        Text(text = "Add Chapter", style = SpiraGPSText.typography.info, color = SpiraGPSColours.value.text)
                     }
                 }
             }
@@ -127,7 +127,7 @@ private fun StickyHeader(title: String) {
     Text(
         text = title,
         fontFamily = SpiraGPSText.fontFamily,
-        modifier = Modifier.fillMaxWidth().background(SpiraGPSColours.background).alpha(.5f)
+        modifier = Modifier.fillMaxWidth().background(SpiraGPSColours.value.background).alpha(.5f)
     )
 }
 

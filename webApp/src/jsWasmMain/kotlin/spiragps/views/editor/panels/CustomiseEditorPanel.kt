@@ -28,7 +28,7 @@ fun CustomisationEditorPanel(entry: Entry) {
     var newStep by remember { mutableStateOf("") }
     var updates by remember { mutableStateOf(0) }
 
-    BasePanelEditor(border = SpiraGPSColours.customiseBorder) {
+    BasePanelEditor(border = SpiraGPSColours.value.customiseBorder) {
         Row(
             verticalAlignment =Alignment.CenterVertically,
             modifier = Modifier.padding(horizontal = 5.dp)
@@ -73,7 +73,7 @@ fun CustomisationEditorPanel(entry: Entry) {
                     entry.guide = steps
                 }
             ) {
-                Text(text = "Add", style = SpiraGPSText.typography.info, color = SpiraGPSColours.text)
+                Text(text = "Add", style = SpiraGPSText.typography.info, color = SpiraGPSColours.value.text)
             }
         }
     }

@@ -42,7 +42,7 @@ fun EntryEditorButton(modifier: Modifier = Modifier, entry: Entry, onDismiss: (E
         },
         modifier = modifier
     ) {
-        Text(text = "Add Entry", style = SpiraGPSText.typography.info, color = SpiraGPSColours.text)
+        Text(text = "Add Entry", style = SpiraGPSText.typography.info, color = SpiraGPSColours.value.text)
     }
 
     if(openAlertDialog)
@@ -66,7 +66,7 @@ fun EntryEditor(entry: Entry, onDismiss: (Entry?) -> Unit) {
             entry.type = selectedEntryType
         }
 
-        Surface(elevation = 5.dp, shape = RoundedCornerShape(20.dp), color = SpiraGPSColours.background) {
+        Surface(elevation = 5.dp, shape = RoundedCornerShape(20.dp), color = SpiraGPSColours.value.background) {
             Column(
                 horizontalAlignment = Alignment.CenterHorizontally,
                 modifier = Modifier.fillMaxWidth(0.9f).wrapContentHeight().padding(10.dp).animateContentSize()

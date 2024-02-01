@@ -19,8 +19,8 @@ fun HelpActionButton(modifier: Modifier = Modifier) {
         onClick = {
             openAlertDialog = true
         },
-        containerColor = SpiraGPSColours.fabBackgroundColour,
-        contentColor = SpiraGPSColours.fabIconColour,
+        containerColor = SpiraGPSColours.value.fabBackgroundColour,
+        contentColor = SpiraGPSColours.value.fabIconColour,
         modifier = modifier
     ) {
         Text(text = "Help", fontFamily = SpiraGPSText.fontFamily)

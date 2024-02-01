@@ -1,5 +1,6 @@
 package spiragps.views
 
+import androidx.compose.animation.animateColorAsState
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.material3.Divider
@@ -17,17 +18,19 @@ import spiragps.style.SpiraGPSText
 
 @Composable
 fun TitleView(modifier: Modifier = Modifier, title: String, positionCallback: (Float) -> Unit = {_: Float -> }) {
+    val textColour = animateColorAsState(SpiraGPSColours.value.text)
     Column {
         Text(
             text = title,
             textAlign = TextAlign.Right,
             style = SpiraGPSText.typography.routeTitle,
+            color = textColour.value,
             modifier = modifier
                 .fillMaxWidth()
                 .onGloballyPositioned {
                     positionCallback(it.positionInRoot().y)
                 }
         )
-        Divider(color = SpiraGPSColours.black, thickness = 2.dp)
+        Divider(color = textColour.value, thickness = 2.dp)
     }
 }

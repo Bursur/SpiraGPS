@@ -1,5 +1,6 @@
 package spiragps.views.panels
 
+import androidx.compose.animation.animateColorAsState
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.Text
@@ -14,11 +15,14 @@ import spiragps.views.BulletedList
 
 @Composable
 fun CustomiseView(entry: Entry) {
-    BasePanelView("CUSTOMISE", border = SpiraGPSColours.customiseBorder, minimised = entry.minimised) {
+    val textColour = animateColorAsState(SpiraGPSColours.value.text)
+
+    BasePanelView("CUSTOMISE", border = SpiraGPSColours.value.customiseBorder, minimised = entry.minimised) {
         Column(modifier = Modifier.padding(vertical = 30.dp, horizontal = 40.dp)) {
             Text(
                 text = entry.item,
-                fontFamily = SpiraGPSText.fontFamily,
+                style = SpiraGPSText.typography.info,
+                color = textColour.value,
                 fontWeight = FontWeight.Bold
             )
 

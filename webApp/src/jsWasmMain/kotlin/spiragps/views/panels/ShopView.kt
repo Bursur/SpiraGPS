@@ -15,7 +15,7 @@ import spiragps.views.BulletedList
 
 @Composable
 fun ShopView(entry: Entry) {
-    BasePanelView(title = "SHOP - ${entry.cost.formatWithCommas()}", border = SpiraGPSColours.shopBorder, minimised = entry.minimised) {
+    BasePanelView(title = "SHOP - ${entry.cost.formatWithCommas()}", border = SpiraGPSColours.value.shopBorder, minimised = entry.minimised) {
         Column(modifier = Modifier.padding(vertical = 30.dp, horizontal = 40.dp)) {
             if (entry.buy.isNotEmpty()) {
                 Text("Buy:", fontFamily = SpiraGPSText.fontFamily, fontWeight = FontWeight.Bold)

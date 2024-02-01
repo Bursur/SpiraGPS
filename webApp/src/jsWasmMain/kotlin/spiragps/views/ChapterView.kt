@@ -45,7 +45,7 @@ fun ChapterView(chapter: Chapter, conditionState: ConditionState, titlePositionC
 
                             if (entry.trailingBreak)
                                 Divider(
-                                    color = SpiraGPSColours.background,
+                                    color = SpiraGPSColours.value.background,
                                     modifier = Modifier.padding(vertical = 10.dp)
                                 )
                         }

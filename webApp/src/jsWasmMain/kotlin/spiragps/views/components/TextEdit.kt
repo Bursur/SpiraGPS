@@ -19,9 +19,9 @@ fun TextEdit(modifier: Modifier = Modifier, text: String, placeholderText: Strin
             onValueChange(it)
         },
         colors = TextFieldDefaults.textFieldColors(
-            cursorColor = SpiraGPSColours.text,
-            backgroundColor = SpiraGPSColours.infoBackground,
-            focusedIndicatorColor = SpiraGPSColours.toggleSelectedTrackColour
+            cursorColor = SpiraGPSColours.value.text,
+            backgroundColor = SpiraGPSColours.value.infoBackground,
+            focusedIndicatorColor = SpiraGPSColours.value.toggleSelectedTrackColour
         ),
         textStyle = if(isBold) SpiraGPSText.typography.infoBold else SpiraGPSText.typography.info,
         placeholder = {

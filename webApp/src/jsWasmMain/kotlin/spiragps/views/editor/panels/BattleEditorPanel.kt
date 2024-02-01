@@ -31,7 +31,7 @@ fun BattleEditorPanel(entry: Entry) {
 
     var updates by remember { mutableStateOf(0) }
 
-    BasePanelEditor(border = SpiraGPSColours.battleBorder) {
+    BasePanelEditor(border = SpiraGPSColours.value.battleBorder) {
         Row(
             verticalAlignment = Alignment.CenterVertically,
             modifier = Modifier.padding(horizontal = 5.dp)
@@ -62,7 +62,7 @@ fun BattleEditorPanel(entry: Entry) {
             }
         }
 
-        Divider(color = SpiraGPSColours.infoBackground, thickness = 10.dp)
+        Divider(color = SpiraGPSColours.value.infoBackground, thickness = 10.dp)
         Text(text = "Steps:", style = SpiraGPSText.typography.info, modifier = Modifier.padding(horizontal = 5.dp))
         key(updates) {
             steps.forEachIndexed { index, step ->
@@ -96,7 +96,7 @@ fun BattleEditorPanel(entry: Entry) {
                     entry.guide = steps
                 }
             ) {
-                Text(text = "Add", style = SpiraGPSText.typography.info, color = SpiraGPSColours.text)
+                Text(text = "Add", style = SpiraGPSText.typography.info, color = SpiraGPSColours.value.text)
             }
         }
     }

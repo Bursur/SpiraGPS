@@ -1,5 +1,6 @@
 package spiragps.views
 
+import androidx.compose.animation.animateColorAsState
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
@@ -13,6 +14,7 @@ import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import spiragps.data.route.Entry
+import spiragps.style.SpiraGPSColours
 import spiragps.style.SpiraGPSText
 import spiragps.utils.highlightKeywords
 
@@ -20,9 +22,14 @@ private val paragraphStyle = ParagraphStyle(textIndent = TextIndent(restLine = 1
 
 @Composable
 fun BulletedList(entry: Entry) {
+    val textColour = animateColorAsState(SpiraGPSColours.value.text)
     Column(modifier = Modifier.fillMaxWidth()) {
         if(entry.text.isNotEmpty())
-            Text(highlightKeywords(entry.text), style = if(entry.bold) SpiraGPSText.typography.bulletTitleBold else SpiraGPSText.typography.bulletTitle)
+            Text(
+                highlightKeywords(entry.text),
+                style = if(entry.bold) SpiraGPSText.typography.bulletTitleBold else SpiraGPSText.typography.bulletTitle,
+                color = textColour.value
+            )
 
         Text(
             buildAnnotatedString {
@@ -35,6 +42,7 @@ fun BulletedList(entry: Entry) {
                 }
             },
             style = SpiraGPSText.typography.bulletPoint,
+            color = textColour.value,
             modifier = Modifier.padding(horizontal = 10.dp)
         )
     }
@@ -42,9 +50,14 @@ fun BulletedList(entry: Entry) {
 
 @Composable
 fun BulletedList(title: String = "", points: ArrayList<String>) {
+    val textColour = animateColorAsState(SpiraGPSColours.value.text)
     Column(modifier = Modifier.fillMaxWidth()) {
         if(title.isNotEmpty())
-            Text(title, style = SpiraGPSText.typography.bulletTitle)
+            Text(
+                title,
+                style = SpiraGPSText.typography.bulletTitle,
+                color = textColour.value
+            )
 
         Text(
             buildAnnotatedString {
@@ -57,6 +70,7 @@ fun BulletedList(title: String = "", points: ArrayList<String>) {
                 }
             },
             style = SpiraGPSText.typography.bulletPoint,
+            color = textColour.value,
             modifier = Modifier.padding(horizontal = 10.dp)
         )
     }

@@ -25,12 +25,12 @@ fun LoadingView(text: String = "") {
                 Text(
                     text = text,
                     fontFamily = SpiraGPSText.fontFamily,
-                    color = SpiraGPSColours.loadingText
+                    color = SpiraGPSColours.value.loadingText
                 )
 
             CircularProgressIndicator(
-                color = SpiraGPSColours.loadingColour,
-                trackColor = SpiraGPSColours.loadingTrack,
+                color = SpiraGPSColours.value.loadingColour,
+                trackColor = SpiraGPSColours.value.loadingTrack,
                 modifier = Modifier
                     .width(65.dp)
             )

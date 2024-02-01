@@ -27,7 +27,7 @@ fun EncounterEditorPanel(entry: Entry) {
     var newStep by remember { mutableStateOf("") }
     var updates by remember { mutableStateOf(0) }
 
-    BasePanelEditor(border = SpiraGPSColours.encounterBorder) {
+    BasePanelEditor(border = SpiraGPSColours.value.encounterBorder) {
         Text(text = "Steps:", style = SpiraGPSText.typography.info, modifier = Modifier.padding(horizontal = 5.dp))
         key(updates) {
             steps.forEachIndexed { index, step ->
@@ -61,7 +61,7 @@ fun EncounterEditorPanel(entry: Entry) {
                     entry.guide = steps
                 }
             ) {
-                Text(text = "Add", style = SpiraGPSText.typography.info, color = SpiraGPSColours.text)
+                Text(text = "Add", style = SpiraGPSText.typography.info, color = SpiraGPSColours.value.text)
             }
         }
     }

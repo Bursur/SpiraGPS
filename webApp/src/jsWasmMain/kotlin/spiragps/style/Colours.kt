@@ -118,11 +118,11 @@ val lightScheme = ColourScheme(
 )
 
 val darkScheme = ColourScheme(
-    background = Color(0xFFFFFFFF),
+    background = Color(0xFF000000),
     onBackground = Color(0xFF19191C),
 
-    text = Color(0xFF000000),
-    infoBackground = Color(0xFFF2F2F2),
+    text = Color(0xFFFFFFFF),
+    infoBackground = Color(0xFF181818),
 
     fabBackgroundColour = Color(0xFFD3D3D3),
     fabIconColour = Color(0xFF414A4C),
@@ -170,6 +170,6 @@ val darkScheme = ColourScheme(
     bahamut = Color(0xFF6241A8),
 
     // Misc.
-    black = Color(0xFF000000),
+    black = Color(0xFFFFFFFF),
     bug = Color(0xFFFF0000)
 )

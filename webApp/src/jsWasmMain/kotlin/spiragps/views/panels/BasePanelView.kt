@@ -30,13 +30,13 @@ fun BasePanelView(title: String, border: Color, minimised: Boolean = false, cont
         elevation = 5.dp,
         shape = RoundedCornerShape(10.dp),
         border = BorderStroke(2.dp, border),
-        color = SpiraGPSColours.infoBackground,
+        color = SpiraGPSColours.value.infoBackground,
     ) {
         Column {
             Text(
                 text = title,
                 textAlign = TextAlign.Center,
-                fontFamily = SpiraGPSText.fontFamily,
+                style = SpiraGPSText.typography.info,
                 modifier = Modifier
                     .background(border)
                     .fillMaxWidth()

@@ -7,6 +7,8 @@ import androidx.compose.material3.ProvideTextStyle
 import androidx.compose.material3.Typography
 import androidx.compose.material3.darkColorScheme
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.neverEqualPolicy
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
@@ -69,15 +71,14 @@ object SpiraGPSText {
     }
 }
 
-var SpiraGPSColours = lightScheme
+var SpiraGPSColours = mutableStateOf(lightScheme)
 
 @Composable
-fun SpiraGPSTheme(isDarkMode: Boolean = isSystemInDarkTheme(), content: @Composable () -> Unit) {
-    SpiraGPSColours = if (isDarkMode) darkScheme else lightScheme
+fun SpiraGPSTheme( content: @Composable () -> Unit) {
     MaterialTheme(
         colorScheme = MaterialTheme.colorScheme.copy(
-            background = SpiraGPSColours.background,
-            onBackground = SpiraGPSColours.onBackground
+            background = SpiraGPSColours.value.background,
+            onBackground = SpiraGPSColours.value.onBackground
         )
     ) {
         ProvideTextStyle(LocalTextStyle.current.copy(letterSpacing = 0.sp)) {
@@ -87,20 +88,20 @@ fun SpiraGPSTheme(isDarkMode: Boolean = isSystemInDarkTheme(), content: @Composa
 }
 
 fun getKeywordColour(word: String): Color = when(word) {
-    "Tidus" -> SpiraGPSColours.tidus
-    "Yuna" -> SpiraGPSColours.yuna
-    "Auron" -> SpiraGPSColours.auron
-    "Wakka" -> SpiraGPSColours.wakka
-    "Kimahri" -> SpiraGPSColours.kimahri
-    "Rikku" -> SpiraGPSColours.rikku
-    "Lulu" -> SpiraGPSColours.lulu
-    "Seymour" -> SpiraGPSColours.seymour
-    "Enemy" -> SpiraGPSColours.enemy
-    "Valefor" -> SpiraGPSColours.valefor
-    "Ifrit" -> SpiraGPSColours.ifrit
-    "Ixion" -> SpiraGPSColours.ixion
-    "Shiva" -> SpiraGPSColours.shiva
-    "Bahamut" -> SpiraGPSColours.bahamut
-    "BUG!" -> SpiraGPSColours.bug
-    else -> SpiraGPSColours.black
+    "Tidus" -> SpiraGPSColours.value.tidus
+    "Yuna" -> SpiraGPSColours.value.yuna
+    "Auron" -> SpiraGPSColours.value.auron
+    "Wakka" -> SpiraGPSColours.value.wakka
+    "Kimahri" -> SpiraGPSColours.value.kimahri
+    "Rikku" -> SpiraGPSColours.value.rikku
+    "Lulu" -> SpiraGPSColours.value.lulu
+    "Seymour" -> SpiraGPSColours.value.seymour
+    "Enemy" -> SpiraGPSColours.value.enemy
+    "Valefor" -> SpiraGPSColours.value.valefor
+    "Ifrit" -> SpiraGPSColours.value.ifrit
+    "Ixion" -> SpiraGPSColours.value.ixion
+    "Shiva" -> SpiraGPSColours.value.shiva
+    "Bahamut" -> SpiraGPSColours.value.bahamut
+    "BUG!" -> SpiraGPSColours.value.bug
+    else -> SpiraGPSColours.value.text
 }

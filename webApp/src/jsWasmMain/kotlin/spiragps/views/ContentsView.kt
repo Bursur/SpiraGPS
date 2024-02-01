@@ -1,5 +1,7 @@
 package spiragps.views
 
+import androidx.compose.animation.animateColorAsState
+import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.gestures.Orientation
 import androidx.compose.foundation.gestures.scrollable
@@ -17,12 +19,14 @@ import androidx.compose.ui.unit.sp
 import spiragps.data.route.Chapter
 import spiragps.data.route.ContentsState
 import spiragps.data.route.NavigationState
+import spiragps.style.SpiraGPSColours
 import spiragps.style.SpiraGPSText
 import spiragps.views.components.BackButton
 
 @Composable
 fun ContentsView(modifier: Modifier = Modifier, chapters: ArrayList<Chapter>, contentsState: ContentsState, navigationState: NavigationState) {
     val scrollState = rememberScrollState()
+    val textColour = animateColorAsState(SpiraGPSColours.value.text)
 
     Column(
         modifier = modifier.padding(10.dp)
@@ -32,7 +36,7 @@ fun ContentsView(modifier: Modifier = Modifier, chapters: ArrayList<Chapter>, co
         BackButton(navigationState = navigationState)
 
         // Title
-        Text(text = "Chapters:", style = SpiraGPSText.typography.contentsTitle)
+        Text(text = "Chapters:", style = SpiraGPSText.typography.contentsTitle, color = textColour.value)
 
         Column(
             modifier = Modifier
@@ -46,6 +50,7 @@ fun ContentsView(modifier: Modifier = Modifier, chapters: ArrayList<Chapter>, co
                 Text(
                     text = chapter.title,
                     style = SpiraGPSText.typography.contentsEntry,
+                    color = textColour.value,
                     modifier = Modifier
                         .fillMaxWidth()
                         .padding(vertical = 5.dp)

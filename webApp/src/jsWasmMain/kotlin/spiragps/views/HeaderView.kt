@@ -1,5 +1,6 @@
 package spiragps.views
 
+import androidx.compose.animation.animateColorAsState
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -22,6 +23,7 @@ fun HeaderView(conditions: ArrayList<Condition>, conditionState: ConditionState)
             }
         }
 
-        Divider(thickness = 1.dp, color = SpiraGPSColours.text, modifier = Modifier.fillMaxWidth(.65f))
+        val textColour = animateColorAsState(SpiraGPSColours.value.text)
+        Divider(thickness = 1.dp, color = textColour.value, modifier = Modifier.fillMaxWidth(.65f))
     }
 }

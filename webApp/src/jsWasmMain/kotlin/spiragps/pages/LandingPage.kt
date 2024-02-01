@@ -1,16 +1,27 @@
 package spiragps.pages
 
+import androidx.compose.animation.animateColorAsState
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.ExperimentalLayoutApi
 import androidx.compose.foundation.layout.FlowRow
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.material.Switch
+import androidx.compose.material.SwitchDefaults
 import androidx.compose.material3.Divider
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -22,24 +33,52 @@ import spiragps.pages.components.LocalRouteSelectButton
 import spiragps.pages.components.RouteSelectButton
 import spiragps.style.SpiraGPSColours
 import spiragps.style.SpiraGPSText
+import spiragps.style.darkScheme
+import spiragps.style.lightScheme
 import spiragps.views.BulletedList
 
 @OptIn(ExperimentalLayoutApi::class)
 @Composable
 fun LandingPage(navigationState: NavigationState) {
-    Column(modifier = Modifier.fillMaxWidth(), horizontalAlignment = Alignment.CenterHorizontally) {
+    val bgColour = animateColorAsState(SpiraGPSColours.value.background)
+    val textColour = animateColorAsState(SpiraGPSColours.value.text)
+
+    Column(modifier = Modifier.fillMaxSize().background(bgColour.value), horizontalAlignment = Alignment.CenterHorizontally) {
         Text(
             text = "Spira GPS",
             style = SpiraGPSText.typography.landingTitle,
             textAlign = TextAlign.Center,
+            color = textColour.value,
             modifier = Modifier.padding(top = 50.dp, bottom = 10.dp)
         )
 
         Text(
             text = "Select your destination",
             style = SpiraGPSText.typography.info,
-            textAlign = TextAlign.Center
+            textAlign = TextAlign.Center,
+            color = textColour.value
         )
+
+        Row(verticalAlignment = Alignment.CenterVertically, modifier = Modifier.padding(horizontal = 20.dp)) {
+            Text(text = "Dark Mode", style = SpiraGPSText.typography.conditionLabel, color = textColour.value)
+            var checked by remember { mutableStateOf(false) }
+            Switch(
+                checked = checked,
+                onCheckedChange = {
+                    checked = it
+                    println("DOING STUFF!!")
+                    SpiraGPSColours.value = if (checked) darkScheme else lightScheme
+                },
+                colors = SwitchDefaults.colors(
+                    checkedThumbColor = SpiraGPSColours.value.toggleSelectedThumbColour,
+                    checkedTrackColor = SpiraGPSColours.value.toggleSelectedTrackColour,
+                    checkedTrackAlpha = 1f,
+                    uncheckedTrackColor = SpiraGPSColours.value.toggleUnselectedTrackColour,
+                    uncheckedThumbColor = SpiraGPSColours.value.toggleUnselectedThumbColour,
+                    uncheckedTrackAlpha = 1f
+                )
+            )
+        }
 
         FlowRow(
             maxItemsInEachRow = 3,
@@ -57,7 +96,7 @@ fun LandingPage(navigationState: NavigationState) {
 
         // TODO LIST REMOVE THIS!!
         Divider(
-            color = SpiraGPSColours.infoBackground,
+            color = SpiraGPSColours.value.infoBackground,
             modifier = Modifier.padding(vertical = 10.dp)
         )
 

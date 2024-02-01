@@ -1,5 +1,6 @@
 package spiragps.views
 
+import androidx.compose.animation.animateColorAsState
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.Switch
@@ -21,9 +22,10 @@ import spiragps.style.SpiraGPSText
 @Composable
 fun ConditionalView(condition: Condition, conditionState: ConditionState) {
     var checked by remember { mutableStateOf(condition.defaultState) }
+    val textColour = animateColorAsState(SpiraGPSColours.value.text)
 
     Row(verticalAlignment = Alignment.CenterVertically, modifier = Modifier.padding(horizontal = 20.dp)) {
-        Text(text = condition.name, style = SpiraGPSText.typography.conditionLabel)
+        Text(text = condition.name, style = SpiraGPSText.typography.conditionLabel, color = textColour.value)
         Switch(
             checked = checked,
             onCheckedChange = {
@@ -31,11 +33,11 @@ fun ConditionalView(condition: Condition, conditionState: ConditionState) {
                 conditionState.setCondition(condition.name, checked)
             },
             colors = SwitchDefaults.colors(
-                checkedThumbColor = SpiraGPSColours.toggleSelectedThumbColour,
-                checkedTrackColor = SpiraGPSColours.toggleSelectedTrackColour,
+                checkedThumbColor = SpiraGPSColours.value.toggleSelectedThumbColour,
+                checkedTrackColor = SpiraGPSColours.value.toggleSelectedTrackColour,
                 checkedTrackAlpha = 1f,
-                uncheckedTrackColor = SpiraGPSColours.toggleUnselectedTrackColour,
-                uncheckedThumbColor = SpiraGPSColours.toggleUnselectedThumbColour,
+                uncheckedTrackColor = SpiraGPSColours.value.toggleUnselectedTrackColour,
+                uncheckedThumbColor = SpiraGPSColours.value.toggleUnselectedThumbColour,
                 uncheckedTrackAlpha = 1f
             )
         )

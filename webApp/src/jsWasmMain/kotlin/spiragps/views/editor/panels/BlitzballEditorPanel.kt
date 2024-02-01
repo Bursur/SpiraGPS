@@ -21,7 +21,7 @@ fun BlitzballEditorPanel(entry: Entry) {
     val entries by remember { mutableStateOf(entry.entries) }
     var updates by remember { mutableStateOf(0) }
 
-    BasePanelEditor(border = SpiraGPSColours.blitzballBorder) {
+    BasePanelEditor(border = SpiraGPSColours.value.blitzballBorder) {
         key(updates) {
             LazyColumn(modifier = Modifier.padding(10.dp)) {
                 items(items = entries) {

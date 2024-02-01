@@ -19,7 +19,7 @@ fun IntroductionView(intro: Introduction) {
             createEntry(entry = it)
 
             if (it.trailingBreak)
-                Divider(color = SpiraGPSColours.background, thickness = 15.dp)
+                Divider(color = SpiraGPSColours.value.background, thickness = 15.dp)
         }
     }
 }

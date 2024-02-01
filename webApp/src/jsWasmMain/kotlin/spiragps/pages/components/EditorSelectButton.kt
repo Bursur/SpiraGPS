@@ -1,5 +1,6 @@
 package spiragps.pages.components
 
+import androidx.compose.animation.animateColorAsState
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
@@ -22,11 +23,13 @@ import spiragps.style.SpiraGPSText
 @OptIn(ExperimentalResourceApi::class)
 @Composable
 fun EditorSelectButton(navigationState: NavigationState) {
+    val bgColour = animateColorAsState(SpiraGPSColours.value.infoBackground)
+    val textColour = animateColorAsState(SpiraGPSColours.value.text)
 
     Surface(
         elevation = 5.dp,
         shape = RoundedCornerShape(10.dp),
-        color = SpiraGPSColours.infoBackground,
+        color = bgColour.value,
     ) {
         Column(
             modifier = Modifier
@@ -44,6 +47,7 @@ fun EditorSelectButton(navigationState: NavigationState) {
                 text = "Route Editor",
                 style = SpiraGPSText.typography.info,
                 textAlign = TextAlign.Center,
+                color = textColour.value,
                 modifier = Modifier.fillMaxWidth()
             )
         }

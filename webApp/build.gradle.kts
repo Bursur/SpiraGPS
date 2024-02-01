@@ -73,6 +73,7 @@ kotlin {
                 implementation("org.jetbrains.kotlinx:kotlinx-serialization-core:1.6.1-wasm1")
                 implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.6.1-wasm1")
                 implementation("org.jetbrains.kotlinx:kotlinx-datetime:0.5.0")
+                implementation("com.arkivanov.decompose:decompose:3.0.0-alpha01")
             }
         }
         val jsMain by getting {
