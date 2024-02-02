@@ -137,22 +137,22 @@ val darkScheme = ColourScheme(
     loadingText = Color(0xFFAEC6CF),
 
     battleBorder = Color(0xFFB73838),
-    encounterBorder = Color(0xFFF5ACCD),
+    encounterBorder = Color(0xFF7C4A88),
     trialsBorder = Color(0xFF96522B),
     sphereGridBorder = Color(0xFF973857),
     equipmentBorder = Color(0xFF7F8082),
     blitzballBorder = Color(0xFF8C443A),
     itemSortBorder = Color(0xFF2F952F),
-    shopBorder = Color(0xFF2F952F),
+    shopBorder = Color(0xFF3D3DBC),
     customiseBorder = Color(0xFF667E87),
-    tipBorder = Color(0xFFB5B54E),
+    tipBorder = Color(0xFF788046),
 
     // Items Sort
     itemSortBackground = arrayListOf(Color(0xFF444444), Color(0xFF3C3C3C)),
     itemSortWeights = arrayListOf(FontWeight.Light, FontWeight.Bold),
 
     // Characters
-    tidus = Color(0xFF5FD7EE),
+    tidus = Color(0xFF386FD9),
     yuna = Color(0xFF80818D),
     kimahri = Color(0xFF00AFB3),
     auron = Color(0xFFF91D02),

@@ -1,5 +1,6 @@
 package spiragps.views.panels
 
+import androidx.compose.animation.animateColorAsState
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.Text
@@ -17,13 +18,14 @@ import spiragps.views.BulletedList
 fun ShopView(entry: Entry) {
     BasePanelView(title = "SHOP - ${entry.cost.formatWithCommas()}", border = SpiraGPSColours.value.shopBorder, minimised = entry.minimised) {
         Column(modifier = Modifier.padding(vertical = 30.dp, horizontal = 40.dp)) {
+            val textColour = animateColorAsState(SpiraGPSColours.value.text)
             if (entry.buy.isNotEmpty()) {
-                Text("Buy:", fontFamily = SpiraGPSText.fontFamily, fontWeight = FontWeight.Bold)
+                Text("Buy:", style = SpiraGPSText.typography.value.infoBold, color = textColour.value)
                 BulletedList(points = entry.buy)
             }
 
             if (entry.sell.isNotEmpty()) {
-                Text("Sell:", fontFamily = SpiraGPSText.fontFamily, fontWeight = FontWeight.Bold)
+                Text("Sell:", style = SpiraGPSText.typography.value.infoBold, color = textColour.value)
                 BulletedList(points = entry.sell)
             }
         }

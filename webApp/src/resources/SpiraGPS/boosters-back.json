@@ -52,9 +52,7 @@
                 {
                     "type": "equipment", "trailingBreak": true,
                     "guide":[
-                        "Wakka: Scout/Ice Ball",
-                        "Wakka: Any Armguard {optional}",
-                        "Tidus: Ice Brand {optional}"
+                        "Tidus", "Yuna", "Wakka", "Lulu", "Rikku", "Auron", "Kimahri"
                     ]
                 },
                 {

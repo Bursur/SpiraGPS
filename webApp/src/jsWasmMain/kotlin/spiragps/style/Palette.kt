@@ -40,8 +40,8 @@ object SpiraGPSText {
 
         dyslexicFont = FontFamily(
             Font(
-                identity = "OpenDyslexicAlta",
-                data = loadResource("SpiraGPS/fonts/OpenDyslexic-Regular.otf"),
+                identity = "ReadexPro",
+                data = loadResource("SpiraGPS/fonts/ReadexPro-Light.ttf"),
                 weight = FontWeight.Normal
             )
         )
