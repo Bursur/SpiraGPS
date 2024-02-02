@@ -510,7 +510,7 @@
                     "entries": [
                         { "type": "info", "text": "If you are losing or Wakka isn't in the Sphere yet, you should pass the ball to Jassu and hide behind Keepa." },
                         { "type": "image", "image": "SpiraGPS/blitzball_1.png" },
-                        { "type": "info", "text": "If you are drawing when Wakka is on the Sphere, pass the ball to Jassu and hide just to the right of the 6 o’clock position on the radar." },
+                        { "type": "info", "text": "If you are drawing when Wakka is on the Sphere, pass the ball to Jassu and hide just to the right of the 6 o’clock position on the radar. Wait until 4:20 on the clock before moving to pass to Wakka in order to skip Blitz-off if you score." },
                         { "type": "image", "image": "SpiraGPS/blitzball_2.png" }
                     ],
                     "requirement": { "condition": "Tips", "state": true }

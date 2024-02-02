@@ -1,5 +1,6 @@
 package spiragps.views.panels
 
+import androidx.compose.animation.animateColorAsState
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Divider
@@ -17,8 +18,10 @@ fun SphereGridView(entry: Entry) {
             entry.entries.forEach {
                 createEntry(entry = it)
 
-                if (it.trailingBreak)
-                    Divider(color = SpiraGPSColours.value.infoBackground, thickness = 15.dp)
+                if (it.trailingBreak) {
+                    val bgColour = animateColorAsState(SpiraGPSColours.value.infoBackground)
+                    Divider(color = bgColour.value, thickness = 15.dp)
+                }
             }
         }
     }

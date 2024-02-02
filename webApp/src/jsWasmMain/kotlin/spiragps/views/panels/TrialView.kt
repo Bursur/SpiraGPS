@@ -1,5 +1,6 @@
 package spiragps.views.panels
 
+import androidx.compose.animation.animateColorAsState
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.Divider
@@ -18,11 +19,13 @@ fun TrialsView(entry: Entry) {
                 Column {
                     createEntry(entry = entry)
 
-                    if (entry.trailingBreak)
+                    if (entry.trailingBreak) {
+                        val bgColour = animateColorAsState(SpiraGPSColours.value.infoBackground)
                         Divider(
-                            color = SpiraGPSColours.value.infoBackground,
+                            color = bgColour.value,
                             modifier = Modifier.padding(vertical = 10.dp)
                         )
+                    }
                 }
             }
         }
