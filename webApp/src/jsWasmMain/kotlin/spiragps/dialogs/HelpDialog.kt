@@ -63,7 +63,7 @@ fun HelpDialog(onDismissRequest: () -> Unit) {
             ) {
                 Row {
                     Text(text = "Spira GPS", style = SpiraGPSText.typography.value.landingTitle, color = textColour.value)
-                    Text(text = "(v0.2.0)", style = SpiraGPSText.typography.value.info, color = textColour.value)
+                    Text(text = "(v0.2.1)", style = SpiraGPSText.typography.value.info, color = textColour.value)
                 }
                 Text(
                     text = "The intention of this tool is to gather routes in one place. " +
