@@ -14,9 +14,9 @@
 
         function getDarkModePreference() {
             if(localStorage.darkMode)
-                return Boolean(localStorage.darkMode);
+                return Number(localStorage.darkMode);
 
-            return false
+            return 0
         }
 
         function saveTextSizePreference(size) {
@@ -36,9 +36,9 @@
 
         function getDyslexicModePreference() {
             if(localStorage.dyslexicMode)
-                return Boolean(localStorage.dyslexicMode);
+                return Number(localStorage.dyslexicMode);
 
-            return false
+            return 0
         }
 
         async function openFile() {

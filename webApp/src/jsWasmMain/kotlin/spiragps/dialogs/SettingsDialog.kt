@@ -52,9 +52,9 @@ import spiragps.style.lightScheme
 import spiragps.style.medium
 import spiragps.style.small
 
-external fun saveDarkModePreference(enabled: Boolean)
+external fun saveDarkModePreference(enabled: Int)
 external fun saveTextSizePreference(size: Int)
-external fun saveDyslexicModePreference(enabled: Boolean)
+external fun saveDyslexicModePreference(enabled: Int)
 
 @OptIn(ExperimentalResourceApi::class)
 @Composable
@@ -124,7 +124,7 @@ private fun ThemeSelector() {
             onCheckedChange = {
                 SpiraGPSDarkMode.value = it
                 SpiraGPSColours.value = if (SpiraGPSDarkMode.value) darkScheme else lightScheme
-                saveDarkModePreference(SpiraGPSDarkMode.value)
+                saveDarkModePreference(if(SpiraGPSDarkMode.value) 1 else 0)
             },
             colors = SwitchDefaults.colors(
                 checkedThumbColor = selectedColour.value,
@@ -211,7 +211,7 @@ private fun DyslexicSelector() {
             onCheckedChange = {
                 SpiraGPSText.useDyslexicFont.value = it
                 SpiraGPSText.typography.value = SpiraGPSText.getUpdatedFont()
-                saveDyslexicModePreference(SpiraGPSText.useDyslexicFont.value)
+                saveDyslexicModePreference(if(SpiraGPSText.useDyslexicFont.value) 1 else 0)
             },
             colors = SwitchDefaults.colors(
                 checkedThumbColor = SpiraGPSColours.value.toggleSelectedThumbColour,
