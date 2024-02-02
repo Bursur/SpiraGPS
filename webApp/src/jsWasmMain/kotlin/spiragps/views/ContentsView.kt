@@ -8,6 +8,9 @@ import androidx.compose.foundation.gestures.scrollable
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
@@ -38,12 +41,8 @@ fun ContentsView(modifier: Modifier = Modifier, chapters: ArrayList<Chapter>, co
         // Title
         Text(text = "Chapters:", style = SpiraGPSText.typography.value.contentsTitle, color = textColour.value)
 
-        Column(
-            modifier = Modifier
-                .scrollable(state = scrollState, orientation = Orientation.Vertical, enabled = true)
-        ) {
-            // Chapters
-            chapters.forEachIndexed { index, chapter ->
+        LazyColumn {
+            itemsIndexed(items = chapters) { index, chapter ->
                 if(chapter.index == -1)
                     chapter.index = index
 
