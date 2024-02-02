@@ -127,6 +127,7 @@ private fun StickyHeader(title: String) {
     Text(
         text = title,
         fontFamily = SpiraGPSText.fontFamily,
+        color = SpiraGPSColours.value.text,
         modifier = Modifier.fillMaxWidth().background(SpiraGPSColours.value.background).alpha(.5f)
     )
 }

@@ -34,6 +34,7 @@ fun ItemSortEditorPanel(entry: Entry) {
         Text(
             text = "Steps:\n(These steps should be in a CSV format, e.g. \"Al Bhed Potion with Shining Gem, R2 Confirm R2 ↓ Confirm\")",
             style = SpiraGPSText.typography.value.info,
+            color = SpiraGPSColours.value.text,
             modifier = Modifier.padding(horizontal = 5.dp)
         )
         key(updates) {

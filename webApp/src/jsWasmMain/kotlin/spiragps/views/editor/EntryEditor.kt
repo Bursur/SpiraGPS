@@ -71,14 +71,14 @@ fun EntryEditor(entry: Entry, onDismiss: (Entry?) -> Unit) {
                 horizontalAlignment = Alignment.CenterHorizontally,
                 modifier = Modifier.fillMaxWidth(0.9f).wrapContentHeight().padding(10.dp).animateContentSize()
             ) {
-                Text(text= "Edit Entry", style = SpiraGPSText.typography.value.routeTitle, modifier = Modifier.padding(bottom = 15.dp))
+                Text(text= "Edit Entry", style = SpiraGPSText.typography.value.routeTitle, color = SpiraGPSColours.value.text, modifier = Modifier.padding(bottom = 15.dp))
 
                 // Selector Type
                 Row {
                     Text(
                         text = "Type: $selectedEntryType",
-                        fontFamily = SpiraGPSText.fontFamily,
-                        fontSize = 20.sp,
+                        style = SpiraGPSText.typography.value.info,
+                        color = SpiraGPSColours.value.text,
                         modifier = Modifier.clickable { entryTypeExpanded = true }.padding(bottom = 10.dp)
                     )
 
@@ -103,12 +103,12 @@ fun EntryEditor(entry: Entry, onDismiss: (Entry?) -> Unit) {
                 // Save Button
                 Row {
                     TextButton(onClick = { onDismiss(entry) }) {
-                        Text(text = "Save", style = TextStyle(fontFamily = SpiraGPSText.fontFamily, color = Color.Black))
+                        Text(text = "Save", style = SpiraGPSText.typography.value.info, color = SpiraGPSColours.value.text)
                     }
 
                     // Cancel Button
                     TextButton(onClick = { onDismiss(null) }) {
-                        Text(text = "Cancel", style = TextStyle(fontFamily = SpiraGPSText.fontFamily, color = Color.Black))
+                        Text(text = "Cancel", style = SpiraGPSText.typography.value.info, color = SpiraGPSColours.value.text)
                     }
                 }
             }
@@ -122,7 +122,8 @@ private fun EntryType(value: String, onClick: (String) -> Unit) {
         text = {
             Text(
                 text = value,
-                fontFamily = SpiraGPSText.fontFamily
+                style = SpiraGPSText.typography.value.info,
+                color = SpiraGPSColours.value.text
             )
         },
         onClick = {

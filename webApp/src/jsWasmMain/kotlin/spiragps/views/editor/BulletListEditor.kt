@@ -42,7 +42,7 @@ fun BulletEditorPanel(entry: Entry) {
             verticalAlignment = Alignment.CenterVertically,
             modifier = Modifier.padding(bottom = 5.dp)
         ) {
-            Text(text = "Bold:", fontFamily = SpiraGPSText.fontFamily, fontSize = 20.sp)
+            Text(text = "Bold:", style = SpiraGPSText.typography.value.info, color = SpiraGPSColours.value.text)
             Checkbox(checked = isBold, onCheckedChange = {
                 isBold = it
                 entry.bold = isBold

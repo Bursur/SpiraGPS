@@ -36,7 +36,7 @@ fun BattleEditorPanel(entry: Entry) {
             verticalAlignment = Alignment.CenterVertically,
             modifier = Modifier.padding(horizontal = 5.dp)
         ) {
-            Text(text = "Enemy:", style = SpiraGPSText.typography.value.info)
+            Text(text = "Enemy:", style = SpiraGPSText.typography.value.info, color = SpiraGPSColours.value.text)
             TextEdit(text = enemy, placeholderText = "Enemy Name...") {
                 enemy = it
                 entry.enemy = enemy
@@ -47,7 +47,7 @@ fun BattleEditorPanel(entry: Entry) {
             verticalAlignment =Alignment.CenterVertically,
             modifier = Modifier.padding(horizontal = 5.dp)
         ) {
-            Text(text = "Health:", style = SpiraGPSText.typography.value.info)
+            Text(text = "Health:", style = SpiraGPSText.typography.value.info, color = SpiraGPSColours.value.text)
             TextEdit(
                 text = if (health != 0) health.toString() else "",
                 placeholderText = "Enemy Health..."
@@ -63,7 +63,7 @@ fun BattleEditorPanel(entry: Entry) {
         }
 
         Divider(color = SpiraGPSColours.value.infoBackground, thickness = 10.dp)
-        Text(text = "Steps:", style = SpiraGPSText.typography.value.info, modifier = Modifier.padding(horizontal = 5.dp))
+        Text(text = "Steps:", style = SpiraGPSText.typography.value.info, color = SpiraGPSColours.value.text, modifier = Modifier.padding(horizontal = 5.dp))
         key(updates) {
             steps.forEachIndexed { index, step ->
                 BulletPointEditor(

@@ -23,6 +23,7 @@ fun TextEdit(modifier: Modifier = Modifier, text: String, placeholderText: Strin
             onValueChange(it)
         },
         colors = TextFieldDefaults.textFieldColors(
+            textColor = textColour.value,
             cursorColor = textColour.value,
             backgroundColor = bgColour.value,
             focusedIndicatorColor = indicatorColour.value

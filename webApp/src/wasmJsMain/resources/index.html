@@ -8,6 +8,39 @@
     <script type="application/javascript" src="skiko.js"></script>
     <script type="application/javascript" src="webApp.js"></script>
     <script>
+        function saveDarkModePreference(enabled) {
+            localStorage.darkMode = enabled;
+        }
+
+        function getDarkModePreference() {
+            if(localStorage.darkMode)
+                return Boolean(localStorage.darkMode);
+
+            return false
+        }
+
+        function saveTextSizePreference(size) {
+            localStorage.textSize = size;
+        }
+
+        function getTextSizePreference() {
+            if(localStorage.textSize)
+                return Number(localStorage.textSize);
+
+            return 0
+        }
+
+        function saveDyslexicModePreference(enabled) {
+            localStorage.dyslexicMode = enabled;
+        }
+
+        function getDyslexicModePreference() {
+            if(localStorage.dyslexicMode)
+                return Boolean(localStorage.dyslexicMode);
+
+            return false
+        }
+
         async function openFile() {
             var content = "";
 

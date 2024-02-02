@@ -12,13 +12,17 @@ import androidx.compose.ui.text.platform.Font
 import androidx.compose.ui.unit.sp
 import spiragps.utils.loadResource
 
+external fun getDarkModePreference(): Boolean
+external fun getTextSizePreference(): Int
+external fun getDyslexicModePreference(): Boolean
+
 object SpiraGPSText {
     var fontFamily: FontFamily? = null
     var dyslexicFont: FontFamily? = null
 
     val typography = mutableStateOf(small)
-    val selectedFontSize = mutableStateOf(0)
-    val useDyslexicFont = mutableStateOf(false)
+    val selectedFontSize = mutableStateOf(getTextSizePreference())
+    val useDyslexicFont = mutableStateOf(getDyslexicModePreference())
 
     fun getUpdatedFont(): TextStyles = when(selectedFontSize.value) {
         0 -> if(useDyslexicFont.value) dyslexicSmall else small
@@ -46,7 +50,7 @@ object SpiraGPSText {
             )
         )
 
-        typography.value = small
+        typography.value = getUpdatedFont()
     }
 
     val keywords = arrayListOf(
@@ -86,11 +90,11 @@ object SpiraGPSText {
     }
 }
 
-var SpiraGPSColours = mutableStateOf(lightScheme)
-var SpiraGPSDarkMode = false
+var SpiraGPSColours = mutableStateOf(if(getDarkModePreference()) darkScheme else lightScheme)
+var SpiraGPSDarkMode = mutableStateOf(getDarkModePreference())
 
 @Composable
-fun SpiraGPSTheme( content: @Composable () -> Unit) {
+fun SpiraGPSTheme(content: @Composable () -> Unit) {
     MaterialTheme(
         colorScheme = MaterialTheme.colorScheme.copy(
             background = SpiraGPSColours.value.background,

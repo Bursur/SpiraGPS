@@ -28,7 +28,7 @@ fun EncounterEditorPanel(entry: Entry) {
     var updates by remember { mutableStateOf(0) }
 
     BasePanelEditor(border = SpiraGPSColours.value.encounterBorder) {
-        Text(text = "Steps:", style = SpiraGPSText.typography.value.info, modifier = Modifier.padding(horizontal = 5.dp))
+        Text(text = "Steps:", style = SpiraGPSText.typography.value.info, color = SpiraGPSColours.value.text, modifier = Modifier.padding(horizontal = 5.dp))
         key(updates) {
             steps.forEachIndexed { index, step ->
                 BulletPointEditor(

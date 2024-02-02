@@ -43,7 +43,7 @@ fun PanelEditorButton(modifier: Modifier = Modifier, entry: Entry, onDismiss: (E
         },
         modifier = modifier
     ) {
-        Text(text = "Add Panel", style = SpiraGPSText.typography.value.info)
+        Text(text = "Add Panel", style = SpiraGPSText.typography.value.info, color = SpiraGPSColours.value.text)
     }
 
     if(openAlertDialog)
@@ -73,13 +73,14 @@ fun PanelEditor(entry: Entry, onDismiss: (Entry?) -> Unit) {
                 horizontalAlignment = Alignment.CenterHorizontally,
                 modifier = Modifier.fillMaxWidth(0.9f).wrapContentHeight().padding(10.dp).animateContentSize()
             ) {
-                Text(text= "Edit Panel", style = SpiraGPSText.typography.value.routeTitle, modifier = Modifier.padding(bottom = 15.dp))
+                Text(text= "Edit Panel", style = SpiraGPSText.typography.value.routeTitle, color = SpiraGPSColours.value.text, modifier = Modifier.padding(bottom = 15.dp))
 
                 // Selector Type
                 Row {
                     Text(
                         text = "Type: $selectedEntryType",
                         style = SpiraGPSText.typography.value.info,
+                        color = SpiraGPSColours.value.text,
                         modifier = Modifier.clickable { entryTypeExpanded = true }.padding(bottom = 10.dp)
                     )
 
@@ -108,7 +109,7 @@ fun PanelEditor(entry: Entry, onDismiss: (Entry?) -> Unit) {
                 }
 
                 Row(verticalAlignment = Alignment.CenterVertically) {
-                    Text(text = "Start Minimised:", style = SpiraGPSText.typography.value.info)
+                    Text(text = "Start Minimised:", style = SpiraGPSText.typography.value.info, color = SpiraGPSColours.value.text)
                     Checkbox(checked = minimised, onCheckedChange = {
                         minimised = it
                         entry.minimised = minimised
@@ -118,12 +119,12 @@ fun PanelEditor(entry: Entry, onDismiss: (Entry?) -> Unit) {
                 // Save Button
                 Row {
                     TextButton(onClick = { onDismiss(entry) }) {
-                        Text(text = "Save", style = SpiraGPSText.typography.value.info)
+                        Text(text = "Save", style = SpiraGPSText.typography.value.info, color = SpiraGPSColours.value.text)
                     }
 
                     // Cancel Button
                     TextButton(onClick = { onDismiss(null) }) {
-                        Text(text = "Cancel", style = SpiraGPSText.typography.value.info)
+                        Text(text = "Cancel", style = SpiraGPSText.typography.value.info, color = SpiraGPSColours.value.text)
                     }
                 }
             }
@@ -137,7 +138,8 @@ private fun EntryType(value: String, onClick: (String) -> Unit) {
         text = {
             Text(
                 text = value,
-                style = SpiraGPSText.typography.value.info
+                style = SpiraGPSText.typography.value.info,
+                color = SpiraGPSColours.value.text
             )
         },
         onClick = {

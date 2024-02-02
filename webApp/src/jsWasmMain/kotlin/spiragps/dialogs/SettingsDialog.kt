@@ -52,6 +52,10 @@ import spiragps.style.lightScheme
 import spiragps.style.medium
 import spiragps.style.small
 
+external fun saveDarkModePreference(enabled: Boolean)
+external fun saveTextSizePreference(size: Int)
+external fun saveDyslexicModePreference(enabled: Boolean)
+
 @OptIn(ExperimentalResourceApi::class)
 @Composable
 fun SettingsActionButton(modifier: Modifier = Modifier) {
@@ -110,19 +114,17 @@ fun SettingsDialog(onDismissRequest: () -> Unit) {
 
 @Composable
 private fun ThemeSelector() {
-    var checked by remember { mutableStateOf(SpiraGPSDarkMode) }
-
     val selectedColour = animateColorAsState(SpiraGPSColours.value.toggleSelectedThumbColour)
     val unselectedColour = animateColorAsState(SpiraGPSColours.value.toggleUnselectedTrackColour)
 
     Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.Center) {
         ThemeSample("Light Mode", lightScheme)
         Switch(
-            checked = checked,
+            checked = SpiraGPSDarkMode.value,
             onCheckedChange = {
-                checked = it
-                SpiraGPSDarkMode = checked
-                SpiraGPSColours.value = if (checked) darkScheme else lightScheme
+                SpiraGPSDarkMode.value = it
+                SpiraGPSColours.value = if (SpiraGPSDarkMode.value) darkScheme else lightScheme
+                //saveDarkModePreference(SpiraGPSDarkMode.value)
             },
             colors = SwitchDefaults.colors(
                 checkedThumbColor = selectedColour.value,
@@ -156,6 +158,7 @@ private fun TextSizeSelector() {
             if(SpiraGPSText.selectedFontSize.value != 0) {
                 SpiraGPSText.selectedFontSize.value = 0
                 SpiraGPSText.typography.value = SpiraGPSText.getUpdatedFont()
+                saveTextSizePreference(0)
             }
         }
 
@@ -163,6 +166,7 @@ private fun TextSizeSelector() {
             if(SpiraGPSText.selectedFontSize.value != 1) {
                 SpiraGPSText.selectedFontSize.value = 1
                 SpiraGPSText.typography.value = SpiraGPSText.getUpdatedFont()
+                saveTextSizePreference(1)
             }
         }
 
@@ -170,6 +174,7 @@ private fun TextSizeSelector() {
             if(SpiraGPSText.selectedFontSize.value != 2) {
                 SpiraGPSText.selectedFontSize.value = 2
                 SpiraGPSText.typography.value = SpiraGPSText.getUpdatedFont()
+                saveTextSizePreference(2)
             }
         }
     }
@@ -205,8 +210,8 @@ private fun DyslexicSelector() {
             checked = SpiraGPSText.useDyslexicFont.value,
             onCheckedChange = {
                 SpiraGPSText.useDyslexicFont.value = it
-
                 SpiraGPSText.typography.value = SpiraGPSText.getUpdatedFont()
+                saveDyslexicModePreference(SpiraGPSText.useDyslexicFont.value)
             },
             colors = SwitchDefaults.colors(
                 checkedThumbColor = SpiraGPSColours.value.toggleSelectedThumbColour,
@@ -220,7 +225,7 @@ private fun DyslexicSelector() {
         )
 
         Text(
-            text = "Use Readex Fonts for Dyslexia (Some Glyphs are missing, mostly Arrows)",
+            text = "Use Readex Fonts helps with Dyslexia (Some Glyphs are missing, mostly Arrows)",
             style = when(SpiraGPSText.selectedFontSize.value) {
                 0 -> dyslexicSmall.info
                 1 -> dyslexicMedium.info
