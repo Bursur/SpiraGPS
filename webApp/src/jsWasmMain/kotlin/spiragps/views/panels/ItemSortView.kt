@@ -41,8 +41,8 @@ private fun Item(name: String, background: Color, weight: FontWeight) {
     val textColour = animateColorAsState(SpiraGPSColours.value.text)
 
     Row(modifier = Modifier.background(bgColour.value).fillMaxWidth()) {
-        Text(text = instruction[0], style = SpiraGPSText.typography.info, fontWeight = weight, color = textColour.value, modifier = Modifier.fillMaxWidth(.35f).padding(4.dp))
+        Text(text = instruction[0], style = SpiraGPSText.typography.value.info, fontWeight = weight, color = textColour.value, modifier = Modifier.fillMaxWidth(.35f).padding(4.dp))
         if(instruction.size > 1)
-            Text(text = instruction[1], style = SpiraGPSText.typography.info, fontWeight = weight, color = textColour.value, modifier = Modifier.fillMaxWidth(.65f).padding(4.dp))
+            Text(text = instruction[1], style = SpiraGPSText.typography.value.info, fontWeight = weight, color = textColour.value, modifier = Modifier.fillMaxWidth(.65f).padding(4.dp))
     }
 }

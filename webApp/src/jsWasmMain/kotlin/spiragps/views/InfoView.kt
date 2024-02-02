@@ -18,7 +18,7 @@ fun InfoView(entry: Entry) {
     val textColour = animateColorAsState(SpiraGPSColours.value.text)
     Text(
         text = highlightKeywords(entry.text),
-        style = if(entry.bold) SpiraGPSText.typography.bulletTitleBold else SpiraGPSText.typography.bulletTitle,
+        style = if(entry.bold) SpiraGPSText.typography.value.bulletTitleBold else SpiraGPSText.typography.value.bulletTitle,
         color = textColour.value,
         modifier = Modifier.fillMaxWidth().padding(bottom = 5.dp)
     )

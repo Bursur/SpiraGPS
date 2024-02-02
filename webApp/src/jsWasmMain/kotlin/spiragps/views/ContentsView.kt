@@ -36,7 +36,7 @@ fun ContentsView(modifier: Modifier = Modifier, chapters: ArrayList<Chapter>, co
         BackButton(navigationState = navigationState)
 
         // Title
-        Text(text = "Chapters:", style = SpiraGPSText.typography.contentsTitle, color = textColour.value)
+        Text(text = "Chapters:", style = SpiraGPSText.typography.value.contentsTitle, color = textColour.value)
 
         Column(
             modifier = Modifier
@@ -49,7 +49,7 @@ fun ContentsView(modifier: Modifier = Modifier, chapters: ArrayList<Chapter>, co
 
                 Text(
                     text = chapter.title,
-                    style = SpiraGPSText.typography.contentsEntry,
+                    style = SpiraGPSText.typography.value.contentsEntry,
                     color = textColour.value,
                     modifier = Modifier
                         .fillMaxWidth()

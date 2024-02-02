@@ -33,7 +33,7 @@ fun BulletPointEditor(text: String, placeholderText: String = "", onUpdated: (St
         TextButton(
             onClick = { onDeleted() }
         ) {
-            Text(text = "X", style = SpiraGPSText.typography.info)
+            Text(text = "X", style = SpiraGPSText.typography.value.info)
         }
     }
 }

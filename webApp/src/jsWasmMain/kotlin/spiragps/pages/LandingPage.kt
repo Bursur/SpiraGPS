@@ -40,13 +40,13 @@ import spiragps.views.BulletedList
 @OptIn(ExperimentalLayoutApi::class)
 @Composable
 fun LandingPage(navigationState: NavigationState) {
-    val bgColour = animateColorAsState(SpiraGPSColours.value.background)
+    val bgColour = animateColorAsState(SpiraGPSColours.value.infoBackground)
     val textColour = animateColorAsState(SpiraGPSColours.value.text)
 
-    Column(modifier = Modifier.fillMaxSize().background(bgColour.value), horizontalAlignment = Alignment.CenterHorizontally) {
+    Column(modifier = Modifier.fillMaxSize(), horizontalAlignment = Alignment.CenterHorizontally) {
         Text(
             text = "Spira GPS",
-            style = SpiraGPSText.typography.landingTitle,
+            style = SpiraGPSText.typography.value.landingTitle,
             textAlign = TextAlign.Center,
             color = textColour.value,
             modifier = Modifier.padding(top = 50.dp, bottom = 10.dp)
@@ -54,31 +54,10 @@ fun LandingPage(navigationState: NavigationState) {
 
         Text(
             text = "Select your destination",
-            style = SpiraGPSText.typography.info,
+            style = SpiraGPSText.typography.value.info,
             textAlign = TextAlign.Center,
             color = textColour.value
         )
-
-        Row(verticalAlignment = Alignment.CenterVertically, modifier = Modifier.padding(horizontal = 20.dp)) {
-            Text(text = "Dark Mode", style = SpiraGPSText.typography.conditionLabel, color = textColour.value)
-            var checked by remember { mutableStateOf(false) }
-            Switch(
-                checked = checked,
-                onCheckedChange = {
-                    checked = it
-                    println("DOING STUFF!!")
-                    SpiraGPSColours.value = if (checked) darkScheme else lightScheme
-                },
-                colors = SwitchDefaults.colors(
-                    checkedThumbColor = SpiraGPSColours.value.toggleSelectedThumbColour,
-                    checkedTrackColor = SpiraGPSColours.value.toggleSelectedTrackColour,
-                    checkedTrackAlpha = 1f,
-                    uncheckedTrackColor = SpiraGPSColours.value.toggleUnselectedTrackColour,
-                    uncheckedThumbColor = SpiraGPSColours.value.toggleUnselectedThumbColour,
-                    uncheckedTrackAlpha = 1f
-                )
-            )
-        }
 
         FlowRow(
             maxItemsInEachRow = 3,
@@ -96,7 +75,7 @@ fun LandingPage(navigationState: NavigationState) {
 
         // TODO LIST REMOVE THIS!!
         Divider(
-            color = SpiraGPSColours.value.infoBackground,
+            color = bgColour.value,
             modifier = Modifier.padding(vertical = 10.dp)
         )
 

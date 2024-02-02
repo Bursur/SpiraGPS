@@ -18,7 +18,7 @@ fun BackButton(modifier: Modifier = Modifier, navigationState: NavigationState) 
     val textColour = animateColorAsState(SpiraGPSColours.value.text)
     Text(
         text = "← Back",
-        style = SpiraGPSText.typography.backButton,
+        style = SpiraGPSText.typography.value.backButton,
         color = textColour.value,
         modifier = modifier
             .padding(bottom = 20.dp)

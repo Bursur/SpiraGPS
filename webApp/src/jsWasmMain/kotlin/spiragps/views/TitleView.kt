@@ -23,7 +23,7 @@ fun TitleView(modifier: Modifier = Modifier, title: String, positionCallback: (F
         Text(
             text = title,
             textAlign = TextAlign.Right,
-            style = SpiraGPSText.typography.routeTitle,
+            style = SpiraGPSText.typography.value.routeTitle,
             color = textColour.value,
             modifier = modifier
                 .fillMaxWidth()

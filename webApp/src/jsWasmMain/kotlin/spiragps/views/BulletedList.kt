@@ -27,7 +27,7 @@ fun BulletedList(entry: Entry) {
         if(entry.text.isNotEmpty())
             Text(
                 highlightKeywords(entry.text),
-                style = if(entry.bold) SpiraGPSText.typography.bulletTitleBold else SpiraGPSText.typography.bulletTitle,
+                style = if(entry.bold) SpiraGPSText.typography.value.bulletTitleBold else SpiraGPSText.typography.value.bulletTitle,
                 color = textColour.value
             )
 
@@ -41,7 +41,7 @@ fun BulletedList(entry: Entry) {
                     }
                 }
             },
-            style = SpiraGPSText.typography.bulletPoint,
+            style = SpiraGPSText.typography.value.bulletPoint,
             color = textColour.value,
             modifier = Modifier.padding(horizontal = 10.dp)
         )
@@ -55,7 +55,7 @@ fun BulletedList(title: String = "", points: ArrayList<String>) {
         if(title.isNotEmpty())
             Text(
                 title,
-                style = SpiraGPSText.typography.bulletTitle,
+                style = SpiraGPSText.typography.value.bulletTitle,
                 color = textColour.value
             )
 
@@ -69,7 +69,7 @@ fun BulletedList(title: String = "", points: ArrayList<String>) {
                     }
                 }
             },
-            style = SpiraGPSText.typography.bulletPoint,
+            style = SpiraGPSText.typography.value.bulletPoint,
             color = textColour.value,
             modifier = Modifier.padding(horizontal = 10.dp)
         )

@@ -28,20 +28,21 @@ fun BasePanelView(title: String, border: Color, minimised: Boolean = false, cont
     var expanded by remember { mutableStateOf(!minimised) }
 
     val borderColour = animateColorAsState(border)
+    val bgColour = animateColorAsState(SpiraGPSColours.value.infoBackground)
 
     Surface(
         elevation = 5.dp,
         shape = RoundedCornerShape(10.dp),
         border = BorderStroke(2.dp, borderColour.value),
-        color = SpiraGPSColours.value.infoBackground,
+        color = bgColour.value,
     ) {
         Column {
             Text(
                 text = title,
                 textAlign = TextAlign.Center,
-                style = SpiraGPSText.typography.info,
+                style = SpiraGPSText.typography.value.info,
                 modifier = Modifier
-                    .background(border)
+                    .background(borderColour.value)
                     .fillMaxWidth()
                     .padding(vertical = 4.dp)
                     .clickable {

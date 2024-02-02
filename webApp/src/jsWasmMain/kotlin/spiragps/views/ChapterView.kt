@@ -1,6 +1,7 @@
 package spiragps.views
 
 import androidx.compose.animation.AnimatedVisibility
+import androidx.compose.animation.animateColorAsState
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -43,11 +44,13 @@ fun ChapterView(chapter: Chapter, conditionState: ConditionState, titlePositionC
                         Column {
                             createEntry(entry = entry)
 
-                            if (entry.trailingBreak)
+                            if (entry.trailingBreak) {
+                                val bgColour = animateColorAsState(SpiraGPSColours.value.background)
                                 Divider(
-                                    color = SpiraGPSColours.value.background,
+                                    color = bgColour.value,
                                     modifier = Modifier.padding(vertical = 10.dp)
                                 )
+                            }
                         }
                     }
                 }

@@ -1,5 +1,6 @@
 package spiragps.views
 
+import androidx.compose.animation.animateColorAsState
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
@@ -14,12 +15,14 @@ import spiragps.style.SpiraGPSText
 
 @Composable
 fun IntroductionView(intro: Introduction) {
+    val dividerColour = animateColorAsState(SpiraGPSColours.value.background)
+
     Column(modifier = Modifier.fillMaxWidth().padding(bottom = 5.dp)) {
         intro.entries.forEachIndexed { index, it ->
             createEntry(entry = it)
 
             if (it.trailingBreak)
-                Divider(color = SpiraGPSColours.value.background, thickness = 15.dp)
+                Divider(color = dividerColour.value, thickness = 15.dp)
         }
     }
 }

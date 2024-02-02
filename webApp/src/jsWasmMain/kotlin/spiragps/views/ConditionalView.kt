@@ -24,8 +24,11 @@ fun ConditionalView(condition: Condition, conditionState: ConditionState) {
     var checked by remember { mutableStateOf(condition.defaultState) }
     val textColour = animateColorAsState(SpiraGPSColours.value.text)
 
+    val selectedColour = animateColorAsState(SpiraGPSColours.value.toggleSelectedThumbColour)
+    val unselectedColour = animateColorAsState(SpiraGPSColours.value.toggleUnselectedTrackColour)
+
     Row(verticalAlignment = Alignment.CenterVertically, modifier = Modifier.padding(horizontal = 20.dp)) {
-        Text(text = condition.name, style = SpiraGPSText.typography.conditionLabel, color = textColour.value)
+        Text(text = condition.name, style = SpiraGPSText.typography.value.conditionLabel, color = textColour.value)
         Switch(
             checked = checked,
             onCheckedChange = {
@@ -33,10 +36,10 @@ fun ConditionalView(condition: Condition, conditionState: ConditionState) {
                 conditionState.setCondition(condition.name, checked)
             },
             colors = SwitchDefaults.colors(
-                checkedThumbColor = SpiraGPSColours.value.toggleSelectedThumbColour,
+                checkedThumbColor = selectedColour.value,
                 checkedTrackColor = SpiraGPSColours.value.toggleSelectedTrackColour,
                 checkedTrackAlpha = 1f,
-                uncheckedTrackColor = SpiraGPSColours.value.toggleUnselectedTrackColour,
+                uncheckedTrackColor = unselectedColour.value,
                 uncheckedThumbColor = SpiraGPSColours.value.toggleUnselectedThumbColour,
                 uncheckedTrackAlpha = 1f
             )

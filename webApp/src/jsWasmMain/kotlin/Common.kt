@@ -8,7 +8,9 @@ import androidx.compose.ui.Modifier
 import spiragps.data.destinations.SpiraDestinations
 import spiragps.data.route.NavigationState
 import spiragps.data.route.rememberNavigationState
+import spiragps.dialogs.HelpActionButton
 import spiragps.dialogs.HelpDialog
+import spiragps.dialogs.SettingsActionButton
 import spiragps.pages.EditorPage
 import spiragps.pages.LandingPage
 import spiragps.pages.LoadingPage
@@ -16,7 +18,6 @@ import spiragps.style.SpiraGPSTheme
 import spiragps.pages.RoutePage
 import spiragps.style.SpiraGPSColours
 import spiragps.style.SpiraGPSText
-import spiragps.views.components.HelpActionButton
 
 
 @Composable
@@ -34,7 +35,8 @@ internal fun SpiraGPS() {
                     NavigationState.EDITOR -> EditorPage(navigationState)
                 }
 
-                HelpActionButton(modifier = Modifier.align(Alignment.BottomEnd))
+                //HelpActionButton(modifier = Modifier.align(Alignment.BottomEnd))
+                SettingsActionButton(modifier = Modifier.align(Alignment.BottomEnd))
             }
         }
         else

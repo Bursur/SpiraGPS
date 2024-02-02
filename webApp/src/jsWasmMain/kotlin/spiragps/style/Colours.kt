@@ -127,8 +127,8 @@ val darkScheme = ColourScheme(
     fabBackgroundColour = Color(0xFFD3D3D3),
     fabIconColour = Color(0xFF414A4C),
 
-    toggleSelectedTrackColour = Color(0xFF77DD77),
-    toggleUnselectedTrackColour = Color(0xFFFF8080),
+    toggleSelectedTrackColour = Color(0xFF2F952F),
+    toggleUnselectedTrackColour = Color(0xFFB73838),
     toggleSelectedThumbColour = Color(0xFFD3D3D3),
     toggleUnselectedThumbColour = Color(0xFFD3D3D3),
 

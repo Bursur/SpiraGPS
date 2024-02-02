@@ -37,7 +37,7 @@ fun TableColumn(modifier: Modifier = Modifier, entries: List<String>) {
             Text(
                 text = text,
                 fontWeight = SpiraGPSColours.value.itemSortWeights[index % 2],
-                style = SpiraGPSText.typography.info,
+                style = SpiraGPSText.typography.value.info,
                 color = textColour.value,
                 modifier = Modifier
                     .fillMaxWidth()

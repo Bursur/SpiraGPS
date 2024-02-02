@@ -21,7 +21,7 @@ fun CustomiseView(entry: Entry) {
         Column(modifier = Modifier.padding(vertical = 30.dp, horizontal = 40.dp)) {
             Text(
                 text = entry.item,
-                style = SpiraGPSText.typography.info,
+                style = SpiraGPSText.typography.value.info,
                 color = textColour.value,
                 fontWeight = FontWeight.Bold
             )

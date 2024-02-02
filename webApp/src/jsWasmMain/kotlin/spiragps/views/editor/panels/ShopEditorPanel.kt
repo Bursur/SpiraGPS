@@ -36,7 +36,7 @@ fun ShopEditorPanel(entry: Entry) {
             verticalAlignment = Alignment.CenterVertically,
             modifier = Modifier.padding(horizontal = 5.dp)
         ) {
-            Text(text = "Cost:", style = SpiraGPSText.typography.info,)
+            Text(text = "Cost:", style = SpiraGPSText.typography.value.info,)
             TextEdit(
                 text = if (cost != 0) cost.toString() else "",
                 placeholderText = "Price..."
@@ -52,7 +52,7 @@ fun ShopEditorPanel(entry: Entry) {
         }
 
         Divider(color = SpiraGPSColours.value.infoBackground, thickness = 5.dp)
-        Text(text = "Buy:", style = SpiraGPSText.typography.info, modifier = Modifier.padding(horizontal = 5.dp))
+        Text(text = "Buy:", style = SpiraGPSText.typography.value.info, modifier = Modifier.padding(horizontal = 5.dp))
         key(updates) {
             buyItems.forEachIndexed { index, item ->
                 BulletPointEditor(
@@ -85,7 +85,7 @@ fun ShopEditorPanel(entry: Entry) {
                     entry.guide = buyItems
                 }
             ) {
-                Text(text = "Add", style = SpiraGPSText.typography.info, color = SpiraGPSColours.value.text)
+                Text(text = "Add", style = SpiraGPSText.typography.value.info, color = SpiraGPSColours.value.text)
             }
         }
 

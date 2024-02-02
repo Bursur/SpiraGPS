@@ -1,5 +1,6 @@
 package spiragps.views.components
 
+import androidx.compose.animation.animateColorAsState
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.material.Text
 import androidx.compose.material.TextField
@@ -13,21 +14,25 @@ import spiragps.style.SpiraGPSText
 
 @Composable
 fun TextEdit(modifier: Modifier = Modifier, text: String, placeholderText: String, isBold: Boolean = false, onValueChange: (String) -> Unit) {
+    val textColour = animateColorAsState(SpiraGPSColours.value.text)
+    val bgColour = animateColorAsState(SpiraGPSColours.value.infoBackground)
+    val indicatorColour = animateColorAsState(SpiraGPSColours.value.toggleSelectedTrackColour)
     TextField(
         value = text,
         onValueChange = {
             onValueChange(it)
         },
         colors = TextFieldDefaults.textFieldColors(
-            cursorColor = SpiraGPSColours.value.text,
-            backgroundColor = SpiraGPSColours.value.infoBackground,
-            focusedIndicatorColor = SpiraGPSColours.value.toggleSelectedTrackColour
+            cursorColor = textColour.value,
+            backgroundColor = bgColour.value,
+            focusedIndicatorColor = indicatorColour.value
         ),
-        textStyle = if(isBold) SpiraGPSText.typography.infoBold else SpiraGPSText.typography.info,
+        textStyle = if(isBold) SpiraGPSText.typography.value.infoBold else SpiraGPSText.typography.value.info,
         placeholder = {
             Text(
                 text = placeholderText,
-                fontFamily = SpiraGPSText.fontFamily,
+                style = SpiraGPSText.typography.value.info,
+                color = textColour.value,
                 modifier = Modifier.fillMaxWidth()
             )
         },

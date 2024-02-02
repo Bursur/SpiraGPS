@@ -36,7 +36,7 @@ fun InfoEditorPanel(entry: Entry) {
             verticalAlignment = Alignment.CenterVertically,
             modifier = Modifier.padding(bottom = 5.dp)
         ) {
-            Text(text = "Bold:", style = SpiraGPSText.typography.info)
+            Text(text = "Bold:", style = SpiraGPSText.typography.value.info)
             Checkbox(checked = isBold, onCheckedChange = {
                 isBold = it
                 entry.bold = isBold
@@ -45,7 +45,7 @@ fun InfoEditorPanel(entry: Entry) {
 
         // Text
         Row(verticalAlignment = Alignment.CenterVertically) {
-            Text(text = "Text:", style = SpiraGPSText.typography.info,)
+            Text(text = "Text:", style = SpiraGPSText.typography.value.info,)
             TextEdit(text = infoText, placeholderText = "Enter Text...", isBold = isBold) {
                 infoText = it
                 entry.text = infoText

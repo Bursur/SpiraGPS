@@ -1,14 +1,10 @@
 package spiragps.style
 
-import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material3.LocalTextStyle
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.ProvideTextStyle
-import androidx.compose.material3.Typography
-import androidx.compose.material3.darkColorScheme
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.neverEqualPolicy
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
@@ -18,7 +14,18 @@ import spiragps.utils.loadResource
 
 object SpiraGPSText {
     var fontFamily: FontFamily? = null
-    lateinit var typography: TextStyles
+    var dyslexicFont: FontFamily? = null
+
+    val typography = mutableStateOf(small)
+    val selectedFontSize = mutableStateOf(0)
+    val useDyslexicFont = mutableStateOf(false)
+
+    fun getUpdatedFont(): TextStyles = when(selectedFontSize.value) {
+        0 -> if(useDyslexicFont.value) dyslexicSmall else small
+        1 -> if(useDyslexicFont.value) dyslexicMedium else medium
+        2 -> if(useDyslexicFont.value) dyslexicLarge else large
+        else -> if(useDyslexicFont.value) dyslexicSmall else small
+    }
 
     const val BULLET_CHAR = "\u2022"
 
@@ -31,7 +38,15 @@ object SpiraGPSText {
             )
         )
 
-        typography = small
+        dyslexicFont = FontFamily(
+            Font(
+                identity = "OpenDyslexicAlta",
+                data = loadResource("SpiraGPS/fonts/OpenDyslexic-Regular.otf"),
+                weight = FontWeight.Normal
+            )
+        )
+
+        typography.value = small
     }
 
     val keywords = arrayListOf(
@@ -72,6 +87,7 @@ object SpiraGPSText {
 }
 
 var SpiraGPSColours = mutableStateOf(lightScheme)
+var SpiraGPSDarkMode = false
 
 @Composable
 fun SpiraGPSTheme( content: @Composable () -> Unit) {

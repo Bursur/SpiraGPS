@@ -61,7 +61,7 @@ fun LocalRouteSelectButton(navigationState: NavigationState) {
 
             Text(
                 text = data,
-                style = SpiraGPSText.typography.info,
+                style = SpiraGPSText.typography.value.info,
                 textAlign = TextAlign.Center,
                 color = textColour.value,
                 modifier = Modifier.fillMaxWidth()
