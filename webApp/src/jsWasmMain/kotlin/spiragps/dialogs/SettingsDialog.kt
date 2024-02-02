@@ -124,7 +124,7 @@ private fun ThemeSelector() {
             onCheckedChange = {
                 SpiraGPSDarkMode.value = it
                 SpiraGPSColours.value = if (SpiraGPSDarkMode.value) darkScheme else lightScheme
-                //saveDarkModePreference(SpiraGPSDarkMode.value)
+                saveDarkModePreference(SpiraGPSDarkMode.value)
             },
             colors = SwitchDefaults.colors(
                 checkedThumbColor = selectedColour.value,

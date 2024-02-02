@@ -5,6 +5,7 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.Checkbox
+import androidx.compose.material.CheckboxDefaults
 import androidx.compose.material.Text
 import androidx.compose.material.TextField
 import androidx.compose.material.TextFieldColors
@@ -37,10 +38,17 @@ fun InfoEditorPanel(entry: Entry) {
             modifier = Modifier.padding(bottom = 5.dp)
         ) {
             Text(text = "Bold:", style = SpiraGPSText.typography.value.info, color = SpiraGPSColours.value.text)
-            Checkbox(checked = isBold, onCheckedChange = {
-                isBold = it
-                entry.bold = isBold
-            })
+            Checkbox(
+                checked = isBold,
+                onCheckedChange = {
+                    isBold = it
+                    entry.bold = isBold
+                },
+                colors = CheckboxDefaults.colors(
+                    uncheckedColor = SpiraGPSColours.value.toggleUnselectedTrackColour,
+                    checkedColor = SpiraGPSColours.value.toggleSelectedTrackColour
+                )
+            )
         }
 
         // Text

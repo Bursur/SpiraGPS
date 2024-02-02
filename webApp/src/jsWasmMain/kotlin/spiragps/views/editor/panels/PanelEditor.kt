@@ -2,6 +2,7 @@ package spiragps.views.editor.panels
 
 import androidx.compose.animation.Crossfade
 import androidx.compose.animation.animateContentSize
+import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -10,6 +11,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.wrapContentHeight
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Checkbox
+import androidx.compose.material.CheckboxDefaults
 import androidx.compose.material.Surface
 import androidx.compose.material.TextButton
 import androidx.compose.material3.DropdownMenu
@@ -86,9 +88,8 @@ fun PanelEditor(entry: Entry, onDismiss: (Entry?) -> Unit) {
 
                     DropdownMenu(
                         expanded = entryTypeExpanded,
-                        onDismissRequest = {
-                            entryTypeExpanded = false
-                        }
+                        onDismissRequest = { entryTypeExpanded = false },
+                        modifier = Modifier.background(SpiraGPSColours.value.infoBackground)
                     ) {
                         EntryType("battle", onClick = typeSelectedCallback)
                         EntryType("encounter", onClick = typeSelectedCallback)
@@ -110,10 +111,17 @@ fun PanelEditor(entry: Entry, onDismiss: (Entry?) -> Unit) {
 
                 Row(verticalAlignment = Alignment.CenterVertically) {
                     Text(text = "Start Minimised:", style = SpiraGPSText.typography.value.info, color = SpiraGPSColours.value.text)
-                    Checkbox(checked = minimised, onCheckedChange = {
-                        minimised = it
-                        entry.minimised = minimised
-                    })
+                    Checkbox(
+                        checked = minimised,
+                        onCheckedChange = {
+                            minimised = it
+                            entry.minimised = minimised
+                        },
+                        colors = CheckboxDefaults.colors(
+                            uncheckedColor = SpiraGPSColours.value.toggleUnselectedTrackColour,
+                            checkedColor = SpiraGPSColours.value.toggleSelectedTrackColour
+                        )
+                    )
                 }
 
                 // Save Button

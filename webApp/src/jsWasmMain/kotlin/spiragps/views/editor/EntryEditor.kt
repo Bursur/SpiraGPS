@@ -2,6 +2,7 @@ package spiragps.views.editor
 
 import androidx.compose.animation.Crossfade
 import androidx.compose.animation.animateContentSize
+import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -84,9 +85,8 @@ fun EntryEditor(entry: Entry, onDismiss: (Entry?) -> Unit) {
 
                     DropdownMenu(
                         expanded = entryTypeExpanded,
-                        onDismissRequest = {
-                            entryTypeExpanded = false
-                        }
+                        onDismissRequest = { entryTypeExpanded = false },
+                        modifier = Modifier.background(SpiraGPSColours.value.infoBackground)
                     ) {
                         EntryType("info", onClick = typeSelectedCallback)
                         EntryType("image", onClick = typeSelectedCallback)

@@ -98,10 +98,8 @@ fun LandingPage(navigationState: NavigationState) {
                     "Misc: ToDo List Page",
                     "Misc: Version History Page",
                     "Routes: BUG! Tables HAVE to have entries totaling a multiple of 2, this shouldn't be the case",
-                    "Editor: BUG! Table items are not editable",
-                    "Editor: BUG! Bullet items are not editable",
-                    "Editor: BUG! Table items are not editable",
-                    "Editor: BUG! Caret is all shy"
+                    "Editor: BUG! Caret is all shy",
+                    "Misc: BUG! Arrows don't show on Dyslexic Fonts"
                 )
             )
         )
