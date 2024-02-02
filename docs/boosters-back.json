@@ -218,6 +218,12 @@
                         "Tidus Flee",
                         "Enable 2x/disable 4x after results screen"
                     ]
+                },
+                {
+                    "type": "customise",
+                    "item": "Buckler",
+                    "guide": ["Auto-Haste"],
+                    "trailingBreak": true
                 }
             ]
         }

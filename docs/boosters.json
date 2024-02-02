@@ -41,7 +41,7 @@
             "title": "Zanarkand",
             "entries": [
                 { "type": "bullets",
-                    "text": "Turn on:",
+                    "text": "Turn on:", 
                     "guide": [
                         "Speed Boost 4x (Double Tap F1)",
                         "Super Charge (F2)",
@@ -51,7 +51,7 @@
                 },
                 { "type": "info", "text": "Remember to re-enable them if you have to load an autosave", "trailingBreak": true },
                 { "type": "info", "text": "Begin Booster Menu (Press Esc):", "bold": true },
-                { "type": "bullets",
+                { "type": "bullets", 
                     "text": "Parameters:",
                     "guide": [
                         "All Skills",
@@ -152,13 +152,13 @@
         {
             "title": "The Boat",
             "entries": [
-                {
+                { 
                     "type": "spheregrid", "trailingBreak": true,
                     "entries": [
                         { "type": "info", "text": "Use 34 Strengths, 13 Warps, 10 Clears, and 48 Master Spheres to get to this grid layout. Start from the right of the image, use Masters as you go until you reach warp point 5 (next to the Agi node), at which point stop using Masters until you reach the final warp point (14). At that point you spam masters until the grid is complete.", "trailingBreak": true },
                         { "type": "image", "image": "SpiraGPS/tidus_sg.png", "trailingBreak": true },
-                        {
-                            "type": "table", "trailingBreak": true, "columns": 2,
+                        { 
+                            "type": "table", "trailingBreak": true, "columns": 2, 
                             "guide": [
                                 "1. Strength x2",
                                 "2. Master x2",
@@ -278,10 +278,10 @@
                     "guide": ["Tidus Auto Attack"],
                     "trailingBreak": true
                 },
-                {
+                { 
                     "type": "spheregrid", "trailingBreak": true,
                     "entries": [
-                        {
+                        { 
                             "type": "bullets", "trailingBreak": true, "text": "Yuna",
                             "guide": [
                                 "Attribute x13",
@@ -780,7 +780,7 @@
                 {
                     "type": "battle",
                     "enemy": "Wendigo",
-                    "guide": [
+                    "guide": [ 
                         "Tidus Attack Wendigo",
                         "Enable Auto Attack",
                         "Tidus Auto Attack"
@@ -796,7 +796,7 @@
                 {
                     "type": "battle",
                     "enemy": "Zu",
-                    "guide": [
+                    "guide": [ 
                         "Tidus Attack Self until Auron arrives",
                         "Disable 4x to skip dialoge then re-enable",
                         "Any Defend until Lulu arrives",
@@ -822,7 +822,7 @@
                 {
                     "type": "battle",
                     "enemy": "Machina Tutorial",
-                    "guide": [
+                    "guide": [ 
                         "Disable 4x to skip dialoge then re-enable",
                         "Tidus Flee"
                     ],
@@ -831,7 +831,7 @@
                 {
                     "type": "battle",
                     "enemy": "Sandragora",
-                    "guide": [
+                    "guide": [ 
                         "Enable Auto Attack",
                         "Tidus Auto Attack",
                         "Disable Auto Attack"
@@ -852,7 +852,7 @@
                 {
                     "type": "battle",
                     "enemy": "Dual Horn",
-                    "guide": [
+                    "guide": [ 
                         "If Ambush or Perempt: Any Use Dark Matter",
                         "Else: Enable Auto Attack, Tidus Auto Attack"
                     ],
@@ -862,7 +862,7 @@
                 {
                     "type": "battle",
                     "enemy": "Chimeras",
-                    "guide": [
+                    "guide": [ 
                         "If Ambush or Perempt: Any Use Dark Matter",
                         "Else: Enable Auto Attack, Tidus Auto Attack"
                     ],
@@ -876,7 +876,7 @@
                 {
                     "type": "battle",
                     "enemy": "Evrae",
-                    "guide": [
+                    "guide": [ 
                         "Tidus Attack (Auto Attack doesn't work here)"
                     ],
                     "trailingBreak": true
@@ -885,7 +885,7 @@
                 {
                     "type": "battle",
                     "enemy": "Bevelle Guard Fights 1-4",
-                    "guide": [
+                    "guide": [ 
                         "Tidus Auto Attack"
                     ],
                     "trailingBreak": true
@@ -894,7 +894,7 @@
                 {
                     "type": "battle",
                     "enemy": "Bevelle Guard Fights 5",
-                    "guide": [
+                    "guide": [ 
                         "Tidus Use Dark Matter"
                     ],
                     "trailingBreak": true
@@ -961,7 +961,7 @@
                 {
                     "type": "battle",
                     "enemy": "Issaru - Ifrit",
-                    "guide": [
+                    "guide": [ 
                         "Disable 4x to skip dialoge then re-enable",
                         "Yuna Summon Ixion",
                         "Ixion Attack"
@@ -971,7 +971,7 @@
                 {
                     "type": "battle",
                     "enemy": "Issaru - Valefor",
-                    "guide": [
+                    "guide": [ 
                         "Disable 4x to skip dialoge then re-enable",
                         "Yuna Summon Ixion",
                         "Ixion Attack x2"
@@ -981,7 +981,7 @@
                 {
                     "type": "battle",
                     "enemy": "Issaru - Bahamut",
-                    "guide": [
+                    "guide": [ 
                         "Disable 4x to skip dialoge then re-enable",
                         "Yuna Summon Ixion",
                         "Ixion Attack x3"
@@ -992,7 +992,7 @@
                 {
                     "type": "battle",
                     "enemy": "Evrae Altana",
-                    "guide": [
+                    "guide": [ 
                         "Tidus Auto Attack"
                     ],
                     "trailingBreak": true
@@ -1000,7 +1000,7 @@
                 {
                     "type": "battle",
                     "enemy": "Seymour Natus",
-                    "guide": [
+                    "guide": [ 
                         "Tidus Attack (Auto Attack doesn't work here)"
                     ],
                     "trailingBreak": true
@@ -1014,7 +1014,7 @@
                 {
                     "type": "battle",
                     "enemy": "Defender X",
-                    "guide": [
+                    "guide": [ 
                         "Tidus Auto Attack"
                     ],
                     "trailingBreak": true
@@ -1050,7 +1050,7 @@
                 {
                     "type": "battle",
                     "enemy": "Seymour Flux",
-                    "guide": [
+                    "guide": [ 
                         "Tidus Attack (Auto Attack doesn't work here)"
                     ],
                     "trailingBreak": true
@@ -1070,7 +1070,7 @@
                 {
                     "type": "battle",
                     "enemy": "Sanctuary Keeper",
-                    "guide": [
+                    "guide": [ 
                         "Tidus Auto Attack"
                     ],
                     "trailingBreak": true
@@ -1084,7 +1084,7 @@
                 {
                     "type": "battle",
                     "enemy": "Spectral Keeper",
-                    "guide": [
+                    "guide": [ 
                         "Tidus Auto Attack"
                     ],
                     "trailingBreak": true
@@ -1092,7 +1092,7 @@
                 {
                     "type": "battle",
                     "enemy": "Yunalesca",
-                    "guide": [
+                    "guide": [ 
                         "Tidus Auto Attack"
                     ],
                     "trailingBreak": true
@@ -1106,7 +1106,7 @@
                 {
                     "type": "battle",
                     "enemy": "Sin Fin Left",
-                    "guide": [
+                    "guide": [ 
                         "Any Non-Tidus Defend",
                         "Tidus Talk: Move Closer",
                         "Disable 4x to skip dialoge then re-enable",
@@ -1121,7 +1121,7 @@
                 {
                     "type": "battle",
                     "enemy": "Sin Fin Right",
-                    "guide": [
+                    "guide": [ 
                         "Any Non-Tidus Defend",
                         "Tidus Talk: Move Closer",
                         "Disable 4x to skip dialoge then re-enable",
@@ -1135,7 +1135,7 @@
                 {
                     "type": "battle",
                     "enemy": "Sinspawn Geneaux and Sin Core",
-                    "guide": [
+                    "guide": [ 
                         "Tidus Auto Attack"
                     ],
                     "trailingBreak": true
@@ -1144,7 +1144,7 @@
                 {
                     "type": "battle",
                     "enemy": "Overdrive Sin",
-                    "guide": [
+                    "guide": [ 
                         "Any Non-Tidus Defend",
                         "Tidus Attack other party members until Sin draws you in three times",
                         "Enable Auto Attack during third drawing in animation",
@@ -1163,7 +1163,7 @@
                 {
                     "type": "battle",
                     "enemy": "Seymour Omnis",
-                    "guide": [
+                    "guide": [ 
                         "Any ratJAM",
                         "Tidus Armour Break",
                         "If Armour Break hit: Tidus Quick Hit",
@@ -1183,7 +1183,7 @@
                 {
                     "type": "battle",
                     "enemy": "Braska's Final Aeon",
-                    "guide": [
+                    "guide": [ 
                         "Tidus Quick Hit",
                         "Disable 4x (if you don’t do this there is a chance the game will soft lock when Tidus Talk)",
                         "Tidus Talk to BFA",
