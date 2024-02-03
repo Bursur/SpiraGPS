@@ -15,6 +15,7 @@ import androidx.compose.ui.unit.dp
 import spiragps.data.route.Entry
 import spiragps.style.SpiraGPSColours
 import spiragps.style.SpiraGPSText
+import spiragps.utils.highlightKeywords
 
 @Composable
 fun ItemSortView(entry: Entry) {
@@ -43,6 +44,6 @@ private fun Item(name: String, background: Color, weight: FontWeight) {
     Row(modifier = Modifier.background(bgColour.value).fillMaxWidth()) {
         Text(text = instruction[0], style = SpiraGPSText.typography.value.info, fontWeight = weight, color = textColour.value, modifier = Modifier.fillMaxWidth(.35f).padding(4.dp))
         if(instruction.size > 1)
-            Text(text = instruction[1], style = SpiraGPSText.typography.value.info, fontWeight = weight, color = textColour.value, modifier = Modifier.fillMaxWidth(.65f).padding(4.dp))
+            Text(text = highlightKeywords(instruction[1]), style = SpiraGPSText.typography.value.info, fontWeight = weight, color = textColour.value, modifier = Modifier.fillMaxWidth(.65f).padding(4.dp))
     }
 }

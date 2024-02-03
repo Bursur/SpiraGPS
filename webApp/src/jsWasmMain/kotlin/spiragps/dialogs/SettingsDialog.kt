@@ -225,7 +225,7 @@ private fun DyslexicSelector() {
         )
 
         Text(
-            text = "Use Readex Fonts helps with Dyslexia (Some Glyphs are missing, mostly Arrows)",
+            text = "Use Readex Fonts. (Helps if you have Dyslexia)",
             style = when(SpiraGPSText.selectedFontSize.value) {
                 0 -> dyslexicSmall.info
                 1 -> dyslexicMedium.info

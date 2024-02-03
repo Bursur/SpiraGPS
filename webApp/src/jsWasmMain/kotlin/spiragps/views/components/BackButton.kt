@@ -12,12 +12,13 @@ import androidx.compose.ui.unit.sp
 import spiragps.data.route.NavigationState
 import spiragps.style.SpiraGPSColours
 import spiragps.style.SpiraGPSText
+import spiragps.utils.highlightKeywords
 
 @Composable
 fun BackButton(modifier: Modifier = Modifier, navigationState: NavigationState) {
     val textColour = animateColorAsState(SpiraGPSColours.value.text)
     Text(
-        text = "← Back",
+        text = highlightKeywords("← Back"),
         style = SpiraGPSText.typography.value.backButton,
         color = textColour.value,
         modifier = modifier

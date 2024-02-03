@@ -11,6 +11,7 @@ import androidx.compose.ui.Modifier
 import spiragps.data.route.Entry
 import spiragps.style.SpiraGPSColours
 import spiragps.style.SpiraGPSText
+import spiragps.utils.highlightKeywords
 
 @Composable
 fun TableView(entry: Entry) {
@@ -35,7 +36,7 @@ fun TableColumn(modifier: Modifier = Modifier, entries: List<String>) {
             val bgColour = animateColorAsState(SpiraGPSColours.value.itemSortBackground[index % 2])
             val textColour = animateColorAsState(SpiraGPSColours.value.text)
             Text(
-                text = text,
+                text = highlightKeywords(text),
                 fontWeight = SpiraGPSColours.value.itemSortWeights[index % 2],
                 style = SpiraGPSText.typography.value.info,
                 color = textColour.value,

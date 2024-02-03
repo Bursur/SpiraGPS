@@ -68,7 +68,7 @@ fun ToDoDialog(onDismissRequest: () -> Unit) {
             ) {
                 Column {
                     Text(text = "To Do List", style = SpiraGPSText.typography.value.landingTitle, color = textColour.value, textAlign = TextAlign.Center, modifier = Modifier.fillMaxWidth())
-                    Text(text = "(In no particular Order)", style = SpiraGPSText.typography.value.info, color = textColour.value, textAlign = TextAlign.Center, modifier = Modifier.fillMaxWidth())
+                    Text(text = "(In no particular order)", style = SpiraGPSText.typography.value.info, color = textColour.value, textAlign = TextAlign.Center, modifier = Modifier.fillMaxWidth())
                 }
                 BulletedList(
                     entry = Entry(
