@@ -84,10 +84,7 @@ fun LandingPage(navigationState: NavigationState) {
                 text = "ToDo: (In no particular order)",
                 guide = arrayListOf(
                     "Editor: Load and Save",
-                    "Editor: Drag and Drop",
                     "Editor: Conditions",
-                    "Editor: Make the entries editable",
-                    "Editor: Make it pretty",
                     "Editor: Enable Pasting text",
                     "Routes: Load Local Route json file. If possible",
                     "Routes: Multiple Conditions Handling",

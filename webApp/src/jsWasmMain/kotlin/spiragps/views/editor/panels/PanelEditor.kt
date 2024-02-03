@@ -36,7 +36,7 @@ import spiragps.style.SpiraGPSText
 import spiragps.views.editor.createEditorPanel
 
 @Composable
-fun PanelEditorButton(modifier: Modifier = Modifier, entry: Entry, onDismiss: (Entry?) -> Unit) {
+fun PanelEditorButton(modifier: Modifier = Modifier, entry: Entry, isEditButton: Boolean = false, onDismiss: (Entry?) -> Unit) {
     var openAlertDialog by remember { mutableStateOf(false) }
 
     TextButton(
@@ -45,7 +45,7 @@ fun PanelEditorButton(modifier: Modifier = Modifier, entry: Entry, onDismiss: (E
         },
         modifier = modifier
     ) {
-        Text(text = "Add Panel", style = SpiraGPSText.typography.value.info, color = SpiraGPSColours.value.text)
+        Text(text = if(isEditButton) "Edit Panel" else "Add Panel", style = SpiraGPSText.typography.value.info, color = SpiraGPSColours.value.text)
     }
 
     if(openAlertDialog)

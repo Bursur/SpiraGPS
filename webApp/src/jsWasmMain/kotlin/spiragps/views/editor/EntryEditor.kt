@@ -34,7 +34,7 @@ import spiragps.style.SpiraGPSColours
 import spiragps.style.SpiraGPSText
 
 @Composable
-fun EntryEditorButton(modifier: Modifier = Modifier, entry: Entry, onDismiss: (Entry?) -> Unit) {
+fun EntryEditorButton(modifier: Modifier = Modifier, entry: Entry, isEditButton: Boolean = false, onDismiss: (Entry?) -> Unit) {
     var openAlertDialog by remember { mutableStateOf(false) }
 
     TextButton(
@@ -43,7 +43,7 @@ fun EntryEditorButton(modifier: Modifier = Modifier, entry: Entry, onDismiss: (E
         },
         modifier = modifier
     ) {
-        Text(text = "Add Entry", style = SpiraGPSText.typography.value.info, color = SpiraGPSColours.value.text)
+        Text(text = if(isEditButton) "Edit Entry" else "Add Entry", style = SpiraGPSText.typography.value.info, color = SpiraGPSColours.value.text)
     }
 
     if(openAlertDialog)

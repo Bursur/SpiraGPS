@@ -1,5 +1,9 @@
 package spiragps.views.editor
 
+import androidx.compose.animation.animateColorAsState
+import androidx.compose.foundation.ExperimentalFoundationApi
+import androidx.compose.foundation.combinedClickable
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.padding
@@ -17,15 +21,21 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import spiragps.data.route.Entry
 import spiragps.style.SpiraGPSColours
+import spiragps.views.components.EditContextMenu
 import spiragps.views.createEntry
 import spiragps.views.editor.panels.PanelEditorButton
 
+@OptIn(ExperimentalFoundationApi::class)
 @Composable
 fun ChapterEditor(chapter: Chapter) {
     var title by remember { mutableStateOf(chapter.title) }
     val entries by remember { mutableStateOf(chapter.entries) }
 
     var updateCount by remember { mutableStateOf(0) }
+    val bgColor = animateColorAsState(SpiraGPSColours.value.background)
+
+    var editControlOpen by remember { mutableStateOf(false) }
+    var selectedEntry by remember { mutableStateOf(Entry()) }
 
     Column {
         TitleEditor(title) {
@@ -35,8 +45,56 @@ fun ChapterEditor(chapter: Chapter) {
 
         key(updateCount) {
             entries.forEach {
-                createEntry(entry = it)
-                Divider(color = SpiraGPSColours.value.background, thickness = 10.dp)
+                Column(
+                    modifier = Modifier
+                        .combinedClickable(
+                            onLongClick = {
+                                editControlOpen = true
+                                selectedEntry = it
+                            },
+                            onClick = {}
+                        )
+                ) {
+                    createEntry(entry = it)
+                    Divider(color = bgColor.value, thickness = 10.dp)
+
+                    if(editControlOpen && selectedEntry == it) {
+                        EditContextMenu(
+                            open = editControlOpen,
+                            entry = it,
+                            onDismiss = { editControlOpen = false },
+                            onEntryUpdated = {
+                                editControlOpen = false
+                                ++updateCount
+                            },
+                            onEntryDeleted = {
+                                editControlOpen = false
+                                if(chapter.entries.remove(it))
+                                    ++updateCount
+                            },
+                            onMoveUp = {
+                                chapter.entries.apply {
+                                    val index = indexOf(it)
+                                    if(index >= 1) {
+                                        add(index - 1, removeAt(index))
+                                        ++updateCount
+                                    }
+                                    editControlOpen = false
+                                }
+                            },
+                            onMoveDown = {
+                                chapter.entries.apply {
+                                    val index = indexOf(it)
+                                    if(index != -1 && index < size - 1) {
+                                        add(index + 1, removeAt(index))
+                                        ++updateCount
+                                    }
+                                    editControlOpen = false
+                                }
+                            }
+                        )
+                    }
+                }
             }
         }
 
@@ -56,7 +114,7 @@ fun ChapterEditor(chapter: Chapter) {
             }
         }
         Divider(
-            color = SpiraGPSColours.value.background,
+            color = bgColor.value,
             modifier = Modifier.padding(vertical = 10.dp)
         )
     }

@@ -2,6 +2,7 @@ package spiragps.style
 
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.sp
 
 data class TextStyles(
@@ -58,12 +59,14 @@ val small: TextStyles
         routeTitle = TextStyle(
             fontFamily = SpiraGPSText.fontFamily,
             fontWeight = FontWeight.Bold,
-            fontSize = 24.sp
+            fontSize = 24.sp,
+            textAlign = TextAlign.Right
         ),
         chapterTitle = TextStyle(
             fontFamily = SpiraGPSText.fontFamily,
             fontWeight = FontWeight.Normal,
-            fontSize = 24.sp
+            fontSize = 24.sp,
+            textAlign = TextAlign.Right
         ),
 
         landingTitle = TextStyle(
@@ -129,12 +132,14 @@ val medium: TextStyles
         routeTitle = TextStyle(
             fontFamily = SpiraGPSText.fontFamily,
             fontWeight = FontWeight.Bold,
-            fontSize = 29.sp
+            fontSize = 29.sp,
+            textAlign = TextAlign.Right
         ),
         chapterTitle = TextStyle(
             fontFamily = SpiraGPSText.fontFamily,
             fontWeight = FontWeight.Normal,
-            fontSize = 29.sp
+            fontSize = 29.sp,
+            textAlign = TextAlign.Right
         ),
 
         landingTitle = TextStyle(
@@ -200,12 +205,14 @@ val large: TextStyles
         routeTitle = TextStyle(
             fontFamily = SpiraGPSText.fontFamily,
             fontWeight = FontWeight.Bold,
-            fontSize = 34.sp
+            fontSize = 34.sp,
+            textAlign = TextAlign.Right
         ),
         chapterTitle = TextStyle(
             fontFamily = SpiraGPSText.fontFamily,
             fontWeight = FontWeight.Normal,
-            fontSize = 44.sp
+            fontSize = 44.sp,
+            textAlign = TextAlign.Right
         ),
 
         landingTitle = TextStyle(
@@ -271,12 +278,14 @@ val dyslexicSmall: TextStyles
         routeTitle = TextStyle(
             fontFamily = SpiraGPSText.dyslexicFont,
             fontWeight = FontWeight.Bold,
-            fontSize = 24.sp
+            fontSize = 24.sp,
+            textAlign = TextAlign.Right
         ),
         chapterTitle = TextStyle(
             fontFamily = SpiraGPSText.dyslexicFont,
             fontWeight = FontWeight.Normal,
-            fontSize = 24.sp
+            fontSize = 24.sp,
+            textAlign = TextAlign.Right
         ),
 
         landingTitle = TextStyle(
@@ -342,12 +351,14 @@ val dyslexicMedium: TextStyles
         routeTitle = TextStyle(
             fontFamily = SpiraGPSText.dyslexicFont,
             fontWeight = FontWeight.Bold,
-            fontSize = 29.sp
+            fontSize = 29.sp,
+            textAlign = TextAlign.Right
         ),
         chapterTitle = TextStyle(
             fontFamily = SpiraGPSText.dyslexicFont,
             fontWeight = FontWeight.Normal,
-            fontSize = 29.sp
+            fontSize = 29.sp,
+            textAlign = TextAlign.Right
         ),
 
         landingTitle = TextStyle(
@@ -413,12 +424,14 @@ val dyslexicLarge: TextStyles
         routeTitle = TextStyle(
             fontFamily = SpiraGPSText.dyslexicFont,
             fontWeight = FontWeight.Bold,
-            fontSize = 34.sp
+            fontSize = 34.sp,
+            textAlign = TextAlign.Right
         ),
         chapterTitle = TextStyle(
             fontFamily = SpiraGPSText.dyslexicFont,
             fontWeight = FontWeight.Normal,
-            fontSize = 44.sp
+            fontSize = 44.sp,
+            textAlign = TextAlign.Right
         ),
 
         landingTitle = TextStyle(
