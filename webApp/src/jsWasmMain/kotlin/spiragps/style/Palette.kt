@@ -92,6 +92,7 @@ object SpiraGPSText {
 
 var SpiraGPSColours = mutableStateOf(if(getDarkModePreference() == 1) darkScheme else lightScheme)
 var SpiraGPSDarkMode = mutableStateOf(getDarkModePreference() == 1)
+const val SpiraGPSVersion = "0.3.0"
 
 @Composable
 fun SpiraGPSTheme(content: @Composable () -> Unit) {

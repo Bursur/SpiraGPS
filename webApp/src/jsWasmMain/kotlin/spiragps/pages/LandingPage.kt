@@ -31,6 +31,7 @@ import spiragps.data.route.NavigationState
 import spiragps.pages.components.EditorSelectButton
 import spiragps.pages.components.LocalRouteSelectButton
 import spiragps.pages.components.RouteSelectButton
+import spiragps.pages.components.SpiraGPSTitle
 import spiragps.style.SpiraGPSColours
 import spiragps.style.SpiraGPSText
 import spiragps.style.darkScheme
@@ -40,23 +41,17 @@ import spiragps.views.BulletedList
 @OptIn(ExperimentalLayoutApi::class)
 @Composable
 fun LandingPage(navigationState: NavigationState) {
-    val bgColour = animateColorAsState(SpiraGPSColours.value.infoBackground)
     val textColour = animateColorAsState(SpiraGPSColours.value.text)
 
-    Column(modifier = Modifier.fillMaxSize(), horizontalAlignment = Alignment.CenterHorizontally) {
-        Text(
-            text = "Spira GPS",
-            style = SpiraGPSText.typography.value.landingTitle,
-            textAlign = TextAlign.Center,
-            color = textColour.value,
-            modifier = Modifier.padding(top = 50.dp, bottom = 10.dp)
-        )
+    Column(modifier = Modifier.fillMaxSize().padding(top = 20.dp), horizontalAlignment = Alignment.CenterHorizontally) {
+        SpiraGPSTitle()
 
         Text(
             text = "Select your destination",
             style = SpiraGPSText.typography.value.info,
             textAlign = TextAlign.Center,
-            color = textColour.value
+            color = textColour.value,
+            modifier = Modifier.padding(top = 10.dp)
         )
 
         FlowRow(
@@ -72,33 +67,5 @@ fun LandingPage(navigationState: NavigationState) {
             //LocalRouteSelectButton(navigationState)
             EditorSelectButton(navigationState)
         }
-
-        // TODO LIST REMOVE THIS!!
-        Divider(
-            color = bgColour.value,
-            modifier = Modifier.padding(vertical = 10.dp)
-        )
-
-        BulletedList(
-            entry = Entry(
-                text = "ToDo: (In no particular order)",
-                guide = arrayListOf(
-                    "Editor: Load and Save",
-                    "Editor: Conditions",
-                    "Editor: Enable Pasting text",
-                    "Routes: Load Local Route json file. If possible",
-                    "Routes: Multiple Conditions Handling",
-                    "Routes: GIF Support?",
-                    "Routes: YouTube Video Embedding?",
-                    "Misc: Credits Page",
-                    "Misc: Help Page",
-                    "Misc: ToDo List Page",
-                    "Misc: Version History Page",
-                    "Routes: BUG! Tables HAVE to have entries totaling a multiple of 2, this shouldn't be the case",
-                    "Editor: BUG! Caret is all shy",
-                    "Misc: BUG! Arrows don't show on Dyslexic Fonts"
-                )
-            )
-        )
     }
 }

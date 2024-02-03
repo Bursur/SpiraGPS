@@ -11,9 +11,9 @@ import androidx.compose.ui.unit.dp
 import spiragps.data.destinations.SpiraDestinations
 import spiragps.data.route.NavigationState
 import spiragps.data.route.rememberNavigationState
-import spiragps.dialogs.HelpActionButton
-import spiragps.dialogs.HelpDialog
+import spiragps.dialogs.AboutActionButton
 import spiragps.dialogs.SettingsActionButton
+import spiragps.dialogs.ToDoActionButton
 import spiragps.pages.EditorPage
 import spiragps.pages.LandingPage
 import spiragps.pages.LoadingPage
@@ -39,8 +39,9 @@ internal fun SpiraGPS() {
                 }
 
                 Row(modifier = Modifier.align(Alignment.BottomEnd).padding(10.dp)) {
-                    HelpActionButton()
+                    AboutActionButton()
                     SettingsActionButton()
+                    ToDoActionButton()
                 }
             }
         }
