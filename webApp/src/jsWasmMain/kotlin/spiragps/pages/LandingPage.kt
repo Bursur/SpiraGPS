@@ -64,7 +64,7 @@ fun LandingPage(navigationState: NavigationState) {
                 RouteSelectButton(destination = it, navigationState = navigationState)
             }
 
-            //LocalRouteSelectButton(navigationState)
+            LocalRouteSelectButton(navigationState)
             EditorSelectButton(navigationState)
         }
     }

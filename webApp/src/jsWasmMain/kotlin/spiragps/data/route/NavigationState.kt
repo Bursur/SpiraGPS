@@ -18,22 +18,25 @@ interface NavigationState {
 
     var currentPage: String
     var selectedRouteUrl: String
+    var data: String
 }
 
-private class NavigationStateImpl(currentPage: String, selectedRouteUrl: String) : NavigationState {
+private class NavigationStateImpl(currentPage: String, selectedRouteUrl: String, data: String = "") : NavigationState {
     override var currentPage: String by mutableStateOf(currentPage)
     override var selectedRouteUrl: String by mutableStateOf(selectedRouteUrl)
+    override var data: String by mutableStateOf(data)
 
     companion object {
         val saver = Saver<NavigationStateImpl, List<Any>>(
             save = {
                 listOf(
                     it.currentPage,
-                    it.selectedRouteUrl
+                    it.selectedRouteUrl,
+                    it.data
                 )
             },
             restore = {
-                NavigationStateImpl(it[0] as String, it[1] as String)
+                NavigationStateImpl(it[0] as String, it[1] as String, it[2] as String)
             }
         )
     }
@@ -43,5 +46,5 @@ private class NavigationStateImpl(currentPage: String, selectedRouteUrl: String)
 fun rememberNavigationState(): NavigationState = rememberSaveable(
     saver = NavigationStateImpl.saver
 ) {
-    NavigationStateImpl(NavigationState.LANDING, "")
+    NavigationStateImpl(NavigationState.LANDING, "", "")
 }

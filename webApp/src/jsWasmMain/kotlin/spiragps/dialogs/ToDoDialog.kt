@@ -76,7 +76,6 @@ fun ToDoDialog(onDismissRequest: () -> Unit) {
                             "Editor: Load and Save",
                             "Editor: Conditions",
                             "Editor: Enable Pasting text",
-                            "Routes: Load Local Route json file. If possible",
                             "Routes: Multiple Conditions Handling",
                             "Routes: GIF Support?",
                             "Routes: YouTube Video Embedding?",
@@ -84,8 +83,7 @@ fun ToDoDialog(onDismissRequest: () -> Unit) {
                             "Misc: Help Page",
                             "Misc: Version History Page",
                             "Routes: BUG! Tables HAVE to have entries totaling a multiple of 2, this shouldn't be the case",
-                            "Editor: BUG! Caret is all shy",
-                            "Misc: BUG! Arrows don't show on Dyslexic Fonts"
+                            "Editor: BUG! Caret is all shy"
                         )
                     )
                 )

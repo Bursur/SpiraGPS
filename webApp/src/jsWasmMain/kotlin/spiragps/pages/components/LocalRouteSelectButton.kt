@@ -10,6 +10,7 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
@@ -25,15 +26,16 @@ import spiragps.style.SpiraGPSColours
 import spiragps.style.SpiraGPSText
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.setValue
+import kotlinx.coroutines.delay
 
-external fun openFile(): String
+external fun openFile()
+external fun getLoadedData(): String
 
 @OptIn(ExperimentalResourceApi::class)
 @Composable
 fun LocalRouteSelectButton(navigationState: NavigationState) {
     val scope = rememberCoroutineScope()
-    var data: String by remember { mutableStateOf("") }
-    var hasData by remember { mutableStateOf(false) }
+    var awaitingData by remember { mutableStateOf(false) }
     val bgColour = animateColorAsState(SpiraGPSColours.value.infoBackground)
     val textColour = animateColorAsState(SpiraGPSColours.value.text)
 
@@ -46,11 +48,9 @@ fun LocalRouteSelectButton(navigationState: NavigationState) {
             modifier = Modifier
                 .width(200.dp)
                 .clickable {
-                    //navigationState.selectedRouteUrl = ""
-                    //navigationState.currentPage = NavigationState.ROUTE
                     scope.launch {
-                        data = openFile()
-                        hasData = true
+                        openFile()
+                        awaitingData = true
                     }
                 }
         ) {
@@ -60,15 +60,29 @@ fun LocalRouteSelectButton(navigationState: NavigationState) {
             )
 
             Text(
-                text = data,
+                text = "Load Route File",
                 style = SpiraGPSText.typography.value.info,
                 textAlign = TextAlign.Center,
                 color = textColour.value,
                 modifier = Modifier.fillMaxWidth()
             )
+        }
+    }
 
-            if(hasData)
-                Text(text = "wobble")
+    LaunchedEffect(awaitingData) {
+        if(awaitingData) {
+            var data = getLoadedData()
+            while (data == "#DEADFACE") {
+                delay(1000)
+                data = getLoadedData()
+            }
+
+            awaitingData = false
+
+            if(data != "cancelled") {
+                navigationState.data = data
+                navigationState.currentPage = NavigationState.ROUTE
+            }
         }
     }
 }

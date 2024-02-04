@@ -60,11 +60,23 @@ fun RoutePage(navigationState: NavigationState) {
         LoadingView("Calculating Route...")
 
     LaunchedEffect(Unit) {
-        val jsonString = loadResource("${navigationState.selectedRouteUrl}?cb=${Clock.System.now()}").decodeToString()
-        Json.decodeFromString<Route>(jsonString).let {
-            SpiraGPSText.addKeywords(it.keywords)
-            data = it
+        if(navigationState.selectedRouteUrl.isNotEmpty()) {
+            val jsonString = loadResource("${navigationState.selectedRouteUrl}?cb=${Clock.System.now()}").decodeToString()
+            Json.decodeFromString<Route>(jsonString).let {
+                SpiraGPSText.addKeywords(it.keywords)
+                data = it
+            }
         }
+        else {
+            Json.decodeFromString<Route>(navigationState.data).let {
+                SpiraGPSText.addKeywords(it.keywords)
+                data = it
+            }
+        }
+
+        navigationState.data = ""
+        navigationState.selectedRouteUrl = ""
+
         loading = false
     }
 }

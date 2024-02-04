@@ -737,13 +737,12 @@
                     ],
                     "trailingBreak": true
                 },
-                { "type": "info", "text": "Enable Auto Attack during Anima summon animation", "trailingBreak": true },
                 {
                     "type": "battle",
                     "enemy": "Anima",
                     "guide":[
                         "Disable 4x to skip dialoge then re-enable",
-                        "Tidus Auto Attack",
+                        "Tidus Attack",
                         "Disable 4x to skip dialoge then re-enable"
                     ],
                     "trailingBreak": true
@@ -751,10 +750,9 @@
                 {
                     "type": "battle",
                     "enemy": "Seymour",
-                    "guide": [ "Tidus Auto Attack" ],
+                    "guide": [ "Tidus Attack" ],
                     "trailingBreak": true
                 },
-                { "type": "info", "text": "Disable Auto Attack", "trailingBreak": true },
                 {
                     "type": "trial",
                     "entries": [

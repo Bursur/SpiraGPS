@@ -41,33 +41,47 @@
             return 0
         }
 
-        async function openFile() {
-            var content = "";
+        var data = "#DEADFACE";
+        function getLoadedData() {
+            return data;
+        }
 
-            let promise = new Promise((resolve, reject) => {
-                var input = document.createElement('input');
-                input.type = 'file';
-                input.onchange = e => {
-                    if(e.target) {
-                        var file = e.target.files[0];
+        function openFile() {
+            data = "#DEADFACE";
+            const fileInputElement = document.createElement('input');
+            fileInputElement.type = 'file';
+            fileInputElement.style.opacity = '0';
+            fileInputElement.accept = "application/JSON";
+            fileInputElement.addEventListener('change', () => {
+                const file = fileInputElement.files[0];
+                console.log('File "' + file.name + '" selected.');
 
-                        var reader = new FileReader();
-                        reader.readAsText(file,'UTF-8');
+                var reader = new FileReader();
+                reader.onload = readerEvent => {
+                    var content = readerEvent.target.result;
+                    data = content
+                }
+                reader.readAsText(file, 'UTF-8');
 
-                        reader.onload = readerEvent => {
-                            content = readerEvent.target.result;
-                            resolve(content);
-                        }
+                document.body.removeChild(fileInputElement);
+            });
+            document.body.appendChild(fileInputElement);
+            setTimeout(_ => {
+                fileInputElement.click();
+                const onFocus = () => {
+                    window.removeEventListener('focus', onFocus);
+                    document.body.addEventListener('mousemove', onMouseMove);
+                };
+                const onMouseMove = () => {
+                    document.body.removeEventListener('mousemove', onMouseMove);
+                    if (!fileInputElement.files.length) {
+                        document.body.removeChild(fileInputElement);
+                        console.log('No file selected.');
+                        data = "cancelled";
                     }
                 }
-
-                input.click();
-            });
-
-            await promise;
-
-            console.log(content);
-            return content;
+                window.addEventListener('focus', onFocus);
+            }, 0);
         }
     </script>
     <style>
