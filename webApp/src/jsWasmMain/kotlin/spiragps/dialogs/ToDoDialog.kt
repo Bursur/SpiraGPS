@@ -73,7 +73,6 @@ fun ToDoDialog(onDismissRequest: () -> Unit) {
                 BulletedList(
                     entry = Entry(
                         guide = arrayListOf(
-                            "Editor: Load and Save",
                             "Editor: Conditions",
                             "Editor: Enable Pasting text",
                             "Routes: Multiple Conditions Handling",

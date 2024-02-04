@@ -83,6 +83,15 @@
                 window.addEventListener('focus', onFocus);
             }, 0);
         }
+
+        function writeFile(data) {
+            const link = document.createElement("a");
+            const file = new Blob([data], { type: 'application/json' });
+            link.href = URL.createObjectURL(file);
+            link.download = `route-${Date.now()}.json`;
+            link.click();
+            URL.revokeObjectURL(link.href);
+        };
     </script>
     <style>
         html, body {

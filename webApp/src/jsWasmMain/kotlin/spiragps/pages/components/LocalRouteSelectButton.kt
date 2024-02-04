@@ -27,9 +27,7 @@ import spiragps.style.SpiraGPSText
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.setValue
 import kotlinx.coroutines.delay
-
-external fun openFile()
-external fun getLoadedData(): String
+import spiragps.data.FileService
 
 @OptIn(ExperimentalResourceApi::class)
 @Composable
@@ -49,7 +47,6 @@ fun LocalRouteSelectButton(navigationState: NavigationState) {
                 .width(200.dp)
                 .clickable {
                     scope.launch {
-                        openFile()
                         awaitingData = true
                     }
                 }
@@ -71,11 +68,7 @@ fun LocalRouteSelectButton(navigationState: NavigationState) {
 
     LaunchedEffect(awaitingData) {
         if(awaitingData) {
-            var data = getLoadedData()
-            while (data == "#DEADFACE") {
-                delay(1000)
-                data = getLoadedData()
-            }
+            val data = FileService.loadFile()
 
             awaitingData = false
 

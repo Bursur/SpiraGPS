@@ -63,10 +63,10 @@
                     "type": "battle",
                     "enemy": "Sinscales",
                     "guide": [
-                        "Disable 4x to skip dialoge then re-enable",
+                        "Disable 4x to skip dialogue then re-enable",
                         "Tidus Defend",
                         "Enable Auto Attack",
-                        "Disable 4x to skip dialoge then re-enable",
+                        "Disable 4x to skip dialogue then re-enable",
                         "Once fight is over, disable Auto Attack"
                     ],
                     "trailingBreak": true
@@ -76,7 +76,7 @@
                     "enemy": "Sinspawn Ammes",
                     "health": 2400,
                     "guide": [
-                        "Disable 4x to skip dialoge then re-enable",
+                        "Disable 4x to skip dialogue then re-enable",
                         "Auron Overdrive Dragonfang",
                         "Tidus Use Ice Gem"
                     ],
@@ -140,9 +140,9 @@
                     "enemy": "Klikk",
                     "health": 1500,
                     "guide": [
-                        "Disable 4x to skip dialoge then re-enable",
+                        "Disable 4x to skip dialogue then re-enable",
                         "Tidus use Shining Gem",
-                        "Disable 4x to skip dialoge then re-enable",
+                        "Disable 4x to skip dialogue then re-enable",
                         "Rikku use Shining Gem"
                     ],
                     "trailingBreak": true
@@ -253,9 +253,9 @@
                     "type": "battle",
                     "enemy": "Tidus and Wakka Tutorial",
                     "guide": [
-                        "Disable 4x to skip dialoge then re-enable",
+                        "Disable 4x to skip dialogue then re-enable",
                         "Tidus Attack",
-                        "Disable 4x to skip dialoge then re-enable",
+                        "Disable 4x to skip dialogue then re-enable",
                         "Wakka Attack"
                     ],
                     "trailingBreak": true
@@ -264,9 +264,9 @@
                     "type": "battle",
                     "enemy": "Lulu Magic Tutorial",
                     "guide": [
-                        "Disable 4x to skip dialoge then re-enable",
+                        "Disable 4x to skip dialogue then re-enable",
                         "Tidus Attack",
-                        "Disable 4x to skip dialoge then re-enable"
+                        "Disable 4x to skip dialogue then re-enable"
                     ],
                     "trailingBreak": true
                 },
@@ -298,7 +298,7 @@
                     "type": "battle",
                     "enemy": "Yuna Aeon Tutorial",
                     "guide": [
-                        "Disable 4x to skip dialoge then re-enable",
+                        "Disable 4x to skip dialogue then re-enable",
                         "Yuna Summon Valefor",
                         "Valefor Attack"
                     ],
@@ -337,7 +337,7 @@
                     "type": "battle",
                     "enemy": "Lancet Tutorial",
                     "guide": [
-                        "Disable 4x to skip dialoge then re-enable",
+                        "Disable 4x to skip dialogue then re-enable",
                         "Kimahri Flee"
                     ],
                     "trailingBreak": true
@@ -384,10 +384,10 @@
                     "enemy": "Machina Encounters",
                     "guide": [
                         "1st Encounter:",
-                        "Disable 4x to skip dialoge then re-enable",
+                        "Disable 4x to skip dialogue then re-enable",
                         "Any Use Smoke Bomb",
                         "3rd Encounter:",
-                        "Disable 4x to skip dialoge then re-enable after 1st and 2nd wave",
+                        "Disable 4x to skip dialogue then re-enable after 1st and 2nd wave",
                         "Any Use Smoke Bomb"
                     ],
                     "trailingBreak": true
@@ -397,7 +397,7 @@
                     "type": "battle",
                     "enemy": "Oblizerator",
                     "guide": [
-                        "Disable 4x to skip dialoge then re-enable",
+                        "Disable 4x to skip dialogue then re-enable",
                         "Tidus Auto Attack"
                     ],
                     "trailingBreak": true
@@ -550,7 +550,7 @@
                     "type": "battle",
                     "enemy": "Raldo",
                     "guide": [
-                        "Disable 4x to skip dialoge then re-enable",
+                        "Disable 4x to skip dialogue then re-enable",
                         "Tidus Auto Attack"
                     ],
                     "trailingBreak": true
@@ -562,7 +562,7 @@
                     "enemy": "Chocobo Eater",
                     "guide": [
                         "Tidus Auto Attack",
-                        "Disable 4x to skip dialoge then re-enable",
+                        "Disable 4x to skip dialogue then re-enable",
                         "Yuna Auto Attack",
                         "No little hop (Sorry, khaegar)"
                     ],
@@ -679,7 +679,7 @@
                     "type": "battle",
                     "enemy": "Steal/Mix Tutorial",
                     "guide":[
-                        "Disable 4x to skip dialoge then re-enable",
+                        "Disable 4x to skip dialogue then re-enable",
                         "Rikku Flee"
                     ],
                     "trailingBreak": true
@@ -733,7 +733,7 @@
                     "enemy": "Seymour",
                     "guide":[
                         "Any Use Dark Matter",
-                        "Disable 4x to skip dialoge then re-enable"
+                        "Disable 4x to skip dialogue then re-enable"
                     ],
                     "trailingBreak": true
                 },
@@ -741,9 +741,9 @@
                     "type": "battle",
                     "enemy": "Anima",
                     "guide":[
-                        "Disable 4x to skip dialoge then re-enable",
+                        "Disable 4x to skip dialogue then re-enable",
                         "Tidus Attack",
-                        "Disable 4x to skip dialoge then re-enable"
+                        "Disable 4x to skip dialogue then re-enable"
                     ],
                     "trailingBreak": true
                 },
@@ -796,10 +796,10 @@
                     "enemy": "Zu",
                     "guide": [ 
                         "Tidus Attack Self until Auron arrives",
-                        "Disable 4x to skip dialoge then re-enable",
+                        "Disable 4x to skip dialogue then re-enable",
                         "Any Defend until Lulu arrives",
                         "Lulu Arrives",
-                        "Disable 4x to skip dialoge then re-enable",
+                        "Disable 4x to skip dialogue then re-enable",
                         "Any Flee"
                     ],
                     "trailingBreak": true,
@@ -811,7 +811,7 @@
                     "guide": [
                         "Tidus Auto Attack x2",
                         "Wait until Zu death animation is almost complete",
-                        "Disable 4x to skip dialoge then re-enable"
+                        "Disable 4x to skip dialogue then re-enable"
                     ],
                     "trailingBreak": true,
                     "requirement": { "condition": "Bursur's Bits", "state": true }
@@ -821,7 +821,7 @@
                     "type": "battle",
                     "enemy": "Machina Tutorial",
                     "guide": [ 
-                        "Disable 4x to skip dialoge then re-enable",
+                        "Disable 4x to skip dialogue then re-enable",
                         "Tidus Flee"
                     ],
                     "trailingBreak": true
@@ -960,7 +960,7 @@
                     "type": "battle",
                     "enemy": "Issaru - Ifrit",
                     "guide": [ 
-                        "Disable 4x to skip dialoge then re-enable",
+                        "Disable 4x to skip dialogue then re-enable",
                         "Yuna Summon Ixion",
                         "Ixion Attack"
                     ],
@@ -970,7 +970,7 @@
                     "type": "battle",
                     "enemy": "Issaru - Valefor",
                     "guide": [ 
-                        "Disable 4x to skip dialoge then re-enable",
+                        "Disable 4x to skip dialogue then re-enable",
                         "Yuna Summon Ixion",
                         "Ixion Attack x2"
                     ],
@@ -980,7 +980,7 @@
                     "type": "battle",
                     "enemy": "Issaru - Bahamut",
                     "guide": [ 
-                        "Disable 4x to skip dialoge then re-enable",
+                        "Disable 4x to skip dialogue then re-enable",
                         "Yuna Summon Ixion",
                         "Ixion Attack x3"
                     ],
@@ -1027,9 +1027,9 @@
                     "type": "battle",
                     "enemy": "Biran & Yenke",
                     "guide":[
-                        "Disable 4x to skip dialoge then re-enable",
+                        "Disable 4x to skip dialogue then re-enable",
                         "Any Use Dark Matter",
-                        "Disable 4x to skip dialoge then re-enable"
+                        "Disable 4x to skip dialogue then re-enable"
                     ],
                     "trailingBreak": true,
                     "requirement": { "condition": "TerraSkip", "state": false }
@@ -1038,9 +1038,9 @@
                     "type": "battle",
                     "enemy": "Seymour",
                     "guide":[
-                        "Disable 4x to skip dialoge then re-enable",
+                        "Disable 4x to skip dialogue then re-enable",
                         "Any Use Shining Gem x2",
-                        "Disable 4x to skip dialoge then re-enable"
+                        "Disable 4x to skip dialogue then re-enable"
                     ],
                     "trailingBreak": true,
                     "requirement": { "condition": "TerraSkip", "state": true }
@@ -1107,9 +1107,9 @@
                     "guide": [ 
                         "Any Non-Tidus Defend",
                         "Tidus Talk: Move Closer",
-                        "Disable 4x to skip dialoge then re-enable",
+                        "Disable 4x to skip dialogue then re-enable",
                         "Tidus Attack other party members until you close in",
-                        "Disable 4x to skip dialoge then re-enable",
+                        "Disable 4x to skip dialogue then re-enable",
                         "Enable Auto Attack",
                         "Tidus Auto Attack"
                     ],
@@ -1122,9 +1122,9 @@
                     "guide": [ 
                         "Any Non-Tidus Defend",
                         "Tidus Talk: Move Closer",
-                        "Disable 4x to skip dialoge then re-enable",
+                        "Disable 4x to skip dialogue then re-enable",
                         "Tidus Attack other party members until you close in",
-                        "Disable 4x to skip dialoge then re-enable",
+                        "Disable 4x to skip dialogue then re-enable",
                         "Enable Auto Attack",
                         "Tidus Auto Attack"
                     ],

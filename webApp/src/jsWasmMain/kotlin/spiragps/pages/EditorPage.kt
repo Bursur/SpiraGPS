@@ -11,11 +11,12 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Divider
 import androidx.compose.material.Text
 import androidx.compose.material.TextButton
-import androidx.compose.material3.DropdownMenu
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import spiragps.data.editor.rememberEditorState
@@ -28,6 +29,9 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.unit.dp
+import kotlinx.serialization.encodeToString
+import kotlinx.serialization.json.Json
+import spiragps.data.FileService
 import spiragps.data.route.Chapter
 import spiragps.data.route.Entry
 import spiragps.style.SpiraGPSColours
@@ -43,13 +47,14 @@ import spiragps.views.editor.TitleEditor
 @Composable
 fun EditorPage(navigationState: NavigationState) {
     val editorState = rememberEditorState()
-    val route by remember { mutableStateOf(Route()) }
+    var route by remember { mutableStateOf(Route()) }
 
     var title by remember { mutableStateOf(route.title) }
     var editControlOpen by remember { mutableStateOf(false) }
     var selectedEntry by remember { mutableStateOf(Entry()) }
 
     val infoBgColor = animateColorAsState(SpiraGPSColours.value.infoBackground)
+    var awaitingData by remember { mutableStateOf(false) }
 
     Box(modifier = Modifier.fillMaxSize()) {
         BackButton(
@@ -155,6 +160,32 @@ fun EditorPage(navigationState: NavigationState) {
                 }
             }
         }
+
+        SaveLoadPanel(
+            onSave = {
+                val data = Json.encodeToString(route)
+                FileService.saveFile(data)
+            },
+            onLoad = { awaitingData = true },
+            modifier = Modifier.align(Alignment.BottomCenter)
+        )
+    }
+
+    // Load in the saved
+    LaunchedEffect(awaitingData) {
+        if(awaitingData) {
+            val data = FileService.loadFile()
+
+            awaitingData = false
+
+            if(data != "cancelled") {
+                println(data)
+                Json.decodeFromString<Route>(data).let {
+                    SpiraGPSText.addKeywords(it.keywords)
+                    route = it
+                }
+            }
+        }
     }
 }
 
@@ -167,5 +198,21 @@ private fun StickyHeader(title: String) {
         color = SpiraGPSColours.value.text,
         modifier = Modifier.fillMaxWidth().background(bgColor.value).alpha(.5f)
     )
+}
+
+@Composable
+private fun SaveLoadPanel(modifier: Modifier = Modifier, onSave: () -> Unit, onLoad: () -> Unit) {
+    val textColour = animateColorAsState(SpiraGPSColours.value.text)
+    val bgColour = animateColorAsState(SpiraGPSColours.value.infoBackground)
+
+    Row(modifier = modifier.padding(10.dp).background(bgColour.value, RoundedCornerShape(10.dp))) {
+        TextButton(onClick = { onSave() }, modifier = Modifier.padding(end = 5.dp)) {
+            Text(text = "Save Route", style = SpiraGPSText.typography.value.info, color = textColour.value)
+        }
+
+        TextButton(onClick = { onLoad() }) {
+            Text(text = "Load Route", style = SpiraGPSText.typography.value.info, color = textColour.value)
+        }
+    }
 }
 
