@@ -74,7 +74,6 @@ fun ToDoDialog(onDismissRequest: () -> Unit) {
                     entry = Entry(
                         guide = arrayListOf(
                             "Editor: Conditions",
-                            "Editor: Enable Pasting text",
                             "Routes: Multiple Conditions Handling",
                             "Routes: GIF Support?",
                             "Routes: YouTube Video Embedding?",
@@ -82,7 +81,8 @@ fun ToDoDialog(onDismissRequest: () -> Unit) {
                             "Misc: Help Page",
                             "Misc: Version History Page",
                             "Routes: BUG! Tables HAVE to have entries totaling a multiple of 2, this shouldn't be the case",
-                            "Editor: BUG! Caret is all shy"
+                            "Editor: BUG! Caret is all shy",
+                            "Editor: BUG! Images need to be uploaded before they can be seen"
                         )
                     )
                 )

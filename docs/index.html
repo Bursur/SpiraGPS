@@ -8,6 +8,7 @@
     <script type="application/javascript" src="skiko.js"></script>
     <script type="application/javascript" src="webApp.js"></script>
     <script>
+        // Preferences
         function saveDarkModePreference(enabled) {
             localStorage.darkMode = enabled;
         }
@@ -41,6 +42,7 @@
             return 0
         }
 
+        // File I/O
         var data = "#DEADFACE";
         function getLoadedData() {
             return data;
@@ -91,7 +93,21 @@
             link.download = `route-${Date.now()}.json`;
             link.click();
             URL.revokeObjectURL(link.href);
-        };
+        }
+
+        // Clipboard
+        var clipboardData = "#DEADFACE";
+        function getClipboard() {
+            return clipboardData;
+        }
+
+        function loadClipboardData() {
+            clipboardData = "#DEADFACE";
+            navigator.clipboard.readText()
+                .then((clipText) => {
+                    clipboardData = clipText
+                });
+        }
     </script>
     <style>
         html, body {
