@@ -183,6 +183,8 @@ fun EditorPage(navigationState: NavigationState) {
                 Json.decodeFromString<Route>(data).let {
                     SpiraGPSText.addKeywords(it.keywords)
                     route = it
+                    title = route.title
+                    ++editorState.updateCounter
                 }
             }
         }
