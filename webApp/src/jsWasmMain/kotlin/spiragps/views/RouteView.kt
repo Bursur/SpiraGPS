@@ -52,8 +52,8 @@ fun RouteView(route: Route, conditionState: ConditionState, contentsState: Conte
         Column(
             horizontalAlignment = Alignment.CenterHorizontally,
             modifier = Modifier
-                .fillMaxWidth(.65f)
                 .wrapContentHeight()
+                .fillMaxWidth()
                 .padding(top = 10.dp)
                 .verticalScroll(
                     state = scrollableState,

@@ -19,7 +19,7 @@ import spiragps.style.SpiraGPSText
 fun IntroductionView(intro: Introduction, conditionState: ConditionState) {
     val dividerColour = animateColorAsState(SpiraGPSColours.value.background)
 
-    Column(modifier = Modifier.fillMaxWidth().padding(bottom = 5.dp)) {
+    Column(modifier = Modifier.fillMaxWidth(.65f).padding(bottom = 5.dp)) {
         intro.entries.forEach { it ->
             val changes = conditionState.lastChange
             val showEntry = if(it.requirement.condition.isEmpty())

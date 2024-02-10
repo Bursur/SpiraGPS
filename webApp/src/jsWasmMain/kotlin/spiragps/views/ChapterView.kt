@@ -24,8 +24,8 @@ import spiragps.style.SpiraGPSColours
 fun ChapterView(chapter: Chapter, conditionState: ConditionState, titlePositionCallback: (Int, Float) -> Unit = { _: Int, _: Float -> }) {
     var expanded by remember { mutableStateOf(true) }
 
-    Column(modifier = Modifier.fillMaxWidth()) {
-        TitleView(title = chapter.title, modifier = Modifier.clickable { expanded = !expanded }) { position: Float ->
+    Column(modifier = Modifier.fillMaxWidth(.65f)) {
+        TitleView(title = chapter.title, isChapter = true, modifier = Modifier.clickable { expanded = !expanded }) { position: Float ->
             titlePositionCallback(chapter.index, position)
         }
 
