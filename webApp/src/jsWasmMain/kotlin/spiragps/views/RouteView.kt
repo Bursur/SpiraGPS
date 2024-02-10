@@ -82,7 +82,7 @@ fun RouteView(route: Route, conditionState: ConditionState, contentsState: Conte
             },
             containerColor = SpiraGPSColours.value.fabBackgroundColour,
             contentColor = SpiraGPSColours.value.fabIconColour,
-            modifier = Modifier.align(Alignment.BottomEnd).padding(20.dp)
+            modifier = Modifier.align(Alignment.BottomEnd).padding(vertical = 60.dp, horizontal = 10.dp)
         ) {
             Icon(Icons.Filled.KeyboardArrowUp, "")
         }
