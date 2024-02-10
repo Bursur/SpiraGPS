@@ -8,6 +8,10 @@
         {
             "name": "Random Bits n Stuff",
             "data": "SpiraGPS/boosters-back.json"
+        },
+        {
+            "name": "Down by the River",
+            "data": "SpiraGPS/down-by-the-river.json"
         }
     ]
 }

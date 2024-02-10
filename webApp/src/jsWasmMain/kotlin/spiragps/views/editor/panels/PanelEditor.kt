@@ -79,7 +79,7 @@ fun PanelEditor(entry: Entry, conditions: ArrayList<Condition>, onDismiss: (Entr
         val conditionSelectedCallback: (String) -> Unit = { condition: String ->
             selectedCondition = if(condition != "None") condition else ""
             conditionExpanded = false
-            entry.requirement.condition = selectedEntryType
+            entry.requirement.condition = selectedCondition
         }
 
         Surface(elevation = 5.dp, shape = RoundedCornerShape(20.dp), color = SpiraGPSColours.value.background) {

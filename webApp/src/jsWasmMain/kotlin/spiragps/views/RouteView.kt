@@ -64,7 +64,7 @@ fun RouteView(route: Route, conditionState: ConditionState, contentsState: Conte
             TitleView(title = route.title)
 
             // Intro
-            IntroductionView(route.introduction)
+            IntroductionView(route.introduction, conditionState)
 
             // Chapters
             route.chapters.forEach { chapter: Chapter ->
