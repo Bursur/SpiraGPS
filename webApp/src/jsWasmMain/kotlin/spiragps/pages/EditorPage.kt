@@ -43,6 +43,7 @@ import spiragps.views.editor.ChapterEditor
 import spiragps.views.editor.ConditionEditor
 import spiragps.views.editor.EntryEditor
 import spiragps.views.editor.EntryEditorButton
+import spiragps.views.editor.KeywordsEditorButton
 import spiragps.views.editor.TitleEditor
 
 @OptIn(ExperimentalFoundationApi::class)
@@ -166,13 +167,15 @@ fun EditorPage(navigationState: NavigationState) {
         }
 
         ControlPanel(
+            route = route,
             onSave = {
                 val data = Json.encodeToString(route)
                 FileService.saveFile(data)
             },
             onLoad = { awaitingData = true },
             onModifyConditions = { conditionDialogOpen = true },
-            modifier = Modifier.align(Alignment.BottomCenter)
+            modifier = Modifier.align(Alignment.BottomCenter),
+            onKeywordsUpdated = { ++editorState.updateCounter }
         )
     }
 
@@ -212,9 +215,9 @@ private fun StickyHeader(title: String) {
 }
 
 @Composable
-private fun ControlPanel(modifier: Modifier = Modifier, onSave: () -> Unit, onLoad: () -> Unit, onModifyConditions: () -> Unit) {
+private fun ControlPanel(modifier: Modifier = Modifier, route: Route, onSave: () -> Unit, onLoad: () -> Unit, onModifyConditions: () -> Unit, onKeywordsUpdated: () -> Unit) {
     val textColour = animateColorAsState(SpiraGPSColours.value.text)
-    val bgColour = animateColorAsState(SpiraGPSColours.value.infoBackground)
+    val bgColour = animateColorAsState(SpiraGPSColours.value.editorControlBackground)
 
     Row(modifier = modifier.padding(10.dp).background(bgColour.value, RoundedCornerShape(10.dp))) {
         TextButton(onClick = { onSave() }, modifier = Modifier.padding(end = 5.dp)) {
@@ -228,6 +231,8 @@ private fun ControlPanel(modifier: Modifier = Modifier, onSave: () -> Unit, onLo
         TextButton(onClick = { onModifyConditions() }) {
             Text(text = "Update Conditions", style = SpiraGPSText.typography.value.info, color = textColour.value)
         }
+
+        KeywordsEditorButton(route = route, onDismiss = { onKeywordsUpdated() })
     }
 }
 

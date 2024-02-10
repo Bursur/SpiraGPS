@@ -9,6 +9,7 @@ data class ColourScheme(
 
     val text: Color,
     val infoBackground: Color,
+    val editorControlBackground: Color,
 
     val fabBackgroundColour: Color,
     val fabIconColour: Color,
@@ -66,6 +67,7 @@ val lightScheme = ColourScheme(
 
     text = Color(0xFF000000),
     infoBackground = Color(0xFFF2F2F2),
+    editorControlBackground = Color(0xFFE2E2E2),
 
     fabBackgroundColour = Color(0xFFD3D3D3),
     fabIconColour = Color(0xFF414A4C),
@@ -123,6 +125,7 @@ val darkScheme = ColourScheme(
 
     text = Color(0xFFC7C7C7),
     infoBackground = Color(0xFF3C3C3C),
+    editorControlBackground = Color(0xFF4C4C4C),
 
     fabBackgroundColour = Color(0xFFD3D3D3),
     fabIconColour = Color(0xFF414A4C),

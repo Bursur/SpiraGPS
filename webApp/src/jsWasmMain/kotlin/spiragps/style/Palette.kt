@@ -45,7 +45,7 @@ object SpiraGPSText {
         dyslexicFont = FontFamily(
             Font(
                 identity = "ReadexPro",
-                data = loadResource("SpiraGPS/fonts/ReadexPro-Light.ttf"),
+                data = loadResource("SpiraGPS/fonts/Lexend-ExtraLight.ttf"),
                 weight = FontWeight.Normal
             )
         )
@@ -99,7 +99,7 @@ object SpiraGPSText {
 
 var SpiraGPSColours = mutableStateOf(if(getDarkModePreference() == 1) darkScheme else lightScheme)
 var SpiraGPSDarkMode = mutableStateOf(getDarkModePreference() == 1)
-const val SpiraGPSVersion = "0.8.1 - alpha"
+const val SpiraGPSVersion = "0.8.2 - alpha"
 
 @Composable
 fun SpiraGPSTheme(content: @Composable () -> Unit) {
