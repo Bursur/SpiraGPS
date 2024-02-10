@@ -40,6 +40,8 @@ import spiragps.views.components.BackButton
 import spiragps.views.components.EditContextMenu
 import spiragps.views.createEntry
 import spiragps.views.editor.ChapterEditor
+import spiragps.views.editor.ConditionEditor
+import spiragps.views.editor.EntryEditor
 import spiragps.views.editor.EntryEditorButton
 import spiragps.views.editor.TitleEditor
 
@@ -51,6 +53,7 @@ fun EditorPage(navigationState: NavigationState) {
 
     var title by remember { mutableStateOf(route.title) }
     var editControlOpen by remember { mutableStateOf(false) }
+    var conditionDialogOpen by remember { mutableStateOf(false) }
     var selectedEntry by remember { mutableStateOf(Entry()) }
 
     val infoBgColor = animateColorAsState(SpiraGPSColours.value.infoBackground)
@@ -161,14 +164,19 @@ fun EditorPage(navigationState: NavigationState) {
             }
         }
 
-        SaveLoadPanel(
+        ControlPanel(
             onSave = {
                 val data = Json.encodeToString(route)
                 FileService.saveFile(data)
             },
             onLoad = { awaitingData = true },
+            onModifyConditions = { conditionDialogOpen = true },
             modifier = Modifier.align(Alignment.BottomCenter)
         )
+    }
+
+    if(conditionDialogOpen) {
+        ConditionEditor(route) { conditionDialogOpen = false }
     }
 
     // Load in the saved
@@ -203,7 +211,7 @@ private fun StickyHeader(title: String) {
 }
 
 @Composable
-private fun SaveLoadPanel(modifier: Modifier = Modifier, onSave: () -> Unit, onLoad: () -> Unit) {
+private fun ControlPanel(modifier: Modifier = Modifier, onSave: () -> Unit, onLoad: () -> Unit, onModifyConditions: () -> Unit) {
     val textColour = animateColorAsState(SpiraGPSColours.value.text)
     val bgColour = animateColorAsState(SpiraGPSColours.value.infoBackground)
 
@@ -214,6 +222,10 @@ private fun SaveLoadPanel(modifier: Modifier = Modifier, onSave: () -> Unit, onL
 
         TextButton(onClick = { onLoad() }) {
             Text(text = "Load Route", style = SpiraGPSText.typography.value.info, color = textColour.value)
+        }
+
+        TextButton(onClick = { onModifyConditions() }) {
+            Text(text = "Update Conditions", style = SpiraGPSText.typography.value.info, color = textColour.value)
         }
     }
 }

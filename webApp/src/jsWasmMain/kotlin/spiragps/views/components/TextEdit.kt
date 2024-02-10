@@ -45,7 +45,7 @@ fun TextEdit(modifier: Modifier = Modifier, text: String, placeholderText: Strin
 
     var awaitingClipboardData by remember { mutableStateOf(false) }
 
-    Row(verticalAlignment = Alignment.CenterVertically) {
+    Row(verticalAlignment = Alignment.CenterVertically, modifier = modifier) {
         TextField(
             value = text,
             onValueChange = {
@@ -66,7 +66,7 @@ fun TextEdit(modifier: Modifier = Modifier, text: String, placeholderText: Strin
                     modifier = Modifier.fillMaxWidth()
                 )
             },
-            modifier = modifier.fillMaxWidth()
+            modifier = Modifier.fillMaxWidth()
                 .weight(1f)
         )
 
