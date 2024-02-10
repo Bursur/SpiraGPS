@@ -73,14 +73,14 @@ fun ToDoDialog(onDismissRequest: () -> Unit) {
                 BulletedList(
                     entry = Entry(
                         guide = arrayListOf(
-                            "Editor: Conditions",
-                            "Routes: Multiple Conditions Handling",
+                            "Routes: Multiple Conditions?",
                             "Routes: GIF Support?",
                             "Routes: YouTube Video Embedding?",
                             "Misc: Credits Page",
                             "Misc: Help Page",
                             "Misc: Version History Page",
                             "Routes: BUG! Tables HAVE to have entries totaling a multiple of 2, this shouldn't be the case",
+                            "Routes: BUG! Can't scroll when the cursor is outside content",
                             "Editor: BUG! Caret is all shy",
                             "Editor: BUG! Images need to be uploaded before they can be seen"
                         )

@@ -19,6 +19,7 @@ import androidx.compose.runtime.key
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import spiragps.data.route.Condition
 import spiragps.data.route.Entry
 import spiragps.style.SpiraGPSColours
 import spiragps.views.components.EditContextMenu
@@ -27,7 +28,7 @@ import spiragps.views.editor.panels.PanelEditorButton
 
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
-fun ChapterEditor(chapter: Chapter) {
+fun ChapterEditor(chapter: Chapter, conditions: ArrayList<Condition>) {
     var title by remember { mutableStateOf(chapter.title) }
     val entries by remember { mutableStateOf(chapter.entries) }
 
@@ -62,6 +63,7 @@ fun ChapterEditor(chapter: Chapter) {
                         EditContextMenu(
                             open = editControlOpen,
                             entry = it,
+                            conditions = conditions,
                             onDismiss = { editControlOpen = false },
                             onEntryUpdated = {
                                 editControlOpen = false
@@ -99,14 +101,14 @@ fun ChapterEditor(chapter: Chapter) {
         }
 
         Row {
-            EntryEditorButton(entry = Entry(type = "info")) {
+            EntryEditorButton(entry = Entry(type = "info"), conditions = conditions) {
                 if (it != null) {
                     entries.add(it)
                     ++updateCount
                 }
             }
 
-            PanelEditorButton(entry = Entry(type = "battle")) {
+            PanelEditorButton(entry = Entry(type = "battle"), conditions = conditions) {
                 if (it != null) {
                     entries.add(it)
                     ++updateCount

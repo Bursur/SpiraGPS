@@ -6,6 +6,7 @@ import androidx.compose.material.TextButton
 import androidx.compose.material3.DropdownMenu
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import spiragps.data.route.Condition
 import spiragps.data.route.Entry
 import spiragps.style.SpiraGPSColours
 import spiragps.style.SpiraGPSText
@@ -16,6 +17,7 @@ import spiragps.views.editor.panels.PanelEditorButton
 fun EditContextMenu(
     open: Boolean,
     entry: Entry,
+    conditions: ArrayList<Condition>,
     onDismiss: () -> Unit,
     onEntryUpdated: () -> Unit,
     onEntryDeleted: (Entry) -> Unit,
@@ -28,9 +30,9 @@ fun EditContextMenu(
         modifier = Modifier.background(SpiraGPSColours.value.infoBackground)
     ) {
         if(!isPanel(entry))
-            EntryEditorButton(entry = entry, isEditButton = true) { onEntryUpdated() }
+            EntryEditorButton(entry = entry, conditions = conditions, isEditButton = true) { onEntryUpdated() }
         else
-            PanelEditorButton(entry = entry, isEditButton = true) { onEntryUpdated() }
+            PanelEditorButton(entry = entry, conditions = conditions, isEditButton = true) { onEntryUpdated() }
         TextButton(onClick = { onEntryDeleted(entry) }) {
             Text(text = "Delete", style = SpiraGPSText.typography.value.info, color = SpiraGPSColours.value.text)
         }

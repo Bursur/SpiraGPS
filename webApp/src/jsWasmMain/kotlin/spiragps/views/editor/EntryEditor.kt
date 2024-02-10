@@ -10,6 +10,8 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.wrapContentHeight
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material.Checkbox
+import androidx.compose.material.CheckboxDefaults
 import androidx.compose.material.Surface
 import androidx.compose.material.TextButton
 import androidx.compose.material3.DropdownMenu
@@ -29,12 +31,13 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.compose.ui.window.Dialog
+import spiragps.data.route.Condition
 import spiragps.data.route.Entry
 import spiragps.style.SpiraGPSColours
 import spiragps.style.SpiraGPSText
 
 @Composable
-fun EntryEditorButton(modifier: Modifier = Modifier, entry: Entry, isEditButton: Boolean = false, onDismiss: (Entry?) -> Unit) {
+fun EntryEditorButton(modifier: Modifier = Modifier, entry: Entry, conditions: ArrayList<Condition>, isEditButton: Boolean = false, onDismiss: (Entry?) -> Unit) {
     var openAlertDialog by remember { mutableStateOf(false) }
 
     TextButton(
@@ -47,24 +50,34 @@ fun EntryEditorButton(modifier: Modifier = Modifier, entry: Entry, isEditButton:
     }
 
     if(openAlertDialog)
-        EntryEditor(entry) {
+        EntryEditor(entry, conditions) {
             openAlertDialog = false
             onDismiss(it)
         }
 }
 
 @Composable
-fun EntryEditor(entry: Entry, onDismiss: (Entry?) -> Unit) {
+fun EntryEditor(entry: Entry, conditions: ArrayList<Condition>, onDismiss: (Entry?) -> Unit) {
     Dialog(
         onDismissRequest = { onDismiss(null) },
     ) {
         var selectedEntryType by remember { mutableStateOf("info") }
         var entryTypeExpanded by remember { mutableStateOf(false) }
 
+        var selectedCondition by remember { mutableStateOf(entry.requirement.condition.ifEmpty { "None" }) }
+        var conditionExpanded by remember { mutableStateOf(false) }
+        var conditionEnabled by remember { mutableStateOf(entry.requirement.state) }
+
         val typeSelectedCallback: (String) -> Unit = { entryType: String ->
             selectedEntryType = entryType
             entryTypeExpanded = false
             entry.type = selectedEntryType
+        }
+
+        val conditionSelectedCallback: (String) -> Unit = { condition: String ->
+            selectedCondition = if(condition != "None") condition else ""
+            conditionExpanded = false
+            entry.requirement.condition = selectedEntryType
         }
 
         Surface(elevation = 5.dp, shape = RoundedCornerShape(20.dp), color = SpiraGPSColours.value.background) {
@@ -97,7 +110,41 @@ fun EntryEditor(entry: Entry, onDismiss: (Entry?) -> Unit) {
 
                 // Entry Editor Panel
                 Crossfade(targetState = selectedEntryType) {
-                    createEditorPanel(entry)
+                    createEditorPanel(entry, conditions)
+                }
+
+                // Condition List
+                Row(verticalAlignment = Alignment.CenterVertically) {
+                    Text(
+                        text = "Condition: $selectedCondition",
+                        style = SpiraGPSText.typography.value.info,
+                        color = SpiraGPSColours.value.text,
+                        modifier = Modifier.clickable { conditionExpanded = true }.padding(bottom = 10.dp)
+                    )
+
+                    Checkbox(
+                        checked = conditionEnabled,
+                        onCheckedChange = {
+                            conditionEnabled = it
+                            entry.requirement.state = it
+                        },
+                        colors = CheckboxDefaults.colors(
+                            uncheckedColor = SpiraGPSColours.value.toggleUnselectedTrackColour,
+                            checkedColor = SpiraGPSColours.value.toggleSelectedTrackColour
+                        ),
+                        modifier = Modifier.weight(.1f)
+                    )
+
+                    DropdownMenu(
+                        expanded = conditionExpanded,
+                        onDismissRequest = { conditionExpanded = false },
+                        modifier = Modifier.background(SpiraGPSColours.value.infoBackground)
+                    ) {
+                        EntryType("None", onClick = conditionSelectedCallback)
+                        conditions.forEach {
+                            EntryType(it.name, onClick = conditionSelectedCallback)
+                        }
+                    }
                 }
 
                 // Save Button

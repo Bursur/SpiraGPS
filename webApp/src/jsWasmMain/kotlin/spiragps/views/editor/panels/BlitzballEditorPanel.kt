@@ -14,6 +14,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import spiragps.data.route.Condition
 import spiragps.data.route.Entry
 import spiragps.style.SpiraGPSColours
 import spiragps.views.components.EditContextMenu
@@ -22,7 +23,7 @@ import spiragps.views.editor.EntryEditorButton
 
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
-fun BlitzballEditorPanel(entry: Entry) {
+fun BlitzballEditorPanel(entry: Entry, conditions: ArrayList<Condition>) {
     val entries by remember { mutableStateOf(entry.entries) }
     var updates by remember { mutableStateOf(0) }
 
@@ -50,6 +51,7 @@ fun BlitzballEditorPanel(entry: Entry) {
                         EditContextMenu(
                             open = editControlOpen,
                             entry = it,
+                            conditions = conditions,
                             onDismiss = { editControlOpen = false },
                             onEntryUpdated = {
                                 editControlOpen = false
@@ -85,7 +87,7 @@ fun BlitzballEditorPanel(entry: Entry) {
                 }
 
                 item {
-                    EntryEditorButton(entry = Entry(type = "info")) {
+                    EntryEditorButton(entry = Entry(type = "info"), conditions = conditions) {
                         if (it != null) {
                             entry.entries.add(it)
                             ++updates

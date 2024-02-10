@@ -101,6 +101,7 @@ fun EditorPage(navigationState: NavigationState) {
                             EditContextMenu(
                                 open = editControlOpen,
                                 entry = it,
+                                conditions = route.conditions,
                                 onDismiss = { editControlOpen = false },
                                 onEntryUpdated = {
                                     editControlOpen = false
@@ -137,7 +138,7 @@ fun EditorPage(navigationState: NavigationState) {
                 }
 
                 item {
-                    EntryEditorButton(entry = Entry(type = "info")) {
+                    EntryEditorButton(entry = Entry(type = "info"), conditions = route.conditions) {
                         if (it != null) {
                             route.introduction.entries.add(it)
                             ++editorState.updateCounter
@@ -150,7 +151,7 @@ fun EditorPage(navigationState: NavigationState) {
                 stickyHeader { StickyHeader("Chapters") }
 
                 items(route.chapters) {
-                    ChapterEditor(it)
+                    ChapterEditor(it, route.conditions)
                 }
 
                 item {
