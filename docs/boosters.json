@@ -1201,11 +1201,10 @@
                     "guide": [ "Any Use Shining Gem"],
                     "trailingBreak": true
                 },
-                { "type": "info", "text": "Once the Bahamut death sequence starts, Enable Auto Attack", "trailingBreak": true },
                 {
                     "type": "battle",
                     "enemy": "Yu Yevon",
-                    "guide": [ "Tidus Auto Attack"],
+                    "guide": [ "Tidus Attack"],
                     "trailingBreak": true
                 }
             ]
