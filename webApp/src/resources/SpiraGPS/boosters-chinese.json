@@ -82,6 +82,15 @@
                     ]
                 },
                 {
+                    "type": "table", "trailingBreak": true, "columns": 2,
+                    "guide": [
+                        "1. Shining Gem",
+                        "2. Smoke Grenade",
+                        "3. Dark Matter",
+                        "4. ..."
+                    ]
+                },
+                {
                     "type": "bullets", "trailingBreak": true,
                     "text": "Use:",
                     "guide": [
