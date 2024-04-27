@@ -7,7 +7,7 @@
         "entries": [
             {
                 "type": "info",
-                "text": "This is VERY WIP route for Boosters%. Full credits to Mtbanger for these notes. The notes are Mtbangers notes. Credits from Mt's notes: Credit to psychonauter, MorphaSRDC, and ChrisTenarium for original Booster% notes and route, MrTyton for the Zanarkand Trials map, to CrimsonInferno and the FFX Blitzball Haters Club HQ Big Nerds for helping me make this bad idea almost good.",
+                "text": "This is VERY WIP route for Boosters% in Chinese. It expects that you are familiar with the normal boosters route and contains menu movement for helping transitions to the chinese runs if you aren't familiar with the language",
                 "trailingBreak": true
             },
             { "type": "bullets",
@@ -82,11 +82,16 @@
                     ]
                 },
                 {
+                    "type": "info",
+                    "text": "Post item Sort Use Item Order",
+                    "trailingBreak": true
+                },
+                {
                     "type": "table", "trailingBreak": true, "columns": 2,
                     "guide": [
                         "1. Shining Gem",
-                        "2. Smoke Grenade",
                         "3. Dark Matter",
+                        "2. Smoke Grenade",
                         "4. ..."
                     ]
                 },
