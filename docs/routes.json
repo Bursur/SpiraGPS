@@ -6,6 +6,11 @@
             "image": "SpiraGPS/boosters.png"
         },
         {
+            "name": "Any% w/Boosters (Chinese)",
+            "data": "SpiraGPS/boosters-chinese.json",
+            "image": "SpiraGPS/boosters-chinese.jpg"
+        },
+        {
             "name": "Random Bits n Stuff",
             "data": "SpiraGPS/boosters-back.json"
         },
