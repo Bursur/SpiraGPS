@@ -2,6 +2,10 @@ package spiragps.dialogs
 
 import androidx.compose.animation.animateColorAsState
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.hoverable
+import androidx.compose.foundation.interaction.HoverInteraction
+import androidx.compose.foundation.interaction.MutableInteractionSource
+import androidx.compose.foundation.interaction.collectIsHoveredAsState
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.height
@@ -9,10 +13,15 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
+import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.RichTooltipBox
+import androidx.compose.material3.RichTooltipState
 import androidx.compose.material3.SmallFloatingActionButton
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
+import androidx.compose.material3.TooltipDefaults
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -25,22 +34,47 @@ import org.jetbrains.compose.resources.ExperimentalResourceApi
 import org.jetbrains.compose.resources.painterResource
 import spiragps.pages.components.SpiraGPSTitle
 import spiragps.style.SpiraGPSColours
+import spiragps.style.SpiraGPSDarkMode
 import spiragps.style.SpiraGPSText
+import spiragps.style.SpiraGPSVersion
 
-@OptIn(ExperimentalResourceApi::class)
+@OptIn(ExperimentalResourceApi::class, ExperimentalMaterial3Api::class)
 @Composable
 fun AboutActionButton(modifier: Modifier = Modifier) {
     var openAlertDialog by remember { mutableStateOf(false) }
+    val tooltipState = remember { RichTooltipState() }
+    val textColour = animateColorAsState(SpiraGPSColours.value.text)
+    val bgColour = animateColorAsState(SpiraGPSColours.value.infoBackground)
+    val interactionSource = remember { MutableInteractionSource() }
+    val isHovered by interactionSource.collectIsHoveredAsState()
 
-    SmallFloatingActionButton(
-        onClick = {
-            openAlertDialog = true
-        },
-        containerColor = SpiraGPSColours.value.fabBackgroundColour,
-        contentColor = SpiraGPSColours.value.fabIconColour,
-        modifier = modifier
+    RichTooltipBox(
+        title = { Text("Info", style = SpiraGPSText.typography.value.infoBold, color = textColour.value) },
+        text = { Text("v$SpiraGPSVersion", style = SpiraGPSText.typography.value.info, color = textColour.value) },
+        tooltipState = tooltipState,
+        colors = TooltipDefaults.richTooltipColors(containerColor = bgColour.value),
     ) {
-        Image(painter = painterResource("SpiraGPS/info.png"), contentDescription = null, modifier = Modifier.padding(5.dp).width(24.dp).height(24.dp))
+        SmallFloatingActionButton(
+            onClick = {
+                openAlertDialog = true
+            },
+            containerColor = SpiraGPSColours.value.fabBackgroundColour,
+            contentColor = SpiraGPSColours.value.fabIconColour,
+            modifier = modifier.tooltipAnchor().hoverable(interactionSource)
+        ) {
+            Image(
+                painter = painterResource("SpiraGPS/info.png"),
+                contentDescription = null,
+                modifier = Modifier.padding(5.dp).width(24.dp).height(24.dp)
+            )
+        }
+    }
+
+    LaunchedEffect(isHovered) {
+        if(isHovered)
+            tooltipState.show()
+        else
+            tooltipState.dismiss()
     }
 
     if(openAlertDialog)
