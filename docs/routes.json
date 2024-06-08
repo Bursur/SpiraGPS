@@ -3,20 +3,28 @@
         {
             "name": "Any% w/Boosters",
             "data": "SpiraGPS/boosters.json",
-            "image": "SpiraGPS/boosters.png"
+            "image": "SpiraGPS/boosters.png",
+            "author": "MtBanger",
+            "description": "Tidus Route. This doesn't need tracking and is a good starter route."
         },
         {
             "name": "Any% w/Boosters (Chinese)",
             "data": "SpiraGPS/boosters-chinese.json",
-            "image": "SpiraGPS/boosters-chinese.jpg"
+            "image": "SpiraGPS/boosters-chinese.jpg",
+            "author": "Bursur",
+            "description": "Based on Mts Tidus route. Menu actions for a run in Chinese."
         },
         {
             "name": "Random Bits n Stuff",
-            "data": "SpiraGPS/boosters-back.json"
+            "data": "SpiraGPS/boosters-back.json",
+            "author": "Bursur",
+            "description": "Test area for new components"
         },
         {
             "name": "Down by the River",
-            "data": "SpiraGPS/down-by-the-river.json"
+            "data": "SpiraGPS/down-by-the-river.json",
+            "author": "Bursur",
+            "description": "He. He. He."
         }
     ]
 }

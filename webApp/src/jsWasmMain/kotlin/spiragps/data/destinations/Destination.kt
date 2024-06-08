@@ -6,5 +6,7 @@ import kotlinx.serialization.Serializable
 data class Destination(
     val name: String = "",
     val data: String = "",
-    val image: String = ""
+    val image: String = "",
+    val author: String = "",
+    val description: String = ""
 )
