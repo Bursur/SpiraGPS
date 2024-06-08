@@ -109,6 +109,10 @@
                 });
         }
 
+        function setClipboard(data) {
+            navigator.clipboard.writeText(data)
+        }
+
         // Browser State
         function getUrl() {
             return window.location.href;
