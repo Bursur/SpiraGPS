@@ -111,7 +111,6 @@ fun ToDoDialog(onDismissRequest: () -> Unit) {
                             "Misc: Credits Page",
                             "Misc: Help Page",
                             "Misc: Version History Page",
-                            "Misc: Deep-links",
                             "Routes: BUG! Tables HAVE to have entries totaling a multiple of 2, this shouldn't be the case",
                             "Editor: BUG! Caret is all shy",
                             "Editor: BUG! Images need to be uploaded before they can be seen"

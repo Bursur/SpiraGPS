@@ -5,10 +5,12 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.RichTooltipBox
+import androidx.compose.material3.Text
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import spiragps.data.DeeplinkService
 import spiragps.data.destinations.SpiraDestinations
 import spiragps.data.route.NavigationState
 import spiragps.data.route.rememberNavigationState
@@ -22,7 +24,6 @@ import spiragps.style.SpiraGPSTheme
 import spiragps.pages.RoutePage
 import spiragps.style.SpiraGPSColours
 import spiragps.style.SpiraGPSText
-
 
 @Composable
 internal fun SpiraGPS() {
@@ -52,6 +53,11 @@ internal fun SpiraGPS() {
         LaunchedEffect(Unit) {
             SpiraGPSText.loadFonts()
             SpiraDestinations.loadDestinations()
+
+            DeeplinkService.followRouteLink(navigationState)
+            if(navigationState.currentPage == NavigationState.LANDING)
+                DeeplinkService.followEditorLink(navigationState)
+
             loading = false
         }
     }
