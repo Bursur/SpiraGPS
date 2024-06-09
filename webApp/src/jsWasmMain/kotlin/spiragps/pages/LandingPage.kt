@@ -28,6 +28,7 @@ import androidx.compose.ui.unit.sp
 import spiragps.data.destinations.SpiraDestinations
 import spiragps.data.route.Entry
 import spiragps.data.route.NavigationState
+import spiragps.pages.components.EditorHelpButton
 import spiragps.pages.components.EditorSelectButton
 import spiragps.pages.components.LocalRouteSelectButton
 import spiragps.pages.components.RouteSelectButton
@@ -66,6 +67,7 @@ fun LandingPage(navigationState: NavigationState) {
 
             LocalRouteSelectButton(navigationState)
             EditorSelectButton(navigationState)
+            EditorHelpButton(navigationState)
         }
     }
 }

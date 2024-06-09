@@ -109,11 +109,12 @@ fun ToDoDialog(onDismissRequest: () -> Unit) {
                             "Routes: GIF Support?",
                             "Routes: YouTube Video Embedding?",
                             "Misc: Credits Page",
-                            "Misc: Help Page",
                             "Misc: Version History Page",
                             "Routes: BUG! Tables HAVE to have entries totaling a multiple of 2, this shouldn't be the case",
                             "Editor: BUG! Caret is all shy",
-                            "Editor: BUG! Images need to be uploaded before they can be seen"
+                            "Editor: BUG! Images need to be uploaded before they can be seen",
+                            "Editor: BUG! Adding too many entries in a bulleted list pushes the Save/Cancel buttons off screen.",
+                            "Editor: Chapters cannot be re-organised."
                         )
                     )
                 )
