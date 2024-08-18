@@ -1,0 +1,229 @@
+{
+    "title": "Sandbox - Tidus Route",
+    "keywords": ["x4", "Auto-Attack"],
+    "introduction": {
+    },
+    "chapters": [
+        {
+            "title": "Zanarkand",
+            "entries": [
+                { "type": "info", "text": "1. Press Select to skip Cutscene {about 15 seconds in on PS2}", "trailingBreak": true },
+                {
+                    "type": "battle",
+                    "enemy": "Seymour",
+                    "health": 6000,
+                    "guide": [
+                        "Tidus Haste Tidus",
+                        "Yuna Change Weapon",
+                        "Kimahri Stone Breath",
+                        "Tidus Talk",
+                        "Switch Yuna for Auron",
+                        "Auron Defend",
+                        "Tidus Change Weapon",
+                        "Tidus Attack Seymour",
+                        "Auron Change Weapon",
+                        "Kimahri Steal",
+                        "Switch Tidus for Wakka",
+                        "Wakka Change Weapon",
+                        "The rest of the fight with Anima and Seymour is the same as the normal strategy.",
+                        "If Kimahri dies then use Phoenix Down with Auron"
+                    ]
+                },
+                {
+                    "type": "trial", "trailingBreak": true,
+                    "guide": [
+                        "Touch the wall at the end",
+                        "Touch the wall on the right",
+                        "Go down the steps and pickup the sphere from the wall",
+                        "Go down the steps and place the sphere in the door",
+                        "Go down the corridor past the first pedestal",
+                        "Touch the wall opposite the second pedestal to open the hidden room",
+                        "Pickup the sphere in the hidden room, place it on the second pedestal",
+                        "Push the pedestal to complete the trials"
+                    ],
+                    "image": ""
+                },
+                {
+                    "type": "shop", "trailingBreak": true,
+                    "cost": 9075,
+                    "buy": ["Sonic Steel, Equip"],
+                    "sell": []
+                },
+                {
+                    "type": "equipment", "trailingBreak": true,
+                    "guide":[
+                        "Tidus", "Yuna", "Wakka", "Lulu", "Rikku", "Auron", "Kimahri"
+                    ]
+                },
+                {
+                    "type": "itemsort", "trailingBreak": true,
+                    "guide": [
+                        "Al Bhed Potion with Shining Gem, R2 Confirm R2 ↓ Confirm",
+                        "Smoke Bomb with Healing Water, ↑ Confirm L2 → Confirm",
+                        "Master Sphere with Power Sphere, R2 R2 R2 ← Confirm ↑↑↑↑↑{x5} Confirm",
+                        "Ability Sphere with Clear Sphere, →↓ Confirm R2 ↓ Confirm",
+                        "Strength Sphere Mana Sphere, ↑↑↑↑{x4} Confirm L2 ↓↓ Confirm",
+                        "Speed Sphere with Warp Sphere, ←↓ Confirm R2 →↓↓↓ Confirm",
+                        "Dark Matter with Tetra Elemental*, L2 L2 ↑↑↑ Confirm L2  ←↑↑↑↑↑{x5} Confirm"
+                    ]
+                },
+                {
+                    "type": "spheregrid", "trailingBreak": true,
+                    "guide": [
+                        "Strength x2",
+                        "Master x2",
+                        "Warp Up x2, Left x5",
+                        "Clear",
+                        "Strength x4",
+                        "Master x6",
+                        "Warp Left x2",
+                        "Strength x3",
+                        "Master x3",
+                        "Warp Down x3"
+                    ]
+                },
+                {
+                    "type": "trial",
+                    "entries": [
+                        {
+                            "type": "bullets", "trailingBreak": true,
+                            "guide": [
+                                "Touch the wall at the end",
+                                "Touch the wall on the right",
+                                "Go down the steps and pickup the sphere from the wall",
+                                "Go down the steps and place the sphere in the door",
+                                "Go down the corridor past the first pedestal",
+                                "Touch the wall opposite the second pedestal to open the hidden room",
+                                "Pickup the sphere in the hidden room, place it on the second pedestal",
+                                "Push the pedestal to complete the trials"
+                            ]
+                        }
+                    ],
+                    "requirement": { "condition": "Cloisters", "state": true }
+                },
+                {
+                    "type": "blitzball", "trailingBreak": true,
+                    "entries": [
+                        {
+                            "type": "info", "trailingBreak": true,
+                            "text": "The goal here is to lose, unless you're 0-0 when Wakka shows up and you win the Blitz Off - at which point you try to win. The fastest Blitz Off combo is Win 2, lose 1 so hope for that!"
+                        },
+                        {
+                            "type": "info", "bold": true, "trailingBreak": true,
+                            "text": "1st half:"
+                        },
+                        {
+                            "type": "info", "bold": true,
+                            "text": "If you win Blitz off"
+                        },
+                        {
+                            "type": "bullets",  "trailingBreak": true,
+                            "guide": [
+                                "Change to Manual A > Normal",
+                                "Pass to Jassu",
+                                "Hide behind Keepa til half time"
+                            ]
+                        },
+                        {
+                            "type": "info", "bold": true,
+                            "text": "If you lose Blitz off"
+                        },
+                        {
+                            "type": "bullets", "trailingBreak": true,
+                            "guide": [
+                                "Change to Mark Mode and let them score",
+                                "Pass to Jassu and hide behind Keepa/avoid Goers with Jassu (Choo-Choo!) til half time"
+                            ]
+                        },
+                        {
+                            "type": "info", "bold": true, "trailingBreak": true,
+                            "text": "2nd half (Tidus):"
+                        },
+                        {
+                            "type": "info", "bold": true,
+                            "text": "If you win Blitz off"
+                        },
+                        {
+                            "type": "bullets", "trailingBreak": true,
+                            "guide": [
+                                "Pass to Jassu and hide behind Keepa til Wakka arrives"
+                            ]
+                        },
+                        {
+                            "type": "info", "bold": true,
+                            "text": "If you lose Blitz off"
+                        },
+                        {
+                            "type": "bullets", "trailingBreak": true,
+                            "guide": [
+                                "Change to Mark Mode and let them score",
+                                "Pass to Jassu and hide behind Keepa/avoid Goers with Jassu til Wakka arrives"
+                            ]
+                        },
+                        {
+                            "type": "info", "bold": true, "trailingBreak": true,
+                            "text": "2nd half (Wakka):"
+                        },
+                        {
+                            "type": "info", "bold": true,
+                            "text": "If you win Blitz off and are not losing"
+                        },
+                        {
+                            "type": "bullets", "trailingBreak": true,
+                            "guide": [
+                                "Pass to Jassu",
+                                "Hide just to the right of the 6 o’clock position on the radar til 4:20",
+                                "Swim forward til you agro Balgerda",
+                                "Swim away from her until Wakka is free",
+                                "Pass to Wakka",
+                                "Wakka > Venom Shot to win",
+                                "If you get aggro’d by Abus, break + dribble to get him away from you."
+                            ]
+                        },
+                        {
+                            "type": "info", "bold": true,
+                            "text": "If you win Blitz off and are losing"
+                        },
+                        {
+                            "type": "bullets", "trailingBreak": true,
+                            "guide": [
+                                "Pass to Jassu and hide behind Keepa/avoid Goers with Jassu til full time"
+                            ]
+                        },
+                        {
+                            "type": "info", "bold": true,
+                            "text": "If you lose Blitz off and are losing"
+                        },
+                        {
+                            "type": "bullets", "trailingBreak": true,
+                            "guide": [
+                                "Change to Mark Mode and let them score",
+                                "Pass to Jassu and hide behind Keepa/avoid Goers with Jassu til full time"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type": "tip", "trailingBreak": true, "minimised": true,
+                    "entries": [
+                        { "type": "image", "image": "SpiraGPS/gagazet_2.png" }
+                    ]
+                },
+                {
+                    "type": "encounter", "trailingBreak": true,
+                    "guide": [
+                        "Enable 4x",
+                        "Tidus Flee",
+                        "Enable 2x/disable 4x after results screen"
+                    ]
+                },
+                {
+                    "type": "customise",
+                    "item": "Buckler",
+                    "guide": ["Auto-Haste"],
+                    "trailingBreak": true
+                }
+            ]
+        }
+    ]
+}
