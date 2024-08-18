@@ -19,7 +19,7 @@ import spiragps.utils.highlightKeywords
 
 @Composable
 fun ItemSortView(entry: Entry) {
-    BasePanelView(title = "ITEM SORT", border = SpiraGPSColours.value.itemSortBorder, minimised = entry.minimised) {
+    BasePanelView(title = "ITEM SORT", border = SpiraGPSColours.itemSortBorder, minimised = entry.minimised) {
         Column(
             modifier = Modifier
                 .padding(vertical = 30.dp, horizontal = 20.dp)
@@ -27,8 +27,8 @@ fun ItemSortView(entry: Entry) {
             entry.guide.forEachIndexed { index, it ->
                 Item(
                     name = it,
-                    background = SpiraGPSColours.value.itemSortBackground[index % 2],
-                    weight = SpiraGPSColours.value.itemSortWeights[index % 2]
+                    background = SpiraGPSColours.itemSortBackground[index % 2],
+                    weight = SpiraGPSColours.itemSortWeights[index % 2]
                 )
             }
         }
@@ -39,11 +39,11 @@ fun ItemSortView(entry: Entry) {
 private fun Item(name: String, background: Color, weight: FontWeight) {
     val instruction = name.split(",")
     val bgColour = animateColorAsState(background)
-    val textColour = animateColorAsState(SpiraGPSColours.value.text)
+    val textColour = animateColorAsState(SpiraGPSColours.text)
 
     Row(modifier = Modifier.background(bgColour.value).fillMaxWidth()) {
-        Text(text = instruction[0], style = SpiraGPSText.typography.value.info, fontWeight = weight, color = textColour.value, modifier = Modifier.fillMaxWidth(.35f).padding(4.dp))
+        Text(text = instruction[0], style = SpiraGPSText.typography.info, fontWeight = weight, color = textColour.value, modifier = Modifier.fillMaxWidth(.35f).padding(4.dp))
         if(instruction.size > 1)
-            Text(text = highlightKeywords(instruction[1]), style = SpiraGPSText.typography.value.info, fontWeight = weight, color = textColour.value, modifier = Modifier.fillMaxWidth(.65f).padding(4.dp))
+            Text(text = highlightKeywords(instruction[1]), style = SpiraGPSText.typography.info, fontWeight = weight, color = textColour.value, modifier = Modifier.fillMaxWidth(.65f).padding(4.dp))
     }
 }

@@ -13,14 +13,14 @@ import spiragps.views.createEntry
 
 @Composable
 fun TrialsView(entry: Entry) {
-    BasePanelView("CLOISTER OF TRIALS", SpiraGPSColours.value.trialsBorder, minimised = entry.minimised) {
+    BasePanelView("CLOISTER OF TRIALS", SpiraGPSColours.trialsBorder, minimised = entry.minimised) {
         Column(modifier = Modifier.padding(vertical = 30.dp, horizontal = 40.dp)) {
             entry.entries.forEach { entry: Entry ->
                 Column {
                     createEntry(entry = entry)
 
                     if (entry.trailingBreak) {
-                        val bgColour = animateColorAsState(SpiraGPSColours.value.infoBackground)
+                        val bgColour = animateColorAsState(SpiraGPSColours.infoBackground)
                         Divider(
                             color = bgColour.value,
                             modifier = Modifier.padding(vertical = 10.dp)

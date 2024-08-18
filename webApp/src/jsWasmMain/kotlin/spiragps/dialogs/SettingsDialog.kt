@@ -74,23 +74,23 @@ external fun saveDyslexicModePreference(enabled: Int)
 fun SettingsActionButton(modifier: Modifier = Modifier) {
     var openAlertDialog by remember { mutableStateOf(false) }
     val tooltipState = remember { RichTooltipState() }
-    val textColour = animateColorAsState(SpiraGPSColours.value.text)
-    val bgColour = animateColorAsState(SpiraGPSColours.value.infoBackground)
+    val textColour = animateColorAsState(SpiraGPSColours.text)
+    val bgColour = animateColorAsState(SpiraGPSColours.infoBackground)
     val interactionSource = remember { MutableInteractionSource() }
     val isHovered by interactionSource.collectIsHoveredAsState()
 
     RichTooltipBox(
-        title = { Text("Settings", style = SpiraGPSText.typography.value.infoBold, color = textColour.value) },
+        title = { Text("Settings", style = SpiraGPSText.typography.infoBold, color = textColour.value) },
         text = {
             Column {
-                val fontSize = when(SpiraGPSText.selectedFontSize.value) {
+                val fontSize = when(SpiraGPSText.selectedFontSize) {
                     0 -> "Small"
                     1 -> "Medium"
                     else -> "Large"
                 }
-                Text("UI Theme: ${if(SpiraGPSDarkMode.value) "Dark" else "Light"}", style = SpiraGPSText.typography.value.info, color = textColour.value)
-                Text("Font Size: $fontSize", style = SpiraGPSText.typography.value.info, color = textColour.value)
-                Text("Lexend: ${if(SpiraGPSText.useDyslexicFont.value) "Enabled" else "Disabled"}", style = SpiraGPSText.typography.value.info, color = textColour.value)
+                Text("UI Theme: ${if(SpiraGPSDarkMode) "Dark" else "Light"}", style = SpiraGPSText.typography.info, color = textColour.value)
+                Text("Font Size: $fontSize", style = SpiraGPSText.typography.info, color = textColour.value)
+                Text("Lexend: ${if(SpiraGPSText.useDyslexicFont) "Enabled" else "Disabled"}", style = SpiraGPSText.typography.info, color = textColour.value)
             }
         },
         tooltipState = tooltipState,
@@ -100,8 +100,8 @@ fun SettingsActionButton(modifier: Modifier = Modifier) {
             onClick = {
                 openAlertDialog = true
             },
-            containerColor = SpiraGPSColours.value.fabBackgroundColour,
-            contentColor = SpiraGPSColours.value.fabIconColour,
+            containerColor = SpiraGPSColours.fabBackgroundColour,
+            contentColor = SpiraGPSColours.fabIconColour,
             modifier = modifier.tooltipAnchor().hoverable(interactionSource)
         ) {
             Image(painter = painterResource("SpiraGPS/settings.png"), contentDescription = null, modifier = Modifier.padding(5.dp).width(24.dp).height(24.dp))
@@ -126,8 +126,8 @@ fun SettingsDialog(onDismissRequest: () -> Unit) {
             onDismissRequest()
         }
     ) {
-        val textColour = animateColorAsState(SpiraGPSColours.value.text)
-        val bgColour = animateColorAsState(SpiraGPSColours.value.infoBackground)
+        val textColour = animateColorAsState(SpiraGPSColours.text)
+        val bgColour = animateColorAsState(SpiraGPSColours.infoBackground)
 
         Card(colors = CardDefaults.cardColors(containerColor = bgColour.value, contentColor = bgColour.value)) {
             Column(
@@ -135,11 +135,11 @@ fun SettingsDialog(onDismissRequest: () -> Unit) {
                 modifier = Modifier
                     .fillMaxWidth()
             ) {
-                Text("Settings", style = SpiraGPSText.typography.value.chapterTitle, color = textColour.value, textAlign = TextAlign.Center, modifier = Modifier.fillMaxWidth().padding(20.dp))
-                Text("UI Theme", style = SpiraGPSText.typography.value.info, color = textColour.value, textAlign = TextAlign.Center, modifier = Modifier.fillMaxWidth())
+                Text("Settings", style = SpiraGPSText.typography.chapterTitle, color = textColour.value, textAlign = TextAlign.Center, modifier = Modifier.fillMaxWidth().padding(20.dp))
+                Text("UI Theme", style = SpiraGPSText.typography.info, color = textColour.value, textAlign = TextAlign.Center, modifier = Modifier.fillMaxWidth())
                 ThemeSelector()
 
-                Text("Text Size", style = SpiraGPSText.typography.value.info, color = textColour.value, textAlign = TextAlign.Center, modifier = Modifier.fillMaxWidth().padding(top = 20.dp))
+                Text("Text Size", style = SpiraGPSText.typography.info, color = textColour.value, textAlign = TextAlign.Center, modifier = Modifier.fillMaxWidth().padding(top = 20.dp))
                 TextSizeSelector()
 
                 DyslexicSelector()
@@ -148,7 +148,7 @@ fun SettingsDialog(onDismissRequest: () -> Unit) {
                     onClick = { onDismissRequest() },
                     modifier = Modifier.padding(8.dp),
                 ) {
-                    Text("Close", style = SpiraGPSText.typography.value.info, color = textColour.value)
+                    Text("Close", style = SpiraGPSText.typography.info, color = textColour.value)
                 }
             }
         }
@@ -157,24 +157,24 @@ fun SettingsDialog(onDismissRequest: () -> Unit) {
 
 @Composable
 private fun ThemeSelector() {
-    val selectedColour = animateColorAsState(SpiraGPSColours.value.toggleSelectedThumbColour)
-    val unselectedColour = animateColorAsState(SpiraGPSColours.value.toggleUnselectedTrackColour)
+    val selectedColour = animateColorAsState(SpiraGPSColours.toggleSelectedThumbColour)
+    val unselectedColour = animateColorAsState(SpiraGPSColours.toggleUnselectedTrackColour)
 
     Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.Center) {
         ThemeSample("Light Mode", lightScheme)
         Switch(
-            checked = SpiraGPSDarkMode.value,
+            checked = SpiraGPSDarkMode,
             onCheckedChange = {
-                SpiraGPSDarkMode.value = it
-                SpiraGPSColours.value = if (SpiraGPSDarkMode.value) darkScheme else lightScheme
-                saveDarkModePreference(if(SpiraGPSDarkMode.value) 1 else 0)
+                SpiraGPSDarkMode = it
+                SpiraGPSColours = if (SpiraGPSDarkMode) darkScheme else lightScheme
+                saveDarkModePreference(if(SpiraGPSDarkMode) 1 else 0)
             },
             colors = SwitchDefaults.colors(
                 checkedThumbColor = selectedColour.value,
-                checkedTrackColor = SpiraGPSColours.value.toggleSelectedTrackColour,
+                checkedTrackColor = SpiraGPSColours.toggleSelectedTrackColour,
                 checkedTrackAlpha = 1f,
                 uncheckedTrackColor = unselectedColour.value,
-                uncheckedThumbColor = SpiraGPSColours.value.toggleUnselectedThumbColour,
+                uncheckedThumbColor = SpiraGPSColours.toggleUnselectedThumbColour,
                 uncheckedTrackAlpha = 1f
             )
         )
@@ -190,33 +190,33 @@ private fun ThemeSample(mode: String, colors: ColourScheme) {
         shape = RoundedCornerShape(5.dp),
         modifier = Modifier.padding(5.dp)
     ) {
-        Text(text = mode, style = SpiraGPSText.typography.value.info, color = colors.text, modifier = Modifier.padding(horizontal = 5.dp))
+        Text(text = mode, style = SpiraGPSText.typography.info, color = colors.text, modifier = Modifier.padding(horizontal = 5.dp))
     }
 }
 
 @Composable
 private fun TextSizeSelector() {
     Column {
-        TextSizeRadioButton(size = "Small", selected = SpiraGPSText.selectedFontSize.value == 0, textStyle = if(SpiraGPSText.useDyslexicFont.value) dyslexicSmall.info else small.info) {
-            if(SpiraGPSText.selectedFontSize.value != 0) {
-                SpiraGPSText.selectedFontSize.value = 0
-                SpiraGPSText.typography.value = SpiraGPSText.getUpdatedFont()
+        TextSizeRadioButton(size = "Small", selected = SpiraGPSText.selectedFontSize == 0, textStyle = if(SpiraGPSText.useDyslexicFont) dyslexicSmall.info else small.info) {
+            if(SpiraGPSText.selectedFontSize != 0) {
+                SpiraGPSText.selectedFontSize = 0
+                SpiraGPSText.typography = SpiraGPSText.getUpdatedFont()
                 saveTextSizePreference(0)
             }
         }
 
-        TextSizeRadioButton(size = "Medium", selected = SpiraGPSText.selectedFontSize.value == 1, textStyle = if(SpiraGPSText.useDyslexicFont.value) dyslexicMedium.info else medium.info) {
-            if(SpiraGPSText.selectedFontSize.value != 1) {
-                SpiraGPSText.selectedFontSize.value = 1
-                SpiraGPSText.typography.value = SpiraGPSText.getUpdatedFont()
+        TextSizeRadioButton(size = "Medium", selected = SpiraGPSText.selectedFontSize == 1, textStyle = if(SpiraGPSText.useDyslexicFont) dyslexicMedium.info else medium.info) {
+            if(SpiraGPSText.selectedFontSize != 1) {
+                SpiraGPSText.selectedFontSize = 1
+                SpiraGPSText.typography = SpiraGPSText.getUpdatedFont()
                 saveTextSizePreference(1)
             }
         }
 
-        TextSizeRadioButton(size = "Large", selected = SpiraGPSText.selectedFontSize.value == 2, textStyle = if(SpiraGPSText.useDyslexicFont.value) dyslexicLarge.info else large.info) {
-            if(SpiraGPSText.selectedFontSize.value != 2) {
-                SpiraGPSText.selectedFontSize.value = 2
-                SpiraGPSText.typography.value = SpiraGPSText.getUpdatedFont()
+        TextSizeRadioButton(size = "Large", selected = SpiraGPSText.selectedFontSize == 2, textStyle = if(SpiraGPSText.useDyslexicFont) dyslexicLarge.info else large.info) {
+            if(SpiraGPSText.selectedFontSize != 2) {
+                SpiraGPSText.selectedFontSize = 2
+                SpiraGPSText.typography = SpiraGPSText.getUpdatedFont()
                 saveTextSizePreference(2)
             }
         }
@@ -225,9 +225,9 @@ private fun TextSizeSelector() {
 
 @Composable
 private fun TextSizeRadioButton(size: String, selected: Boolean, textStyle: TextStyle, onClick: () -> Unit) {
-    val selectedColour = animateColorAsState(SpiraGPSColours.value.toggleSelectedTrackColour)
-    val unselectedColour = animateColorAsState(SpiraGPSColours.value.toggleUnselectedTrackColour)
-    val textColour = animateColorAsState(SpiraGPSColours.value.text)
+    val selectedColour = animateColorAsState(SpiraGPSColours.toggleSelectedTrackColour)
+    val unselectedColour = animateColorAsState(SpiraGPSColours.toggleUnselectedTrackColour)
+    val textColour = animateColorAsState(SpiraGPSColours.text)
 
     Row(verticalAlignment = Alignment.CenterVertically, modifier = Modifier.clickable { onClick() }) {
         RadioButton(
@@ -244,24 +244,24 @@ private fun TextSizeRadioButton(size: String, selected: Boolean, textStyle: Text
 
 @Composable
 private fun DyslexicSelector() {
-    val selectedColour = animateColorAsState(SpiraGPSColours.value.toggleSelectedTrackColour)
-    val unselectedColour = animateColorAsState(SpiraGPSColours.value.toggleUnselectedTrackColour)
-    val textColour = animateColorAsState(SpiraGPSColours.value.text)
+    val selectedColour = animateColorAsState(SpiraGPSColours.toggleSelectedTrackColour)
+    val unselectedColour = animateColorAsState(SpiraGPSColours.toggleUnselectedTrackColour)
+    val textColour = animateColorAsState(SpiraGPSColours.text)
 
     Row(verticalAlignment = Alignment.CenterVertically, modifier = Modifier.padding(top = 20.dp)) {
         Switch(
-            checked = SpiraGPSText.useDyslexicFont.value,
+            checked = SpiraGPSText.useDyslexicFont,
             onCheckedChange = {
-                SpiraGPSText.useDyslexicFont.value = it
-                SpiraGPSText.typography.value = SpiraGPSText.getUpdatedFont()
-                saveDyslexicModePreference(if(SpiraGPSText.useDyslexicFont.value) 1 else 0)
+                SpiraGPSText.useDyslexicFont = it
+                SpiraGPSText.typography = SpiraGPSText.getUpdatedFont()
+                saveDyslexicModePreference(if(SpiraGPSText.useDyslexicFont) 1 else 0)
             },
             colors = SwitchDefaults.colors(
-                checkedThumbColor = SpiraGPSColours.value.toggleSelectedThumbColour,
+                checkedThumbColor = SpiraGPSColours.toggleSelectedThumbColour,
                 checkedTrackColor = selectedColour.value,
                 checkedTrackAlpha = 1f,
                 uncheckedTrackColor = unselectedColour.value,
-                uncheckedThumbColor = SpiraGPSColours.value.toggleUnselectedThumbColour,
+                uncheckedThumbColor = SpiraGPSColours.toggleUnselectedThumbColour,
                 uncheckedTrackAlpha = 1f
             ),
             modifier = Modifier.padding(start = 10.dp)
@@ -269,7 +269,7 @@ private fun DyslexicSelector() {
 
         Text(
             text = "Use Lexend Fonts. (Helps if you have Dyslexia)",
-            style = when(SpiraGPSText.selectedFontSize.value) {
+            style = when(SpiraGPSText.selectedFontSize) {
                 0 -> dyslexicSmall.info
                 1 -> dyslexicMedium.info
                 2 -> dyslexicLarge.info

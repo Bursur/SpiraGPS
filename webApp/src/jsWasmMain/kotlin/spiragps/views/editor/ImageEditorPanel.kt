@@ -33,7 +33,7 @@ fun ImageEditorPanel(entry: Entry) {
     Column {
         // Text
         Row(verticalAlignment = Alignment.CenterVertically, modifier = Modifier.padding(vertical = 20.dp)) {
-            Text(text = "Image URL:", style = SpiraGPSText.typography.value.info, color = SpiraGPSColours.value.text)
+            Text(text = "Image URL:", style = SpiraGPSText.typography.info, color = SpiraGPSColours.text)
 
             TextEdit(text = url, placeholderText = "Enter URL...") {
                 url = it

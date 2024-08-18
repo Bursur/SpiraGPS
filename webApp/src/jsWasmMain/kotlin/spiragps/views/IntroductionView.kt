@@ -17,7 +17,7 @@ import spiragps.style.SpiraGPSText
 
 @Composable
 fun IntroductionView(intro: Introduction, conditionState: ConditionState) {
-    val dividerColour = animateColorAsState(SpiraGPSColours.value.background)
+    val dividerColour = animateColorAsState(SpiraGPSColours.background)
 
     Column(modifier = Modifier.fillMaxWidth(.65f).padding(bottom = 5.dp)) {
         intro.entries.forEach { it ->

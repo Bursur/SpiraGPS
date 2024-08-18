@@ -21,7 +21,7 @@ fun highlightKeywords(text: String): AnnotatedString {
 
             builder.addStyle(
                 style = SpanStyle(
-                    fontFamily = if(SpiraGPSText.useDyslexicFont.value) SpiraGPSText.dyslexicFont else SpiraGPSText.fontFamily,
+                    fontFamily = if(SpiraGPSText.useDyslexicFont) SpiraGPSText.dyslexicFont else SpiraGPSText.fontFamily,
                     color = getKeywordColour(it),
                     fontWeight = FontWeight.Bold
                 ),
@@ -51,7 +51,7 @@ private fun highlightSpecialCharacters(text: String, builder: AnnotatedString.Bu
                     fontFamily = SpiraGPSText.fontFamily,
                     color = getKeywordColour(it),
                     fontWeight = FontWeight.Bold,
-                    fontSize = SpiraGPSText.typography.value.info.fontSize
+                    fontSize = SpiraGPSText.typography.info.fontSize
                 ),
                 start = index,
                 end = index + it.length

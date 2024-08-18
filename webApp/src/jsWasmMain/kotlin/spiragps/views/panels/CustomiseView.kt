@@ -15,13 +15,13 @@ import spiragps.views.BulletedList
 
 @Composable
 fun CustomiseView(entry: Entry) {
-    val textColour = animateColorAsState(SpiraGPSColours.value.text)
+    val textColour = animateColorAsState(SpiraGPSColours.text)
 
-    BasePanelView("CUSTOMISE", border = SpiraGPSColours.value.customiseBorder, minimised = entry.minimised) {
+    BasePanelView("CUSTOMISE", border = SpiraGPSColours.customiseBorder, minimised = entry.minimised) {
         Column(modifier = Modifier.padding(vertical = 30.dp, horizontal = 40.dp)) {
             Text(
                 text = entry.item,
-                style = SpiraGPSText.typography.value.info,
+                style = SpiraGPSText.typography.info,
                 color = textColour.value,
                 fontWeight = FontWeight.Bold
             )

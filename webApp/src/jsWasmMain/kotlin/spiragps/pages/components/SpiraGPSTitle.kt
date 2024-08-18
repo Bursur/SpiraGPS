@@ -13,10 +13,10 @@ import spiragps.style.SpiraGPSVersion
 
 @Composable
 fun SpiraGPSTitle() {
-    val textColour = animateColorAsState(SpiraGPSColours.value.text)
+    val textColour = animateColorAsState(SpiraGPSColours.text)
 
     Column {
-        Text(text = "Spira GPS", style = SpiraGPSText.typography.value.landingTitle, color = textColour.value, textAlign = TextAlign.Center, modifier = Modifier.fillMaxWidth())
-        Text(text = "(v$SpiraGPSVersion)", style = SpiraGPSText.typography.value.info, color = textColour.value, textAlign = TextAlign.Center, modifier = Modifier.fillMaxWidth())
+        Text(text = "Spira GPS", style = SpiraGPSText.typography.landingTitle, color = textColour.value, textAlign = TextAlign.Center, modifier = Modifier.fillMaxWidth())
+        Text(text = "(v$SpiraGPSVersion)", style = SpiraGPSText.typography.info, color = textColour.value, textAlign = TextAlign.Center, modifier = Modifier.fillMaxWidth())
     }
 }

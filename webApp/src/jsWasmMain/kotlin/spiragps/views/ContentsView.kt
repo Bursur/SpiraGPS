@@ -24,7 +24,7 @@ import spiragps.views.components.BackButton
 
 @Composable
 fun ContentsView(modifier: Modifier = Modifier, chapters: ArrayList<Chapter>, contentsState: ContentsState, navigationState: NavigationState) {
-    val textColour = animateColorAsState(SpiraGPSColours.value.text)
+    val textColour = animateColorAsState(SpiraGPSColours.text)
 
     Column(
         modifier = modifier.padding(10.dp)
@@ -34,7 +34,7 @@ fun ContentsView(modifier: Modifier = Modifier, chapters: ArrayList<Chapter>, co
         BackButton(navigationState = navigationState)
 
         // Title
-        Text(text = "Chapters:", style = SpiraGPSText.typography.value.contentsTitle, color = textColour.value)
+        Text(text = "Chapters:", style = SpiraGPSText.typography.contentsTitle, color = textColour.value)
 
         LazyColumn {
             itemsIndexed(items = chapters) { index, chapter ->
@@ -43,7 +43,7 @@ fun ContentsView(modifier: Modifier = Modifier, chapters: ArrayList<Chapter>, co
 
                 Text(
                     text = chapter.title,
-                    style = SpiraGPSText.typography.value.contentsEntry,
+                    style = SpiraGPSText.typography.contentsEntry,
                     color = textColour.value,
                     modifier = Modifier
                         .fillMaxWidth()

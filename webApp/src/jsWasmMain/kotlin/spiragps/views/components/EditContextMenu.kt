@@ -27,20 +27,20 @@ fun EditContextMenu(
     DropdownMenu(
         expanded = open,
         onDismissRequest = { onDismiss() },
-        modifier = Modifier.background(SpiraGPSColours.value.infoBackground)
+        modifier = Modifier.background(SpiraGPSColours.infoBackground)
     ) {
         if(!isPanel(entry))
             EntryEditorButton(entry = entry, conditions = conditions, isEditButton = true) { onEntryUpdated() }
         else
             PanelEditorButton(entry = entry, conditions = conditions, isEditButton = true) { onEntryUpdated() }
         TextButton(onClick = { onEntryDeleted(entry) }) {
-            Text(text = "Delete", style = SpiraGPSText.typography.value.info, color = SpiraGPSColours.value.text)
+            Text(text = "Delete", style = SpiraGPSText.typography.info, color = SpiraGPSColours.text)
         }
         TextButton(onClick = { onMoveUp(entry) }) {
-            Text(text = "Move Up", style = SpiraGPSText.typography.value.info, color = SpiraGPSColours.value.text)
+            Text(text = "Move Up", style = SpiraGPSText.typography.info, color = SpiraGPSColours.text)
         }
         TextButton(onClick = { onMoveDown(entry) }) {
-            Text(text = "Move Down", style = SpiraGPSText.typography.value.info, color = SpiraGPSColours.value.text)
+            Text(text = "Move Down", style = SpiraGPSText.typography.info, color = SpiraGPSColours.text)
         }
     }
 }

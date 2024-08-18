@@ -28,19 +28,19 @@ fun CustomisationEditorPanel(entry: Entry) {
     var newStep by remember { mutableStateOf("") }
     var updates by remember { mutableStateOf(0) }
 
-    BasePanelEditor(border = SpiraGPSColours.value.customiseBorder) {
+    BasePanelEditor(border = SpiraGPSColours.customiseBorder) {
         Row(
             verticalAlignment =Alignment.CenterVertically,
             modifier = Modifier.padding(horizontal = 5.dp)
         ) {
-            Text(text = "Item:", style = SpiraGPSText.typography.value.info, color = SpiraGPSColours.value.text)
+            Text(text = "Item:", style = SpiraGPSText.typography.info, color = SpiraGPSColours.text)
             TextEdit(text = item, placeholderText = "Item Name...") {
                 item = it
                 entry.item = item
             }
         }
 
-        Text(text = "Customisations:", style = SpiraGPSText.typography.value.info, color = SpiraGPSColours.value.text, modifier = Modifier.padding(horizontal = 5.dp))
+        Text(text = "Customisations:", style = SpiraGPSText.typography.info, color = SpiraGPSColours.text, modifier = Modifier.padding(horizontal = 5.dp))
         key(updates) {
             steps.forEachIndexed { index, step ->
                 BulletPointEditor(
@@ -73,7 +73,7 @@ fun CustomisationEditorPanel(entry: Entry) {
                     entry.guide = steps
                 }
             ) {
-                Text(text = "Add", style = SpiraGPSText.typography.value.info, color = SpiraGPSColours.value.text)
+                Text(text = "Add", style = SpiraGPSText.typography.info, color = SpiraGPSColours.text)
             }
         }
     }

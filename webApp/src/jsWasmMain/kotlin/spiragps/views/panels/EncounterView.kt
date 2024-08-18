@@ -11,7 +11,7 @@ import spiragps.views.BulletedList
 
 @Composable
 fun EncounterView(entry: Entry) {
-    BasePanelView(title = "ENCOUNTERS", border = SpiraGPSColours.value.encounterBorder, minimised = entry.minimised) {
+    BasePanelView(title = "ENCOUNTERS", border = SpiraGPSColours.encounterBorder, minimised = entry.minimised) {
         Box(modifier = Modifier.padding(vertical = 30.dp, horizontal = 40.dp)) {
             BulletedList(entry)
         }

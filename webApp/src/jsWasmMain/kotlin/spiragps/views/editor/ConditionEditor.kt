@@ -41,12 +41,12 @@ fun ConditionEditor(route: Route, onDismiss: () -> Unit) {
     Dialog(
         onDismissRequest = { onDismiss() },
     ) {
-        Surface(elevation = 5.dp, shape = RoundedCornerShape(20.dp), color = SpiraGPSColours.value.background) {
+        Surface(elevation = 5.dp, shape = RoundedCornerShape(20.dp), color = SpiraGPSColours.background) {
             Column(
                 horizontalAlignment = Alignment.CenterHorizontally,
                 modifier = Modifier.fillMaxWidth(0.9f).wrapContentHeight().padding(10.dp).animateContentSize()
             ) {
-                Text(text= "Update Conditions", style = SpiraGPSText.typography.value.routeTitle, color = SpiraGPSColours.value.text, modifier = Modifier.padding(bottom = 15.dp))
+                Text(text= "Update Conditions", style = SpiraGPSText.typography.routeTitle, color = SpiraGPSColours.text, modifier = Modifier.padding(bottom = 15.dp))
 
                 key(updates) {
                     conditionList.forEachIndexed { index, condition ->
@@ -88,8 +88,8 @@ fun ConditionEditor(route: Route, onDismiss: () -> Unit) {
                     ) {
                         Text(
                             text = "Add",
-                            style = SpiraGPSText.typography.value.info,
-                            color = SpiraGPSColours.value.text
+                            style = SpiraGPSText.typography.info,
+                            color = SpiraGPSColours.text
                         )
                     }
                 }
@@ -97,7 +97,7 @@ fun ConditionEditor(route: Route, onDismiss: () -> Unit) {
                 // Save Button
                 Row {
                     TextButton(onClick = { onDismiss() }) {
-                        Text(text = "Save", style = SpiraGPSText.typography.value.info, color = SpiraGPSColours.value.text)
+                        Text(text = "Save", style = SpiraGPSText.typography.info, color = SpiraGPSColours.text)
                     }
                 }
             }

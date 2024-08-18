@@ -30,7 +30,7 @@ internal fun SpiraGPS() {
     SpiraGPSTheme {
         var loading by remember { mutableStateOf(true) }
         val navigationState = rememberNavigationState()
-        val bgColour = animateColorAsState(SpiraGPSColours.value.background)
+        val bgColour = animateColorAsState(SpiraGPSColours.background)
 
         if(!loading) {
             Box(modifier = Modifier.fillMaxSize().background(bgColour.value)) {

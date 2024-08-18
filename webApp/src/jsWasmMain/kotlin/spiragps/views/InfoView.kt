@@ -15,10 +15,10 @@ import spiragps.utils.highlightKeywords
 
 @Composable
 fun InfoView(entry: Entry) {
-    val textColour = animateColorAsState(SpiraGPSColours.value.text)
+    val textColour = animateColorAsState(SpiraGPSColours.text)
     Text(
         text = highlightKeywords(entry.text),
-        style = if(entry.bold) SpiraGPSText.typography.value.bulletTitleBold else SpiraGPSText.typography.value.bulletTitle,
+        style = if(entry.bold) SpiraGPSText.typography.bulletTitleBold else SpiraGPSText.typography.bulletTitle,
         color = textColour.value,
         modifier = Modifier.fillMaxWidth().padding(bottom = 5.dp)
     )

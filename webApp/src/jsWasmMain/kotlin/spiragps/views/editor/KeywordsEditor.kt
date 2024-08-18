@@ -35,7 +35,7 @@ fun KeywordsEditorButton(modifier: Modifier = Modifier, route: Route, onDismiss:
         },
         modifier = modifier
     ) {
-        Text(text = "Edit Keywords", style = SpiraGPSText.typography.value.info, color = SpiraGPSColours.value.text)
+        Text(text = "Edit Keywords", style = SpiraGPSText.typography.info, color = SpiraGPSColours.text)
     }
 
     if(openAlertDialog)
@@ -55,12 +55,12 @@ fun KeywordsEditor(route: Route, onDismiss: () -> Unit) {
     Dialog(
         onDismissRequest = { onDismiss() },
     ) {
-        Surface(elevation = 5.dp, shape = RoundedCornerShape(20.dp), color = SpiraGPSColours.value.background) {
+        Surface(elevation = 5.dp, shape = RoundedCornerShape(20.dp), color = SpiraGPSColours.background) {
             Column(
                 horizontalAlignment = Alignment.CenterHorizontally,
                 modifier = Modifier.fillMaxWidth(0.9f).wrapContentHeight().padding(10.dp).animateContentSize()
             ) {
-                Text(text= "Edit Keywords", style = SpiraGPSText.typography.value.routeTitle, color = SpiraGPSColours.value.text, modifier = Modifier.padding(bottom = 15.dp))
+                Text(text= "Edit Keywords", style = SpiraGPSText.typography.routeTitle, color = SpiraGPSColours.text, modifier = Modifier.padding(bottom = 15.dp))
 
                 key(updates) {
                     keywordList.forEachIndexed { index, word ->
@@ -96,8 +96,8 @@ fun KeywordsEditor(route: Route, onDismiss: () -> Unit) {
                     ) {
                         androidx.compose.material.Text(
                             text = "Add",
-                            style = SpiraGPSText.typography.value.info,
-                            color = SpiraGPSColours.value.text
+                            style = SpiraGPSText.typography.info,
+                            color = SpiraGPSColours.text
                         )
                     }
                 }
@@ -105,12 +105,12 @@ fun KeywordsEditor(route: Route, onDismiss: () -> Unit) {
                 // Save Button
                 Row {
                     TextButton(onClick = { onDismiss() }) {
-                        Text(text = "Save", style = SpiraGPSText.typography.value.info, color = SpiraGPSColours.value.text)
+                        Text(text = "Save", style = SpiraGPSText.typography.info, color = SpiraGPSColours.text)
                     }
 
                     // Cancel Button
                     TextButton(onClick = { onDismiss() }) {
-                        Text(text = "Cancel", style = SpiraGPSText.typography.value.info, color = SpiraGPSColours.value.text)
+                        Text(text = "Cancel", style = SpiraGPSText.typography.info, color = SpiraGPSColours.text)
                     }
                 }
             }

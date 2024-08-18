@@ -4,7 +4,9 @@ import androidx.compose.material3.LocalTextStyle
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.ProvideTextStyle
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
@@ -20,15 +22,15 @@ object SpiraGPSText {
     var fontFamily: FontFamily? = null
     var dyslexicFont: FontFamily? = null
 
-    val typography = mutableStateOf(small)
-    val selectedFontSize = mutableStateOf(getTextSizePreference())
-    val useDyslexicFont = mutableStateOf(getDyslexicModePreference() == 1)
+    var typography by mutableStateOf(small)
+    var selectedFontSize by mutableStateOf(getTextSizePreference())
+    var useDyslexicFont by mutableStateOf(getDyslexicModePreference() == 1)
 
-    fun getUpdatedFont(): TextStyles = when(selectedFontSize.value) {
-        0 -> if(useDyslexicFont.value) dyslexicSmall else small
-        1 -> if(useDyslexicFont.value) dyslexicMedium else medium
-        2 -> if(useDyslexicFont.value) dyslexicLarge else large
-        else -> if(useDyslexicFont.value) dyslexicSmall else small
+    fun getUpdatedFont(): TextStyles = when(selectedFontSize) {
+        0 -> if(useDyslexicFont) dyslexicSmall else small
+        1 -> if(useDyslexicFont) dyslexicMedium else medium
+        2 -> if(useDyslexicFont) dyslexicLarge else large
+        else -> if(useDyslexicFont) dyslexicSmall else small
     }
 
     const val BULLET_CHAR = "\u2022"
@@ -50,7 +52,7 @@ object SpiraGPSText {
             )
         )
 
-        typography.value = getUpdatedFont()
+        typography = getUpdatedFont()
     }
 
     val keywords = arrayListOf(
@@ -97,16 +99,16 @@ object SpiraGPSText {
     }
 }
 
-var SpiraGPSColours = mutableStateOf(if(getDarkModePreference() == 1) darkScheme else lightScheme)
-var SpiraGPSDarkMode = mutableStateOf(getDarkModePreference() == 1)
+var SpiraGPSColours by mutableStateOf(if(getDarkModePreference() == 1) darkScheme else lightScheme)
+var SpiraGPSDarkMode by mutableStateOf(getDarkModePreference() == 1)
 const val SpiraGPSVersion = "0.8.5 - alpha"
 
 @Composable
 fun SpiraGPSTheme(content: @Composable () -> Unit) {
     MaterialTheme(
         colorScheme = MaterialTheme.colorScheme.copy(
-            background = SpiraGPSColours.value.background,
-            onBackground = SpiraGPSColours.value.onBackground
+            background = SpiraGPSColours.background,
+            onBackground = SpiraGPSColours.onBackground
         )
     ) {
         ProvideTextStyle(LocalTextStyle.current.copy(letterSpacing = 0.sp)) {
@@ -116,20 +118,20 @@ fun SpiraGPSTheme(content: @Composable () -> Unit) {
 }
 
 fun getKeywordColour(word: String): Color = when(word) {
-    "Tidus" -> SpiraGPSColours.value.tidus
-    "Yuna" -> SpiraGPSColours.value.yuna
-    "Auron" -> SpiraGPSColours.value.auron
-    "Wakka" -> SpiraGPSColours.value.wakka
-    "Kimahri" -> SpiraGPSColours.value.kimahri
-    "Rikku" -> SpiraGPSColours.value.rikku
-    "Lulu" -> SpiraGPSColours.value.lulu
-    "Seymour" -> SpiraGPSColours.value.seymour
-    "Enemy" -> SpiraGPSColours.value.enemy
-    "Valefor" -> SpiraGPSColours.value.valefor
-    "Ifrit" -> SpiraGPSColours.value.ifrit
-    "Ixion" -> SpiraGPSColours.value.ixion
-    "Shiva" -> SpiraGPSColours.value.shiva
-    "Bahamut" -> SpiraGPSColours.value.bahamut
-    "BUG!" -> SpiraGPSColours.value.bug
-    else -> SpiraGPSColours.value.text
+    "Tidus" -> SpiraGPSColours.tidus
+    "Yuna" -> SpiraGPSColours.yuna
+    "Auron" -> SpiraGPSColours.auron
+    "Wakka" -> SpiraGPSColours.wakka
+    "Kimahri" -> SpiraGPSColours.kimahri
+    "Rikku" -> SpiraGPSColours.rikku
+    "Lulu" -> SpiraGPSColours.lulu
+    "Seymour" -> SpiraGPSColours.seymour
+    "Enemy" -> SpiraGPSColours.enemy
+    "Valefor" -> SpiraGPSColours.valefor
+    "Ifrit" -> SpiraGPSColours.ifrit
+    "Ixion" -> SpiraGPSColours.ixion
+    "Shiva" -> SpiraGPSColours.shiva
+    "Bahamut" -> SpiraGPSColours.bahamut
+    "BUG!" -> SpiraGPSColours.bug
+    else -> SpiraGPSColours.text
 }

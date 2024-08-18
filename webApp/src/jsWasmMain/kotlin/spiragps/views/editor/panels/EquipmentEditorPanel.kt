@@ -26,8 +26,8 @@ fun EquipmentEditorPanel(entry: Entry) {
     var newStep by remember { mutableStateOf("") }
     var updates by remember { mutableStateOf(0) }
 
-    BasePanelEditor(border = SpiraGPSColours.value.equipmentBorder) {
-        Text(text = "Equipment:", style = SpiraGPSText.typography.value.info, color = SpiraGPSColours.value.text, modifier = Modifier.padding(horizontal = 5.dp))
+    BasePanelEditor(border = SpiraGPSColours.equipmentBorder) {
+        Text(text = "Equipment:", style = SpiraGPSText.typography.info, color = SpiraGPSColours.text, modifier = Modifier.padding(horizontal = 5.dp))
         key(updates) {
             steps.forEachIndexed { index, step ->
                 BulletPointEditor(
@@ -60,7 +60,7 @@ fun EquipmentEditorPanel(entry: Entry) {
                     entry.guide = steps
                 }
             ) {
-                Text(text = "Add", style = SpiraGPSText.typography.value.info, color = SpiraGPSColours.value.text)
+                Text(text = "Add", style = SpiraGPSText.typography.info, color = SpiraGPSColours.text)
             }
         }
     }

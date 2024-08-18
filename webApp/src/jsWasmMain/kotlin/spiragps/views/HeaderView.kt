@@ -23,7 +23,7 @@ fun HeaderView(conditions: ArrayList<Condition>, conditionState: ConditionState)
             }
         }
 
-        val textColour = animateColorAsState(SpiraGPSColours.value.text)
+        val textColour = animateColorAsState(SpiraGPSColours.text)
         Divider(thickness = 1.dp, color = textColour.value, modifier = Modifier.fillMaxWidth(.65f))
     }
 }

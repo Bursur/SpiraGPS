@@ -28,13 +28,13 @@ fun ItemSortEditorPanel(entry: Entry) {
 
     var updates by remember { mutableStateOf(0) }
 
-    BasePanelEditor(border = SpiraGPSColours.value.itemSortBorder) {
+    BasePanelEditor(border = SpiraGPSColours.itemSortBorder) {
 
-        Divider(color = SpiraGPSColours.value.infoBackground, thickness = 10.dp)
+        Divider(color = SpiraGPSColours.infoBackground, thickness = 10.dp)
         Text(
             text = "Steps:\n(These steps should be in a CSV format, e.g. \"Al Bhed Potion with Shining Gem, R2 Confirm R2 ↓ Confirm\")",
-            style = SpiraGPSText.typography.value.info,
-            color = SpiraGPSColours.value.text,
+            style = SpiraGPSText.typography.info,
+            color = SpiraGPSColours.text,
             modifier = Modifier.padding(horizontal = 5.dp)
         )
         key(updates) {
@@ -69,7 +69,7 @@ fun ItemSortEditorPanel(entry: Entry) {
                     entry.guide = steps
                 }
             ) {
-                Text(text = "Add", style = SpiraGPSText.typography.value.info, color = SpiraGPSColours.value.text)
+                Text(text = "Add", style = SpiraGPSText.typography.info, color = SpiraGPSColours.text)
             }
         }
     }

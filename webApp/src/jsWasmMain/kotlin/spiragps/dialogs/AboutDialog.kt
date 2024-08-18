@@ -43,14 +43,14 @@ import spiragps.style.SpiraGPSVersion
 fun AboutActionButton(modifier: Modifier = Modifier) {
     var openAlertDialog by remember { mutableStateOf(false) }
     val tooltipState = remember { RichTooltipState() }
-    val textColour = animateColorAsState(SpiraGPSColours.value.text)
-    val bgColour = animateColorAsState(SpiraGPSColours.value.infoBackground)
+    val textColour = animateColorAsState(SpiraGPSColours.text)
+    val bgColour = animateColorAsState(SpiraGPSColours.infoBackground)
     val interactionSource = remember { MutableInteractionSource() }
     val isHovered by interactionSource.collectIsHoveredAsState()
 
     RichTooltipBox(
-        title = { Text("Info", style = SpiraGPSText.typography.value.infoBold, color = textColour.value) },
-        text = { Text("v$SpiraGPSVersion", style = SpiraGPSText.typography.value.info, color = textColour.value) },
+        title = { Text("Info", style = SpiraGPSText.typography.infoBold, color = textColour.value) },
+        text = { Text("v$SpiraGPSVersion", style = SpiraGPSText.typography.info, color = textColour.value) },
         tooltipState = tooltipState,
         colors = TooltipDefaults.richTooltipColors(containerColor = bgColour.value),
     ) {
@@ -58,8 +58,8 @@ fun AboutActionButton(modifier: Modifier = Modifier) {
             onClick = {
                 openAlertDialog = true
             },
-            containerColor = SpiraGPSColours.value.fabBackgroundColour,
-            contentColor = SpiraGPSColours.value.fabIconColour,
+            containerColor = SpiraGPSColours.fabBackgroundColour,
+            contentColor = SpiraGPSColours.fabIconColour,
             modifier = modifier.tooltipAnchor().hoverable(interactionSource)
         ) {
             Image(
@@ -88,8 +88,8 @@ fun AboutDialog(onDismissRequest: () -> Unit) {
             onDismissRequest()
         }
     ) {
-        val textColour = animateColorAsState(SpiraGPSColours.value.text)
-        val bgColour = animateColorAsState(SpiraGPSColours.value.infoBackground)
+        val textColour = animateColorAsState(SpiraGPSColours.text)
+        val bgColour = animateColorAsState(SpiraGPSColours.infoBackground)
 
         Card(colors = CardDefaults.cardColors(containerColor = bgColour.value, contentColor = bgColour.value)) {
             Column(
@@ -107,13 +107,13 @@ fun AboutDialog(onDismissRequest: () -> Unit) {
                         "section or panel will expand and contract it, toggling the options at the " +
                         "top of the screen will update the route on the fly without needing to reload " +
                         "the document",
-                    style = SpiraGPSText.typography.value.info, color = textColour.value
+                    style = SpiraGPSText.typography.info, color = textColour.value
                 )
                 TextButton(
                     onClick = { onDismissRequest() },
                     modifier = Modifier.padding(8.dp),
                 ) {
-                    Text("Close", style = SpiraGPSText.typography.value.info, color = textColour.value)
+                    Text("Close", style = SpiraGPSText.typography.info, color = textColour.value)
                 }
             }
         }

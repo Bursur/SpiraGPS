@@ -33,7 +33,7 @@ fun ChapterEditor(chapter: Chapter, conditions: ArrayList<Condition>) {
     val entries by remember { mutableStateOf(chapter.entries) }
 
     var updateCount by remember { mutableStateOf(0) }
-    val bgColor = animateColorAsState(SpiraGPSColours.value.background)
+    val bgColor = animateColorAsState(SpiraGPSColours.background)
 
     var editControlOpen by remember { mutableStateOf(false) }
     var selectedEntry by remember { mutableStateOf(Entry()) }

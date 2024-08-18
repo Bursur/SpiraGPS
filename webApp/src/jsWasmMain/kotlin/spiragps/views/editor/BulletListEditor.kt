@@ -40,8 +40,8 @@ fun BulletEditorPanel(entry: Entry) {
                 ) {
                     Text(
                         text = "Bold:",
-                        style = SpiraGPSText.typography.value.info,
-                        color = SpiraGPSColours.value.text
+                        style = SpiraGPSText.typography.info,
+                        color = SpiraGPSColours.text
                     )
                     Checkbox(
                         checked = isBold,
@@ -50,8 +50,8 @@ fun BulletEditorPanel(entry: Entry) {
                             entry.bold = isBold
                         },
                         colors = CheckboxDefaults.colors(
-                            uncheckedColor = SpiraGPSColours.value.toggleUnselectedTrackColour,
-                            checkedColor = SpiraGPSColours.value.toggleSelectedTrackColour
+                            uncheckedColor = SpiraGPSColours.toggleUnselectedTrackColour,
+                            checkedColor = SpiraGPSColours.toggleSelectedTrackColour
                         )
                     )
                 }
@@ -100,8 +100,8 @@ fun BulletEditorPanel(entry: Entry) {
                     ) {
                         Text(
                             text = "Add",
-                            style = SpiraGPSText.typography.value.info,
-                            color = SpiraGPSColours.value.text
+                            style = SpiraGPSText.typography.info,
+                            color = SpiraGPSColours.text
                         )
                     }
                 }

@@ -22,12 +22,12 @@ private val paragraphStyle = ParagraphStyle(textIndent = TextIndent(restLine = 1
 
 @Composable
 fun BulletedList(entry: Entry) {
-    val textColour = animateColorAsState(SpiraGPSColours.value.text)
+    val textColour = animateColorAsState(SpiraGPSColours.text)
     Column(modifier = Modifier.fillMaxWidth()) {
         if(entry.text.isNotEmpty())
             Text(
                 highlightKeywords(entry.text),
-                style = if(entry.bold) SpiraGPSText.typography.value.bulletTitleBold else SpiraGPSText.typography.value.bulletTitle,
+                style = if(entry.bold) SpiraGPSText.typography.bulletTitleBold else SpiraGPSText.typography.bulletTitle,
                 color = textColour.value
             )
 
@@ -41,7 +41,7 @@ fun BulletedList(entry: Entry) {
                     }
                 }
             },
-            style = SpiraGPSText.typography.value.bulletPoint,
+            style = SpiraGPSText.typography.bulletPoint,
             color = textColour.value,
             modifier = Modifier.padding(horizontal = 10.dp)
         )
@@ -50,12 +50,12 @@ fun BulletedList(entry: Entry) {
 
 @Composable
 fun BulletedList(title: String = "", points: ArrayList<String>) {
-    val textColour = animateColorAsState(SpiraGPSColours.value.text)
+    val textColour = animateColorAsState(SpiraGPSColours.text)
     Column(modifier = Modifier.fillMaxWidth()) {
         if(title.isNotEmpty())
             Text(
                 title,
-                style = SpiraGPSText.typography.value.bulletTitle,
+                style = SpiraGPSText.typography.bulletTitle,
                 color = textColour.value
             )
 
@@ -69,7 +69,7 @@ fun BulletedList(title: String = "", points: ArrayList<String>) {
                     }
                 }
             },
-            style = SpiraGPSText.typography.value.bulletPoint,
+            style = SpiraGPSText.typography.bulletPoint,
             color = textColour.value,
             modifier = Modifier.padding(horizontal = 10.dp)
         )

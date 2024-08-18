@@ -40,8 +40,8 @@ fun ConditionPointEditor(text: String, enabled: Boolean, placeholderText: String
                 onToggle(isEnabled)
             },
             colors = CheckboxDefaults.colors(
-                uncheckedColor = SpiraGPSColours.value.toggleUnselectedTrackColour,
-                checkedColor = SpiraGPSColours.value.toggleSelectedTrackColour
+                uncheckedColor = SpiraGPSColours.toggleUnselectedTrackColour,
+                checkedColor = SpiraGPSColours.toggleSelectedTrackColour
             ),
             modifier = Modifier.weight(.1f)
         )
@@ -50,7 +50,7 @@ fun ConditionPointEditor(text: String, enabled: Boolean, placeholderText: String
             onClick = { onDeleted() },
             modifier = Modifier.weight(.1f).padding(end = 5.dp)
         ) {
-            Text(text = "X", style = SpiraGPSText.typography.value.info, color = SpiraGPSColours.value.text)
+            Text(text = "X", style = SpiraGPSText.typography.info, color = SpiraGPSColours.text)
         }
     }
 }

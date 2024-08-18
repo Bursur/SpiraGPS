@@ -42,14 +42,14 @@ import spiragps.views.BulletedList
 @OptIn(ExperimentalLayoutApi::class)
 @Composable
 fun LandingPage(navigationState: NavigationState) {
-    val textColour = animateColorAsState(SpiraGPSColours.value.text)
+    val textColour = animateColorAsState(SpiraGPSColours.text)
 
     Column(modifier = Modifier.fillMaxSize().padding(top = 20.dp), horizontalAlignment = Alignment.CenterHorizontally) {
         SpiraGPSTitle()
 
         Text(
             text = "Select your destination",
-            style = SpiraGPSText.typography.value.info,
+            style = SpiraGPSText.typography.info,
             textAlign = TextAlign.Center,
             color = textColour.value,
             modifier = Modifier.padding(top = 10.dp)

@@ -31,12 +31,12 @@ fun BattleEditorPanel(entry: Entry) {
 
     var updates by remember { mutableStateOf(0) }
 
-    BasePanelEditor(border = SpiraGPSColours.value.battleBorder) {
+    BasePanelEditor(border = SpiraGPSColours.battleBorder) {
         Row(
             verticalAlignment = Alignment.CenterVertically,
             modifier = Modifier.padding(horizontal = 5.dp)
         ) {
-            Text(text = "Enemy:", style = SpiraGPSText.typography.value.info, color = SpiraGPSColours.value.text)
+            Text(text = "Enemy:", style = SpiraGPSText.typography.info, color = SpiraGPSColours.text)
             TextEdit(text = enemy, placeholderText = "Enemy Name...") {
                 enemy = it
                 entry.enemy = enemy
@@ -47,7 +47,7 @@ fun BattleEditorPanel(entry: Entry) {
             verticalAlignment =Alignment.CenterVertically,
             modifier = Modifier.padding(horizontal = 5.dp)
         ) {
-            Text(text = "Health:", style = SpiraGPSText.typography.value.info, color = SpiraGPSColours.value.text)
+            Text(text = "Health:", style = SpiraGPSText.typography.info, color = SpiraGPSColours.text)
             TextEdit(
                 text = if (health != 0) health.toString() else "",
                 placeholderText = "Enemy Health..."
@@ -62,8 +62,8 @@ fun BattleEditorPanel(entry: Entry) {
             }
         }
 
-        Divider(color = SpiraGPSColours.value.infoBackground, thickness = 10.dp)
-        Text(text = "Steps:", style = SpiraGPSText.typography.value.info, color = SpiraGPSColours.value.text, modifier = Modifier.padding(horizontal = 5.dp))
+        Divider(color = SpiraGPSColours.infoBackground, thickness = 10.dp)
+        Text(text = "Steps:", style = SpiraGPSText.typography.info, color = SpiraGPSColours.text, modifier = Modifier.padding(horizontal = 5.dp))
         key(updates) {
             steps.forEachIndexed { index, step ->
                 BulletPointEditor(
@@ -96,7 +96,7 @@ fun BattleEditorPanel(entry: Entry) {
                     entry.guide = steps
                 }
             ) {
-                Text(text = "Add", style = SpiraGPSText.typography.value.info, color = SpiraGPSColours.value.text)
+                Text(text = "Add", style = SpiraGPSText.typography.info, color = SpiraGPSColours.text)
             }
         }
     }

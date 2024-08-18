@@ -23,17 +23,17 @@ fun TitleEditor(title: String, onValueChange: (String) -> Unit) {
             onValueChange(it)
         },
         colors = TextFieldDefaults.textFieldColors(
-            textColor = SpiraGPSColours.value.text,
-            cursorColor = SpiraGPSColours.value.text,
-            backgroundColor = SpiraGPSColours.value.infoBackground,
-            focusedIndicatorColor = SpiraGPSColours.value.toggleSelectedTrackColour
+            textColor = SpiraGPSColours.text,
+            cursorColor = SpiraGPSColours.text,
+            backgroundColor = SpiraGPSColours.infoBackground,
+            focusedIndicatorColor = SpiraGPSColours.toggleSelectedTrackColour
         ),
-        textStyle = SpiraGPSText.typography.value.routeTitle,
+        textStyle = SpiraGPSText.typography.routeTitle,
         placeholder = {
             Text(
                 text = "Enter Title...",
-                style = SpiraGPSText.typography.value.chapterTitle,
-                color = SpiraGPSColours.value.text,
+                style = SpiraGPSText.typography.chapterTitle,
+                color = SpiraGPSColours.text,
                 textAlign = TextAlign.Right,
                 modifier = Modifier.fillMaxWidth()
             )
@@ -41,7 +41,7 @@ fun TitleEditor(title: String, onValueChange: (String) -> Unit) {
         modifier = Modifier.fillMaxWidth()
     )
     Divider(
-        color = SpiraGPSColours.value.text,
+        color = SpiraGPSColours.text,
         thickness = 2.dp,
         modifier = Modifier.padding(bottom = 10.dp)
     )

@@ -28,8 +28,8 @@ fun BasePanelView(title: String, border: Color, minimised: Boolean = false, cont
     var expanded by remember { mutableStateOf(!minimised) }
 
     val borderColour = animateColorAsState(border)
-    val bgColour = animateColorAsState(SpiraGPSColours.value.infoBackground)
-    val textColour = animateColorAsState(SpiraGPSColours.value.text)
+    val bgColour = animateColorAsState(SpiraGPSColours.infoBackground)
+    val textColour = animateColorAsState(SpiraGPSColours.text)
 
     Surface(
         elevation = 5.dp,
@@ -41,7 +41,7 @@ fun BasePanelView(title: String, border: Color, minimised: Boolean = false, cont
             Text(
                 text = title,
                 textAlign = TextAlign.Center,
-                style = SpiraGPSText.typography.value.info,
+                style = SpiraGPSText.typography.info,
                 color = textColour.value,
                 modifier = Modifier
                     .background(borderColour.value)

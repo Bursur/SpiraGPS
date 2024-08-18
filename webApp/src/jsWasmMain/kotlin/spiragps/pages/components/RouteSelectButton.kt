@@ -51,8 +51,8 @@ external fun setClipboard(url: String)
 @OptIn(ExperimentalResourceApi::class, ExperimentalMaterial3Api::class)
 @Composable
 fun RouteSelectButton(destination: Destination, navigationState: NavigationState) {
-    val bgColour = animateColorAsState(SpiraGPSColours.value.infoBackground)
-    val textColour = animateColorAsState(SpiraGPSColours.value.text)
+    val bgColour = animateColorAsState(SpiraGPSColours.infoBackground)
+    val textColour = animateColorAsState(SpiraGPSColours.text)
     val tooltipState = remember { RichTooltipState() }
     val scope = rememberCoroutineScope()
     val interactionSource = remember { MutableInteractionSource() }
@@ -92,7 +92,7 @@ fun RouteSelectButton(destination: Destination, navigationState: NavigationState
 
             AnimatedVisibility(visible = isHovered, modifier = Modifier.align(Alignment.TopEnd)) {
                 RichTooltipBox(
-                    text = { Text("Copied to clipboard!", style = SpiraGPSText.typography.value.info, color = textColour.value) },
+                    text = { Text("Copied to clipboard!", style = SpiraGPSText.typography.info, color = textColour.value) },
                     tooltipState = tooltipState,
                     colors = TooltipDefaults.richTooltipColors(containerColor = bgColour.value),
                 ) {
@@ -103,7 +103,7 @@ fun RouteSelectButton(destination: Destination, navigationState: NavigationState
                             .padding(5.dp)
                             .width(24.dp)
                             .height(24.dp)
-                            .background(SpiraGPSColours.value.fabBackgroundColour, CircleShape)
+                            .background(SpiraGPSColours.fabBackgroundColour, CircleShape)
                             .clickable {
                                 setClipboard("https://bursur.github.io/SpiraGPS/?route_id=${destination.id}")
                                 scope.launch {
@@ -134,7 +134,7 @@ private fun Overlay(modifier: Modifier = Modifier, destination: Destination, tex
     ) {
         Text(
             text = destination.name,
-            style = SpiraGPSText.typography.value.info,
+            style = SpiraGPSText.typography.info,
             textAlign = TextAlign.Center,
             color = textColour,
             modifier = Modifier.fillMaxWidth()
@@ -143,13 +143,7 @@ private fun Overlay(modifier: Modifier = Modifier, destination: Destination, tex
         if(isExpanded) {
             Text(
                 "Author: ${destination.author}",
-                style = SpiraGPSText.typography.value.info,
-                color = textColour
-            )
-
-            Text(
-                "Description:\n${destination.description}",
-                style = SpiraGPSText.typography.value.info,
+                style = SpiraGPSText.typography.info,
                 color = textColour
             )
         }

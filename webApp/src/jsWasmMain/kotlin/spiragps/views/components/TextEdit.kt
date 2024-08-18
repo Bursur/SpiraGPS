@@ -39,9 +39,9 @@ import spiragps.views.editor.panels.PanelEditorButton
 @OptIn(ExperimentalResourceApi::class)
 @Composable
 fun TextEdit(modifier: Modifier = Modifier, text: String, placeholderText: String, isBold: Boolean = false, onValueChange: (String) -> Unit) {
-    val textColour = animateColorAsState(SpiraGPSColours.value.text)
-    val bgColour = animateColorAsState(SpiraGPSColours.value.infoBackground)
-    val indicatorColour = animateColorAsState(SpiraGPSColours.value.toggleSelectedTrackColour)
+    val textColour = animateColorAsState(SpiraGPSColours.text)
+    val bgColour = animateColorAsState(SpiraGPSColours.infoBackground)
+    val indicatorColour = animateColorAsState(SpiraGPSColours.toggleSelectedTrackColour)
 
     var awaitingClipboardData by remember { mutableStateOf(false) }
 
@@ -57,11 +57,11 @@ fun TextEdit(modifier: Modifier = Modifier, text: String, placeholderText: Strin
                 backgroundColor = bgColour.value,
                 focusedIndicatorColor = indicatorColour.value
             ),
-            textStyle = if (isBold) SpiraGPSText.typography.value.infoBold else SpiraGPSText.typography.value.info,
+            textStyle = if (isBold) SpiraGPSText.typography.infoBold else SpiraGPSText.typography.info,
             placeholder = {
                 Text(
                     text = placeholderText,
-                    style = SpiraGPSText.typography.value.info,
+                    style = SpiraGPSText.typography.info,
                     color = textColour.value,
                     modifier = Modifier.fillMaxWidth()
                 )

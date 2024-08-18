@@ -57,7 +57,7 @@ fun EditorPage(navigationState: NavigationState) {
     var conditionDialogOpen by remember { mutableStateOf(false) }
     var selectedEntry by remember { mutableStateOf(Entry()) }
 
-    val infoBgColor = animateColorAsState(SpiraGPSColours.value.infoBackground)
+    val infoBgColor = animateColorAsState(SpiraGPSColours.infoBackground)
     var awaitingData by remember { mutableStateOf(false) }
 
     Box(modifier = Modifier.fillMaxSize()) {
@@ -160,7 +160,7 @@ fun EditorPage(navigationState: NavigationState) {
                         route.chapters.add(Chapter(index = route.chapters.size))
                         ++editorState.updateCounter
                     }) {
-                        Text(text = "Add Chapter", style = SpiraGPSText.typography.value.info, color = SpiraGPSColours.value.text)
+                        Text(text = "Add Chapter", style = SpiraGPSText.typography.info, color = SpiraGPSColours.text)
                     }
                 }
             }
@@ -205,31 +205,31 @@ fun EditorPage(navigationState: NavigationState) {
 
 @Composable
 private fun StickyHeader(title: String) {
-    val bgColor = animateColorAsState(SpiraGPSColours.value.background)
+    val bgColor = animateColorAsState(SpiraGPSColours.background)
     Text(
         text = title,
         fontFamily = SpiraGPSText.fontFamily,
-        color = SpiraGPSColours.value.text,
+        color = SpiraGPSColours.text,
         modifier = Modifier.fillMaxWidth().background(bgColor.value).alpha(.5f)
     )
 }
 
 @Composable
 private fun ControlPanel(modifier: Modifier = Modifier, route: Route, onSave: () -> Unit, onLoad: () -> Unit, onModifyConditions: () -> Unit, onKeywordsUpdated: () -> Unit) {
-    val textColour = animateColorAsState(SpiraGPSColours.value.text)
-    val bgColour = animateColorAsState(SpiraGPSColours.value.editorControlBackground)
+    val textColour = animateColorAsState(SpiraGPSColours.text)
+    val bgColour = animateColorAsState(SpiraGPSColours.editorControlBackground)
 
     Row(modifier = modifier.padding(10.dp).background(bgColour.value, RoundedCornerShape(10.dp))) {
         TextButton(onClick = { onSave() }, modifier = Modifier.padding(end = 5.dp)) {
-            Text(text = "Save Route", style = SpiraGPSText.typography.value.info, color = textColour.value)
+            Text(text = "Save Route", style = SpiraGPSText.typography.info, color = textColour.value)
         }
 
         TextButton(onClick = { onLoad() }) {
-            Text(text = "Load Route", style = SpiraGPSText.typography.value.info, color = textColour.value)
+            Text(text = "Load Route", style = SpiraGPSText.typography.info, color = textColour.value)
         }
 
         TextButton(onClick = { onModifyConditions() }) {
-            Text(text = "Update Conditions", style = SpiraGPSText.typography.value.info, color = textColour.value)
+            Text(text = "Update Conditions", style = SpiraGPSText.typography.info, color = textColour.value)
         }
 
         KeywordsEditorButton(route = route, onDismiss = { onKeywordsUpdated() })

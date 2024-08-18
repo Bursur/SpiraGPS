@@ -16,10 +16,10 @@ import spiragps.utils.highlightKeywords
 
 @Composable
 fun BackButton(modifier: Modifier = Modifier, navigationState: NavigationState) {
-    val textColour = animateColorAsState(SpiraGPSColours.value.text)
+    val textColour = animateColorAsState(SpiraGPSColours.text)
     Text(
         text = highlightKeywords("← Back"),
-        style = SpiraGPSText.typography.value.backButton,
+        style = SpiraGPSText.typography.backButton,
         color = textColour.value,
         modifier = modifier
             .padding(bottom = 20.dp)

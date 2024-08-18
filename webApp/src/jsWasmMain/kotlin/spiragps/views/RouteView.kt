@@ -36,7 +36,7 @@ fun RouteView(route: Route, conditionState: ConditionState, contentsState: Conte
     val scrollableState = rememberScrollState()
     val scope = rememberCoroutineScope()
 
-    val bgColour = animateColorAsState(SpiraGPSColours.value.background)
+    val bgColour = animateColorAsState(SpiraGPSColours.background)
 
     val titlePositions: MutableMap<Int, Float> = mutableMapOf()
     var scrollOffset = 0f
@@ -80,8 +80,8 @@ fun RouteView(route: Route, conditionState: ConditionState, contentsState: Conte
                     scrollableState.animateScrollTo(0)
                 }
             },
-            containerColor = SpiraGPSColours.value.fabBackgroundColour,
-            contentColor = SpiraGPSColours.value.fabIconColour,
+            containerColor = SpiraGPSColours.fabBackgroundColour,
+            contentColor = SpiraGPSColours.fabIconColour,
             modifier = Modifier.align(Alignment.BottomEnd).padding(vertical = 60.dp, horizontal = 10.dp)
         ) {
             Icon(Icons.Filled.KeyboardArrowUp, "")

@@ -45,7 +45,7 @@ fun ChapterView(chapter: Chapter, conditionState: ConditionState, titlePositionC
                             createEntry(entry = entry)
 
                             if (entry.trailingBreak) {
-                                val bgColour = animateColorAsState(SpiraGPSColours.value.background)
+                                val bgColour = animateColorAsState(SpiraGPSColours.background)
                                 Divider(
                                     color = bgColour.value,
                                     modifier = Modifier.padding(vertical = 10.dp)

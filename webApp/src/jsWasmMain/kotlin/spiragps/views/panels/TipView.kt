@@ -13,13 +13,13 @@ import spiragps.views.createEntry
 
 @Composable
 fun TipView(entry: Entry) {
-    BasePanelView(title = "TIP", border = SpiraGPSColours.value.tipBorder, minimised = entry.minimised) {
+    BasePanelView(title = "TIP", border = SpiraGPSColours.tipBorder, minimised = entry.minimised) {
         Column(modifier = Modifier.padding(vertical = 30.dp, horizontal = 40.dp)) {
             entry.entries.forEach {
                 createEntry(entry = it)
 
                 if (it.trailingBreak) {
-                    val bgColour = animateColorAsState(SpiraGPSColours.value.infoBackground)
+                    val bgColour = animateColorAsState(SpiraGPSColours.infoBackground)
                     Divider(color = bgColour.value, thickness = 15.dp)
                 }
             }

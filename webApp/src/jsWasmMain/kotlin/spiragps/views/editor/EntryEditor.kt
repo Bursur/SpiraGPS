@@ -46,7 +46,7 @@ fun EntryEditorButton(modifier: Modifier = Modifier, entry: Entry, conditions: A
         },
         modifier = modifier
     ) {
-        Text(text = if(isEditButton) "Edit Entry" else "Add Entry", style = SpiraGPSText.typography.value.info, color = SpiraGPSColours.value.text)
+        Text(text = if(isEditButton) "Edit Entry" else "Add Entry", style = SpiraGPSText.typography.info, color = SpiraGPSColours.text)
     }
 
     if(openAlertDialog)
@@ -80,26 +80,26 @@ fun EntryEditor(entry: Entry, conditions: ArrayList<Condition>, onDismiss: (Entr
             entry.requirement.condition = selectedCondition
         }
 
-        Surface(elevation = 5.dp, shape = RoundedCornerShape(20.dp), color = SpiraGPSColours.value.background) {
+        Surface(elevation = 5.dp, shape = RoundedCornerShape(20.dp), color = SpiraGPSColours.background) {
             Column(
                 horizontalAlignment = Alignment.CenterHorizontally,
                 modifier = Modifier.fillMaxWidth(0.9f).wrapContentHeight().padding(10.dp).animateContentSize()
             ) {
-                Text(text= "Edit Entry", style = SpiraGPSText.typography.value.routeTitle, color = SpiraGPSColours.value.text, modifier = Modifier.padding(bottom = 15.dp))
+                Text(text= "Edit Entry", style = SpiraGPSText.typography.routeTitle, color = SpiraGPSColours.text, modifier = Modifier.padding(bottom = 15.dp))
 
                 // Selector Type
                 Row {
                     Text(
                         text = "Type: $selectedEntryType",
-                        style = SpiraGPSText.typography.value.info,
-                        color = SpiraGPSColours.value.text,
+                        style = SpiraGPSText.typography.info,
+                        color = SpiraGPSColours.text,
                         modifier = Modifier.clickable { entryTypeExpanded = true }.padding(bottom = 10.dp)
                     )
 
                     DropdownMenu(
                         expanded = entryTypeExpanded,
                         onDismissRequest = { entryTypeExpanded = false },
-                        modifier = Modifier.background(SpiraGPSColours.value.infoBackground)
+                        modifier = Modifier.background(SpiraGPSColours.infoBackground)
                     ) {
                         EntryType("info", onClick = typeSelectedCallback)
                         EntryType("image", onClick = typeSelectedCallback)
@@ -117,8 +117,8 @@ fun EntryEditor(entry: Entry, conditions: ArrayList<Condition>, onDismiss: (Entr
                 Row(verticalAlignment = Alignment.CenterVertically) {
                     Text(
                         text = "Condition: $selectedCondition",
-                        style = SpiraGPSText.typography.value.info,
-                        color = SpiraGPSColours.value.text,
+                        style = SpiraGPSText.typography.info,
+                        color = SpiraGPSColours.text,
                         modifier = Modifier.clickable { conditionExpanded = true }.padding(bottom = 10.dp)
                     )
 
@@ -129,8 +129,8 @@ fun EntryEditor(entry: Entry, conditions: ArrayList<Condition>, onDismiss: (Entr
                             entry.requirement.state = it
                         },
                         colors = CheckboxDefaults.colors(
-                            uncheckedColor = SpiraGPSColours.value.toggleUnselectedTrackColour,
-                            checkedColor = SpiraGPSColours.value.toggleSelectedTrackColour
+                            uncheckedColor = SpiraGPSColours.toggleUnselectedTrackColour,
+                            checkedColor = SpiraGPSColours.toggleSelectedTrackColour
                         ),
                         modifier = Modifier.weight(.1f)
                     )
@@ -138,7 +138,7 @@ fun EntryEditor(entry: Entry, conditions: ArrayList<Condition>, onDismiss: (Entr
                     DropdownMenu(
                         expanded = conditionExpanded,
                         onDismissRequest = { conditionExpanded = false },
-                        modifier = Modifier.background(SpiraGPSColours.value.infoBackground)
+                        modifier = Modifier.background(SpiraGPSColours.infoBackground)
                     ) {
                         EntryType("None", onClick = conditionSelectedCallback)
                         conditions.forEach {
@@ -150,12 +150,12 @@ fun EntryEditor(entry: Entry, conditions: ArrayList<Condition>, onDismiss: (Entr
                 // Save Button
                 Row {
                     TextButton(onClick = { onDismiss(entry) }) {
-                        Text(text = "Save", style = SpiraGPSText.typography.value.info, color = SpiraGPSColours.value.text)
+                        Text(text = "Save", style = SpiraGPSText.typography.info, color = SpiraGPSColours.text)
                     }
 
                     // Cancel Button
                     TextButton(onClick = { onDismiss(null) }) {
-                        Text(text = "Cancel", style = SpiraGPSText.typography.value.info, color = SpiraGPSColours.value.text)
+                        Text(text = "Cancel", style = SpiraGPSText.typography.info, color = SpiraGPSColours.text)
                     }
                 }
             }
@@ -169,8 +169,8 @@ private fun EntryType(value: String, onClick: (String) -> Unit) {
         text = {
             Text(
                 text = value,
-                style = SpiraGPSText.typography.value.info,
-                color = SpiraGPSColours.value.text
+                style = SpiraGPSText.typography.info,
+                color = SpiraGPSColours.text
             )
         },
         onClick = {

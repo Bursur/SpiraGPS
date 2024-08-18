@@ -45,8 +45,8 @@ import spiragps.data.destinations.Destination
 fun LocalRouteSelectButton(navigationState: NavigationState) {
     val scope = rememberCoroutineScope()
     var awaitingData by remember { mutableStateOf(false) }
-    val bgColour = animateColorAsState(SpiraGPSColours.value.infoBackground)
-    val textColour = animateColorAsState(SpiraGPSColours.value.text)
+    val bgColour = animateColorAsState(SpiraGPSColours.infoBackground)
+    val textColour = animateColorAsState(SpiraGPSColours.text)
     val interactionSource = remember { MutableInteractionSource() }
     val isHovered by interactionSource.collectIsHoveredAsState()
 
@@ -107,7 +107,7 @@ private fun Overlay(modifier: Modifier = Modifier, textColour: Color, bgColour: 
     ) {
         Text(
             text = "Load Route File",
-            style = SpiraGPSText.typography.value.info,
+            style = SpiraGPSText.typography.info,
             textAlign = TextAlign.Center,
             color = textColour,
             modifier = Modifier.fillMaxWidth()
@@ -116,7 +116,7 @@ private fun Overlay(modifier: Modifier = Modifier, textColour: Color, bgColour: 
         if(isExpanded) {
             Text(
                 "Load a locally stored route file.",
-                style = SpiraGPSText.typography.value.info,
+                style = SpiraGPSText.typography.info,
                 color = textColour
             )
         }

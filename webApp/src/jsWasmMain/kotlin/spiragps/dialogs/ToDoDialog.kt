@@ -44,13 +44,13 @@ import spiragps.views.BulletedList
 fun ToDoActionButton(modifier: Modifier = Modifier) {
     var openAlertDialog by remember { mutableStateOf(false) }
     val tooltipState = remember { RichTooltipState() }
-    val textColour = animateColorAsState(SpiraGPSColours.value.text)
-    val bgColour = animateColorAsState(SpiraGPSColours.value.infoBackground)
+    val textColour = animateColorAsState(SpiraGPSColours.text)
+    val bgColour = animateColorAsState(SpiraGPSColours.infoBackground)
     val interactionSource = remember { MutableInteractionSource() }
     val isHovered by interactionSource.collectIsHoveredAsState()
 
     RichTooltipBox(
-        text = { Text("ToDo List", style = SpiraGPSText.typography.value.infoBold, color = textColour.value) },
+        text = { Text("ToDo List", style = SpiraGPSText.typography.infoBold, color = textColour.value) },
         tooltipState = tooltipState,
         colors = TooltipDefaults.richTooltipColors(containerColor = bgColour.value),
     ) {
@@ -58,8 +58,8 @@ fun ToDoActionButton(modifier: Modifier = Modifier) {
             onClick = {
                 openAlertDialog = true
             },
-            containerColor = SpiraGPSColours.value.fabBackgroundColour,
-            contentColor = SpiraGPSColours.value.fabIconColour,
+            containerColor = SpiraGPSColours.fabBackgroundColour,
+            contentColor = SpiraGPSColours.fabIconColour,
             modifier = modifier.tooltipAnchor().hoverable(interactionSource)
         ) {
             Image(
@@ -88,8 +88,8 @@ fun ToDoDialog(onDismissRequest: () -> Unit) {
             onDismissRequest()
         }
     ) {
-        val textColour = animateColorAsState(SpiraGPSColours.value.text)
-        val bgColour = animateColorAsState(SpiraGPSColours.value.infoBackground)
+        val textColour = animateColorAsState(SpiraGPSColours.text)
+        val bgColour = animateColorAsState(SpiraGPSColours.infoBackground)
 
         Card(colors = CardDefaults.cardColors(containerColor = bgColour.value, contentColor = bgColour.value)) {
             Column(
@@ -99,8 +99,8 @@ fun ToDoDialog(onDismissRequest: () -> Unit) {
                     .padding(10.dp)
             ) {
                 Column {
-                    Text(text = "To Do List", style = SpiraGPSText.typography.value.landingTitle, color = textColour.value, textAlign = TextAlign.Center, modifier = Modifier.fillMaxWidth())
-                    Text(text = "(In no particular order)", style = SpiraGPSText.typography.value.info, color = textColour.value, textAlign = TextAlign.Center, modifier = Modifier.fillMaxWidth())
+                    Text(text = "To Do List", style = SpiraGPSText.typography.landingTitle, color = textColour.value, textAlign = TextAlign.Center, modifier = Modifier.fillMaxWidth())
+                    Text(text = "(In no particular order)", style = SpiraGPSText.typography.info, color = textColour.value, textAlign = TextAlign.Center, modifier = Modifier.fillMaxWidth())
                 }
                 BulletedList(
                     entry = Entry(
@@ -122,7 +122,7 @@ fun ToDoDialog(onDismissRequest: () -> Unit) {
                     onClick = { onDismissRequest() },
                     modifier = Modifier.padding(8.dp),
                 ) {
-                    Text("Close", style = SpiraGPSText.typography.value.info, color = textColour.value)
+                    Text("Close", style = SpiraGPSText.typography.info, color = textColour.value)
                 }
             }
         }

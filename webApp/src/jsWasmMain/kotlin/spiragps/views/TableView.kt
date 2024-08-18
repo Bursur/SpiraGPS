@@ -33,12 +33,12 @@ fun TableView(entry: Entry) {
 fun TableColumn(modifier: Modifier = Modifier, entries: List<String>) {
     Column(modifier = modifier) {
         entries.forEachIndexed { index, text ->
-            val bgColour = animateColorAsState(SpiraGPSColours.value.itemSortBackground[index % 2])
-            val textColour = animateColorAsState(SpiraGPSColours.value.text)
+            val bgColour = animateColorAsState(SpiraGPSColours.itemSortBackground[index % 2])
+            val textColour = animateColorAsState(SpiraGPSColours.text)
             Text(
                 text = highlightKeywords(text),
-                fontWeight = SpiraGPSColours.value.itemSortWeights[index % 2],
-                style = SpiraGPSText.typography.value.info,
+                fontWeight = SpiraGPSColours.itemSortWeights[index % 2],
+                style = SpiraGPSText.typography.info,
                 color = textColour.value,
                 modifier = Modifier
                     .fillMaxWidth()

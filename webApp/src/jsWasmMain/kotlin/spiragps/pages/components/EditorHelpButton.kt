@@ -50,8 +50,8 @@ import spiragps.style.SpiraGPSVersion
 @OptIn(ExperimentalResourceApi::class, ExperimentalMaterial3Api::class)
 @Composable
 fun EditorHelpButton(navigationState: NavigationState) {
-    val bgColour = animateColorAsState(SpiraGPSColours.value.infoBackground)
-    val textColour = animateColorAsState(SpiraGPSColours.value.text)
+    val bgColour = animateColorAsState(SpiraGPSColours.infoBackground)
+    val textColour = animateColorAsState(SpiraGPSColours.text)
     val tooltipState = remember { RichTooltipState() }
     val interactionSource = remember { MutableInteractionSource() }
     val isHovered by interactionSource.collectIsHoveredAsState()
@@ -104,7 +104,7 @@ private fun Overlay(modifier: Modifier = Modifier, textColour: Color, bgColour: 
     ) {
         Text(
             text = "Editor Help",
-            style = SpiraGPSText.typography.value.info,
+            style = SpiraGPSText.typography.info,
             textAlign = TextAlign.Center,
             color = textColour,
             modifier = Modifier.fillMaxWidth()
@@ -113,7 +113,7 @@ private fun Overlay(modifier: Modifier = Modifier, textColour: Color, bgColour: 
         if(isExpanded) {
             Text(
                 "Quick-help guide for the Route Editor. (Made in the editor, no less!)",
-                style = SpiraGPSText.typography.value.info,
+                style = SpiraGPSText.typography.info,
                 color = textColour
             )
         }

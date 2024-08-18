@@ -69,8 +69,8 @@ fun TableEditorPanel(entry: Entry) {
                     ) {
                         Text(
                             text = "Add",
-                            style = SpiraGPSText.typography.value.info,
-                            color = SpiraGPSColours.value.text
+                            style = SpiraGPSText.typography.info,
+                            color = SpiraGPSColours.text
                         )
                     }
                 }
