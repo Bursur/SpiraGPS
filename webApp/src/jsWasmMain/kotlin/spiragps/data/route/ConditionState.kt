@@ -14,6 +14,7 @@ interface ConditionState {
     var lastChange: Int
 
     fun setCondition(name: String, enabled: Boolean)
+    fun areConditionsMet(requirements: ArrayList<Requirement>): Boolean
 }
 
 private class ConditionsStateImpl(conditions: MutableMap<String, Boolean> = mutableMapOf(), lastChange: Int = 0) :
@@ -24,6 +25,17 @@ private class ConditionsStateImpl(conditions: MutableMap<String, Boolean> = muta
     override fun setCondition(name: String, enabled: Boolean) {
         conditions[name] = enabled
         lastChange++
+    }
+
+    override fun areConditionsMet(requirements: ArrayList<Requirement>): Boolean {
+        requirements.forEach {
+            if(it.condition.isNotEmpty()) {
+                if(conditions[it.condition] != it.state)
+                    return false
+            }
+        }
+
+        return true
     }
 
     companion object {

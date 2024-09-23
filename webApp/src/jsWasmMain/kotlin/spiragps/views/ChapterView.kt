@@ -35,10 +35,7 @@ fun ChapterView(chapter: Chapter, conditionState: ConditionState, titlePositionC
                     // Changes in state can't be picked up on a map, so we use lastChange to force re-composition. Feels Hacky look for a better option
                     val changes = conditionState.lastChange
 
-                    val showEntry = if(entry.requirement.condition.isEmpty())
-                        true
-                    else
-                        conditionState.conditions[entry.requirement.condition] == entry.requirement.state
+                    val showEntry = conditionState.areConditionsMet(entry.requirement)
 
                     AnimatedVisibility(visible = showEntry) {
                         Column {

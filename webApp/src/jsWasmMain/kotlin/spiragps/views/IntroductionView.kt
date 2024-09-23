@@ -22,10 +22,7 @@ fun IntroductionView(intro: Introduction, conditionState: ConditionState) {
     Column(modifier = Modifier.fillMaxWidth(.65f).padding(bottom = 5.dp)) {
         intro.entries.forEach { it ->
             val changes = conditionState.lastChange
-            val showEntry = if(it.requirement.condition.isEmpty())
-                true
-            else
-                conditionState.conditions[it.requirement.condition] == it.requirement.state
+            val showEntry = conditionState.areConditionsMet(it.requirement)
 
             AnimatedVisibility(visible = showEntry) {
                 Column {

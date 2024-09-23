@@ -30,6 +30,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.compose.ui.window.Dialog
+import androidx.compose.ui.window.DialogProperties
 import spiragps.data.route.Condition
 import spiragps.data.route.Entry
 import spiragps.style.SpiraGPSColours
@@ -59,6 +60,7 @@ fun PanelEditorButton(modifier: Modifier = Modifier, entry: Entry, conditions: A
 @Composable
 fun PanelEditor(entry: Entry, conditions: ArrayList<Condition>, onDismiss: (Entry?) -> Unit) {
     Dialog(
+        properties = DialogProperties(usePlatformDefaultWidth = false),
         onDismissRequest = { onDismiss(null) },
     ) {
         var selectedEntryType by remember { mutableStateOf(entry.type) }
@@ -66,9 +68,9 @@ fun PanelEditor(entry: Entry, conditions: ArrayList<Condition>, onDismiss: (Entr
 
         var minimised by remember { mutableStateOf(entry.minimised) }
 
-        var selectedCondition by remember { mutableStateOf(entry.requirement.condition.ifEmpty { "None" }) }
+        var selectedCondition by remember { mutableStateOf(entry.requirement.ifEmpty { "None" }) }
         var conditionExpanded by remember { mutableStateOf(false) }
-        var conditionEnabled by remember { mutableStateOf(entry.requirement.state) }
+        var conditionEnabled by remember { mutableStateOf(entry.requirement) }
 
         val typeSelectedCallback: (String) -> Unit = { entryType: String ->
             selectedEntryType = entryType
@@ -79,7 +81,7 @@ fun PanelEditor(entry: Entry, conditions: ArrayList<Condition>, onDismiss: (Entr
         val conditionSelectedCallback: (String) -> Unit = { condition: String ->
             selectedCondition = if(condition != "None") condition else ""
             conditionExpanded = false
-            entry.requirement.condition = selectedCondition
+            //entry.requirement.condition = selectedCondition
         }
 
         Surface(elevation = 5.dp, shape = RoundedCornerShape(20.dp), color = SpiraGPSColours.background) {
@@ -145,7 +147,7 @@ fun PanelEditor(entry: Entry, conditions: ArrayList<Condition>, onDismiss: (Entr
                         modifier = Modifier.clickable { conditionExpanded = true }.padding(bottom = 10.dp)
                     )
 
-                    Checkbox(
+                    /*Checkbox(
                         checked = conditionEnabled,
                         onCheckedChange = {
                             conditionEnabled = it
@@ -156,7 +158,7 @@ fun PanelEditor(entry: Entry, conditions: ArrayList<Condition>, onDismiss: (Entr
                             checkedColor = SpiraGPSColours.toggleSelectedTrackColour
                         ),
                         modifier = Modifier.weight(.1f)
-                    )
+                    )*/
 
                     DropdownMenu(
                         expanded = conditionExpanded,

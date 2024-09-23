@@ -12,7 +12,7 @@ data class Entry(
     var bold: Boolean = false,
     var trailingBreak: Boolean = true,
     var minimised: Boolean = false,
-    var requirement: Requirement = Requirement(),
+    var requirement:ArrayList<Requirement> = arrayListOf(),
     var columns: Int = 1,
 
     // Info

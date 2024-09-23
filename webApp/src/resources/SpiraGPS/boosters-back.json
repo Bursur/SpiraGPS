@@ -99,7 +99,7 @@
                             ]
                         }
                     ],
-                    "requirement": { "condition": "Cloisters", "state": true }
+                    "requirement": [{ "condition": "Cloisters", "state": true }]
                 },
                 {
                     "type": "blitzball", "trailingBreak": true,
