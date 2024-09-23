@@ -1,6 +1,10 @@
 {
     "title": "Sandbox - Tidus Route",
     "keywords": ["x4", "Auto-Attack"],
+    "conditions": [
+        { "name": "First Condition", "defaultState": false },
+        { "name": "Second Condition", "defaultState": false }
+    ],
     "introduction": {
     },
     "chapters": [
@@ -222,6 +226,14 @@
                     "item": "Buckler",
                     "guide": ["Auto-Haste"],
                     "trailingBreak": true
+                },
+                {
+                    "type": "info", "trailingBreak": true,
+                    "text": "This is some informational text that needs multiple conditions to be true in order to show.",
+                    "requirement": [
+                        { "condition": "First Condition", "state": true },
+                        { "condition": "Second Condition", "state": true }
+                    ]
                 }
             ]
         }
