@@ -75,7 +75,7 @@
                         "Speed Sphere with Warp Sphere, ←↓ Confirm R2 →↓↓↓ Confirm",
                         "Dark Matter with Tetra Elemental, L2 L2 ↑↑↑ Confirm L2  ←↑↑↑↑↑(x5) Confirm"
                     ],
-                    "requirement": { "condition": "Item Sort", "state": true }
+                    "requirement": [{ "condition": "Item Sort", "state": true }]
                 },
                 {
                     "type": "bullets", "trailingBreak": true,
@@ -114,7 +114,7 @@
                 { 
                     "type": "spheregrid", "trailingBreak": true,
                     "entries": [
-                        { "type": "info", "text": "Use 34 Strengths, 13 Warps, 10 Clears, and 48 Master Spheres to get to this grid layout. Start from the right of the image, use Masters as you go until you reach warp point 5 (next to the Agi node), at which point stop using Masters until you reach the final warp point (14). At that point you spam masters until the grid is complete.", "trailingBreak": true, "requirement": { "condition": "Sphere Grid", "state": true } },
+                        { "type": "info", "text": "Use 34 Strengths, 13 Warps, 10 Clears, and 48 Master Spheres to get to this grid layout. Start from the right of the image, use Masters as you go until you reach warp point 5 (next to the Agi node), at which point stop using Masters until you reach the final warp point (14). At that point you spam masters until the grid is complete.", "trailingBreak": true, "requirement": [{ "condition": "Sphere Grid", "state": true }] },
                         {
                             "type": "bullets", "trailingBreak": true,
                             "text": "Enter Grid: X, X",
@@ -125,7 +125,7 @@
                                 "(Blue) Clear"
                             ]
                         },
-                        { "type": "image", "image": "SpiraGPS/tidus_sg.png", "trailingBreak": true, "requirement": { "condition": "Sphere Grid", "state": true } },
+                        { "type": "image", "image": "SpiraGPS/tidus_sg.png", "trailingBreak": true, "requirement": [{ "condition": "Sphere Grid", "state": true }] },
                         { 
                             "type": "table", "trailingBreak": true, "columns": 2, 
                             "guide": [
@@ -180,7 +180,7 @@
                             ]
                         }
                     ],
-                    "requirement": { "condition": "Sphere Grid", "state": true }
+                    "requirement": [{ "condition": "Sphere Grid", "state": true }]
                 }
             ]
         },
