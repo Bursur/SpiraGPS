@@ -35,7 +35,9 @@ import spiragps.data.route.Condition
 import spiragps.data.route.Entry
 import spiragps.style.SpiraGPSColours
 import spiragps.style.SpiraGPSText
+import spiragps.views.editor.ConditionSelector
 import spiragps.views.editor.createEditorPanel
+import spiragps.views.editor.getConditionString
 
 @Composable
 fun PanelEditorButton(modifier: Modifier = Modifier, entry: Entry, conditions: ArrayList<Condition>, isEditButton: Boolean = false, onDismiss: (Entry?) -> Unit) {
@@ -68,20 +70,13 @@ fun PanelEditor(entry: Entry, conditions: ArrayList<Condition>, onDismiss: (Entr
 
         var minimised by remember { mutableStateOf(entry.minimised) }
 
-        var selectedCondition by remember { mutableStateOf(entry.requirement.ifEmpty { "None" }) }
+        var selectedCondition by remember { mutableStateOf(getConditionString(entry)) }
         var conditionExpanded by remember { mutableStateOf(false) }
-        var conditionEnabled by remember { mutableStateOf(entry.requirement) }
 
         val typeSelectedCallback: (String) -> Unit = { entryType: String ->
             selectedEntryType = entryType
             entryTypeExpanded = false
             entry.type = selectedEntryType
-        }
-
-        val conditionSelectedCallback: (String) -> Unit = { condition: String ->
-            selectedCondition = if(condition != "None") condition else ""
-            conditionExpanded = false
-            //entry.requirement.condition = selectedCondition
         }
 
         Surface(elevation = 5.dp, shape = RoundedCornerShape(20.dp), color = SpiraGPSColours.background) {
@@ -147,32 +142,11 @@ fun PanelEditor(entry: Entry, conditions: ArrayList<Condition>, onDismiss: (Entr
                         modifier = Modifier.clickable { conditionExpanded = true }.padding(bottom = 10.dp)
                     )
 
-                    /*Checkbox(
-                        checked = conditionEnabled,
-                        onCheckedChange = {
-                            conditionEnabled = it
-                            entry.requirement.state = it
-                        },
-                        colors = CheckboxDefaults.colors(
-                            uncheckedColor = SpiraGPSColours.toggleUnselectedTrackColour,
-                            checkedColor = SpiraGPSColours.toggleSelectedTrackColour
-                        ),
-                        modifier = Modifier.weight(.1f)
-                    )*/
-
-                    DropdownMenu(
-                        expanded = conditionExpanded,
-                        onDismissRequest = { conditionExpanded = false },
-                        modifier = Modifier.background(SpiraGPSColours.infoBackground)
-                    ) {
-                        EntryType("None", onClick = conditionSelectedCallback)
-                        conditions.forEach {
-                            EntryType(
-                                it.name,
-                                onClick = conditionSelectedCallback
-                            )
+                    if(conditionExpanded)
+                        ConditionSelector(entry, conditions) {
+                            selectedCondition = getConditionString(entry)
+                            conditionExpanded = false
                         }
-                    }
                 }
 
                 // Save Button

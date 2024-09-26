@@ -44,4 +44,7 @@ data class Entry(
 
     // Customise
     var item: String = ""
-)
+) {
+    fun hasRequirement(name: String) = requirement.any { it.condition == name }
+    fun getRequirementState(name: String) = requirement.first { it.condition == name }.state
+}
