@@ -11,13 +11,14 @@ import androidx.compose.ui.layout.onGloballyPositioned
 import androidx.compose.ui.layout.positionInRoot
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
+import com.bursur.spiragps.platform.isWebSite
 import com.bursur.spiragps.theme.SpiraGPSColours
 import com.bursur.spiragps.theme.SpiraGPSText
 
 @Composable
 fun TitleView(modifier: Modifier = Modifier, title: String, isChapter: Boolean = false, positionCallback: (Float) -> Unit = { _: Float -> }) {
     val textColour = animateColorAsState(SpiraGPSColours.text)
-    Column(modifier = Modifier.fillMaxWidth(if(isChapter) 1f else .65f)) {
+    Column(modifier = Modifier.fillMaxWidth(if(isChapter) 1f else { if(isWebSite()) .75f else .95f })) {
         Text(
             text = title,
             textAlign = TextAlign.Right,
