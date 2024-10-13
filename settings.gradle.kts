@@ -1,30 +1,39 @@
+rootProject.name = "SpiraGPS"
+enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
+
 pluginManagement {
     repositories {
-        gradlePluginPortal()
-        maven("https://maven.pkg.jetbrains.space/public/p/compose/dev")
-        google()
+        google {
+            mavenContent {
+                includeGroupAndSubgroups("androidx")
+                includeGroupAndSubgroups("com.android")
+                includeGroupAndSubgroups("com.google")
+            }
+        }
         mavenCentral()
-        mavenLocal()
+        maven("https://maven.pkg.jetbrains.space/public/p/compose/dev")
         maven("https://maven.pkg.jetbrains.space/kotlin/p/wasm/experimental")
+        maven( "https://androidx.dev/storage/compose-compiler/repository")
         maven("https://maven.pkg.jetbrains.space/kotlin/p/kotlin/dev")
-    }
-
-    plugins {
-        val kotlinVersion = extra["kotlin.version"] as String
-        val agpVersion = extra["agp.version"] as String
-        val composeVersion = extra["compose.wasm.version"] as String
-
-        kotlin("jvm").version(kotlinVersion)
-        kotlin("multiplatform").version(kotlinVersion)
-        kotlin("plugin.serialization").version(kotlinVersion)
-        kotlin("android").version(kotlinVersion)
-        id("com.android.base").version(agpVersion)
-        id("com.android.application").version(agpVersion)
-        id("com.android.library").version(agpVersion)
-        id("org.jetbrains.compose").version(composeVersion)
+        gradlePluginPortal()
     }
 }
 
-rootProject.name = "spiragps"
+dependencyResolutionManagement {
+    repositories {
+        google {
+            mavenContent {
+                includeGroupAndSubgroups("androidx")
+                includeGroupAndSubgroups("com.android")
+                includeGroupAndSubgroups("com.google")
+            }
+        }
+        mavenCentral()
+        maven("https://maven.pkg.jetbrains.space/public/p/compose/dev")
+        maven("https://maven.pkg.jetbrains.space/kotlin/p/wasm/experimental")
+        maven( "https://androidx.dev/storage/compose-compiler/repository")
+        maven("https://maven.pkg.jetbrains.space/kotlin/p/kotlin/dev")
+    }
+}
 
-include(":webApp")
+include(":composeApp")
