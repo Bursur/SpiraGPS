@@ -87,7 +87,7 @@ kotlin {
 
 android {
     namespace = "com.bursur.spiragps"
-    compileSdk = libs.versions.android.compileSdk.get().toInt()
+    compileSdk = 35//libs.versions.android.compileSdk.get().toInt()
 
     sourceSets["main"].manifest.srcFile("src/androidMain/AndroidManifest.xml")
     sourceSets["main"].res.srcDirs("src/androidMain/res")
