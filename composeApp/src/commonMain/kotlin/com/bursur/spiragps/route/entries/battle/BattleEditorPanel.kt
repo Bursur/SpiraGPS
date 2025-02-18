@@ -101,3 +101,104 @@ fun BattleEditorPanel(entry: Entry) {
         }
     }
 }
+
+@Composable
+fun BattleEditorPanel(entry: Entry, selectedEntry: Entry) {
+    var enemy by remember { mutableStateOf(entry.enemy) }
+    var health by remember { mutableStateOf(entry.health) }
+    val steps by remember { mutableStateOf(entry.guide) }
+    var newStep by remember { mutableStateOf("") }
+
+    var updates by remember { mutableStateOf(0) }
+
+    if(selectedEntry == entry) {
+        BasePanelEditor(border = SpiraGPSColours.battleBorder) {
+            Row(
+                verticalAlignment = Alignment.CenterVertically,
+                modifier = Modifier.padding(horizontal = 5.dp)
+            ) {
+                Text(
+                    text = "Enemy:",
+                    style = SpiraGPSText.typography.info,
+                    color = SpiraGPSColours.text
+                )
+                TextEdit(text = enemy, placeholderText = "Enemy Name...") {
+                    enemy = it
+                    entry.enemy = enemy
+                }
+            }
+
+            Row(
+                verticalAlignment = Alignment.CenterVertically,
+                modifier = Modifier.padding(horizontal = 5.dp)
+            ) {
+                Text(
+                    text = "Health:",
+                    style = SpiraGPSText.typography.info,
+                    color = SpiraGPSColours.text
+                )
+                TextEdit(
+                    text = if (health != 0) health.toString() else "",
+                    placeholderText = "Enemy Health..."
+                ) {
+                    health = try {
+                        it.toInt(10)
+                    } catch (e: Exception) {
+                        health
+                    }
+
+                    entry.health = health
+                }
+            }
+
+            Spacer(modifier = Modifier.size(10.dp))
+            Text(
+                text = "Steps:",
+                style = SpiraGPSText.typography.info,
+                color = SpiraGPSColours.text,
+                modifier = Modifier.padding(horizontal = 5.dp)
+            )
+            key(updates) {
+                steps.forEachIndexed { index, step ->
+                    BulletPointEditor(
+                        text = step,
+                        placeholderText = "Update Step...",
+                        onUpdated = {
+                            steps[index] = it
+                            entry.guide = steps
+                        },
+                        onDeleted = {
+                            steps.removeAt(index)
+                            entry.guide = steps
+                            ++updates
+                        }
+                    )
+                }
+            }
+
+            Row(modifier = Modifier.padding(horizontal = 10.dp)) {
+                TextEdit(
+                    text = newStep,
+                    placeholderText = "Enter New Step...",
+                    modifier = Modifier.weight(1f)
+                ) { newStep = it }
+
+                TextButton(
+                    onClick = {
+                        steps.add(newStep)
+                        newStep = ""
+                        entry.guide = steps
+                    }
+                ) {
+                    Text(
+                        text = "Add",
+                        style = SpiraGPSText.typography.info,
+                        color = SpiraGPSColours.text
+                    )
+                }
+            }
+        }
+    }
+    else
+        BattleView(entry)
+}

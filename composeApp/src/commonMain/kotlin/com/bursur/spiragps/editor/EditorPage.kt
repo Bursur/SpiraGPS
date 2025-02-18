@@ -1,10 +1,15 @@
 package com.bursur.spiragps.editor
 
 import androidx.compose.animation.animateColorAsState
+import androidx.compose.animation.animateContentSize
+import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.background
+import androidx.compose.foundation.border
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.combinedClickable
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -50,7 +55,6 @@ fun EditorPage(navigationState: NavigationState) {
     var route by remember { mutableStateOf(Route()) }
 
     var title by remember { mutableStateOf(route.title) }
-    var editControlOpen by remember { mutableStateOf(false) }
     var conditionDialogOpen by remember { mutableStateOf(false) }
     var selectedEntry by remember { mutableStateOf(Entry()) }
 
@@ -85,61 +89,53 @@ fun EditorPage(navigationState: NavigationState) {
                 items(route.introduction.entries) {
                     Row(
                         modifier = Modifier
-                            .combinedClickable(
-                                onLongClick = {
-                                    editControlOpen = true
-                                    selectedEntry = it
-                                },
-                                onClick = {}
-                            )
+                            .clickable {
+                                selectedEntry = it
+                            }
                     ) {
-                        createEntry(entry = it)
+                        Column(
+                            horizontalAlignment = Alignment.CenterHorizontally,
+                            modifier = Modifier.animateContentSize()
+                        ) {
+                            if(it == selectedEntry)
+                                ControlPanel(
+                                    entry = it,
+                                    conditions = route.conditions,
+                                    onEntryDeleted = {
+                                        if(route.introduction.entries.remove(it))
+                                            ++editorState.updateCounter
+                                    },
+                                    onMoveUp = {
+                                        route.introduction.entries.apply {
+                                            val index = indexOf(it)
+                                            if(index >= 1) {
+                                                add(index - 1, removeAt(index))
+                                                ++editorState.updateCounter
+                                            }
+                                        }
+                                    },
+                                    onMoveDown = {
+                                        route.introduction.entries.apply {
+                                            val index = indexOf(it)
+                                            if(index != -1 && index < size - 1) {
+                                                add(index + 1, removeAt(index))
+                                                ++editorState.updateCounter
+                                            }
+                                        }
+                                    }
+                                )
 
-                        if(editControlOpen && selectedEntry == it) {
-                            EditContextMenu(
-                                open = editControlOpen,
-                                entry = it,
-                                conditions = route.conditions,
-                                onDismiss = { editControlOpen = false },
-                                onEntryUpdated = {
-                                    editControlOpen = false
-                                    ++editorState.updateCounter
-                                },
-                                onEntryDeleted = {
-                                    editControlOpen = false
-                                    if(route.introduction.entries.remove(it))
-                                        ++editorState.updateCounter
-                                },
-                                onMoveUp = {
-                                    route.introduction.entries.apply {
-                                        val index = indexOf(it)
-                                        if(index >= 1) {
-                                            add(index - 1, removeAt(index))
-                                            ++editorState.updateCounter
-                                        }
-                                        editControlOpen = false
-                                    }
-                                },
-                                onMoveDown = {
-                                    route.introduction.entries.apply {
-                                        val index = indexOf(it)
-                                        if(index != -1 && index < size - 1) {
-                                            add(index + 1, removeAt(index))
-                                            ++editorState.updateCounter
-                                        }
-                                        editControlOpen = false
-                                    }
-                                }
-                            )
+                            createEntry(entry = it, editor = true, selectedEntry = selectedEntry)
                         }
                     }
                 }
 
                 item {
-                    EntryEditorButton(entry = Entry(type = "info"), conditions = route.conditions) {
+                    EntryEditorButton(entry = Entry(type = "info")) {
                         if (it != null) {
                             route.introduction.entries.add(it)
                             ++editorState.updateCounter
+                            selectedEntry = it
                         }
                     }
                     HorizontalDivider(color = infoBgColor.value, modifier = Modifier.padding(vertical = 10.dp))

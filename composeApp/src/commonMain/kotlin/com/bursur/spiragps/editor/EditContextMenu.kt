@@ -28,10 +28,7 @@ fun EditContextMenu(
         onDismissRequest = { onDismiss() },
         modifier = Modifier.background(SpiraGPSColours.infoBackground)
     ) {
-        if(!isPanel(entry))
-            EntryEditorButton(entry = entry, conditions = conditions, isEditButton = true) { onEntryUpdated() }
-        else
-            PanelEditorButton(entry = entry, conditions = conditions, isEditButton = true) { onEntryUpdated() }
+        EntryEditorButton(entry = entry) { onEntryUpdated() }
 
         TextButton(onClick = { onEntryDeleted(entry) }) {
             Text(text = "Delete", style = SpiraGPSText.typography.info, color = SpiraGPSColours.text)
@@ -45,7 +42,7 @@ fun EditContextMenu(
     }
 }
 
-private fun isPanel(entry: Entry) = when(entry.type) {
+fun isPanel(entry: Entry) = when(entry.type) {
     "info" -> false
     "image" -> false
     "bullets" -> false

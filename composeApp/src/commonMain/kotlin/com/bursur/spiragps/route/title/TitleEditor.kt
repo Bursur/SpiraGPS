@@ -1,5 +1,6 @@
 package com.bursur.spiragps.route.title
 
+import androidx.compose.animation.animateColorAsState
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.size
@@ -15,16 +16,22 @@ import com.bursur.spiragps.theme.SpiraGPSText
 
 @Composable
 fun TitleEditor(title: String, onValueChange: (String) -> Unit) {
+    val textColour = animateColorAsState(SpiraGPSColours.text)
+    val bgColour = animateColorAsState(SpiraGPSColours.infoBackground)
+    val indicatorColour = animateColorAsState(SpiraGPSColours.toggleSelectedTrackColour)
+
     TextField(
         value = title,
         onValueChange = {
             onValueChange(it)
         },
         colors = TextFieldDefaults.colors(
-            focusedTextColor = SpiraGPSColours.text,
-            cursorColor = SpiraGPSColours.text,
-            //backgroundColor = SpiraGPSColours.infoBackground,
-            focusedIndicatorColor = SpiraGPSColours.toggleSelectedTrackColour
+            unfocusedTextColor = textColour.value,
+            focusedTextColor = textColour.value,
+            cursorColor = textColour.value,
+            unfocusedContainerColor = bgColour.value,
+            focusedContainerColor = bgColour.value,
+            focusedIndicatorColor = indicatorColour.value
         ),
         textStyle = SpiraGPSText.typography.routeTitle,
         placeholder = {

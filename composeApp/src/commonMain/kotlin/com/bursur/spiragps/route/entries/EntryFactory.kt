@@ -5,41 +5,56 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextDecoration
+import com.bursur.spiragps.components.bulletedlist.BulletEditorPanel
 import com.bursur.spiragps.components.bulletedlist.BulletedList
+import com.bursur.spiragps.components.image.ImageEditorPanel
 import com.bursur.spiragps.components.image.ImageView
+import com.bursur.spiragps.components.info.InfoEditorPanel
 import com.bursur.spiragps.components.info.InfoView
+import com.bursur.spiragps.components.table.TableEditorPanel
 import com.bursur.spiragps.components.table.TableView
+import com.bursur.spiragps.route.data.Condition
 import com.bursur.spiragps.route.data.Entry
+import com.bursur.spiragps.route.entries.battle.BattleEditorPanel
 import com.bursur.spiragps.route.entries.battle.BattleView
+import com.bursur.spiragps.route.entries.blitzball.BlitzballEditorPanel
 import com.bursur.spiragps.route.entries.blitzball.BlitzballView
+import com.bursur.spiragps.route.entries.customise.CustomisationEditorPanel
 import com.bursur.spiragps.route.entries.customise.CustomiseView
+import com.bursur.spiragps.route.entries.encounter.EncounterEditorPanel
 import com.bursur.spiragps.route.entries.encounter.EncounterView
+import com.bursur.spiragps.route.entries.equipment.EquipmentEditorPanel
 import com.bursur.spiragps.route.entries.equipment.EquipmentView
+import com.bursur.spiragps.route.entries.itemsort.ItemSortEditorPanel
 import com.bursur.spiragps.route.entries.itemsort.ItemSortView
+import com.bursur.spiragps.route.entries.shop.ShopEditorPanel
 import com.bursur.spiragps.route.entries.shop.ShopView
 import com.bursur.spiragps.route.entries.spheregrid.SphereGridView
+import com.bursur.spiragps.route.entries.spheregrid.SpheregridEditorPanel
+import com.bursur.spiragps.route.entries.tip.TipEditorPanel
 import com.bursur.spiragps.route.entries.tip.TipView
+import com.bursur.spiragps.route.entries.trials.TrialEditorPanel
 import com.bursur.spiragps.route.entries.trials.TrialsView
 
 @Composable
-fun createEntry(entry: Entry) {
+fun createEntry(entry: Entry, editor: Boolean = false, selectedEntry: Entry = Entry(), conditions: ArrayList<Condition> = arrayListOf()) {
     return when(entry.type) {
         //Panels
-        "battle" -> BattleView(entry)
-        "encounter" -> EncounterView(entry)
-        "trial" -> TrialsView(entry)
-        "shop" -> ShopView(entry)
-        "equipment" -> EquipmentView(entry)
-        "itemsort" -> ItemSortView(entry)
-        "spheregrid" -> SphereGridView(entry)
-        "customise" -> CustomiseView(entry)
-        "blitzball" -> BlitzballView(entry)
-        "tip" -> TipView(entry)
+        "battle" -> if(!editor) BattleView(entry) else BattleEditorPanel(entry, selectedEntry)
+        "encounter" -> if(!editor) EncounterView(entry) else EncounterEditorPanel(entry, selectedEntry)
+        "trial" -> if(!editor) TrialsView(entry) else TrialEditorPanel(entry, selectedEntry, conditions)
+        "shop" -> if(!editor) ShopView(entry) else ShopEditorPanel(entry, selectedEntry)
+        "equipment" -> if(!editor) EquipmentView(entry) else EquipmentEditorPanel(entry, selectedEntry)
+        "itemsort" -> if(!editor) ItemSortView(entry) else ItemSortEditorPanel(entry, selectedEntry)
+        "spheregrid" -> if(!editor) SphereGridView(entry) else SpheregridEditorPanel(entry, selectedEntry, conditions)
+        "customise" -> if(!editor) CustomiseView(entry) else CustomisationEditorPanel(entry, selectedEntry)
+        "blitzball" -> if(!editor) BlitzballView(entry) else BlitzballEditorPanel(entry, selectedEntry, conditions)
+        "tip" -> if(!editor) TipView(entry) else TipEditorPanel(entry, selectedEntry, conditions)
         // Components
-        "info" -> InfoView(entry)
-        "bullets" -> BulletedList(entry)
-        "image" -> ImageView(entry)
-        "table" -> TableView(entry)
+        "info" -> if(!editor) InfoView(entry) else InfoEditorPanel(entry, selectedEntry)
+        "bullets" -> if(!editor) BulletedList(entry) else BulletEditorPanel(entry, selectedEntry)
+        "image" -> if(!editor) ImageView(entry) else ImageEditorPanel(entry, selectedEntry)
+        "table" -> if(!editor) TableView(entry) else TableEditorPanel(entry, selectedEntry)
         else -> Text("Unknown Entry Type", fontWeight = FontWeight.Bold, color = Color.Red, textDecoration = TextDecoration.Underline)
     }
 }

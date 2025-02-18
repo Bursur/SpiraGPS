@@ -1,5 +1,7 @@
 package com.bursur.spiragps.components.bulletedlist
 
+import androidx.compose.animation.animateContentSize
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
@@ -107,5 +109,89 @@ fun BulletEditorPanel(entry: Entry) {
                 }
             }
         }
+    }
+}
+
+@Composable
+fun BulletEditorPanel(entry: Entry, selectedEntry: Entry) {
+    val entries: ArrayList<String> by remember { mutableStateOf(entry.guide) }
+    var updates by remember { mutableStateOf(0) }
+    var newPoint by remember { mutableStateOf("") }
+    var isBold by remember { mutableStateOf(entry.bold) }
+    var title by remember { mutableStateOf(entry.text) }
+
+    Column(modifier = Modifier.animateContentSize()) {
+        if (entry == selectedEntry) {
+            key(updates) {
+                // Weight
+                Row(
+                    verticalAlignment = Alignment.CenterVertically
+                ) {
+                    Text(
+                        text = "Bold:",
+                        style = SpiraGPSText.typography.info,
+                        color = SpiraGPSColours.text
+                    )
+                    Checkbox(
+                        checked = isBold,
+                        onCheckedChange = {
+                            isBold = it
+                            entry.bold = isBold
+                        },
+                        colors = CheckboxDefaults.colors(
+                            uncheckedColor = SpiraGPSColours.toggleUnselectedTrackColour,
+                            checkedColor = SpiraGPSColours.toggleSelectedTrackColour
+                        )
+                    )
+                }
+
+                // Title
+                TextEdit(text = title, placeholderText = "Enter Title...", isBold = isBold) {
+                    title = it
+                    entry.text = title
+                }
+
+                // Entries
+                entries.forEachIndexed { index, step ->
+                    BulletPointEditor(
+                        text = step,
+                        placeholderText = "Update Point...",
+                        onUpdated = {
+                            entries[index] = it
+                            entry.guide = entries
+                        },
+                        onDeleted = {
+                            entries.removeAt(index)
+                            entry.guide = entries
+                            ++updates
+                        }
+                    )
+                }
+
+                Row {
+                    TextEdit(
+                        text = newPoint,
+                        placeholderText = "Enter New Point...",
+                        modifier = Modifier.weight(1f)
+                    ) { newPoint = it }
+
+                    TextButton(
+                        onClick = {
+                            entries.add(newPoint)
+                            newPoint = ""
+                            entry.guide = entries
+                            ++updates
+                        }
+                    ) {
+                        Text(
+                            text = "Add",
+                            style = SpiraGPSText.typography.info,
+                            color = SpiraGPSColours.text
+                        )
+                    }
+                }
+            }
+        } else
+            BulletedList(entry)
     }
 }

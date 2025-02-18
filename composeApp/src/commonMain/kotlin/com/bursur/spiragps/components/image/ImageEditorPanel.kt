@@ -4,6 +4,7 @@ import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.widthIn
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -38,7 +39,28 @@ fun ImageEditorPanel(entry: Entry) {
         if(url.isNotEmpty())
             AsyncImage(
                 model = "https://bursur.github.io/$url",
-                contentDescription = ""
+                contentDescription = "",
+                modifier = Modifier.widthIn(max = 200.dp)
             )
+    }
+}
+
+@Composable
+fun ImageEditorPanel(entry: Entry, selectedEntry: Entry) {
+    var url by remember { mutableStateOf(entry.image) }
+
+    Column {
+        ImageView(entry)
+
+        if(selectedEntry == entry) {
+            Row(verticalAlignment = Alignment.CenterVertically, modifier = Modifier.padding(vertical = 20.dp)) {
+                Text(text = "Image URL:", style = SpiraGPSText.typography.info, color = SpiraGPSColours.text)
+
+                TextEdit(text = url, placeholderText = "Enter URL...") {
+                    url = it
+                    entry.image = url
+                }
+            }
+        }
     }
 }
