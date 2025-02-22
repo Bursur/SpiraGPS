@@ -11,7 +11,9 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.sizeIn
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -28,7 +30,9 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.alpha
+import androidx.compose.ui.graphics.ColorFilter
 import androidx.compose.ui.unit.dp
+import coil3.compose.AsyncImage
 import com.bursur.spiragps.components.backbutton.BackButton
 import com.bursur.spiragps.navigation.NavigationState
 import com.bursur.spiragps.route.chapter.ChapterEditor
@@ -58,7 +62,8 @@ fun EditorPage(navigationState: NavigationState) {
     var title by remember { mutableStateOf(route.title) }
     var conditionDialogOpen by remember { mutableStateOf(false) }
 
-    val infoBgColor = animateColorAsState(SpiraGPSColours.infoBackground)
+    val infoBgColor by animateColorAsState(SpiraGPSColours.infoBackground)
+    val textColour by animateColorAsState(SpiraGPSColours.text)
     var awaitingData by remember { mutableStateOf(false) }
 
     Box(
@@ -84,14 +89,14 @@ fun EditorPage(navigationState: NavigationState) {
                         title = it
                         route.title = it
                     }
-                    HorizontalDivider(color = infoBgColor.value, modifier = Modifier.padding(vertical = 10.dp))
+                    HorizontalDivider(color = infoBgColor, modifier = Modifier.padding(vertical = 10.dp))
                 }
 
                 stickyHeader { StickyHeader("Introduction") }
 
                 // Intro
                 items(route.introduction.entries) {
-                    Row(
+                    Box(
                         modifier = Modifier
                             .clickable {
                                 selectedEntry = it
@@ -131,6 +136,18 @@ fun EditorPage(navigationState: NavigationState) {
 
                             createEntry(entry = it, editor = true, selectedEntry = selectedEntry)
                         }
+
+                        if(it.requirement.isNotEmpty()) {
+                            AsyncImage(
+                                model = "https://bursur.github.io/SpiraGPS/condition_arrow.png",
+                                contentDescription = "",
+                                colorFilter = ColorFilter.tint(textColour),
+                                modifier = Modifier
+                                    .sizeIn(maxWidth = 20.dp, maxHeight = 20.dp)
+                                    .align(Alignment.TopStart)
+                                    .offset(x = (-20).dp)
+                            )
+                        }
                     }
                 }
 
@@ -142,7 +159,7 @@ fun EditorPage(navigationState: NavigationState) {
                             selectedEntry = it
                         }
                     }
-                    HorizontalDivider(color = infoBgColor.value, modifier = Modifier.padding(vertical = 10.dp))
+                    HorizontalDivider(color = infoBgColor, modifier = Modifier.padding(vertical = 10.dp))
                 }
 
                 // Chapters
