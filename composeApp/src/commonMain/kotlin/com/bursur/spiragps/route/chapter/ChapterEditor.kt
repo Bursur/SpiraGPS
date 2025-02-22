@@ -2,14 +2,23 @@ package com.bursur.spiragps.route.chapter
 
 import androidx.compose.animation.animateColorAsState
 import androidx.compose.animation.animateContentSize
+import androidx.compose.foundation.BasicTooltipBox
+import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.offset
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.sizeIn
+import androidx.compose.foundation.rememberBasicTooltipState
+import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.Surface
+import androidx.compose.material3.Text
+import androidx.compose.material3.TooltipDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.key
@@ -23,6 +32,7 @@ import androidx.compose.ui.unit.dp
 import coil3.compose.AsyncImage
 import com.bursur.spiragps.editor.ControlPanel
 import com.bursur.spiragps.editor.selectedEntry
+import com.bursur.spiragps.route.conditions.getConditionString
 import com.bursur.spiragps.route.data.Chapter
 import com.bursur.spiragps.route.data.Condition
 import com.bursur.spiragps.route.data.Entry
@@ -30,7 +40,9 @@ import com.bursur.spiragps.route.entries.EntryEditorButton
 import com.bursur.spiragps.route.entries.createEntry
 import com.bursur.spiragps.route.title.TitleEditor
 import com.bursur.spiragps.theme.SpiraGPSColours
+import com.bursur.spiragps.theme.SpiraGPSText
 
+@OptIn(ExperimentalMaterial3Api::class, ExperimentalFoundationApi::class)
 @Composable
 fun ChapterEditor(chapter: Chapter, conditions: ArrayList<Condition>) {
     var title by remember { mutableStateOf(chapter.title) }
@@ -90,15 +102,36 @@ fun ChapterEditor(chapter: Chapter, conditions: ArrayList<Condition>) {
                     }
 
                     if(it.requirement.isNotEmpty()) {
-                        AsyncImage(
-                            model = "https://bursur.github.io/SpiraGPS/condition_arrow.png",
-                            contentDescription = "",
-                            colorFilter = ColorFilter.tint(textColour),
-                            modifier = Modifier
-                                .sizeIn(maxWidth = 20.dp, maxHeight = 20.dp)
-                                .align(Alignment.TopStart)
-                                .offset(x = (-20).dp)
-                        )
+                        val tooltipPosition = TooltipDefaults.rememberPlainTooltipPositionProvider()
+                        val tooltipState = rememberBasicTooltipState()
+                        BasicTooltipBox(
+                            positionProvider = tooltipPosition,
+                            state = tooltipState,
+                            tooltip = {
+                                Surface(
+                                    shadowElevation = 5.dp,
+                                    shape = RoundedCornerShape(5.dp),
+                                    color = SpiraGPSColours.background,
+                                    modifier = Modifier.padding(2.dp)
+                                ) {
+                                    Text(
+                                        text = getConditionString(it),
+                                        style = SpiraGPSText.typography.info,
+                                        color = SpiraGPSColours.text
+                                    )
+                                }
+                            }
+                        ) {
+                            AsyncImage(
+                                model = "https://bursur.github.io/SpiraGPS/condition_arrow.png",
+                                contentDescription = "",
+                                colorFilter = ColorFilter.tint(textColour),
+                                modifier = Modifier
+                                    .sizeIn(maxWidth = 20.dp, maxHeight = 20.dp)
+                                    .align(Alignment.TopStart)
+                                    .offset(x = (-20).dp)
+                            )
+                        }
                     }
                 }
             }

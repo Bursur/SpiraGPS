@@ -37,10 +37,10 @@ fun getConditionString(entry: Entry): String {
         var ret = ""
 
         entry.requirement.forEach {
-            ret += "${it.condition}: ${it.state} "
+            ret += "[${it.condition}: ${it.state}]\n"
         }
 
-        ret
+        ret.trim()
     }
     else
         "not set"
