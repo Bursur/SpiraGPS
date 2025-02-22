@@ -1,6 +1,8 @@
 package com.bursur.spiragps.route.conditions
 
 import androidx.compose.animation.animateContentSize
+import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
@@ -10,6 +12,7 @@ import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Checkbox
 import androidx.compose.material3.CheckboxDefaults
+import androidx.compose.material3.DropdownMenu
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
@@ -25,6 +28,7 @@ import androidx.compose.ui.window.Dialog
 import com.bursur.spiragps.route.data.Condition
 import com.bursur.spiragps.route.data.Entry
 import com.bursur.spiragps.route.data.Requirement
+import com.bursur.spiragps.route.entries.EntryEditorButton
 import com.bursur.spiragps.theme.SpiraGPSColours
 import com.bursur.spiragps.theme.SpiraGPSText
 
@@ -39,7 +43,7 @@ fun getConditionString(entry: Entry): String {
         ret
     }
     else
-        "None"
+        "not set"
 }
 
 @Composable
@@ -90,7 +94,8 @@ private fun ConditionItem(condition: Condition, entry: Entry) {
     ) {
 
         var isUsed by remember { mutableStateOf(entry.hasRequirement(condition.name)) }
-        var requiredState by remember { mutableStateOf(if(isUsed) entry.getRequirementState(condition.name) else false) }
+        var requiredState by remember { mutableStateOf(if(isUsed) entry.getRequirementState(condition.name) else if(condition.options.isNotEmpty()) condition.options[0] else "<not set>") }
+        var selectorOpen by remember { mutableStateOf(false) }
 
         // Name
         Text(
@@ -118,17 +123,48 @@ private fun ConditionItem(condition: Condition, entry: Entry) {
         )
 
         // Required State
-        Checkbox(
-            checked = requiredState,
-            onCheckedChange = { state ->
-                requiredState = state
-                if(entry.hasRequirement(condition.name))
-                    entry.requirement.first { it.condition == condition.name }.state = state
-            },
-            colors = CheckboxDefaults.colors(
-                uncheckedColor = SpiraGPSColours.toggleUnselectedTrackColour,
-                checkedColor = SpiraGPSColours.toggleSelectedTrackColour
-            )
+
+        // Name
+        Text(
+            text = requiredState,
+            style = SpiraGPSText.typography.info,
+            color = SpiraGPSColours.text,
+            modifier = Modifier
+                .padding(bottom = 10.dp)
+                .weight(1f)
+                .clickable {
+                    selectorOpen = true
+                }
         )
+
+        ConditionSelectDropdown(
+            condition,
+            selectorOpen,
+            onDismiss = {},
+            onSelected = { state ->
+                selectorOpen = false
+                requiredState = state
+                entry.requirement.firstOrNull { it.condition == condition.name }?.state = state
+            }
+        )
+    }
+}
+
+@Composable
+fun ConditionSelectDropdown(condition: Condition, open: Boolean, onDismiss: () -> Unit, onSelected: (String) -> Unit) {
+    DropdownMenu(
+        expanded = open,
+        onDismissRequest = { onDismiss() },
+        modifier = Modifier.background(SpiraGPSColours.infoBackground)
+    ) {
+        condition.options.forEach {
+            TextButton(onClick = { onSelected(it) }) {
+                Text(
+                    text = it,
+                    style = SpiraGPSText.typography.info,
+                    color = SpiraGPSColours.text
+                )
+            }
+        }
     }
 }

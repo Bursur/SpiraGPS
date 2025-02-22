@@ -1,6 +1,7 @@
 package com.bursur.spiragps.route.conditions
 
 import androidx.compose.animation.animateContentSize
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -20,6 +21,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.window.Dialog
+import com.bursur.spiragps.components.bulletedlist.BulletPointEditor
 import com.bursur.spiragps.editor.components.TextEdit
 import com.bursur.spiragps.route.data.Condition
 import com.bursur.spiragps.route.data.Route
@@ -32,6 +34,7 @@ fun ConditionEditor(route: Route, onDismiss: () -> Unit) {
     var newCondition by remember { mutableStateOf("") }
 
     var updates by remember { mutableStateOf(0) }
+    var editingCondition by remember { mutableStateOf(Condition()) }
 
     Dialog(
         onDismissRequest = { onDismiss() },
@@ -44,25 +47,16 @@ fun ConditionEditor(route: Route, onDismiss: () -> Unit) {
                 Text(text= "Update Conditions", style = SpiraGPSText.typography.routeTitle, color = SpiraGPSColours.text, modifier = Modifier.padding(bottom = 15.dp))
 
                 key(updates) {
-                    conditionList.forEachIndexed { index, condition ->
-                        ConditionPointEditor(
+                    conditionList.forEach { condition ->
+                        Text(
                             text = condition.name,
-                            enabled = condition.defaultState,
-                            placeholderText = "Update Condition...",
-                            onUpdated = {
-                                conditionList[index].name = it
-                                route.conditions = conditionList
-                            },
-                            onDeleted = {
-                                conditionList.removeAt(index)
-                                route.conditions = conditionList
-                                ++updates
-                            },
-                            onToggle = {
-                                condition.defaultState = it
-                                ++updates
-                            }
+                            style = SpiraGPSText.typography.info,
+                            color = SpiraGPSColours.text,
+                            modifier = Modifier.clickable { editingCondition = condition }
                         )
+
+                        if(editingCondition == condition)
+                            ConditionPointEditor(condition) { editingCondition = Condition()}
                     }
                 }
 
@@ -77,6 +71,7 @@ fun ConditionEditor(route: Route, onDismiss: () -> Unit) {
                         onClick = {
                             conditionList.add(Condition(newCondition))
                             newCondition = ""
+                            editingCondition = conditionList.last()
                             route.conditions = conditionList
                         },
                         modifier = Modifier.weight(.2f)

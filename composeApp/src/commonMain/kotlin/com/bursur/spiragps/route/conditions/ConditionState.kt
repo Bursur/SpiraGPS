@@ -12,22 +12,22 @@ import com.bursur.spiragps.route.data.Requirement
 
 @Stable
 interface ConditionState {
-    var conditions: MutableMap<String, Boolean>
+    var conditions: MutableMap<String, String>
     var lastChange: Int
     var sheetOpen: Boolean
 
-    fun setCondition(name: String, enabled: Boolean)
+    fun setCondition(name: String, state: String)
     fun areConditionsMet(requirements: ArrayList<Requirement>): Boolean
 }
 
-private class ConditionsStateImpl(conditions: MutableMap<String, Boolean> = mutableMapOf(), lastChange: Int = 0, sheetOpen: Boolean = false) :
+private class ConditionsStateImpl(conditions: MutableMap<String, String> = mutableMapOf(), lastChange: Int = 0, sheetOpen: Boolean = false) :
     ConditionState {
-    override var conditions: MutableMap<String, Boolean> by mutableStateOf(conditions)
+    override var conditions: MutableMap<String, String> by mutableStateOf(conditions)
     override var lastChange: Int by mutableStateOf(lastChange)
     override var sheetOpen: Boolean by mutableStateOf(sheetOpen)
 
-    override fun setCondition(name: String, enabled: Boolean) {
-        conditions[name] = enabled
+    override fun setCondition(name: String, state: String) {
+        conditions[name] = state
         lastChange++
     }
 
@@ -46,7 +46,7 @@ private class ConditionsStateImpl(conditions: MutableMap<String, Boolean> = muta
         val saver = Saver<ConditionsStateImpl, List<Any>>(
             save = { listOf(it.conditions, it.lastChange) },
             restore = {
-                ConditionsStateImpl(it[0] as MutableMap<String, Boolean>, it[1] as Int, it[2] as Boolean)
+                ConditionsStateImpl(it[0] as MutableMap<String, String>, it[1] as Int, it[2] as Boolean)
             }
         )
     }
@@ -56,9 +56,9 @@ private class ConditionsStateImpl(conditions: MutableMap<String, Boolean> = muta
 fun rememberConditionState(conditions: ArrayList<Condition>): ConditionState = rememberSaveable(
     saver = ConditionsStateImpl.saver
 ) {
-    val map: MutableMap<String, Boolean> = mutableMapOf()
+    val map: MutableMap<String, String> = mutableMapOf()
     conditions.forEach {
-        map[it.name] = it.defaultState
+        map[it.name] = if(it.options.isNotEmpty()) it.options[0] else ""
     }
     ConditionsStateImpl(map)
 }

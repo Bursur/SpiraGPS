@@ -87,11 +87,11 @@
             }, 0);
         }
 
-        function writeFile(data) {
+        function writeFile(data, fileName) {
             const link = document.createElement("a");
             const file = new Blob([data], { type: 'application/json' });
             link.href = URL.createObjectURL(file);
-            link.download = `route-${Date.now()}.json`;
+            link.download = `${fileName}-${Date.now()}.json`;
             link.click();
             URL.revokeObjectURL(link.href);
         }

@@ -3,7 +3,7 @@ package com.bursur.spiragps.utils
 import kotlinx.coroutines.delay
 
 external fun openFile()
-external fun writeFile(data: String)
+external fun writeFile(data: String, fileName: String)
 external fun getLoadedData(): String
 
 object FileService {
@@ -19,7 +19,7 @@ object FileService {
         return data
     }
 
-    fun saveFile(data: String) {
-        writeFile(data)
+    fun saveFile(data: String, fileName: String) {
+        writeFile(data, fileName)
     }
 }

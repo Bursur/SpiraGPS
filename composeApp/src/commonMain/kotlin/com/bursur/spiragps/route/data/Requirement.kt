@@ -5,5 +5,5 @@ import kotlinx.serialization.Serializable
 @Serializable
 data class Requirement(
     var condition: String = "",
-    var state: Boolean = false
+    var state: String = "false"
 )

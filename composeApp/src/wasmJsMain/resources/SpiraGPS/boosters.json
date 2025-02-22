@@ -2,10 +2,10 @@
     "title": "FFX Boosters% CSR - Tidus Route",
     "keywords": ["2x", "4x", "Auto Attack", "never use Max Gil", "Full credits to Mtbanger for these notes. The notes are Mtbangers notes."],
     "conditions": [
-        { "name": "TerraSkip", "defaultState": true },
-        { "name":  "Cloisters", "defaultState": false },
-        { "name":  "Tips", "defaultState": false },
-        { "name":  "Bursur's Bits", "defaultState": false }
+        { "name": "TerraSkip", "options": ["yes", "no"] },
+        { "name":  "Cloisters", "options": ["hide", "show"] },
+        { "name":  "Tips", "options": ["hide", "show"] },
+        { "name":  "Bursur's Bits", "options": ["hide", "show"] }
     ],
     "introduction": {
         "entries": [
@@ -247,7 +247,7 @@
                             ]
                         }
                     ],
-                    "requirement": [{ "condition": "Cloisters", "state": true }]
+                    "requirement": [{ "condition": "Cloisters", "state": "show" }]
                 },
                 {
                     "type": "battle",
@@ -372,7 +372,7 @@
                             ]
                         }
                     ],
-                    "requirement": [{ "condition": "Cloisters", "state": true }]
+                    "requirement": [{ "condition": "Cloisters", "state": "show" }]
                 }
             ]
         },
@@ -513,7 +513,7 @@
                         { "type": "info", "text": "If you are drawing when Wakka is on the Sphere, pass the ball to Jassu and hide just to the right of the 6 o’clock position on the radar. Wait until 4:20 on the clock before moving to pass to Wakka in order to skip Blitz-off if you score." },
                         { "type": "image", "image": "SpiraGPS/blitzball_2.png" }
                     ],
-                    "requirement": [{ "condition": "Tips", "state": true }]
+                    "requirement": [{ "condition": "Tips", "state": "show" }]
                 }
             ]
         },
@@ -555,7 +555,7 @@
                     ],
                     "trailingBreak": true
                 },
-                { "type": "info", "text": "Disable Auto Attack", "trailingBreak": true, "requirement": [{ "condition": "Bursur's Bits", "state": false }] },
+                { "type": "info", "text": "Disable Auto Attack", "trailingBreak": true, "requirement": [{ "condition": "Bursur's Bits", "state": "show" }] },
                 { "type": "info", "text": "Do Mi'ihen skip if able", "bold": true, "trailingBreak": true },
                 {
                     "type": "battle",
@@ -567,7 +567,7 @@
                         "No little hop (Sorry, khaegar)"
                     ],
                     "trailingBreak": true,
-                    "requirement": [{ "condition": "Bursur's Bits", "state": true }]
+                    "requirement": [{ "condition": "Bursur's Bits", "state": "show" }]
                 },
                 {
                     "type": "battle",
@@ -578,7 +578,7 @@
                     "trailingBreak": true,
                     "requirement": [{ "condition": "Bursur's Bits", "state": false }]
                 },
-                { "type": "info", "text": "Disable Auto Attack", "trailingBreak": true, "requirement": [{ "condition": "Bursur's Bits", "state": true }] },
+                { "type": "info", "text": "Disable Auto Attack", "trailingBreak": true, "requirement": [{ "condition": "Bursur's Bits", "state": "show" }] },
                 { "type": "info", "text": "Talk to Chocobo Lady", "trailingBreak": true }
             ]
         },
@@ -586,7 +586,7 @@
             "title": "Mushroom Rock Road",
             "entries": [
                 { "type": "info", "text": "Do Clasko skip if able", "bold": true, "trailingBreak": true },
-                { "type": "info", "text": "Do Terra Skip if able", "bold": true, "trailingBreak": true, "requirement": [{ "condition": "TerraSkip", "state": true }] },
+                { "type": "info", "text": "Do Terra Skip if able", "bold": true, "trailingBreak": true, "requirement": [{ "condition": "TerraSkip", "state": "yes" }] },
                 {
                     "type": "tip", "trailingBreak": true, "minimised": true,
                     "entries": [
@@ -605,21 +605,21 @@
                         { "type": "info", "text": "Like last time, hold walk and then flick down so Tidus faces the camera and wait for the chap to return and start mashing X again. With luck you'll be through and can head off down the beach without any worries of fighting Sinspawn Gui!" },
                         { "type": "info", "text": "If you get stuck anywhere you might need to reload from the last auto-save (or the safety save you totally didn't forget to make at the end of the Old Road)." }
                     ],
-                    "requirement": [{ "condition": "Tips", "state": true }]
+                    "requirement": [{ "condition": "Tips", "state": "show" }]
                 },
                 {
                     "type": "battle",
                     "enemy": "Sinspawn Gui",
                     "guide":["Any Use Dark Matter"],
                     "trailingBreak": true,
-                    "requirement": [{ "condition": "TerraSkip", "state": false }]
+                    "requirement": [{ "condition": "TerraSkip", "state": "no" }]
                 },
                 {
                     "type": "battle",
                     "enemy": "Sinspawn Gui 2",
                     "guide":["Any Use Dark Matter"],
                     "trailingBreak": true,
-                    "requirement": [{ "condition": "TerraSkip", "state": false }]
+                    "requirement": [{ "condition": "TerraSkip", "state": "no" }]
                 }
             ]
         },
@@ -662,7 +662,7 @@
                             ]
                         }
                     ],
-                    "requirement": [{ "condition": "Cloisters", "state": true }]
+                    "requirement": [{ "condition": "Cloisters", "state": "show" }]
                 }
             ]
         },
@@ -772,7 +772,7 @@
                             ]
                         }
                     ],
-                    "requirement": [{ "condition": "Cloisters", "state": true }]
+                    "requirement": [{ "condition": "Cloisters", "state": "show" }]
                 },
                 { "type": "info", "text": "CSR: Try your best to avoid a guado guard encounter here as it can cause a crash, disable 4x if needed (strongly recommended)", "bold": true, "trailingBreak": true },
                 {
@@ -785,7 +785,7 @@
                     ],
                     "trailingBreak": true
                 },
-                { "type": "info", "text": "Disable Auto Attack", "requirement": [{ "condition": "Bursur's Bits", "state": false }] }
+                { "type": "info", "text": "Disable Auto Attack", "requirement": [{ "condition": "Bursur's Bits", "state": "hide" }] }
             ]
         },
         {
@@ -803,7 +803,7 @@
                         "Any Flee"
                     ],
                     "trailingBreak": true,
-                    "requirement": [{ "condition": "Bursur's Bits", "state": false }]
+                    "requirement": [{ "condition": "Bursur's Bits", "state": "hide" }]
                 },
                 {
                     "type": "battle",
@@ -814,9 +814,9 @@
                         "Disable 4x to skip dialogue then re-enable"
                     ],
                     "trailingBreak": true,
-                    "requirement": [{ "condition": "Bursur's Bits", "state": true }]
+                    "requirement": [{ "condition": "Bursur's Bits", "state": "show" }]
                 },
-                { "type": "info", "text": "Disable Auto Attack", "requirement": [{ "condition": "Bursur's Bits", "state": true }] },
+                { "type": "info", "text": "Disable Auto Attack", "requirement": [{ "condition": "Bursur's Bits", "state": "show" }] },
                 {
                     "type": "battle",
                     "enemy": "Machina Tutorial",
@@ -954,7 +954,7 @@
                             ]
                         }
                     ],
-                    "requirement": [{ "condition": "Cloisters", "state": true }]
+                    "requirement": [{ "condition": "Cloisters", "state": "show" }]
                 },
                 {
                     "type": "battle",
@@ -1032,7 +1032,7 @@
                         "Disable 4x to skip dialogue then re-enable"
                     ],
                     "trailingBreak": true,
-                    "requirement": [{ "condition": "TerraSkip", "state": false }]
+                    "requirement": [{ "condition": "TerraSkip", "state": "no" }]
                 },
                 {
                     "type": "battle",
@@ -1043,7 +1043,7 @@
                         "Disable 4x to skip dialogue then re-enable"
                     ],
                     "trailingBreak": true,
-                    "requirement": [{ "condition": "TerraSkip", "state": true }]
+                    "requirement": [{ "condition": "TerraSkip", "state": "yes" }]
                 },
                 {
                     "type": "battle",
@@ -1063,7 +1063,7 @@
                         { "type": "info", "text": "In the second part of this Trial you need to send Rikku to the green hole, Tidus to the Blue hole and Wakka to the Red hole", "trailingBreak": false },
                         { "type": "image", "image": "SpiraGPS/gagazet_3.png" }
                     ],
-                    "requirement": [{ "condition": "Cloisters", "state": true }]
+                    "requirement": [{ "condition": "Cloisters", "state": "show" }]
                 },
                 {
                     "type": "battle",

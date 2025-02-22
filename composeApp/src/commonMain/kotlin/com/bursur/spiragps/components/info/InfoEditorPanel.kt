@@ -25,42 +25,6 @@ import com.bursur.spiragps.theme.SpiraGPSColours
 import com.bursur.spiragps.theme.SpiraGPSText
 
 @Composable
-fun InfoEditorPanel(entry: Entry) {
-    var infoText by remember { mutableStateOf(entry.text) }
-    var isBold by remember { mutableStateOf(entry.bold) }
-
-    Column {
-        // Weight
-        Row(
-            verticalAlignment = Alignment.CenterVertically,
-            modifier = Modifier.padding(bottom = 5.dp)
-        ) {
-            Text(text = "Bold:", style = SpiraGPSText.typography.info, color = SpiraGPSColours.text)
-            Checkbox(
-                checked = isBold,
-                onCheckedChange = {
-                    isBold = it
-                    entry.bold = isBold
-                },
-                colors = CheckboxDefaults.colors(
-                    uncheckedColor = SpiraGPSColours.toggleUnselectedTrackColour,
-                    checkedColor = SpiraGPSColours.toggleSelectedTrackColour
-                )
-            )
-        }
-
-        // Text
-        Row(verticalAlignment = Alignment.CenterVertically) {
-            Text(text = "Text:", style = SpiraGPSText.typography.info, color = SpiraGPSColours.text)
-            TextEdit(text = infoText, placeholderText = "Enter Text...", isBold = isBold) {
-                infoText = it
-                entry.text = infoText
-            }
-        }
-    }
-}
-
-@Composable
 fun InfoEditorPanel(entry: Entry, selectedEntry: Entry) {
     var infoText by remember { mutableStateOf(entry.text) }
     var isBold by remember { mutableStateOf(entry.bold) }

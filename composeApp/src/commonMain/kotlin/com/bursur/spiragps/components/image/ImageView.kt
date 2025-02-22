@@ -7,7 +7,7 @@ import com.bursur.spiragps.route.data.Entry
 @Composable
 fun ImageView(entry: Entry) {
     AsyncImage(
-        model = "https://bursur.github.io/${entry.image}",
+        model = if(!entry.image.contains("http")) "https://bursur.github.io/${entry.image}" else entry.image,
         contentDescription = ""
     )
 }

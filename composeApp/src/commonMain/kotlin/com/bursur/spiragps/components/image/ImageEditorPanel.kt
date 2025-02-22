@@ -22,30 +22,6 @@ import com.bursur.spiragps.theme.SpiraGPSText
 import org.jetbrains.compose.resources.painterResource
 
 @Composable
-fun ImageEditorPanel(entry: Entry) {
-    var url by remember { mutableStateOf(entry.image) }
-
-    Column {
-        // Text
-        Row(verticalAlignment = Alignment.CenterVertically, modifier = Modifier.padding(vertical = 20.dp)) {
-            Text(text = "Image URL:", style = SpiraGPSText.typography.info, color = SpiraGPSColours.text)
-
-            TextEdit(text = url, placeholderText = "Enter URL...") {
-                url = it
-                entry.image = url
-            }
-        }
-
-        if(url.isNotEmpty())
-            AsyncImage(
-                model = "https://bursur.github.io/$url",
-                contentDescription = "",
-                modifier = Modifier.widthIn(max = 200.dp)
-            )
-    }
-}
-
-@Composable
 fun ImageEditorPanel(entry: Entry, selectedEntry: Entry) {
     var url by remember { mutableStateOf(entry.image) }
 

@@ -2,12 +2,10 @@ package com.bursur.spiragps.editor
 
 import androidx.compose.animation.animateColorAsState
 import androidx.compose.animation.animateContentSize
-import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.background
-import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
-import androidx.compose.foundation.combinedClickable
+import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -61,7 +59,11 @@ fun EditorPage(navigationState: NavigationState) {
     val infoBgColor = animateColorAsState(SpiraGPSColours.infoBackground)
     var awaitingData by remember { mutableStateOf(false) }
 
-    Box(modifier = Modifier.fillMaxSize()) {
+    Box(
+        modifier = Modifier
+            .fillMaxSize()
+            .clickable(remember { MutableInteractionSource() }, null) { selectedEntry = Entry() }
+    ) {
         BackButton(
             navigationState = navigationState,
             modifier = Modifier.align(Alignment.TopStart).padding(all = 10.dp)
@@ -163,7 +165,7 @@ fun EditorPage(navigationState: NavigationState) {
             route = route,
             onSave = {
                 val data = Json.encodeToString(route)
-                FileService.saveFile(data)
+                FileService.saveFile(data, route.title.ifEmpty { "Untitled Guide" })
             },
             onLoad = { awaitingData = true },
             onModifyConditions = { conditionDialogOpen = true },

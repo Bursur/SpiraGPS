@@ -20,61 +20,6 @@ import com.bursur.spiragps.theme.SpiraGPSColours
 import com.bursur.spiragps.theme.SpiraGPSText
 
 @Composable
-fun TableEditorPanel(entry: Entry) {
-    val entries: ArrayList<String> by remember { mutableStateOf(entry.guide) }
-    var newItem by remember { mutableStateOf("") }
-    var updates by remember { mutableStateOf(0) }
-
-    entry.columns = 2
-
-    key(updates) {
-        LazyColumn {
-            // Entries
-            itemsIndexed(items = entries) { index, step ->
-                BulletPointEditor(
-                    text = step,
-                    placeholderText = "Update Point...",
-                    onUpdated = {
-                        entries[index] = it
-                        entry.guide = entries
-                    },
-                    onDeleted = {
-                        entries.removeAt(index)
-                        entry.guide = entries
-                        ++updates
-                    }
-                )
-            }
-
-            item {
-                Row {
-                    TextEdit(
-                        text = newItem,
-                        placeholderText = "Enter New Point...",
-                        modifier = Modifier.weight(1f)
-                    ) { newItem = it }
-
-                    TextButton(
-                        onClick = {
-                            entries.add(newItem)
-                            newItem = ""
-                            entry.guide = entries
-                            ++updates
-                        }
-                    ) {
-                        Text(
-                            text = "Add",
-                            style = SpiraGPSText.typography.info,
-                            color = SpiraGPSColours.text
-                        )
-                    }
-                }
-            }
-        }
-    }
-}
-
-@Composable
 fun TableEditorPanel(entry: Entry, selectedEntry: Entry) {
     val entries: ArrayList<String> by remember { mutableStateOf(entry.guide) }
     var newItem by remember { mutableStateOf("") }

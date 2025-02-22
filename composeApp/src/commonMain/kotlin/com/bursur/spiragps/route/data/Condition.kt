@@ -4,6 +4,6 @@ import kotlinx.serialization.Serializable
 
 @Serializable
 data class Condition(
-    var name: String = "",
-    var defaultState: Boolean = false
+    var name: String = "not set",
+    var options: ArrayList<String> = arrayListOf()
 )

@@ -1,6 +1,7 @@
 package com.bursur.spiragps.route.conditions
 
 import androidx.compose.animation.animateColorAsState
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Switch
@@ -21,25 +22,32 @@ import com.bursur.spiragps.theme.SpiraGPSText
 @Composable
 fun ConditionalView(condition: Condition, conditionState: ConditionState) {
     var checked by remember { mutableStateOf(conditionState.conditions[condition.name] ?: false) }
-    val textColour = animateColorAsState(SpiraGPSColours.text)
+    val textColour by animateColorAsState(SpiraGPSColours.text)
 
     val selectedColour = animateColorAsState(SpiraGPSColours.toggleSelectedThumbColour)
     val unselectedColour = animateColorAsState(SpiraGPSColours.toggleUnselectedTrackColour)
 
+    var optionsExpanded by remember { mutableStateOf(false) }
+
     Row(verticalAlignment = Alignment.CenterVertically, modifier = Modifier.padding(horizontal = 20.dp)) {
-        Text(text = condition.name, style = SpiraGPSText.typography.conditionLabel, color = textColour.value)
-        Switch(
-            checked = checked,
-            onCheckedChange = {
-                checked = it
-                conditionState.setCondition(condition.name, checked)
-            },
-            colors = SwitchDefaults.colors(
-                checkedThumbColor = selectedColour.value,
-                checkedTrackColor = SpiraGPSColours.toggleSelectedTrackColour,
-                uncheckedTrackColor = unselectedColour.value,
-                uncheckedThumbColor = SpiraGPSColours.toggleUnselectedThumbColour,
-            )
+        Text(text = condition.name, style = SpiraGPSText.typography.conditionLabel, color = textColour)
+        Text(
+            text = conditionState.conditions[condition.name].orEmpty(),
+            style = SpiraGPSText.typography.conditionLabel,
+            color = textColour,
+            modifier = Modifier.clickable {
+                optionsExpanded = true
+            }
+        )
+
+        ConditionSelectDropdown(
+            condition,
+            optionsExpanded,
+            onDismiss = {},
+            onSelected = { state ->
+                optionsExpanded = false
+                conditionState.setCondition(condition.name, state)
+            }
         )
     }
 }
