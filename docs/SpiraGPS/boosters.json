@@ -576,7 +576,7 @@
                         "Tidus Use Dark Matter"
                     ],
                     "trailingBreak": true,
-                    "requirement": [{ "condition": "Bursur's Bits", "state": false }]
+                    "requirement": [{ "condition": "Bursur's Bits", "state": "hide" }]
                 },
                 { "type": "info", "text": "Disable Auto Attack", "trailingBreak": true, "requirement": [{ "condition": "Bursur's Bits", "state": "show" }] },
                 { "type": "info", "text": "Talk to Chocobo Lady", "trailingBreak": true }
