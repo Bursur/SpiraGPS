@@ -21,23 +21,28 @@ import com.bursur.spiragps.theme.SpiraGPSText
 
 @Composable
 fun ConditionalView(condition: Condition, conditionState: ConditionState) {
-    var checked by remember { mutableStateOf(conditionState.conditions[condition.name] ?: false) }
     val textColour by animateColorAsState(SpiraGPSColours.text)
-
-    val selectedColour = animateColorAsState(SpiraGPSColours.toggleSelectedThumbColour)
-    val unselectedColour = animateColorAsState(SpiraGPSColours.toggleUnselectedTrackColour)
 
     var optionsExpanded by remember { mutableStateOf(false) }
 
-    Row(verticalAlignment = Alignment.CenterVertically, modifier = Modifier.padding(horizontal = 20.dp)) {
-        Text(text = condition.name, style = SpiraGPSText.typography.conditionLabel, color = textColour)
-        Text(
-            text = conditionState.conditions[condition.name].orEmpty(),
-            style = SpiraGPSText.typography.conditionLabel,
-            color = textColour,
-            modifier = Modifier.clickable {
+    Row(
+        verticalAlignment = Alignment.CenterVertically,
+        modifier = Modifier
+            .padding(horizontal = 20.dp)
+            .clickable {
                 optionsExpanded = true
             }
+    ) {
+        Text(
+            text = "${condition.name}:",
+            style = SpiraGPSText.typography.conditionLabel,
+            color = textColour,
+            modifier = Modifier.padding(end = 2.dp)
+        )
+        Text(
+            text = conditionState.conditions[condition.name].orEmpty(),
+            style = SpiraGPSText.typography.info,
+            color = textColour
         )
 
         ConditionSelectDropdown(

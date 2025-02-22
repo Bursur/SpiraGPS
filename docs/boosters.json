@@ -1,5 +1,5 @@
 {
-    "title": "FFX Boosters% CSR - Tidus Route",
+    "title": "FFX Boosters% CSR - Tidus Route (OLD)",
     "keywords": ["2x", "4x", "Auto Attack", "never use Max Gil", "Full credits to Mtbanger for these notes. The notes are Mtbangers notes."],
     "conditions": [
         { "name": "TerraSkip", "options": ["yes", "no"] },
@@ -605,7 +605,7 @@
                         { "type": "info", "text": "Like last time, hold walk and then flick down so Tidus faces the camera and wait for the chap to return and start mashing X again. With luck you'll be through and can head off down the beach without any worries of fighting Sinspawn Gui!" },
                         { "type": "info", "text": "If you get stuck anywhere you might need to reload from the last auto-save (or the safety save you totally didn't forget to make at the end of the Old Road)." }
                     ],
-                    "requirement": [{ "condition": "Tips", "state": "show" }]
+                    "requirement": [{ "condition": "Tips", "state": "show" }, { "condition": "TerraSkip", "state": "yes" }]
                 },
                 {
                     "type": "battle",

@@ -1,7 +1,7 @@
 {
     "destinations": [
         {
-            "name": "Any% w/Boosters",
+            "name": "Any% w/Boosters (OLD)",
             "data": "SpiraGPS/boosters.json",
             "image": "SpiraGPS/boosters.png",
             "author": "MtBanger",

@@ -103,7 +103,7 @@ val small: TextStyles
 
         conditionLabel = TextStyle(
             fontFamily = SpiraGPSText.fontFamily,
-            fontWeight = FontWeight.Normal,
+            fontWeight = FontWeight.Bold,
             fontSize = if(isWebSite()) 17.sp else 12.sp,
         )
     )
@@ -176,7 +176,7 @@ val medium: TextStyles
 
         conditionLabel = TextStyle(
             fontFamily = SpiraGPSText.fontFamily,
-            fontWeight = FontWeight.Normal,
+            fontWeight = FontWeight.Bold,
             fontSize = if(isWebSite()) 22.sp else 17.sp
         )
     )
@@ -249,7 +249,7 @@ val large: TextStyles
 
         conditionLabel = TextStyle(
             fontFamily = SpiraGPSText.fontFamily,
-            fontWeight = FontWeight.Normal,
+            fontWeight = FontWeight.Bold,
             fontSize = if(isWebSite()) 27.sp else 22.sp
         )
     )
@@ -322,7 +322,7 @@ val dyslexicSmall: TextStyles
 
         conditionLabel = TextStyle(
             fontFamily = SpiraGPSText.dyslexicFont,
-            fontWeight = FontWeight.Normal,
+            fontWeight = FontWeight.Bold,
             fontSize = if(isWebSite()) 17.sp else 12.sp
         )
     )
@@ -395,7 +395,7 @@ val dyslexicMedium: TextStyles
 
         conditionLabel = TextStyle(
             fontFamily = SpiraGPSText.dyslexicFont,
-            fontWeight = FontWeight.Normal,
+            fontWeight = FontWeight.Bold,
             fontSize = if(isWebSite()) 22.sp else 17.sp
         )
     )
@@ -468,7 +468,7 @@ val dyslexicLarge: TextStyles
 
         conditionLabel = TextStyle(
             fontFamily = SpiraGPSText.dyslexicFont,
-            fontWeight = FontWeight.Normal,
+            fontWeight = FontWeight.Bold,
             fontSize = if(isWebSite()) 27.sp else 22.sp
         )
     )
