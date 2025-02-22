@@ -13,6 +13,8 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.bursur.spiragps.editor.ControlPanel
+import com.bursur.spiragps.editor.isPanel
+import com.bursur.spiragps.editor.secondaryEntry
 import com.bursur.spiragps.route.BasePanelEditor
 import com.bursur.spiragps.route.data.Condition
 import com.bursur.spiragps.route.data.Entry
@@ -26,7 +28,6 @@ fun TipEditorPanel(entry: Entry, selectedEntry: Entry, conditions: ArrayList<Con
     var updates by remember { mutableStateOf(0) }
 
     var editControlOpen by remember { mutableStateOf(false) }
-    var editingEntry by remember { mutableStateOf(Entry()) }
 
     if(entry == selectedEntry) {
         BasePanelEditor(border = SpiraGPSColours.tipBorder) {
@@ -38,10 +39,10 @@ fun TipEditorPanel(entry: Entry, selectedEntry: Entry, conditions: ArrayList<Con
                             modifier = Modifier
                                 .clickable {
                                     editControlOpen = true
-                                    editingEntry = it
+                                    secondaryEntry = it
                                 }
                         ) {
-                            if(it == editingEntry)
+                            if(it == secondaryEntry)
                                 ControlPanel(
                                     entry = it,
                                     conditions = conditions,
@@ -69,15 +70,15 @@ fun TipEditorPanel(entry: Entry, selectedEntry: Entry, conditions: ArrayList<Con
                                     }
                                 )
 
-                            createEntry(entry = it, editor = true, selectedEntry = editingEntry, conditions = conditions)
+                            createEntry(entry = it, editor = true, selectedEntry = secondaryEntry, conditions = conditions)
                         }
                     }
 
-                    EntryEditorButton(entry = Entry(type = "info")) {
+                    EntryEditorButton(entry = Entry(type = "info"), isPanel = isPanel(entry)) {
                         if (it != null) {
                             entry.entries.add(it)
                             ++updates
-                            editingEntry = it
+                            secondaryEntry = it
                         }
                     }
                 }

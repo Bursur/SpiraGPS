@@ -14,13 +14,12 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import com.bursur.spiragps.editor.isPanel
 import com.bursur.spiragps.route.data.Entry
 import com.bursur.spiragps.theme.SpiraGPSColours
 import com.bursur.spiragps.theme.SpiraGPSText
 
 @Composable
-fun EntryEditorButton(modifier: Modifier = Modifier, entry: Entry, onDismiss: (Entry?) -> Unit) {
+fun EntryEditorButton(modifier: Modifier = Modifier, entry: Entry, isPanel: Boolean = false, onDismiss: (Entry?) -> Unit) {
     var addEntryExpanded by remember { mutableStateOf(false) }
 
     val typeSelectedCallback: (String) -> Unit = { entryType: String ->
@@ -47,7 +46,7 @@ fun EntryEditorButton(modifier: Modifier = Modifier, entry: Entry, onDismiss: (E
         EntryType("image", onClick = typeSelectedCallback)
         EntryType("bullets", onClick = typeSelectedCallback)
         EntryType("table", onClick = typeSelectedCallback)
-        if(!isPanel(entry)) {
+        if(!isPanel) {
             HorizontalDivider(
                 color = SpiraGPSColours.text,
                 modifier = Modifier.padding(horizontal = 2.dp)

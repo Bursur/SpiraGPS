@@ -16,6 +16,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.bursur.spiragps.editor.ControlPanel
+import com.bursur.spiragps.editor.selectedEntry
 import com.bursur.spiragps.route.data.Chapter
 import com.bursur.spiragps.route.data.Condition
 import com.bursur.spiragps.route.data.Entry
@@ -29,8 +30,6 @@ fun ChapterEditor(chapter: Chapter, conditions: ArrayList<Condition>) {
     val entries by remember { mutableStateOf(chapter.entries) }
 
     var updateCount by remember { mutableStateOf(0) }
-
-    var selectedEntry by remember { mutableStateOf(Entry()) }
 
     Column {
         TitleEditor(title) {

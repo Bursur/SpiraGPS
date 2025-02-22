@@ -18,6 +18,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.bursur.spiragps.editor.ControlPanel
 import com.bursur.spiragps.editor.EditContextMenu
+import com.bursur.spiragps.editor.isPanel
+import com.bursur.spiragps.editor.secondaryEntry
 import com.bursur.spiragps.route.BasePanelEditor
 import com.bursur.spiragps.route.data.Condition
 import com.bursur.spiragps.route.data.Entry
@@ -26,91 +28,10 @@ import com.bursur.spiragps.route.entries.createEntry
 import com.bursur.spiragps.route.entries.spheregrid.SphereGridView
 import com.bursur.spiragps.theme.SpiraGPSColours
 
-@OptIn(ExperimentalFoundationApi::class)
-@Composable
-fun BlitzballEditorPanel(entry: Entry, conditions: ArrayList<Condition>) {
-    val entries by remember { mutableStateOf(entry.entries) }
-    var updates by remember { mutableStateOf(0) }
-
-    var editControlOpen by remember { mutableStateOf(false) }
-    var editingEntry by remember { mutableStateOf(Entry()) }
-
-    BasePanelEditor(border = SpiraGPSColours.blitzballBorder) {
-        key(updates) {
-            LazyColumn(modifier = Modifier.padding(10.dp)) {
-                items(items = entries) {
-                    Column(
-                        modifier = Modifier
-                            .combinedClickable(
-                                onLongClick = {
-                                    editControlOpen = true
-                                    editingEntry = it
-                                },
-                                onClick = {}
-                            )
-                    ) {
-                        createEntry(it)
-                    }
-
-                    if(editControlOpen && editingEntry == it) {
-                        EditContextMenu(
-                            open = editControlOpen,
-                            entry = it,
-                            conditions = conditions,
-                            onDismiss = { editControlOpen = false },
-                            onEntryUpdated = {
-                                editControlOpen = false
-                                ++updates
-                            },
-                            onEntryDeleted = {
-                                editControlOpen = false
-                                if(entry.entries.remove(it))
-                                    ++updates
-                            },
-                            onMoveUp = {
-                                entry.entries.apply {
-                                    val index = indexOf(it)
-                                    if(index >= 1) {
-                                        add(index - 1, removeAt(index))
-                                        ++updates
-                                    }
-                                    editControlOpen = false
-                                }
-                            },
-                            onMoveDown = {
-                                entry.entries.apply {
-                                    val index = indexOf(it)
-                                    if(index != -1 && index < size - 1) {
-                                        add(index + 1, removeAt(index))
-                                        ++updates
-                                    }
-                                    editControlOpen = false
-                                }
-                            }
-                        )
-                    }
-                }
-
-                item {
-                    EntryEditorButton(entry = Entry(type = "info")) {
-                        if (it != null) {
-                            entry.entries.add(it)
-                            ++updates
-                            editingEntry = it
-                        }
-                    }
-                }
-            }
-        }
-    }
-}
-
 @Composable
 fun BlitzballEditorPanel(entry: Entry, selectedEntry: Entry, conditions: ArrayList<Condition>) {
     val entries by remember { mutableStateOf(entry.entries) }
     var updates by remember { mutableStateOf(0) }
-
-    var editingEntry by remember { mutableStateOf(Entry()) }
 
     if(entry == selectedEntry) {
         BasePanelEditor(border = SpiraGPSColours.blitzballBorder) {
@@ -121,10 +42,10 @@ fun BlitzballEditorPanel(entry: Entry, selectedEntry: Entry, conditions: ArrayLi
                             horizontalAlignment = Alignment.CenterHorizontally,
                             modifier = Modifier
                                 .clickable {
-                                    editingEntry = it
+                                    secondaryEntry = it
                                 }
                         ) {
-                            if(it == editingEntry)
+                            if(it == secondaryEntry)
                                 ControlPanel(
                                     entry = it,
                                     conditions = conditions,
@@ -152,11 +73,11 @@ fun BlitzballEditorPanel(entry: Entry, selectedEntry: Entry, conditions: ArrayLi
                                     }
                                 )
 
-                            createEntry(entry = it, editor = true, selectedEntry = editingEntry, conditions = conditions)
+                            createEntry(entry = it, editor = true, selectedEntry = secondaryEntry, conditions = conditions)
                         }
                     }
 
-                    EntryEditorButton(entry = Entry(type = "info")) {
+                    EntryEditorButton(entry = Entry(type = "info"), isPanel = isPanel(entry)) {
                         if (it != null) {
                             entry.entries.add(it)
                             ++updates

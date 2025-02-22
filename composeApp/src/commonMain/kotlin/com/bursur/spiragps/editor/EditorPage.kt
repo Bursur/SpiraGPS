@@ -46,6 +46,9 @@ import com.bursur.spiragps.utils.FileService
 import kotlinx.serialization.encodeToString
 import kotlinx.serialization.json.Json
 
+var selectedEntry by mutableStateOf(Entry())
+var secondaryEntry by mutableStateOf(Entry())
+
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
 fun EditorPage(navigationState: NavigationState) {
@@ -54,7 +57,6 @@ fun EditorPage(navigationState: NavigationState) {
 
     var title by remember { mutableStateOf(route.title) }
     var conditionDialogOpen by remember { mutableStateOf(false) }
-    var selectedEntry by remember { mutableStateOf(Entry()) }
 
     val infoBgColor = animateColorAsState(SpiraGPSColours.infoBackground)
     var awaitingData by remember { mutableStateOf(false) }

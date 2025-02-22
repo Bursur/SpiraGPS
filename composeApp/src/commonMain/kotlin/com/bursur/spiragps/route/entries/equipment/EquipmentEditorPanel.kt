@@ -20,52 +20,6 @@ import com.bursur.spiragps.theme.SpiraGPSColours
 import com.bursur.spiragps.theme.SpiraGPSText
 
 @Composable
-fun EquipmentEditorPanel(entry: Entry) {
-    val steps by remember { mutableStateOf(entry.guide) }
-    var newStep by remember { mutableStateOf("") }
-    var updates by remember { mutableStateOf(0) }
-
-    BasePanelEditor(border = SpiraGPSColours.equipmentBorder) {
-        Text(text = "Equipment:", style = SpiraGPSText.typography.info, color = SpiraGPSColours.text, modifier = Modifier.padding(horizontal = 5.dp))
-        key(updates) {
-            steps.forEachIndexed { index, step ->
-                BulletPointEditor(
-                    text = step,
-                    placeholderText = "Update Equipment...",
-                    onUpdated = {
-                        steps[index] = it
-                        entry.guide = steps
-                    },
-                    onDeleted = {
-                        steps.removeAt(index)
-                        entry.guide = steps
-                        ++updates
-                    }
-                )
-            }
-        }
-
-        Row(modifier = Modifier.padding(horizontal = 10.dp)) {
-            TextEdit(
-                text = newStep,
-                placeholderText = "Add Equipment...",
-                modifier = Modifier.weight(1f)
-            ) { newStep = it }
-
-            TextButton(
-                onClick = {
-                    steps.add(newStep)
-                    newStep = ""
-                    entry.guide = steps
-                }
-            ) {
-                Text(text = "Add", style = SpiraGPSText.typography.info, color = SpiraGPSColours.text)
-            }
-        }
-    }
-}
-
-@Composable
 fun EquipmentEditorPanel(entry: Entry, selectedEntry: Entry) {
     val steps by remember { mutableStateOf(entry.guide) }
     var newStep by remember { mutableStateOf("") }
