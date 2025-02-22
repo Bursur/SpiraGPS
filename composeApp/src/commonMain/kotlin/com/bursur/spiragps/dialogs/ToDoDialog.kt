@@ -1,7 +1,6 @@
 package com.bursur.spiragps.dialogs
 
 import androidx.compose.animation.animateColorAsState
-import androidx.compose.foundation.Image
 import androidx.compose.foundation.hoverable
 import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.Column
@@ -11,12 +10,9 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
-import androidx.compose.material3.ExperimentalMaterial3Api
-import androidx.compose.material3.RichTooltip
 import androidx.compose.material3.SmallFloatingActionButton
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
-import androidx.compose.material3.TooltipDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -28,40 +24,30 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.window.Dialog
 import coil3.compose.AsyncImage
-import coil3.compose.rememberAsyncImagePainter
 import com.bursur.spiragps.components.bulletedlist.BulletedList
 import com.bursur.spiragps.route.data.Entry
 import com.bursur.spiragps.theme.SpiraGPSColours
 import com.bursur.spiragps.theme.SpiraGPSText
 
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun ToDoActionButton(modifier: Modifier = Modifier) {
     var openAlertDialog by remember { mutableStateOf(false) }
-    val textColour = animateColorAsState(SpiraGPSColours.text)
-    val bgColour = animateColorAsState(SpiraGPSColours.infoBackground)
     val interactionSource = remember { MutableInteractionSource() }
 
-    /*RichTooltip(
-        text = { Text("ToDo List", style = SpiraGPSText.typography.infoBold, color = textColour.value) },
-        colors = TooltipDefaults.richTooltipColors(containerColor = bgColour.value),
-        action = {*/
-            SmallFloatingActionButton(
-                onClick = {
-                    openAlertDialog = true
-                },
-                containerColor = SpiraGPSColours.fabBackgroundColour,
-                contentColor = SpiraGPSColours.fabIconColour,
-                modifier = modifier.hoverable(interactionSource)
-            ) {
-                AsyncImage(
-                    model = "https://bursur.github.io/SpiraGPS/todo.png",
-                    contentDescription = null,
-                    modifier = Modifier.padding(5.dp).width(24.dp).height(24.dp)
-                )
-            }
-        /*}
-    )*/
+    SmallFloatingActionButton(
+        onClick = {
+            openAlertDialog = true
+        },
+        containerColor = SpiraGPSColours.fabBackgroundColour,
+        contentColor = SpiraGPSColours.fabIconColour,
+        modifier = modifier.hoverable(interactionSource)
+    ) {
+        AsyncImage(
+            model = "https://bursur.github.io/SpiraGPS/todo.png",
+            contentDescription = null,
+            modifier = Modifier.padding(5.dp).width(24.dp).height(24.dp)
+        )
+    }
 
     if(openAlertDialog)
         ToDoDialog { openAlertDialog = false }
@@ -96,7 +82,8 @@ fun ToDoDialog(onDismissRequest: () -> Unit) {
                             "Misc: Credits Page",
                             "Misc: Version History Page",
                             "Routes: BUG! Tables HAVE to have entries totaling a multiple of 2, this shouldn't be the case",
-                            "Editor: Chapters cannot be re-organised."
+                            "Editor: Chapters cannot be re-organised",
+                            "Misc: Handle Browser Back Button"
                         )
                     )
                 )
