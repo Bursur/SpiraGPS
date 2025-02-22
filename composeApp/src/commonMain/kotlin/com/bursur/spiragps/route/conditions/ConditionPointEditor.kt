@@ -75,7 +75,14 @@ fun ConditionPointEditor(condition: Condition, onDismiss: () -> Unit) {
                             TextEdit(
                                 text = newItem,
                                 placeholderText = "Enter New Option...",
-                                modifier = Modifier.weight(1f)
+                                modifier = Modifier.weight(1f),
+                                multiLine = false,
+                                onEnterKey = {
+                                    options.add(newItem)
+                                    newItem = ""
+                                    condition.options = options
+                                    ++updates
+                                },
                             ) { newItem = it }
 
                             TextButton(

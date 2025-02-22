@@ -10,7 +10,6 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.text.BasicTextField
-import androidx.compose.material.icons.Icons
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -25,6 +24,10 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.SolidColor
+import androidx.compose.ui.input.key.Key
+import androidx.compose.ui.input.key.KeyEvent
+import androidx.compose.ui.input.key.key
+import androidx.compose.ui.input.key.onKeyEvent
 import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.unit.dp
 import coil3.compose.AsyncImage
@@ -34,7 +37,7 @@ import com.bursur.spiragps.utils.ClipboardService
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun TextEdit(modifier: Modifier = Modifier, text: String, placeholderText: String, isBold: Boolean = false, onValueChange: (String) -> Unit) {
+fun TextEdit(modifier: Modifier = Modifier, text: String, placeholderText: String, isBold: Boolean = false, multiLine: Boolean = true, onEnterKey: () -> Unit = {}, onValueChange: (String) -> Unit) {
     val textColour by animateColorAsState(SpiraGPSColours.text)
     val bgColour by animateColorAsState(SpiraGPSColours.infoBackground)
     val indicatorColour by animateColorAsState(SpiraGPSColours.toggleSelectedTrackColour)
@@ -52,8 +55,14 @@ fun TextEdit(modifier: Modifier = Modifier, text: String, placeholderText: Strin
                             SpiraGPSText.typography.info)
                 .copy(color = textColour),
             cursorBrush = SolidColor(textColour),
+            maxLines = if(multiLine) Int.MAX_VALUE else 1,
             modifier = Modifier.fillMaxWidth()
                 .weight(1f)
+                .onKeyEvent {
+                    if (it.key.keyCode == Key.Enter.keyCode)
+                        onEnterKey()
+                    true
+                }
         ) { innerTextField ->
             TextFieldDefaults.DecorationBox(
                 value = text,

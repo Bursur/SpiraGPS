@@ -22,6 +22,7 @@ fun TitleEditor(title: String, onValueChange: (String) -> Unit) {
 
     TextField(
         value = title,
+        maxLines = 1,
         onValueChange = {
             onValueChange(it)
         },

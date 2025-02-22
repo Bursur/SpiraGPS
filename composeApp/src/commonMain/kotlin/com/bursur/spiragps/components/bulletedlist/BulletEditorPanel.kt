@@ -84,7 +84,14 @@ fun BulletEditorPanel(entry: Entry, selectedEntry: Entry) {
                     TextEdit(
                         text = newPoint,
                         placeholderText = "Enter New Point...",
-                        modifier = Modifier.weight(1f)
+                        modifier = Modifier.weight(1f),
+                        multiLine = false,
+                        onEnterKey = {
+                            entries.add(newPoint)
+                            newPoint = ""
+                            entry.guide = entries
+                            ++updates
+                        }
                     ) { newPoint = it }
 
                     TextButton(

@@ -64,6 +64,13 @@ fun ConditionEditor(route: Route, onDismiss: () -> Unit) {
                     TextEdit(
                         text = newCondition,
                         placeholderText = "Enter New Condition...",
+                        multiLine = false,
+                        onEnterKey = {
+                            conditionList.add(Condition(newCondition))
+                            newCondition = ""
+                            editingCondition = conditionList.last()
+                            route.conditions = conditionList
+                        },
                         modifier = Modifier.weight(1f)
                     ) { newCondition = it }
 

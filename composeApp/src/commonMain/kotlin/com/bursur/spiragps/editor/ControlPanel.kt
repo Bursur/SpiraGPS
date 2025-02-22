@@ -37,8 +37,10 @@ fun ControlPanel(
 
     Row(verticalAlignment = Alignment.CenterVertically) {
         // Conditions
-        ControlPanelButton("https://bursur.github.io/SpiraGPS/todo.png") {
-            conditionExpanded = true
+        if(entry != secondaryEntry) {
+            ControlPanelButton("https://bursur.github.io/SpiraGPS/todo.png") {
+                conditionExpanded = true
+            }
         }
 
         // Start Minimised (Panel only)

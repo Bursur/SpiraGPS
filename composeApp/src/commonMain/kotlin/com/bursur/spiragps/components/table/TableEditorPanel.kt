@@ -51,7 +51,14 @@ fun TableEditorPanel(entry: Entry, selectedEntry: Entry) {
                     TextEdit(
                         text = newItem,
                         placeholderText = "Enter New Point...",
-                        modifier = Modifier.weight(1f)
+                        modifier = Modifier.weight(1f),
+                        multiLine = false,
+                        onEnterKey = {
+                            entries.add(newItem)
+                            newItem = ""
+                            entry.guide = entries
+                            ++updates
+                        }
                     ) { newItem = it }
 
                     TextButton(

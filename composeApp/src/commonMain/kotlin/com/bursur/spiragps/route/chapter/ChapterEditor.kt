@@ -1,11 +1,15 @@
 package com.bursur.spiragps.route.chapter
 
+import androidx.compose.animation.animateColorAsState
 import androidx.compose.animation.animateContentSize
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.sizeIn
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.key
@@ -14,7 +18,9 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.ColorFilter
 import androidx.compose.ui.unit.dp
+import coil3.compose.AsyncImage
 import com.bursur.spiragps.editor.ControlPanel
 import com.bursur.spiragps.editor.selectedEntry
 import com.bursur.spiragps.route.data.Chapter
@@ -23,11 +29,13 @@ import com.bursur.spiragps.route.data.Entry
 import com.bursur.spiragps.route.entries.EntryEditorButton
 import com.bursur.spiragps.route.entries.createEntry
 import com.bursur.spiragps.route.title.TitleEditor
+import com.bursur.spiragps.theme.SpiraGPSColours
 
 @Composable
 fun ChapterEditor(chapter: Chapter, conditions: ArrayList<Condition>) {
     var title by remember { mutableStateOf(chapter.title) }
     val entries by remember { mutableStateOf(chapter.entries) }
+    val textColour by animateColorAsState(SpiraGPSColours.text)
 
     var updateCount by remember { mutableStateOf(0) }
 
@@ -39,7 +47,7 @@ fun ChapterEditor(chapter: Chapter, conditions: ArrayList<Condition>) {
 
         key(updateCount) {
             entries.forEach {
-                Column(
+                Box(
                     modifier = Modifier
                         .clickable {
                             selectedEntry = it
@@ -78,8 +86,20 @@ fun ChapterEditor(chapter: Chapter, conditions: ArrayList<Condition>) {
                             )
 
                         createEntry(entry = it, editor = true, selectedEntry = selectedEntry)
+                        Spacer(modifier = Modifier.size(10.dp))
                     }
-                    Spacer(modifier = Modifier.size(10.dp))
+
+                    if(it.requirement.isNotEmpty()) {
+                        AsyncImage(
+                            model = "https://bursur.github.io/SpiraGPS/condition_arrow.png",
+                            contentDescription = "",
+                            colorFilter = ColorFilter.tint(textColour),
+                            modifier = Modifier
+                                .sizeIn(maxWidth = 20.dp, maxHeight = 20.dp)
+                                .align(Alignment.TopStart)
+                                .offset(x = (-20).dp)
+                        )
+                    }
                 }
             }
         }
