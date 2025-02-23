@@ -120,7 +120,8 @@ fun ChapterEditor(chapter: Chapter, conditions: ArrayList<Condition>) {
                                         color = SpiraGPSColours.text
                                     )
                                 }
-                            }
+                            },
+                            modifier = Modifier.offset(x = (-20).dp)
                         ) {
                             AsyncImage(
                                 model = "https://bursur.github.io/SpiraGPS/condition_arrow.png",
@@ -129,7 +130,6 @@ fun ChapterEditor(chapter: Chapter, conditions: ArrayList<Condition>) {
                                 modifier = Modifier
                                     .sizeIn(maxWidth = 20.dp, maxHeight = 20.dp)
                                     .align(Alignment.TopStart)
-                                    .offset(x = (-20).dp)
                             )
                         }
                     }
