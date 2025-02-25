@@ -48,7 +48,7 @@ fun ConditionalView(condition: Condition, conditionState: ConditionState) {
         ConditionSelectDropdown(
             condition,
             optionsExpanded,
-            onDismiss = {},
+            onDismiss = { optionsExpanded = false },
             onSelected = { state ->
                 optionsExpanded = false
                 conditionState.setCondition(condition.name, state)
