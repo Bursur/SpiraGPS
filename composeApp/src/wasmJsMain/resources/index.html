@@ -43,6 +43,43 @@
             return 0
         }
 
+        function saveKhaegarModePreference(enabled) {
+            localStorage.khaegarMode = enabled;
+
+            var link = document.querySelector("link[rel~='icon']");
+            if (!link) {
+                link = document.createElement('link');
+                link.rel = 'icon';
+                document.head.appendChild(link);
+            }
+
+            if(enabled == 1)
+                link.href = './khaegar_icon.ico';
+            else
+                link.href = './favicon.ico';
+        }
+
+        function loadKhaegarModePreference() {
+            if(localStorage.khaegarMode) {
+                var enabled = Number(localStorage.khaegarMode);
+                var link = document.querySelector("link[rel~='icon']");
+                if (!link) {
+                    link = document.createElement('link');
+                    link.rel = 'icon';
+                    document.head.appendChild(link);
+                }
+
+                if(enabled == 1)
+                    link.href = './khaegar_icon.ico';
+                else
+                    link.href = './favicon.ico';
+
+                return enabled
+            }
+
+            return 0
+        }
+
         // File I/O
         var data = "#DEADFACE";
         function getLoadedData() {
