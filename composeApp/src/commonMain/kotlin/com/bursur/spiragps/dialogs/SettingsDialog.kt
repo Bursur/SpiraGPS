@@ -1,7 +1,6 @@
 package com.bursur.spiragps.dialogs
 
 import androidx.compose.animation.animateColorAsState
-import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.hoverable
 import androidx.compose.foundation.interaction.MutableInteractionSource
@@ -54,6 +53,8 @@ import com.bursur.spiragps.theme.large
 import com.bursur.spiragps.theme.lightScheme
 import com.bursur.spiragps.theme.medium
 import com.bursur.spiragps.theme.small
+
+external fun playAudio(file: String)
 
 
 @Composable
@@ -132,6 +133,9 @@ private fun KhaegarModeButton() {
                     else -> lightScheme
                 }
                 setKhaegarModePreference(if(SpiraGPSKhaegarMode) 1 else 0)
+
+                if(it)
+                    playAudio("https://bursur.github.io/SpiraGPS/moopsy.mp3")
             },
             colors = SwitchDefaults.colors(
                 checkedThumbColor = selectedColour,
