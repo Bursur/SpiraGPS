@@ -9,5 +9,8 @@ data class Route(
     var keywords: ArrayList<String> = arrayListOf(),
     var chapters: ArrayList<Chapter> = arrayListOf(),
 
-    var conditions: ArrayList<Condition> = arrayListOf()
+    var conditions: ArrayList<Condition> = arrayListOf(),
+
+    var speedSpheres: Int = 0,
+    var powerSpheres: Int = 0
 )

@@ -37,7 +37,7 @@ import com.bursur.spiragps.utils.ClipboardService
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun TextEdit(modifier: Modifier = Modifier, text: String, placeholderText: String, isBold: Boolean = false, multiLine: Boolean = true, onEnterKey: () -> Unit = {}, onValueChange: (String) -> Unit) {
+fun TextEdit(modifier: Modifier = Modifier, text: String, placeholderText: String, isBold: Boolean = false, multiLine: Boolean = true, hasPasteButton: Boolean = false, onEnterKey: () -> Unit = {}, onValueChange: (String) -> Unit) {
     val textColour by animateColorAsState(SpiraGPSColours.text)
     val bgColour by animateColorAsState(SpiraGPSColours.infoBackground)
     val indicatorColour by animateColorAsState(SpiraGPSColours.toggleSelectedTrackColour)
@@ -91,13 +91,19 @@ fun TextEdit(modifier: Modifier = Modifier, text: String, placeholderText: Strin
             )
         }
 
-        Button(
-            onClick = { awaitingClipboardData = true },
-            colors = ButtonDefaults.buttonColors(containerColor = bgColour),
-            contentPadding = PaddingValues(3.dp),
-            modifier = Modifier.defaultMinSize(1.dp, 1.dp)
-        ) {
-            AsyncImage(model = "https://bursur.github.io/SpiraGPS/paste.png", contentDescription = null, modifier = Modifier.padding(2.dp).width(15.dp).height(15.dp))
+        if(hasPasteButton) {
+            Button(
+                onClick = { awaitingClipboardData = true },
+                colors = ButtonDefaults.buttonColors(containerColor = bgColour),
+                contentPadding = PaddingValues(3.dp),
+                modifier = Modifier.defaultMinSize(1.dp, 1.dp)
+            ) {
+                AsyncImage(
+                    model = "https://bursur.github.io/SpiraGPS/paste.png",
+                    contentDescription = null,
+                    modifier = Modifier.padding(2.dp).width(15.dp).height(15.dp)
+                )
+            }
         }
     }
 

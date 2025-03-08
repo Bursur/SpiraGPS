@@ -106,6 +106,8 @@ fun RouteView(route: Route, conditionState: ConditionState, contentsState: Conte
                 }
             }
         }
+
+        SphereCounter(route = route, modifier = Modifier.align(Alignment.BottomCenter))
     }
 
     LaunchedEffect(contentsState.selectedChapter) {

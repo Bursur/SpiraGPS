@@ -14,6 +14,7 @@ import com.bursur.spiragps.theme.SpiraGPSColours
 import com.bursur.spiragps.theme.SpiraGPSText
 import com.bursur.spiragps.theme.highlightKeywords
 import com.mohamedrejeb.richeditor.model.rememberRichTextState
+
 @Composable
 fun InfoView(entry: Entry) {
     val textColour by animateColorAsState(SpiraGPSColours.text)
