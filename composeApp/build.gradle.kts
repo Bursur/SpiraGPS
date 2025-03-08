@@ -9,7 +9,7 @@ plugins {
     alias(libs.plugins.androidApplication)
     alias(libs.plugins.jetbrainsCompose)
     alias(libs.plugins.compose.compiler)
-    kotlin("plugin.serialization") version "2.0.20"
+    kotlin("plugin.serialization") version "2.1.20-RC"
 }
 
 kotlin {
@@ -57,6 +57,7 @@ kotlin {
             implementation(compose.runtime)
             implementation(compose.foundation)
             implementation(compose.material3)
+            implementation(compose.materialIconsExtended)
             implementation(compose.ui)
             implementation(compose.components.resources)
             implementation(compose.components.uiToolingPreview)
@@ -70,6 +71,8 @@ kotlin {
             implementation(libs.coil.mp)
             implementation(libs.coil.compose)
             implementation(libs.coil.network.ktor)
+
+            implementation("com.mohamedrejeb.richeditor:richeditor-compose:1.0.0-rc09")
         }
         desktopMain.dependencies {
             implementation(compose.desktop.currentOs)

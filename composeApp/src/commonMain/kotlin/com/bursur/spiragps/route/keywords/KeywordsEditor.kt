@@ -85,6 +85,12 @@ fun KeywordsEditor(route: Route, onDismiss: () -> Unit) {
                     TextEdit(
                         text = newKeyword,
                         placeholderText = "Enter New Keyword...",
+                        multiLine = false,
+                        onEnterKey = {
+                            keywordList.add(newKeyword)
+                            newKeyword = ""
+                            route.keywords = keywordList
+                        },
                         modifier = Modifier.weight(1f)
                     ) { newKeyword = it }
 

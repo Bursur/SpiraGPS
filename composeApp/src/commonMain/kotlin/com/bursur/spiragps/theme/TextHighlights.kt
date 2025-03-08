@@ -7,6 +7,11 @@ import androidx.compose.ui.text.font.FontWeight
 fun highlightKeywords(text: String): AnnotatedString {
     val builder = AnnotatedString.Builder(text)
 
+    return highlightKeywords(builder.toAnnotatedString())
+}
+
+fun highlightKeywords(text: AnnotatedString): AnnotatedString {
+    val builder = AnnotatedString.Builder(text)
     SpiraGPSText.keywords.forEach {
         var start = 0
         while(start < text.length) {
@@ -28,7 +33,7 @@ fun highlightKeywords(text: String): AnnotatedString {
         }
     }
 
-    highlightSpecialCharacters(text, builder)
+    highlightSpecialCharacters(text.toString(), builder)
 
     return builder.toAnnotatedString()
 }
