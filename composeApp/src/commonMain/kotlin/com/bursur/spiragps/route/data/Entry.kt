@@ -21,6 +21,7 @@ data class Entry(
     // Battle
     var enemy: String = "",
     var health: Int = 0,
+    var actions: Int = 0,
 
     // Trial
     // Use image and guide

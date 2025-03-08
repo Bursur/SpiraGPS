@@ -1,5 +1,7 @@
 package com.bursur.spiragps.route.entries.battle
 
+import androidx.compose.foundation.clickable
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.padding
@@ -16,19 +18,24 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.bursur.spiragps.components.bulletedlist.BulletPointEditor
+import com.bursur.spiragps.editor.ControlPanel
 import com.bursur.spiragps.editor.components.TextEdit
+import com.bursur.spiragps.editor.isPanel
+import com.bursur.spiragps.editor.secondaryEntry
 import com.bursur.spiragps.route.BasePanelEditor
+import com.bursur.spiragps.route.data.Condition
 import com.bursur.spiragps.route.data.Entry
+import com.bursur.spiragps.route.entries.EntryEditorButton
+import com.bursur.spiragps.route.entries.createEntry
 import com.bursur.spiragps.theme.SpiraGPSColours
 import com.bursur.spiragps.theme.SpiraGPSText
 
 @Composable
-fun BattleEditorPanel(entry: Entry, selectedEntry: Entry) {
+fun BattleEditorPanel(entry: Entry, selectedEntry: Entry, conditions: ArrayList<Condition>) {
     var enemy by remember { mutableStateOf(entry.enemy) }
     var health by remember { mutableStateOf(entry.health) }
-    val steps by remember { mutableStateOf(entry.guide) }
-    var newStep by remember { mutableStateOf("") }
-
+    var actions by remember { mutableStateOf(entry.actions) }
+    val entries by remember { mutableStateOf(entry.entries) }
     var updates by remember { mutableStateOf(0) }
 
     if(selectedEntry == entry) {
@@ -71,50 +78,78 @@ fun BattleEditorPanel(entry: Entry, selectedEntry: Entry) {
                 }
             }
 
-            Spacer(modifier = Modifier.size(10.dp))
-            Text(
-                text = "Steps:",
-                style = SpiraGPSText.typography.info,
-                color = SpiraGPSColours.text,
+            Row(
+                verticalAlignment = Alignment.CenterVertically,
                 modifier = Modifier.padding(horizontal = 5.dp)
-            )
-            key(updates) {
-                steps.forEachIndexed { index, step ->
-                    BulletPointEditor(
-                        text = step,
-                        placeholderText = "Update Step...",
-                        onUpdated = {
-                            steps[index] = it
-                            entry.guide = steps
-                        },
-                        onDeleted = {
-                            steps.removeAt(index)
-                            entry.guide = steps
-                            ++updates
-                        }
-                    )
+            ) {
+                Text(
+                    text = "Actions:",
+                    style = SpiraGPSText.typography.info,
+                    color = SpiraGPSColours.text
+                )
+                TextEdit(
+                    text = if (actions != 0) actions.toString() else "",
+                    placeholderText = "Action Count..."
+                ) {
+                    actions = try {
+                        it.toInt(10)
+                    } catch (e: Exception) {
+                        actions
+                    }
+
+                    entry.actions = actions
                 }
             }
 
-            Row(modifier = Modifier.padding(horizontal = 10.dp)) {
-                TextEdit(
-                    text = newStep,
-                    placeholderText = "Enter New Step...",
-                    modifier = Modifier.weight(1f)
-                ) { newStep = it }
+            Spacer(modifier = Modifier.size(10.dp))
+            key(updates) {
+                Column(modifier = Modifier.padding(10.dp)) {
+                    entries.forEach {
+                        Column(
+                            horizontalAlignment = Alignment.CenterHorizontally,
+                            modifier = Modifier
+                                .clickable {
+                                    secondaryEntry = it
+                                }
+                        ) {
+                            if(it == secondaryEntry)
+                                ControlPanel(
+                                    entry = it,
+                                    conditions = conditions,
+                                    onEntryDeleted = {
+                                        if(entry.entries.remove(it))
+                                            ++updates
+                                    },
+                                    onMoveUp = {
+                                        entry.entries.apply {
+                                            val index = indexOf(it)
+                                            if(index >= 1) {
+                                                add(index - 1, removeAt(index))
+                                                ++updates
+                                            }
+                                        }
+                                    },
+                                    onMoveDown = {
+                                        entry.entries.apply {
+                                            val index = indexOf(it)
+                                            if(index != -1 && index < size - 1) {
+                                                add(index + 1, removeAt(index))
+                                                ++updates
+                                            }
+                                        }
+                                    }
+                                )
 
-                TextButton(
-                    onClick = {
-                        steps.add(newStep)
-                        newStep = ""
-                        entry.guide = steps
+                            createEntry(entry = it, editor = true, selectedEntry = secondaryEntry, conditions = conditions)
+                        }
                     }
-                ) {
-                    Text(
-                        text = "Add",
-                        style = SpiraGPSText.typography.info,
-                        color = SpiraGPSColours.text
-                    )
+
+                    EntryEditorButton(entry = Entry(type = "info"), isPanel = isPanel(entry)) {
+                        if (it != null) {
+                            entry.entries.add(it)
+                            ++updates
+                        }
+                    }
                 }
             }
         }

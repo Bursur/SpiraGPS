@@ -58,16 +58,12 @@ fun InfoEditorPanel(entry: Entry, selectedEntry: Entry) {
     val state = rememberRichTextState()
     val infoText by remember(state.annotatedString) { mutableStateOf(state.toHtml()) }
 
-    LaunchedEffect(Unit) {
-        state.setHtml(entry.text)
-    }
-
-    LaunchedEffect(infoText) {
-        entry.text = infoText
-    }
-
     Column(horizontalAlignment = Alignment.CenterHorizontally, modifier = Modifier.animateContentSize()) {
         if(selectedEntry == entry) {
+            LaunchedEffect(Unit) {
+                state.setHtml(entry.text)
+            }
+
             InfoEditControlPanel(state)
             RichTextEditor(
                 state = state,
@@ -83,9 +79,14 @@ fun InfoEditorPanel(entry: Entry, selectedEntry: Entry) {
                 ),
                 modifier = Modifier.fillMaxWidth()
             )
+
+            LaunchedEffect(infoText) {
+                entry.text = infoText
+            }
         }
-        else
+        else {
             InfoView(entry)
+        }
     }
 }
 

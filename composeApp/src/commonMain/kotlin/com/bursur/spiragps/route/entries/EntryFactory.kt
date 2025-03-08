@@ -40,7 +40,7 @@ import com.bursur.spiragps.route.entries.trials.TrialsView
 fun createEntry(entry: Entry, editor: Boolean = false, selectedEntry: Entry = Entry(), conditions: ArrayList<Condition> = arrayListOf()) {
     return when(entry.type) {
         //Panels
-        "battle" -> if(!editor) BattleView(entry) else BattleEditorPanel(entry, selectedEntry)
+        "battle" -> if(!editor) BattleView(entry) else BattleEditorPanel(entry, selectedEntry, conditions)
         "encounter" -> if(!editor) EncounterView(entry) else EncounterEditorPanel(entry, selectedEntry)
         "trial" -> if(!editor) TrialsView(entry) else TrialEditorPanel(entry, selectedEntry, conditions)
         "shop" -> if(!editor) ShopView(entry) else ShopEditorPanel(entry, selectedEntry)
