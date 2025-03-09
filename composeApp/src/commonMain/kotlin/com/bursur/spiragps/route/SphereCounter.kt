@@ -17,8 +17,10 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.layout.widthIn
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Add
 import androidx.compose.material.icons.filled.ChevronLeft
 import androidx.compose.material.icons.filled.ChevronRight
+import androidx.compose.material.icons.filled.Remove
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.Text
@@ -91,7 +93,7 @@ private fun Counter(sphereType: String, requirement: Int) {
                 --count
             }
         ) {
-            Icon(imageVector = Icons.Default.ChevronLeft, contentDescription = null, tint = textColor)
+            Icon(imageVector = Icons.Default.Remove, contentDescription = null, tint = textColor)
         }
 
         // Count
@@ -103,7 +105,7 @@ private fun Counter(sphereType: String, requirement: Int) {
                 ++count
             }
         ) {
-            Icon(imageVector = Icons.Default.ChevronRight, contentDescription = null, tint = textColor)
+            Icon(imageVector = Icons.Default.Add, contentDescription = null, tint = textColor)
         }
 
         // Set Text

@@ -59,8 +59,14 @@
                 {
                     "type": "battle",
                     "enemy": "Sahagins",
-                    "guide": [
-                        "Tidus ↓, ↓, X, ↓, X, ↓ x6, →, X, X"
+                    "entries": [
+                        {
+                            "type": "bullets",
+                            "trailingBreak": true,
+                            "guide": [
+                                "Tidus ↓, ↓, X, ↓, X, ↓ x6, →, X, X"
+                            ]
+                        }
                     ],
                     "trailingBreak": true
                 },
@@ -207,9 +213,15 @@
                 {
                     "type": "battle",
                     "enemy": "Yuna Aeon Tutorial",
-                    "guide": [
-                        "Summon Valefor",
-                        "↓, X, X"
+                    "entries": [
+                        {
+                            "type": "bullets",
+                            "trailingBreak": true,
+                            "guide": [
+                                "Summon Valefor",
+                                "↓, X, X"
+                            ]
+                        }
                     ],
                     "trailingBreak": true
                 },
@@ -306,8 +318,14 @@
                 {
                     "type": "battle",
                     "enemy": "Issaru - Ifrit",
-                    "guide": [ 
-                        "Summon Ixion: ↓, X, ↓, ↓, X"
+                    "entries": [
+                        {
+                            "type": "bullets",
+                            "trailingBreak": true,
+                            "guide": [
+                                "Summon Ixion: ↓, X, ↓, ↓, X"
+                            ]
+                        }
                     ],
                     "trailingBreak": true
                 }
@@ -326,10 +344,16 @@
                 {
                     "type": "battle",
                     "enemy": "Seymour Omnis",
-                    "guide": [ 
-                        "Any ratJAM",
-                        "Tidus Armour Break: Option 2, X, ↓ x6 (12 MP), X, X",
-                        "Tidus Quick Hit: Option 2, Bottom Right (36 MP), X, X"
+                    "entries": [
+                        {
+                            "type": "bullets",
+                            "trailingBreak": true,
+                            "guide": [
+                                "Any ratJAM",
+                                "Tidus Armour Break: Option 2, X, ↓ x6 (12 MP), X, X",
+                                "Tidus Quick Hit: Option 2, Bottom Right (36 MP), X, X"
+                            ]
+                        }
                     ],
                     "trailingBreak": true
                 }

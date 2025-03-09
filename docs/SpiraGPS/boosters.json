@@ -75,10 +75,15 @@
                     "type": "battle",
                     "enemy": "Sinspawn Ammes",
                     "health": 2400,
-                    "guide": [
-                        "Disable 4x to skip dialogue then re-enable",
-                        "Auron Overdrive Dragonfang",
-                        "Tidus Use Ice Gem"
+                    "entries": [
+                        {
+                            "type": "bullets", "trailingBreak": true,
+                            "guide": [
+                                "Disable 4x to skip dialogue then re-enable",
+                                "Auron Overdrive Dragonfang",
+                                "Tidus Use Ice Gem"
+                            ]
+                        }
                     ],
                     "trailingBreak": true
                 },
@@ -86,11 +91,16 @@
                     "type": "battle",
                     "enemy": "Tanker",
                     "health": 1000,
-                    "guide": [
-                        "Tidus Switch Weapon",
-                        "Auron Attack Self",
-                        "Tidus Switch Weapon x2",
-                        "Tidus Use Ice Gem on Tanker"
+                    "entries": [
+                        {
+                            "type": "bullets", "trailingBreak": true,
+                            "guide": [
+                                "Tidus Switch Weapon",
+                                "Auron Attack Self",
+                                "Tidus Switch Weapon x2",
+                                "Tidus Use Ice Gem on Tanker"
+                            ]
+                        }
                     ],
                     "trailingBreak": true
                 }
@@ -102,16 +112,27 @@
                 {
                     "type": "battle",
                     "enemy": "Sahagins",
-                    "guide": [
-                        "Tidus Use Grenade (or Frag Grenade/Sleeping Powder/Dream Powder/Silence Grenade/Smoke Bomb)"
+                    "entries": [
+                        {
+                            "type": "bullets", "trailingBreak": true,
+                            "guide": [
+                                "Tidus Use Grenade (or Frag Grenade/Sleeping Powder/Dream Powder/Silence Grenade/Smoke Bomb)"
+                            ]
+                        }
                     ],
                     "trailingBreak": true
                 },
                 {
                     "type": "battle",
                     "enemy": "Geosgaeno",
-                    "guide": [
-                        "Tidus Defend until battle ends"
+                    "entries": [
+                        {
+                            "type": "bullets",
+                            "trailingBreak": true,
+                            "guide": [
+                                "Tidus Defend until battle ends"
+                            ]
+                        }
                     ],
                     "trailingBreak": true
                 },
@@ -139,11 +160,17 @@
                     "type": "battle",
                     "enemy": "Klikk",
                     "health": 1500,
-                    "guide": [
-                        "Disable 4x to skip dialogue then re-enable",
-                        "Tidus use Shining Gem",
-                        "Disable 4x to skip dialogue then re-enable",
-                        "Rikku use Shining Gem"
+                    "entries": [
+                        {
+                            "type": "bullets",
+                            "trailingBreak": true,
+                            "guide": [
+                                "Disable 4x to skip dialogue then re-enable",
+                                "Tidus use Shining Gem",
+                                "Disable 4x to skip dialogue then re-enable",
+                                "Rikku use Shining Gem"
+                            ]
+                        }
                     ],
                     "trailingBreak": true
                 }
@@ -215,14 +242,30 @@
                 {
                     "type": "battle",
                     "enemy": "Pirhanas",
-                    "guide": ["Any Use Smoke Bomb (hope you like your fish smoked)"],
+                    "entries": [
+                        {
+                            "type": "bullets",
+                            "trailingBreak": true,
+                            "guide": [
+                                "Any Use Smoke Bomb (hope you like your fish smoked)"
+                            ]
+                        }
+                    ],
                     "trailingBreak": true
                 },
                 {
                     "type": "battle",
                     "enemy": "Tros",
                     "health": 2200,
-                    "guide": ["Tidus Attack"],
+                    "entries": [
+                        {
+                            "type": "bullets",
+                            "trailingBreak": true,
+                            "guide": [
+                                "Tidus Attack"
+                            ]
+                        }
+                    ],
                     "trailingBreak": true
                 }
             ]
@@ -252,21 +295,33 @@
                 {
                     "type": "battle",
                     "enemy": "Tidus and Wakka Tutorial",
-                    "guide": [
-                        "Disable 4x to skip dialogue then re-enable",
-                        "Tidus Attack",
-                        "Disable 4x to skip dialogue then re-enable",
-                        "Wakka Attack"
+                    "entries": [
+                        {
+                            "type": "bullets",
+                            "trailingBreak": true,
+                            "guide": [
+                                "Disable 4x to skip dialogue then re-enable",
+                                "Tidus Attack",
+                                "Disable 4x to skip dialogue then re-enable",
+                                "Wakka Attack"
+                            ]
+                        }
                     ],
                     "trailingBreak": true
                 },
                 {
                     "type": "battle",
                     "enemy": "Lulu Magic Tutorial",
-                    "guide": [
-                        "Disable 4x to skip dialogue then re-enable",
-                        "Tidus Attack",
-                        "Disable 4x to skip dialogue then re-enable"
+                    "entries": [
+                        {
+                            "type": "bullets",
+                            "trailingBreak": true,
+                            "guide": [
+                                "Disable 4x to skip dialogue then re-enable",
+                                "Tidus Attack",
+                                "Disable 4x to skip dialogue then re-enable"
+                            ]
+                        }
                     ],
                     "trailingBreak": true
                 },
@@ -275,7 +330,15 @@
                     "type": "battle",
                     "enemy": "Kimahri",
                     "health": 750,
-                    "guide": ["Tidus Auto Attack"],
+                    "entries": [
+                        {
+                            "type": "bullets",
+                            "trailingBreak": true,
+                            "guide": [
+                                "Tidus Auto Attack"
+                            ]
+                        }
+                    ],
                     "trailingBreak": true
                 },
                 { 
@@ -297,10 +360,16 @@
                 {
                     "type": "battle",
                     "enemy": "Yuna Aeon Tutorial",
-                    "guide": [
-                        "Disable 4x to skip dialogue then re-enable",
-                        "Yuna Summon Valefor",
-                        "Valefor Attack"
+                    "entries": [
+                        {
+                            "type": "bullets",
+                            "trailingBreak": true,
+                            "guide": [
+                                "Disable 4x to skip dialogue then re-enable",
+                                "Yuna Summon Valefor",
+                                "Valefor Attack"
+                            ]
+                        }
                     ],
                     "trailingBreak": true
                 },
@@ -321,10 +390,16 @@
                 {
                     "type": "battle",
                     "enemy": "Sin Fin & Sinspawn Echuilles",
-                    "guide": [
-                        "Any Use Sining gem on Sin Fin",
-                        "Enable Auto Attack",
-                        "Tidus Auto Attack"
+                    "entries": [
+                        {
+                            "type": "bullets",
+                            "trailingBreak": true,
+                            "guide": [
+                                "Any Use Sining gem on Sin Fin",
+                                "Enable Auto Attack",
+                                "Tidus Auto Attack"
+                            ]
+                        }
                     ],
                     "trailingBreak": true
                 }
@@ -336,9 +411,15 @@
                 {
                     "type": "battle",
                     "enemy": "Lancet Tutorial",
-                    "guide": [
-                        "Disable 4x to skip dialogue then re-enable",
-                        "Kimahri Flee"
+                    "entries": [
+                        {
+                            "type": "bullets",
+                            "trailingBreak": true,
+                            "guide": [
+                                "Disable 4x to skip dialogue then re-enable",
+                                "Kimahri Flee"
+                            ]
+                        }
                     ],
                     "trailingBreak": true
                 },
@@ -346,7 +427,15 @@
                 {
                     "type": "battle",
                     "enemy": "Sinspawn Geneaux",
-                    "guide": ["Tidus Auto Attack"],
+                    "entries": [
+                        {
+                            "type": "bullets",
+                            "trailingBreak": true,
+                            "guide": [
+                                "Tidus Auto Attack"
+                            ]
+                        }
+                    ],
                     "trailingBreak": true
                 },
                 { "type": "info", "text": "Disable Auto Attack", "trailingBreak": true },
@@ -382,13 +471,19 @@
                 {
                     "type": "battle",
                     "enemy": "Machina Encounters",
-                    "guide": [
-                        "1st Encounter:",
-                        "Disable 4x to skip dialogue then re-enable",
-                        "Any Use Smoke Bomb",
-                        "3rd Encounter:",
-                        "Disable 4x to skip dialogue then re-enable after 1st and 2nd wave",
-                        "Any Use Smoke Bomb"
+                    "entries": [
+                        {
+                            "type": "bullets",
+                            "trailingBreak": true,
+                            "guide": [
+                                "1st Encounter:",
+                                "Disable 4x to skip dialogue then re-enable",
+                                "Any Use Smoke Bomb",
+                                "3rd Encounter:",
+                                "Disable 4x to skip dialogue then re-enable after 1st and 2nd wave",
+                                "Any Use Smoke Bomb"
+                            ]
+                        }
                     ],
                     "trailingBreak": true
                 },
@@ -396,9 +491,15 @@
                 {
                     "type": "battle",
                     "enemy": "Oblizerator",
-                    "guide": [
-                        "Disable 4x to skip dialogue then re-enable",
-                        "Tidus Auto Attack"
+                    "entries": [
+                        {
+                            "type": "bullets",
+                            "trailingBreak": true,
+                            "guide": [
+                                "Disable 4x to skip dialogue then re-enable",
+                                "Tidus Auto Attack"
+                            ]
+                        }
                     ],
                     "trailingBreak": true
                 },
@@ -523,22 +624,44 @@
                 {
                     "type": "battle",
                     "enemy": "Sahagins",
-                    "guide": [
-                        "Any Use Smoke Bomb",
-                        "Enable Auto Attack for final Sahagin"
+                    "entries": [
+                        {
+                            "type": "bullets",
+                            "trailingBreak": true,
+                            "guide": [
+                                "Any Use Smoke Bomb",
+                                "Enable Auto Attack for final Sahagin"
+                            ]
+                        }
                     ],
                     "trailingBreak": true
                 },
                 {
                     "type": "battle",
                     "enemy": "Voivre",
-                    "guide": ["Auron Auto Attack"],
+                    "entries": [
+                        {
+                            "type": "bullets",
+                            "trailingBreak": true,
+                            "guide": [
+                                "Auron Auto Attack"
+                            ]
+                        }
+                    ],
                     "trailingBreak": true
                 },
                 {
                     "type": "battle",
                     "enemy": "Sahagins",
-                    "guide": ["Tidus Auto Attack"],
+                    "entries": [
+                        {
+                            "type": "bullets",
+                            "trailingBreak": true,
+                            "guide": [
+                                "Tidus Auto Attack"
+                            ]
+                        }
+                    ],
                     "trailingBreak": true
                 }
             ]
@@ -549,9 +672,15 @@
                 {
                     "type": "battle",
                     "enemy": "Raldo",
-                    "guide": [
-                        "Disable 4x to skip dialogue then re-enable",
-                        "Tidus Auto Attack"
+                    "entries": [
+                        {
+                            "type": "bullets",
+                            "trailingBreak": true,
+                            "guide": [
+                                "Disable 4x to skip dialogue then re-enable",
+                                "Tidus Auto Attack"
+                            ]
+                        }
                     ],
                     "trailingBreak": true
                 },
@@ -560,11 +689,17 @@
                 {
                     "type": "battle",
                     "enemy": "Chocobo Eater",
-                    "guide": [
-                        "Tidus Auto Attack",
-                        "Disable 4x to skip dialogue then re-enable",
-                        "Yuna Auto Attack",
-                        "No little hop (Sorry, khaegar)"
+                    "entries": [
+                        {
+                            "type": "bullets",
+                            "trailingBreak": true,
+                            "guide": [
+                                "Tidus Auto Attack",
+                                "Disable 4x to skip dialogue then re-enable",
+                                "Yuna Auto Attack",
+                                "No little hop (Sorry, khaegar)"
+                            ]
+                        }
                     ],
                     "trailingBreak": true,
                     "requirement": [{ "condition": "Bursur's Bits", "state": "show" }]
@@ -572,8 +707,14 @@
                 {
                     "type": "battle",
                     "enemy": "Chocobo Eater",
-                    "guide": [
-                        "Tidus Use Dark Matter"
+                    "entries": [
+                        {
+                            "type": "bullets",
+                            "trailingBreak": true,
+                            "guide": [
+                                "Tidus Use Dark Matter"
+                            ]
+                        }
                     ],
                     "trailingBreak": true,
                     "requirement": [{ "condition": "Bursur's Bits", "state": "hide" }]
@@ -610,14 +751,30 @@
                 {
                     "type": "battle",
                     "enemy": "Sinspawn Gui",
-                    "guide":["Any Use Dark Matter"],
+                    "entries": [
+                        {
+                            "type": "bullets",
+                            "trailingBreak": true,
+                            "guide": [
+                                "Any Use Dark Matter"
+                            ]
+                        }
+                    ],
                     "trailingBreak": true,
                     "requirement": [{ "condition": "TerraSkip", "state": "no" }]
                 },
                 {
                     "type": "battle",
                     "enemy": "Sinspawn Gui 2",
-                    "guide":["Any Use Dark Matter"],
+                    "entries": [
+                        {
+                            "type": "bullets",
+                            "trailingBreak": true,
+                            "guide": [
+                                "Any Use Dark Matter"
+                            ]
+                        }
+                    ],
                     "trailingBreak": true,
                     "requirement": [{ "condition": "TerraSkip", "state": "no" }]
                 }
@@ -672,15 +829,29 @@
                 {
                     "type": "battle",
                     "enemy": "Extractor",
-                    "guide":["Tidus Attack (Auto Attack doesn't work here)"],
+                    "entries": [
+                        {
+                            "type": "bullets",
+                            "trailingBreak": true,
+                            "guide": [
+                                "Tidus Attack (Auto Attack doesn't work here)"
+                            ]
+                        }
+                    ],
                     "trailingBreak": true
                 },
                 {
                     "type": "battle",
                     "enemy": "Steal/Mix Tutorial",
-                    "guide":[
-                        "Disable 4x to skip dialogue then re-enable",
-                        "Rikku Flee"
+                    "entries": [
+                        {
+                            "type": "bullets",
+                            "trailingBreak": true,
+                            "guide": [
+                                "Disable 4x to skip dialogue then re-enable",
+                                "Rikku Flee"
+                            ]
+                        }
                     ],
                     "trailingBreak": true
                 },
@@ -719,38 +890,74 @@
                 {
                     "type": "battle",
                     "enemy": "Spherimorph",
-                    "guide":["Tidus Auto Attack"],
+                    "entries": [
+                        {
+                            "type": "bullets",
+                            "trailingBreak": true,
+                            "guide": [
+                                "Tidus Auto Attack"
+                            ]
+                        }
+                    ],
                     "trailingBreak": true
                 },
                 {
                     "type": "battle",
                     "enemy": "Crawler",
-                    "guide":["Tidus Attack (Auto Attack doesn't work here)"],
+                    "entries": [
+                        {
+                            "type": "bullets",
+                            "trailingBreak": true,
+                            "guide": [
+                                "Tidus Attack (Auto Attack doesn't work here)"
+                            ]
+                        }
+                    ],
                     "trailingBreak": true
                 },
                 {
                     "type": "battle",
                     "enemy": "Seymour",
-                    "guide":[
-                        "Any Use Dark Matter",
-                        "Disable 4x to skip dialogue then re-enable"
+                    "entries": [
+                        {
+                            "type": "bullets",
+                            "trailingBreak": true,
+                            "guide": [
+                                "Any Use Dark Matter",
+                                "Disable 4x to skip dialogue then re-enable"
+                            ]
+                        }
                     ],
                     "trailingBreak": true
                 },
                 {
                     "type": "battle",
                     "enemy": "Anima",
-                    "guide":[
-                        "Disable 4x to skip dialogue then re-enable",
-                        "Tidus Attack",
-                        "Disable 4x to skip dialogue then re-enable"
+                    "entries": [
+                        {
+                            "type": "bullets",
+                            "trailingBreak": true,
+                            "guide": [
+                                "Disable 4x to skip dialogue then re-enable",
+                                "Tidus Attack",
+                                "Disable 4x to skip dialogue then re-enable"
+                            ]
+                        }
                     ],
                     "trailingBreak": true
                 },
                 {
                     "type": "battle",
                     "enemy": "Seymour",
-                    "guide": [ "Tidus Attack" ],
+                    "entries": [
+                        {
+                            "type": "bullets",
+                            "trailingBreak": true,
+                            "guide": [
+                                "Tidus Attack"
+                            ]
+                        }
+                    ],
                     "trailingBreak": true
                 },
                 {
@@ -778,10 +985,16 @@
                 {
                     "type": "battle",
                     "enemy": "Wendigo",
-                    "guide": [ 
-                        "Tidus Attack Wendigo",
-                        "Enable Auto Attack",
-                        "Tidus Auto Attack"
+                    "entries": [
+                        {
+                            "type": "bullets",
+                            "trailingBreak": true,
+                            "guide": [
+                                "Tidus Attack Wendigo",
+                                "Enable Auto Attack",
+                                "Tidus Auto Attack"
+                            ]
+                        }
                     ],
                     "trailingBreak": true
                 },
@@ -794,13 +1007,19 @@
                 {
                     "type": "battle",
                     "enemy": "Zu",
-                    "guide": [ 
-                        "Tidus Attack Self until Auron arrives",
-                        "Disable 4x to skip dialogue then re-enable",
-                        "Any Defend until Lulu arrives",
-                        "Lulu Arrives",
-                        "Disable 4x to skip dialogue then re-enable",
-                        "Any Flee"
+                    "entries": [
+                        {
+                            "type": "bullets",
+                            "trailingBreak": true,
+                            "guide": [
+                                "Tidus Attack Self until Auron arrives",
+                                "Disable 4x to skip dialogue then re-enable",
+                                "Any Defend until Lulu arrives",
+                                "Lulu Arrives",
+                                "Disable 4x to skip dialogue then re-enable",
+                                "Any Flee"
+                            ]
+                        }
                     ],
                     "trailingBreak": true,
                     "requirement": [{ "condition": "Bursur's Bits", "state": "hide" }]
@@ -808,10 +1027,16 @@
                 {
                     "type": "battle",
                     "enemy": "Zu",
-                    "guide": [
-                        "Tidus Auto Attack x2",
-                        "Wait until Zu death animation is almost complete",
-                        "Disable 4x to skip dialogue then re-enable"
+                    "entries": [
+                        {
+                            "type": "bullets",
+                            "trailingBreak": true,
+                            "guide": [
+                                "Tidus Auto Attack x2",
+                                "Wait until Zu death animation is almost complete",
+                                "Disable 4x to skip dialogue then re-enable"
+                            ]
+                        }
                     ],
                     "trailingBreak": true,
                     "requirement": [{ "condition": "Bursur's Bits", "state": "show" }]
@@ -820,19 +1045,31 @@
                 {
                     "type": "battle",
                     "enemy": "Machina Tutorial",
-                    "guide": [ 
-                        "Disable 4x to skip dialogue then re-enable",
-                        "Tidus Flee"
+                    "entries": [
+                        {
+                            "type": "bullets",
+                            "trailingBreak": true,
+                            "guide": [
+                                "Disable 4x to skip dialogue then re-enable",
+                                "Tidus Flee"
+                            ]
+                        }
                     ],
                     "trailingBreak": true
                 },
                 {
                     "type": "battle",
                     "enemy": "Sandragora",
-                    "guide": [ 
-                        "Enable Auto Attack",
-                        "Tidus Auto Attack",
-                        "Disable Auto Attack"
+                    "entries": [
+                        {
+                            "type": "bullets",
+                            "trailingBreak": true,
+                            "guide": [
+                                "Enable Auto Attack",
+                                "Tidus Auto Attack",
+                                "Disable Auto Attack"
+                            ]
+                        }
                     ],
                     "trailingBreak": true
                 }
@@ -844,15 +1081,29 @@
                 {
                     "type": "battle",
                     "enemy": "Bombs",
-                    "guide": [ "Any Use Dark Matter" ],
+                    "entries": [
+                        {
+                            "type": "bullets",
+                            "trailingBreak": true,
+                            "guide": [
+                                "Any Use Dark Matter"
+                            ]
+                        }
+                    ],
                     "trailingBreak": true
                 },
                 {
                     "type": "battle",
                     "enemy": "Dual Horn",
-                    "guide": [ 
-                        "If Ambush or Perempt: Any Use Dark Matter",
-                        "Else: Enable Auto Attack, Tidus Auto Attack"
+                    "entries": [
+                        {
+                            "type": "bullets",
+                            "trailingBreak": true,
+                            "guide": [
+                                "If Ambush or Perempt: Any Use Dark Matter",
+                                "Else: Enable Auto Attack, Tidus Auto Attack"
+                            ]
+                        }
                     ],
                     "trailingBreak": true
                 },
@@ -860,9 +1111,15 @@
                 {
                     "type": "battle",
                     "enemy": "Chimeras",
-                    "guide": [ 
-                        "If Ambush or Perempt: Any Use Dark Matter",
-                        "Else: Enable Auto Attack, Tidus Auto Attack"
+                    "entries": [
+                        {
+                            "type": "bullets",
+                            "trailingBreak": true,
+                            "guide": [
+                                "If Ambush or Perempt: Any Use Dark Matter",
+                                "Else: Enable Auto Attack, Tidus Auto Attack"
+                            ]
+                        }
                     ],
                     "trailingBreak": true
                 }
@@ -874,8 +1131,14 @@
                 {
                     "type": "battle",
                     "enemy": "Evrae",
-                    "guide": [ 
-                        "Tidus Attack (Auto Attack doesn't work here)"
+                    "entries": [
+                        {
+                            "type": "bullets",
+                            "trailingBreak": true,
+                            "guide": [
+                                "Tidus Attack (Auto Attack doesn't work here)"
+                            ]
+                        }
                     ],
                     "trailingBreak": true
                 },
@@ -883,8 +1146,14 @@
                 {
                     "type": "battle",
                     "enemy": "Bevelle Guard Fights 1-4",
-                    "guide": [ 
-                        "Tidus Auto Attack"
+                    "entries": [
+                        {
+                            "type": "bullets",
+                            "trailingBreak": true,
+                            "guide": [
+                                "Tidus Auto Attack"
+                            ]
+                        }
                     ],
                     "trailingBreak": true
                 },
@@ -892,8 +1161,14 @@
                 {
                     "type": "battle",
                     "enemy": "Bevelle Guard Fights 5",
-                    "guide": [ 
-                        "Tidus Use Dark Matter"
+                    "entries": [
+                        {
+                            "type": "bullets",
+                            "trailingBreak": true,
+                            "guide": [
+                                "Tidus Use Dark Matter"
+                            ]
+                        }
                     ],
                     "trailingBreak": true
                 },
@@ -959,30 +1234,48 @@
                 {
                     "type": "battle",
                     "enemy": "Issaru - Ifrit",
-                    "guide": [ 
-                        "Disable 4x to skip dialogue then re-enable",
-                        "Yuna Summon Ixion",
-                        "Ixion Attack"
+                    "entries": [
+                        {
+                            "type": "bullets",
+                            "trailingBreak": true,
+                            "guide": [
+                                "Disable 4x to skip dialogue then re-enable",
+                                "Yuna Summon Ixion",
+                                "Ixion Attack"
+                            ]
+                        }
                     ],
                     "trailingBreak": true
                 },
                 {
                     "type": "battle",
                     "enemy": "Issaru - Valefor",
-                    "guide": [ 
-                        "Disable 4x to skip dialogue then re-enable",
-                        "Yuna Summon Ixion",
-                        "Ixion Attack x2"
+                    "entries": [
+                        {
+                            "type": "bullets",
+                            "trailingBreak": true,
+                            "guide": [
+                                "Disable 4x to skip dialogue then re-enable",
+                                "Yuna Summon Ixion",
+                                "Ixion Attack x2"
+                            ]
+                        }
                     ],
                     "trailingBreak": true
                 },
                 {
                     "type": "battle",
                     "enemy": "Issaru - Bahamut",
-                    "guide": [ 
-                        "Disable 4x to skip dialogue then re-enable",
-                        "Yuna Summon Ixion",
-                        "Ixion Attack x3"
+                    "entries": [
+                        {
+                            "type": "bullets",
+                            "trailingBreak": true,
+                            "guide": [
+                                "Disable 4x to skip dialogue then re-enable",
+                                "Yuna Summon Ixion",
+                                "Ixion Attack x3"
+                            ]
+                        }
                     ],
                     "trailingBreak": true
                 },
@@ -990,16 +1283,28 @@
                 {
                     "type": "battle",
                     "enemy": "Evrae Altana",
-                    "guide": [ 
-                        "Tidus Auto Attack"
+                    "entries": [
+                        {
+                            "type": "bullets",
+                            "trailingBreak": true,
+                            "guide": [
+                                "Tidus Auto Attack"
+                            ]
+                        }
                     ],
                     "trailingBreak": true
                 },
                 {
                     "type": "battle",
                     "enemy": "Seymour Natus",
-                    "guide": [ 
-                        "Tidus Attack (Auto Attack doesn't work here)"
+                    "entries": [
+                        {
+                            "type": "bullets",
+                            "trailingBreak": true,
+                            "guide": [
+                                "Tidus Attack (Auto Attack doesn't work here)"
+                            ]
+                        }
                     ],
                     "trailingBreak": true
                 },
@@ -1012,8 +1317,14 @@
                 {
                     "type": "battle",
                     "enemy": "Defender X",
-                    "guide": [ 
-                        "Tidus Auto Attack"
+                    "entries": [
+                        {
+                            "type": "bullets",
+                            "trailingBreak": true,
+                            "guide": [
+                                "Tidus Auto Attack"
+                            ]
+                        }
                     ],
                     "trailingBreak": true
                 },
@@ -1026,10 +1337,16 @@
                 {
                     "type": "battle",
                     "enemy": "Biran & Yenke",
-                    "guide":[
-                        "Disable 4x to skip dialogue then re-enable",
-                        "Any Use Dark Matter",
-                        "Disable 4x to skip dialogue then re-enable"
+                    "entries": [
+                        {
+                            "type": "bullets",
+                            "trailingBreak": true,
+                            "guide": [
+                                "Disable 4x to skip dialogue then re-enable",
+                                "Any Use Dark Matter",
+                                "Disable 4x to skip dialogue then re-enable"
+                            ]
+                        }
                     ],
                     "trailingBreak": true,
                     "requirement": [{ "condition": "TerraSkip", "state": "no" }]
@@ -1037,10 +1354,16 @@
                 {
                     "type": "battle",
                     "enemy": "Seymour",
-                    "guide":[
-                        "Disable 4x to skip dialogue then re-enable",
-                        "Any Use Shining Gem x2",
-                        "Disable 4x to skip dialogue then re-enable"
+                    "entries": [
+                        {
+                            "type": "bullets",
+                            "trailingBreak": true,
+                            "guide": [
+                                "Disable 4x to skip dialogue then re-enable",
+                                "Any Use Shining Gem x2",
+                                "Disable 4x to skip dialogue then re-enable"
+                            ]
+                        }
                     ],
                     "trailingBreak": true,
                     "requirement": [{ "condition": "TerraSkip", "state": "yes" }]
@@ -1048,8 +1371,14 @@
                 {
                     "type": "battle",
                     "enemy": "Seymour Flux",
-                    "guide": [ 
-                        "Tidus Attack (Auto Attack doesn't work here)"
+                    "entries": [
+                        {
+                            "type": "bullets",
+                            "trailingBreak": true,
+                            "guide": [
+                                "Tidus Attack (Auto Attack doesn't work here)"
+                            ]
+                        }
                     ],
                     "trailingBreak": true
                 },
@@ -1068,8 +1397,14 @@
                 {
                     "type": "battle",
                     "enemy": "Sanctuary Keeper",
-                    "guide": [ 
-                        "Tidus Auto Attack"
+                    "entries": [
+                        {
+                            "type": "bullets",
+                            "trailingBreak": true,
+                            "guide": [
+                                "Tidus Auto Attack"
+                            ]
+                        }
                     ],
                     "trailingBreak": true
                 }
@@ -1082,16 +1417,28 @@
                 {
                     "type": "battle",
                     "enemy": "Spectral Keeper",
-                    "guide": [ 
-                        "Tidus Auto Attack"
+                    "entries": [
+                        {
+                            "type": "bullets",
+                            "trailingBreak": true,
+                            "guide": [
+                                "Tidus Auto Attack"
+                            ]
+                        }
                     ],
                     "trailingBreak": true
                 },
                 {
                     "type": "battle",
                     "enemy": "Yunalesca",
-                    "guide": [ 
-                        "Tidus Auto Attack"
+                    "entries": [
+                        {
+                            "type": "bullets",
+                            "trailingBreak": true,
+                            "guide": [
+                                "Tidus Auto Attack"
+                            ]
+                        }
                     ],
                     "trailingBreak": true
                 },
@@ -1104,14 +1451,20 @@
                 {
                     "type": "battle",
                     "enemy": "Sin Fin Left",
-                    "guide": [ 
-                        "Any Non-Tidus Defend",
-                        "Tidus Talk: Move Closer",
-                        "Disable 4x to skip dialogue then re-enable",
-                        "Tidus Attack other party members until you close in",
-                        "Disable 4x to skip dialogue then re-enable",
-                        "Enable Auto Attack",
-                        "Tidus Auto Attack"
+                    "entries": [
+                        {
+                            "type": "bullets",
+                            "trailingBreak": true,
+                            "guide": [
+                                "Any Non-Tidus Defend",
+                                "Tidus Talk: Move Closer",
+                                "Disable 4x to skip dialogue then re-enable",
+                                "Tidus Attack other party members until you close in",
+                                "Disable 4x to skip dialogue then re-enable",
+                                "Enable Auto Attack",
+                                "Tidus Auto Attack"
+                            ]
+                        }
                     ],
                     "trailingBreak": true
                 },
@@ -1119,22 +1472,34 @@
                 {
                     "type": "battle",
                     "enemy": "Sin Fin Right",
-                    "guide": [ 
-                        "Any Non-Tidus Defend",
-                        "Tidus Talk: Move Closer",
-                        "Disable 4x to skip dialogue then re-enable",
-                        "Tidus Attack other party members until you close in",
-                        "Disable 4x to skip dialogue then re-enable",
-                        "Enable Auto Attack",
-                        "Tidus Auto Attack"
+                    "entries": [
+                        {
+                            "type": "bullets",
+                            "trailingBreak": true,
+                            "guide": [
+                                "Any Non-Tidus Defend",
+                                "Tidus Talk: Move Closer",
+                                "Disable 4x to skip dialogue then re-enable",
+                                "Tidus Attack other party members until you close in",
+                                "Disable 4x to skip dialogue then re-enable",
+                                "Enable Auto Attack",
+                                "Tidus Auto Attack"
+                            ]
+                        }
                     ],
                     "trailingBreak": true
                 },
                 {
                     "type": "battle",
                     "enemy": "Sinspawn Geneaux and Sin Core",
-                    "guide": [ 
-                        "Tidus Auto Attack"
+                    "entries": [
+                        {
+                            "type": "bullets",
+                            "trailingBreak": true,
+                            "guide": [
+                                "Tidus Auto Attack"
+                            ]
+                        }
                     ],
                     "trailingBreak": true
                 },
@@ -1142,12 +1507,18 @@
                 {
                     "type": "battle",
                     "enemy": "Overdrive Sin",
-                    "guide": [ 
-                        "Any Non-Tidus Defend",
-                        "Tidus Attack other party members until Sin draws you in three times",
-                        "Enable Auto Attack during third drawing in animation",
-                        "Tidus Auto Attack x2",
-                        "Any Defend"
+                    "entries": [
+                        {
+                            "type": "bullets",
+                            "trailingBreak": true,
+                            "guide": [
+                                "Any Non-Tidus Defend",
+                                "Tidus Attack other party members until Sin draws you in three times",
+                                "Enable Auto Attack during third drawing in animation",
+                                "Tidus Auto Attack x2",
+                                "Any Defend"
+                            ]
+                        }
                     ],
                     "trailingBreak": true
                 },
@@ -1161,11 +1532,17 @@
                 {
                     "type": "battle",
                     "enemy": "Seymour Omnis",
-                    "guide": [ 
-                        "Any ratJAM",
-                        "Tidus Armour Break",
-                        "If Armour Break hit: Tidus Quick Hit",
-                        "If Armour Break Missed or Seymour is still alive after Quick Hit: Tidus Blitzace (Must be 'Great!')"
+                    "entries": [
+                        {
+                            "type": "bullets",
+                            "trailingBreak": true,
+                            "guide": [
+                                "Any ratJAM",
+                                "Tidus Armour Break",
+                                "If Armour Break hit: Tidus Quick Hit",
+                                "If Armour Break Missed or Seymour is still alive after Quick Hit: Tidus Blitzace (Must be 'Great!')"
+                            ]
+                        }
                     ],
                     "trailingBreak": true
                 },
@@ -1181,12 +1558,18 @@
                 {
                     "type": "battle",
                     "enemy": "Braska's Final Aeon",
-                    "guide": [ 
-                        "Tidus Quick Hit",
-                        "Disable 4x (if you don’t do this there is a chance the game will soft lock when Tidus Talk)",
-                        "Tidus Talk to BFA",
-                        "Once dialog is finished, Enabled 4x",
-                        "Tidus Quick Hit x2"
+                    "entries": [
+                        {
+                            "type": "bullets",
+                            "trailingBreak": true,
+                            "guide": [
+                                "Tidus Quick Hit",
+                                "Disable 4x (if you don’t do this there is a chance the game will soft lock when Tidus Talk)",
+                                "Tidus Talk to BFA",
+                                "Once dialog is finished, Enabled 4x",
+                                "Tidus Quick Hit x2"
+                            ]
+                        }
                     ],
                     "trailingBreak": true
                 }
@@ -1198,13 +1581,29 @@
                 {
                     "type": "battle",
                     "enemy": "Aeons",
-                    "guide": [ "Any Use Shining Gem"],
+                    "entries": [
+                        {
+                            "type": "bullets",
+                            "trailingBreak": true,
+                            "guide": [
+                                "Any Use Shining Gem"
+                            ]
+                        }
+                    ],
                     "trailingBreak": true
                 },
                 {
                     "type": "battle",
                     "enemy": "Yu Yevon",
-                    "guide": [ "Tidus Attack"],
+                    "entries": [
+                        {
+                            "type": "bullets",
+                            "trailingBreak": true,
+                            "guide": [
+                                "Tidus Attack"
+                            ]
+                        }
+                    ],
                     "trailingBreak": true
                 }
             ]

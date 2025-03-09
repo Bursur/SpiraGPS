@@ -58,53 +58,6 @@ fun ShopEditorPanel(entry: Entry, selectedEntry: Entry) {
 
             Spacer(modifier = Modifier.size(5.dp))
             Text(
-                text = "Buy:",
-                style = SpiraGPSText.typography.info,
-                color = SpiraGPSColours.text,
-                modifier = Modifier.padding(horizontal = 5.dp)
-            )
-            key(updates) {
-                buyItems.forEachIndexed { index, item ->
-                    BulletPointEditor(
-                        text = item,
-                        placeholderText = "Update Item...",
-                        onUpdated = {
-                            buyItems[index] = it
-                            entry.guide = buyItems
-                        },
-                        onDeleted = {
-                            buyItems.removeAt(index)
-                            entry.guide = buyItems
-                            ++updates
-                        }
-                    )
-                }
-            }
-
-            Row(modifier = Modifier.padding(horizontal = 10.dp)) {
-                TextEdit(
-                    text = newBuyItem,
-                    placeholderText = "Add Item to Buy...",
-                    modifier = Modifier.weight(1f)
-                ) { newBuyItem = it }
-
-                TextButton(
-                    onClick = {
-                        buyItems.add(newBuyItem)
-                        newBuyItem = ""
-                        entry.guide = buyItems
-                    }
-                ) {
-                    Text(
-                        text = "Add",
-                        style = SpiraGPSText.typography.info,
-                        color = SpiraGPSColours.text
-                    )
-                }
-            }
-
-            Spacer(modifier = Modifier.size(5.dp))
-            Text(
                 text = "Sell:",
                 style = SpiraGPSText.typography.info,
                 color = SpiraGPSColours.text,
@@ -140,6 +93,53 @@ fun ShopEditorPanel(entry: Entry, selectedEntry: Entry) {
                         sellItems.add(newSellItem)
                         newSellItem = ""
                         entry.guide = sellItems
+                    }
+                ) {
+                    Text(
+                        text = "Add",
+                        style = SpiraGPSText.typography.info,
+                        color = SpiraGPSColours.text
+                    )
+                }
+            }
+
+            Spacer(modifier = Modifier.size(5.dp))
+            Text(
+                text = "Buy:",
+                style = SpiraGPSText.typography.info,
+                color = SpiraGPSColours.text,
+                modifier = Modifier.padding(horizontal = 5.dp)
+            )
+            key(updates) {
+                buyItems.forEachIndexed { index, item ->
+                    BulletPointEditor(
+                        text = item,
+                        placeholderText = "Update Item...",
+                        onUpdated = {
+                            buyItems[index] = it
+                            entry.guide = buyItems
+                        },
+                        onDeleted = {
+                            buyItems.removeAt(index)
+                            entry.guide = buyItems
+                            ++updates
+                        }
+                    )
+                }
+            }
+
+            Row(modifier = Modifier.padding(horizontal = 10.dp)) {
+                TextEdit(
+                    text = newBuyItem,
+                    placeholderText = "Add Item to Buy...",
+                    modifier = Modifier.weight(1f)
+                ) { newBuyItem = it }
+
+                TextButton(
+                    onClick = {
+                        buyItems.add(newBuyItem)
+                        newBuyItem = ""
+                        entry.guide = buyItems
                     }
                 ) {
                     Text(

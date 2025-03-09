@@ -19,14 +19,14 @@ fun ShopView(entry: Entry) {
     BasePanelView(title = "SHOP - ${entry.cost.formatWithCommas()}", border = SpiraGPSColours.shopBorder, minimised = entry.minimised) {
         Column(modifier = Modifier.padding(vertical = 30.dp, horizontal = 40.dp)) {
             val textColour = animateColorAsState(SpiraGPSColours.text)
-            if (entry.buy.isNotEmpty()) {
-                Text("Buy:", style = SpiraGPSText.typography.infoBold, color = textColour.value)
-                BulletedList(points = entry.buy)
-            }
-
             if (entry.sell.isNotEmpty()) {
                 Text("Sell:", style = SpiraGPSText.typography.infoBold, color = textColour.value)
                 BulletedList(points = entry.sell)
+            }
+
+            if (entry.buy.isNotEmpty()) {
+                Text("Buy:", style = SpiraGPSText.typography.infoBold, color = textColour.value)
+                BulletedList(points = entry.buy)
             }
         }
     }
