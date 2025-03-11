@@ -50,6 +50,7 @@ import com.bursur.spiragps.route.entries.EntryEditorButton
 import com.bursur.spiragps.route.entries.createEntry
 import com.bursur.spiragps.route.keywords.KeywordsEditorButton
 import com.bursur.spiragps.route.title.TitleEditor
+import com.bursur.spiragps.spherecounter.SphereCounterEditor
 import com.bursur.spiragps.theme.SpiraGPSColours
 import com.bursur.spiragps.theme.SpiraGPSText
 import com.bursur.spiragps.utils.FileService
@@ -67,6 +68,7 @@ fun EditorPage(navigationState: NavigationState) {
 
     var title by remember { mutableStateOf(route.title) }
     var conditionDialogOpen by remember { mutableStateOf(false) }
+    var sphereDialogOpen by remember { mutableStateOf(false) }
 
     val infoBgColor by animateColorAsState(SpiraGPSColours.infoBackground)
     val textColour by animateColorAsState(SpiraGPSColours.text)
@@ -216,12 +218,17 @@ fun EditorPage(navigationState: NavigationState) {
             onLoad = { awaitingData = true },
             onModifyConditions = { conditionDialogOpen = true },
             modifier = Modifier.align(Alignment.BottomCenter),
-            onKeywordsUpdated = { ++editorState.updateCounter }
+            onKeywordsUpdated = { ++editorState.updateCounter },
+            onSetSphereRequirement = { sphereDialogOpen = true }
         )
     }
 
     if(conditionDialogOpen) {
         ConditionEditor(route) { conditionDialogOpen = false }
+    }
+
+    if(sphereDialogOpen) {
+        SphereCounterEditor(route) { sphereDialogOpen = false }
     }
 
     // Load in the saved
@@ -256,7 +263,14 @@ private fun StickyHeader(title: String) {
 }
 
 @Composable
-private fun ControlPanel(modifier: Modifier = Modifier, route: Route, onSave: () -> Unit, onLoad: () -> Unit, onModifyConditions: () -> Unit, onKeywordsUpdated: () -> Unit) {
+private fun ControlPanel(
+    modifier: Modifier = Modifier,
+    route: Route, onSave: () -> Unit,
+    onLoad: () -> Unit,
+    onModifyConditions: () -> Unit,
+    onKeywordsUpdated: () -> Unit,
+    onSetSphereRequirement: () -> Unit
+) {
     val textColour = animateColorAsState(SpiraGPSColours.text)
     val bgColour = animateColorAsState(SpiraGPSColours.editorControlBackground)
 
@@ -271,6 +285,10 @@ private fun ControlPanel(modifier: Modifier = Modifier, route: Route, onSave: ()
 
         TextButton(onClick = { onModifyConditions() }) {
             Text(text = "Update Conditions", style = SpiraGPSText.typography.info, color = textColour.value)
+        }
+
+        TextButton(onClick = { onSetSphereRequirement() }) {
+            Text(text = "Set Spheres", style = SpiraGPSText.typography.info, color = textColour.value)
         }
 
         KeywordsEditorButton(route = route, onDismiss = { onKeywordsUpdated() })

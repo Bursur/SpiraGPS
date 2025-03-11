@@ -6,17 +6,16 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.wrapContentHeight
-import androidx.compose.foundation.layout.wrapContentSize
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.List
 import androidx.compose.material.icons.filled.KeyboardArrowUp
-import androidx.compose.material.icons.filled.List
 import androidx.compose.material3.Icon
 import androidx.compose.material3.SmallFloatingActionButton
 import androidx.compose.runtime.Composable
@@ -40,6 +39,7 @@ import com.bursur.spiragps.route.data.Chapter
 import com.bursur.spiragps.route.data.Route
 import com.bursur.spiragps.route.introduction.IntroductionView
 import com.bursur.spiragps.route.title.TitleView
+import com.bursur.spiragps.spherecounter.SphereCounter
 import com.bursur.spiragps.theme.SpiraGPSColours
 import kotlinx.coroutines.launch
 
@@ -57,7 +57,7 @@ fun RouteView(route: Route, conditionState: ConditionState, contentsState: Conte
 
     Box(
         modifier = Modifier
-            .wrapContentSize()
+            .fillMaxSize()
             .onGloballyPositioned {
                 scrollOffset = it.positionInRoot().y
             }
