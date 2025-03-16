@@ -9,6 +9,22 @@
     <script type="application/javascript" src="SpiraGPS.js"></script>
 
     <script>
+        // Refresh Handling
+        var isEditing = false;
+        function setIsEditing(editing) {
+            isEditing = editing;
+        }
+
+        window.addEventListener('beforeunload', (event) => {
+            const message = 'Are you sure you want to leave? Have you saved your work?';
+            if(isEditing === true) {
+                event.returnValue = message;
+                return message;
+            }
+
+            return ""
+        });
+
         // Preferences
         function saveDarkModePreference(enabled) {
             localStorage.darkMode = enabled;

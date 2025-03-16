@@ -79,11 +79,9 @@ fun ToDoDialog(onDismissRequest: () -> Unit) {
                         guide = arrayListOf(
                             "Routes: GIF Support?",
                             "Routes: YouTube Video Embedding?",
-                            "Misc: Credits Page",
                             "Misc: Version History Page",
                             "Routes: BUG! Tables HAVE to have entries totaling a multiple of 2, this shouldn't be the case",
-                            "Editor: Chapters cannot be re-organised",
-                            "Misc: Handle Browser Back Button"
+                            "Editor: Chapters cannot be re-organised"
                         )
                     )
                 )

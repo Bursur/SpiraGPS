@@ -28,6 +28,8 @@ import com.bursur.spiragps.route.RoutePage
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
+external fun setIsEditing(editing: Boolean)
+
 @Composable
 fun SpiraGPS() {
     SpiraGPSTheme {
@@ -42,6 +44,8 @@ fun SpiraGPS() {
                     NavigationState.ROUTE -> RoutePage(navigationState)
                     NavigationState.EDITOR -> EditorPage(navigationState)
                 }
+
+                setIsEditing(navigationState.currentPage == NavigationState.EDITOR)
 
                 Row(modifier = Modifier.align(Alignment.BottomEnd).padding(10.dp)) {
                     AboutActionButton()
