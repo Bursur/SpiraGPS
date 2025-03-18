@@ -21,6 +21,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.window.Dialog
+import androidx.compose.ui.window.DialogProperties
 import coil3.compose.AsyncImage
 import com.bursur.spiragps.theme.SpiraGPSColours
 import com.bursur.spiragps.theme.SpiraGPSText
@@ -53,6 +54,7 @@ fun AboutActionButton(modifier: Modifier = Modifier) {
 @Composable
 fun AboutDialog(onDismissRequest: () -> Unit) {
     Dialog(
+        properties = DialogProperties(usePlatformDefaultWidth = false),
         onDismissRequest = {
             onDismissRequest()
         }
@@ -64,18 +66,20 @@ fun AboutDialog(onDismissRequest: () -> Unit) {
             Column(
                 horizontalAlignment = Alignment.CenterHorizontally,
                 modifier = Modifier
-                    .width(500.dp)
-                    .padding(10.dp)
+                    .width(700.dp)
+                    .padding(15.dp)
             ) {
                 SpiraGPSTitle()
                 Text(
-                    text = "The intention of this tool is to gather routes in one place. " +
-                            "It also provides a way to edit new or existing runs with a visual editor.\n\n" +
+                    text = "This tool provides a way to edit new or existing notes with a visual WYSIWYG editor.\n\n" +
                             "To get started select a route from the landing page, from there you can " +
-                            "jump around the run using the contents panel. Clicking the title of each " +
-                            "section or panel will expand and contract it, toggling the options at the " +
+                            "jump around the run using the contents list on the left. Clicking the title of each " +
+                            "chapter or panel will expand and collapse it, toggling the options at the " +
                             "top of the screen will update the route on the fly without needing to reload " +
-                            "the document",
+                            "the document.\n\n" +
+                            "The editor section allows you to build up a route, complete with custom keywords and " +
+                            "conditional values, and view it as a user would see it when they load it up. There's a " +
+                            "(hopefully!) helpful guide to help you through creating a new set of notes.",
                     style = SpiraGPSText.typography.info, color = textColour.value
                 )
                 TextButton(
