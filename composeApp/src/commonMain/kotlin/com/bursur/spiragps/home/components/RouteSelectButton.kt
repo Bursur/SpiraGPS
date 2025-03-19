@@ -43,7 +43,7 @@ fun RouteSelectButton(destination: Destination, navigationState: NavigationState
         shadowElevation = 5.dp,
         shape = RoundedCornerShape(10.dp),
         color = bgColour.value,
-        modifier = Modifier.hoverable(interactionSource)
+        modifier = Modifier.hoverable(interactionSource).padding(bottom = 10.dp)
     ) {
         Box(modifier = Modifier.width(200.dp)) {
             Column(
