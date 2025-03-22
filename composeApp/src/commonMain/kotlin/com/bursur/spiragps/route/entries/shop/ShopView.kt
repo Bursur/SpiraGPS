@@ -16,7 +16,7 @@ import com.bursur.spiragps.utils.formatWithCommas
 
 @Composable
 fun ShopView(entry: Entry) {
-    BasePanelView(title = "SHOP - ${entry.cost.formatWithCommas()}", border = SpiraGPSColours.shopBorder, minimised = entry.minimised) {
+    BasePanelView(title = "SHOP - ${entry.cost.formatWithCommas()} GIL", border = SpiraGPSColours.shopBorder, minimised = entry.minimised) {
         Column(modifier = Modifier.padding(vertical = 30.dp, horizontal = 40.dp)) {
             val textColour = animateColorAsState(SpiraGPSColours.text)
             if (entry.sell.isNotEmpty()) {

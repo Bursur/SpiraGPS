@@ -8,6 +8,13 @@
             "id": "f4f936ea-2849-4d2c-8638-3b80f5ccee44"
         },
         {
+            "name": "Any% w/Boosters Wakka",
+            "data": "SpiraGPS/boosters_wakka.json",
+            "image": "SpiraGPS/boosters.png",
+            "author": "MtBanger",
+            "id": "59ebcd16-59c6-4d91-8797-82d1d177c195"
+        },
+        {
             "name": "Any% w/Boosters (Chinese)",
             "data": "SpiraGPS/boosters-chinese.json",
             "image": "SpiraGPS/boosters-chinese.jpg",

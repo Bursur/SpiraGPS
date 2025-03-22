@@ -32,7 +32,7 @@ fun ImageEditorPanel(entry: Entry, selectedEntry: Entry) {
             Row(verticalAlignment = Alignment.CenterVertically, modifier = Modifier.padding(vertical = 20.dp)) {
                 Text(text = "Image URL:", style = SpiraGPSText.typography.info, color = SpiraGPSColours.text)
 
-                TextEdit(text = url, placeholderText = "Enter URL...") {
+                TextEdit(text = url, placeholderText = "Enter URL...", multiLine = false) {
                     url = it
                     entry.image = url
                 }

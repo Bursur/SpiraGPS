@@ -81,6 +81,7 @@ fun BlitzballEditorPanel(entry: Entry, selectedEntry: Entry, conditions: ArrayLi
                         if (it != null) {
                             entry.entries.add(it)
                             ++updates
+                            secondaryEntry = it
                         }
                     }
                 }
