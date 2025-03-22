@@ -55,6 +55,12 @@ fun EquipmentEditorPanel(entry: Entry, selectedEntry: Entry) {
                 TextEdit(
                     text = newStep,
                     placeholderText = "Add Equipment...",
+                    multiLine = false,
+                    onEnterKey = {
+                        steps.add(newStep)
+                        newStep = ""
+                        entry.guide = steps
+                    },
                     modifier = Modifier.weight(1f)
                 ) { newStep = it }
 

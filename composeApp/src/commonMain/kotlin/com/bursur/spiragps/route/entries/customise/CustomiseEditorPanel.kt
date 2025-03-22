@@ -38,7 +38,7 @@ fun CustomisationEditorPanel(entry: Entry, selectedEntry: Entry) {
                     style = SpiraGPSText.typography.info,
                     color = SpiraGPSColours.text
                 )
-                TextEdit(text = item, placeholderText = "Item Name...") {
+                TextEdit(text = item, placeholderText = "Item Name...", multiLine = false) {
                     item = it
                     entry.item = item
                 }
@@ -72,6 +72,12 @@ fun CustomisationEditorPanel(entry: Entry, selectedEntry: Entry) {
                 TextEdit(
                     text = newStep,
                     placeholderText = "Enter New Customisation...",
+                    multiLine = false,
+                    onEnterKey = {
+                        steps.add(newStep)
+                        newStep = ""
+                        entry.guide = steps
+                    },
                     modifier = Modifier.weight(1f)
                 ) { newStep = it }
 

@@ -11,6 +11,7 @@ import androidx.compose.material3.CheckboxDefaults
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.key
 import androidx.compose.runtime.mutableStateOf
@@ -18,6 +19,8 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.focus.FocusRequester
+import androidx.compose.ui.focus.focusRequester
 import androidx.compose.ui.unit.dp
 import com.bursur.spiragps.editor.components.TextEdit
 import com.bursur.spiragps.route.data.Entry
@@ -34,6 +37,7 @@ fun BulletEditorPanel(entry: Entry, selectedEntry: Entry) {
 
     Column(modifier = Modifier.animateContentSize()) {
         if (entry == selectedEntry) {
+            val focusRequester = remember { FocusRequester() }
             key(updates) {
                 // Weight
                 Row(
@@ -84,8 +88,9 @@ fun BulletEditorPanel(entry: Entry, selectedEntry: Entry) {
                     TextEdit(
                         text = newPoint,
                         placeholderText = "Enter New Point...",
-                        modifier = Modifier.weight(1f),
+                        modifier = Modifier.weight(1f).focusRequester(focusRequester),
                         multiLine = false,
+                        hasPasteButton = true,
                         onEnterKey = {
                             entries.add(newPoint)
                             newPoint = ""
@@ -109,6 +114,10 @@ fun BulletEditorPanel(entry: Entry, selectedEntry: Entry) {
                         )
                     }
                 }
+            }
+
+            LaunchedEffect(updates) {
+                focusRequester.requestFocus()
             }
         } else
             BulletedList(entry)

@@ -53,6 +53,7 @@ fun TableEditorPanel(entry: Entry, selectedEntry: Entry) {
                         placeholderText = "Enter New Point...",
                         modifier = Modifier.weight(1f),
                         multiLine = false,
+                        hasPasteButton = true,
                         onEnterKey = {
                             entries.add(newItem)
                             newItem = ""

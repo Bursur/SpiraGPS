@@ -58,9 +58,12 @@ fun TextEdit(modifier: Modifier = Modifier, text: String, placeholderText: Strin
             modifier = Modifier.fillMaxWidth()
                 .weight(1f)
                 .onKeyEvent {
-                    if (it.key.keyCode == Key.Enter.keyCode)
+                    if (it.key.keyCode == Key.Enter.keyCode) {
                         onEnterKey()
-                    true
+                        true
+                    }
+                    else
+                        false
                 }
         ) { innerTextField ->
             TextFieldDefaults.DecorationBox(

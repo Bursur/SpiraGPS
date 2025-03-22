@@ -44,7 +44,7 @@ fun ShopEditorPanel(entry: Entry, selectedEntry: Entry) {
                 )
                 TextEdit(
                     text = if (cost != 0) cost.toString() else "",
-                    placeholderText = "Price..."
+                    placeholderText = "Price...",
                 ) {
                     cost = try {
                         it.toInt(10)
@@ -85,6 +85,12 @@ fun ShopEditorPanel(entry: Entry, selectedEntry: Entry) {
                 TextEdit(
                     text = newSellItem,
                     placeholderText = "Add Item to Sell...",
+                    multiLine = false,
+                    onEnterKey = {
+                        sellItems.add(newSellItem)
+                        newSellItem = ""
+                        entry.guide = sellItems
+                    },
                     modifier = Modifier.weight(1f)
                 ) { newSellItem = it }
 
@@ -132,6 +138,12 @@ fun ShopEditorPanel(entry: Entry, selectedEntry: Entry) {
                 TextEdit(
                     text = newBuyItem,
                     placeholderText = "Add Item to Buy...",
+                    multiLine = false,
+                    onEnterKey = {
+                        buyItems.add(newBuyItem)
+                        newBuyItem = ""
+                        entry.guide = buyItems
+                    },
                     modifier = Modifier.weight(1f)
                 ) { newBuyItem = it }
 

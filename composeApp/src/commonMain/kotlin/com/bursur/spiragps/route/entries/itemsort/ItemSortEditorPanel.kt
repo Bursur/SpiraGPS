@@ -59,7 +59,14 @@ fun ItemSortEditorPanel(entry: Entry, selectedEntry: Entry) {
                 TextEdit(
                     text = newStep,
                     placeholderText = "Enter New Step...",
-                    modifier = Modifier.weight(1f)
+                    hasPasteButton = true,
+                    multiLine = false,
+                    modifier = Modifier.weight(1f),
+                    onEnterKey = {
+                        steps.add(newStep)
+                        newStep = ""
+                        entry.guide = steps
+                    }
                 ) { newStep = it }
 
                 TextButton(

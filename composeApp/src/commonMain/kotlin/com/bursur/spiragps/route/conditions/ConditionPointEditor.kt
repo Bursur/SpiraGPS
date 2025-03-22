@@ -13,6 +13,7 @@ import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.key
 import androidx.compose.runtime.mutableStateOf
@@ -20,6 +21,8 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.focus.FocusRequester
+import androidx.compose.ui.focus.focusRequester
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.window.Dialog
 import com.bursur.spiragps.components.bulletedlist.BulletPointEditor
@@ -43,6 +46,7 @@ fun ConditionPointEditor(condition: Condition, onDismiss: () -> Unit) {
             color = SpiraGPSColours.background
         ) {
             Column(horizontalAlignment = Alignment.CenterHorizontally) {
+                val focusRequester = remember { FocusRequester() }
                 Text(
                     text = "Set the Options for this Condition",
                     style = SpiraGPSText.typography.chapterTitle,
@@ -75,7 +79,7 @@ fun ConditionPointEditor(condition: Condition, onDismiss: () -> Unit) {
                             TextEdit(
                                 text = newItem,
                                 placeholderText = "Enter New Option...",
-                                modifier = Modifier.weight(1f),
+                                modifier = Modifier.weight(1f).focusRequester(focusRequester),
                                 multiLine = false,
                                 onEnterKey = {
                                     options.add(newItem)
@@ -109,6 +113,10 @@ fun ConditionPointEditor(condition: Condition, onDismiss: () -> Unit) {
                             )
                         }
                     }
+                }
+
+                LaunchedEffect(updates) {
+                    focusRequester.requestFocus()
                 }
             }
         }

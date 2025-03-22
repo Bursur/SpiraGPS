@@ -7,7 +7,6 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.material3.Text
-import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.key
@@ -17,7 +16,6 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import com.bursur.spiragps.components.bulletedlist.BulletPointEditor
 import com.bursur.spiragps.editor.ControlPanel
 import com.bursur.spiragps.editor.components.TextEdit
 import com.bursur.spiragps.editor.isPanel
@@ -49,7 +47,7 @@ fun BattleEditorPanel(entry: Entry, selectedEntry: Entry, conditions: ArrayList<
                     style = SpiraGPSText.typography.info,
                     color = SpiraGPSColours.text
                 )
-                TextEdit(text = enemy, placeholderText = "Enemy Name...") {
+                TextEdit(text = enemy, placeholderText = "Enemy Name...", multiLine = false) {
                     enemy = it
                     entry.enemy = enemy
                 }
@@ -66,7 +64,8 @@ fun BattleEditorPanel(entry: Entry, selectedEntry: Entry, conditions: ArrayList<
                 )
                 TextEdit(
                     text = if (health != 0) health.toString() else "",
-                    placeholderText = "Enemy Health..."
+                    placeholderText = "Enemy Health...",
+                    multiLine = false
                 ) {
                     health = try {
                         it.toInt(10)
@@ -89,6 +88,7 @@ fun BattleEditorPanel(entry: Entry, selectedEntry: Entry, conditions: ArrayList<
                 )
                 TextEdit(
                     text = if (actions != 0) actions.toString() else "",
+                    multiLine = false,
                     placeholderText = "Action Count..."
                 ) {
                     actions = try {
@@ -148,6 +148,7 @@ fun BattleEditorPanel(entry: Entry, selectedEntry: Entry, conditions: ArrayList<
                         if (it != null) {
                             entry.entries.add(it)
                             ++updates
+                            secondaryEntry = it
                         }
                     }
                 }

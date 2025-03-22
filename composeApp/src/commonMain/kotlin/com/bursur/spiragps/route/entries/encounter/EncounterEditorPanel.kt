@@ -55,6 +55,13 @@ fun EncounterEditorPanel(entry: Entry, selectedEntry: Entry) {
                 TextEdit(
                     text = newStep,
                     placeholderText = "Enter New Step...",
+                    hasPasteButton = true,
+                    multiLine = false,
+                    onEnterKey = {
+                        steps.add(newStep)
+                        newStep = ""
+                        entry.guide = steps
+                    },
                     modifier = Modifier.weight(1f)
                 ) { newStep = it }
 
