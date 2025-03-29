@@ -44,7 +44,10 @@ data class Entry(
     // Use guide (more formatting options?)
 
     // Customise
-    var item: String = ""
+    var item: String = "",
+
+    // Image
+    var scale: Float = 1f
 ) {
     fun hasRequirement(name: String) = requirement.any { it.condition == name }
     fun getRequirementState(name: String) = requirement.first { it.condition == name }.state
