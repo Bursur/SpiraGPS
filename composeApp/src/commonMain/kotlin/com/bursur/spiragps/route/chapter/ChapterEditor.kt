@@ -31,6 +31,7 @@ import androidx.compose.ui.graphics.ColorFilter
 import androidx.compose.ui.unit.dp
 import coil3.compose.AsyncImage
 import com.bursur.spiragps.editor.ControlPanel
+import com.bursur.spiragps.editor.EditorState
 import com.bursur.spiragps.editor.selectedEntry
 import com.bursur.spiragps.route.conditions.getConditionString
 import com.bursur.spiragps.route.data.Chapter
@@ -44,7 +45,7 @@ import com.bursur.spiragps.theme.SpiraGPSText
 
 @OptIn(ExperimentalMaterial3Api::class, ExperimentalFoundationApi::class)
 @Composable
-fun ChapterEditor(chapter: Chapter, conditions: ArrayList<Condition>) {
+fun ChapterEditor(chapter: Chapter, conditions: ArrayList<Condition>, editorState: EditorState) {
     var title by remember { mutableStateOf(chapter.title) }
     val entries by remember { mutableStateOf(chapter.entries) }
     val textColour by animateColorAsState(SpiraGPSColours.text)
@@ -55,6 +56,7 @@ fun ChapterEditor(chapter: Chapter, conditions: ArrayList<Condition>) {
         TitleEditor(title) {
             title = it
             chapter.title = title
+            ++editorState.chapterName
         }
 
         key(updateCount) {

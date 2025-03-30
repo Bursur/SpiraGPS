@@ -11,16 +11,20 @@ import androidx.compose.runtime.setValue
 @Stable
 interface EditorState {
     var updateCounter: Int
+    var chapterCount: Int
+    var chapterName: Int
 }
 
-private class EditorStateImpl(updateCount: Int) : EditorState {
+private class EditorStateImpl(updateCount: Int, chapterCount: Int, chapterName: Int) : EditorState {
     override var updateCounter: Int by mutableStateOf(updateCount)
+    override var chapterCount: Int by mutableStateOf(chapterCount)
+    override var chapterName: Int by mutableStateOf(chapterName)
 
     companion object {
         val saver = Saver<EditorStateImpl, List<Any>>(
             save = { listOf(it.updateCounter) },
             restore = {
-                EditorStateImpl(it[0] as Int)
+                EditorStateImpl(it[0] as Int, it[1] as Int, it[2] as Int)
             }
         )
     }
@@ -30,5 +34,5 @@ private class EditorStateImpl(updateCount: Int) : EditorState {
 fun rememberEditorState(): EditorState = rememberSaveable(
     saver = EditorStateImpl.saver
 ) {
-    EditorStateImpl(0)
+    EditorStateImpl(0, 0, 0)
 }

@@ -6,6 +6,8 @@ import androidx.compose.foundation.BasicTooltipBox
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.gestures.Orientation
+import androidx.compose.foundation.gestures.scrollable
 import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -15,9 +17,14 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.sizeIn
+import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.layout.wrapContentSize
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.lazy.itemsIndexed
+import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.foundation.rememberBasicTooltipState
+import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.HorizontalDivider
@@ -31,6 +38,7 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.key
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -54,6 +62,7 @@ import com.bursur.spiragps.spherecounter.SphereCounterEditor
 import com.bursur.spiragps.theme.SpiraGPSColours
 import com.bursur.spiragps.theme.SpiraGPSText
 import com.bursur.spiragps.utils.FileService
+import kotlinx.coroutines.launch
 import kotlinx.serialization.encodeToString
 import kotlinx.serialization.json.Json
 
@@ -65,6 +74,7 @@ var secondaryEntry by mutableStateOf(Entry())
 fun EditorPage(navigationState: NavigationState) {
     val editorState = rememberEditorState()
     var route by remember { mutableStateOf(Route()) }
+    val scrollState = rememberLazyListState()
 
     var title by remember { mutableStateOf(route.title) }
     var conditionDialogOpen by remember { mutableStateOf(false) }
@@ -79,134 +89,183 @@ fun EditorPage(navigationState: NavigationState) {
             .fillMaxSize()
             .clickable(remember { MutableInteractionSource() }, null) { selectedEntry = Entry() }
     ) {
-        BackButton(
-            navigationState = navigationState,
-            modifier = Modifier.align(Alignment.TopStart).padding(all = 10.dp)
-        )
+        Row {
+            // Contents
+            key(editorState.chapterCount, editorState.chapterName) {
+                Column(modifier = Modifier.width(150.dp).padding(10.dp)) {
+                    BackButton(
+                        navigationState = navigationState,
+                        modifier = Modifier.padding(all = 10.dp)
+                    )
 
-        key(editorState.updateCounter) {
-            LazyColumn(
-                modifier = Modifier
-                    .fillMaxWidth(0.6f)
-                    .align(Alignment.TopCenter)
-                    .padding(top = 25.dp)
-            ) {
-                // Title
-                item {
-                    TitleEditor(title = title) {
-                        title = it
-                        route.title = it
-                    }
-                    HorizontalDivider(color = infoBgColor, modifier = Modifier.padding(vertical = 10.dp))
-                }
-
-                stickyHeader { StickyHeader("Introduction") }
-
-                // Intro
-                items(route.introduction.entries) {
-                    Box(
-                        modifier = Modifier
-                            .clickable {
-                                selectedEntry = it
-                            }
-                    ) {
-                        Column(
-                            horizontalAlignment = Alignment.CenterHorizontally,
-                            modifier = Modifier.animateContentSize()
-                        ) {
-                            if(it == selectedEntry)
-                                ControlPanel(
-                                    entry = it,
-                                    conditions = route.conditions,
-                                    onEntryDeleted = {
-                                        if(route.introduction.entries.remove(it))
-                                            ++editorState.updateCounter
-                                    },
-                                    onMoveUp = {
-                                        route.introduction.entries.apply {
-                                            val index = indexOf(it)
-                                            if(index >= 1) {
-                                                add(index - 1, removeAt(index))
-                                                ++editorState.updateCounter
-                                            }
-                                        }
-                                    },
-                                    onMoveDown = {
-                                        route.introduction.entries.apply {
-                                            val index = indexOf(it)
-                                            if(index != -1 && index < size - 1) {
-                                                add(index + 1, removeAt(index))
-                                                ++editorState.updateCounter
-                                            }
+                    LazyColumn {
+                        itemsIndexed(route.chapters) { index, item ->
+                            val scope = rememberCoroutineScope()
+                            Text(
+                                text = item.title,
+                                style = SpiraGPSText.typography.contentsEntry,
+                                color = textColour,
+                                modifier = Modifier
+                                    .wrapContentSize()
+                                    .width(150.dp)
+                                    .padding(vertical = 5.dp)
+                                    .clickable {
+                                        scope.launch {
+                                            scrollState.animateScrollToItem(route.introduction.entries.size + 4 + index)
                                         }
                                     }
-                                )
-
-                            createEntry(entry = it, editor = true, selectedEntry = selectedEntry)
+                            )
                         }
-
-                        if(it.requirement.isNotEmpty()) {
-                            val tooltipPosition = TooltipDefaults.rememberPlainTooltipPositionProvider()
-                            val tooltipState = rememberBasicTooltipState()
-                            BasicTooltipBox(
-                                positionProvider = tooltipPosition,
-                                state = tooltipState,
-                                tooltip = {
-                                    Surface(
-                                        shadowElevation = 5.dp,
-                                        shape = RoundedCornerShape(5.dp),
-                                        color = SpiraGPSColours.background,
-                                        modifier = Modifier.padding(2.dp)
-                                    ) {
-                                        Text(
-                                            text = getConditionString(it),
-                                            style = SpiraGPSText.typography.info,
-                                            color = SpiraGPSColours.text
-                                        )
-                                    }
-                                },
-                                modifier = Modifier.offset(x = (-20).dp)
-                            ) {
-                                AsyncImage(
-                                    model = "https://bursur.github.io/SpiraGPS/condition_arrow.png",
-                                    contentDescription = "",
-                                    colorFilter = ColorFilter.tint(textColour),
-                                    modifier = Modifier
-                                        .sizeIn(maxWidth = 20.dp, maxHeight = 20.dp)
-                                        .align(Alignment.TopStart)
-                                )
-                            }
-                        }
-                    }
-                }
-
-                item {
-                    EntryEditorButton(entry = Entry(type = "info")) {
-                        if (it != null) {
-                            route.introduction.entries.add(it)
-                            ++editorState.updateCounter
-                            selectedEntry = it
-                        }
-                    }
-                    HorizontalDivider(color = infoBgColor, modifier = Modifier.padding(vertical = 10.dp))
-                }
-
-                // Chapters
-                stickyHeader { StickyHeader("Chapters") }
-
-                items(route.chapters) {
-                    ChapterEditor(it, route.conditions)
-                }
-
-                item {
-                    TextButton(onClick = {
-                        route.chapters.add(Chapter(index = route.chapters.size))
-                        ++editorState.updateCounter
-                    }) {
-                        Text(text = "Add Chapter", style = SpiraGPSText.typography.info, color = SpiraGPSColours.text)
                     }
                 }
             }
+
+            key(editorState.updateCounter) {
+                // Route
+                LazyColumn(
+                    state = scrollState,
+                    modifier = Modifier
+                        .fillMaxWidth(.75f)
+                        //.align(Alignment.TopCenter)
+                        .padding(top = 25.dp)
+                ) {
+                    // Title
+                    item {
+                        TitleEditor(title = title) {
+                            title = it
+                            route.title = it
+                        }
+                        HorizontalDivider(
+                            color = infoBgColor,
+                            modifier = Modifier.padding(vertical = 10.dp)
+                        )
+                    }
+
+                    stickyHeader { StickyHeader("Introduction") }
+
+                    // Intro
+                    items(route.introduction.entries) {
+                        Box(
+                            modifier = Modifier
+                                .clickable {
+                                    selectedEntry = it
+                                }
+                        ) {
+                            Column(
+                                horizontalAlignment = Alignment.CenterHorizontally,
+                                modifier = Modifier.animateContentSize()
+                            ) {
+                                if (it == selectedEntry)
+                                    ControlPanel(
+                                        entry = it,
+                                        conditions = route.conditions,
+                                        onEntryDeleted = {
+                                            if (route.introduction.entries.remove(it))
+                                                ++editorState.updateCounter
+                                        },
+                                        onMoveUp = {
+                                            route.introduction.entries.apply {
+                                                val index = indexOf(it)
+                                                if (index >= 1) {
+                                                    add(index - 1, removeAt(index))
+                                                    ++editorState.updateCounter
+                                                }
+                                            }
+                                        },
+                                        onMoveDown = {
+                                            route.introduction.entries.apply {
+                                                val index = indexOf(it)
+                                                if (index != -1 && index < size - 1) {
+                                                    add(index + 1, removeAt(index))
+                                                    ++editorState.updateCounter
+                                                }
+                                            }
+                                        }
+                                    )
+
+                                createEntry(
+                                    entry = it,
+                                    editor = true,
+                                    selectedEntry = selectedEntry
+                                )
+                            }
+
+                            if (it.requirement.isNotEmpty()) {
+                                val tooltipPosition =
+                                    TooltipDefaults.rememberPlainTooltipPositionProvider()
+                                val tooltipState = rememberBasicTooltipState()
+                                BasicTooltipBox(
+                                    positionProvider = tooltipPosition,
+                                    state = tooltipState,
+                                    tooltip = {
+                                        Surface(
+                                            shadowElevation = 5.dp,
+                                            shape = RoundedCornerShape(5.dp),
+                                            color = SpiraGPSColours.background,
+                                            modifier = Modifier.padding(2.dp)
+                                        ) {
+                                            Text(
+                                                text = getConditionString(it),
+                                                style = SpiraGPSText.typography.info,
+                                                color = SpiraGPSColours.text
+                                            )
+                                        }
+                                    },
+                                    modifier = Modifier.offset(x = (-20).dp)
+                                ) {
+                                    AsyncImage(
+                                        model = "https://bursur.github.io/SpiraGPS/condition_arrow.png",
+                                        contentDescription = "",
+                                        colorFilter = ColorFilter.tint(textColour),
+                                        modifier = Modifier
+                                            .sizeIn(maxWidth = 20.dp, maxHeight = 20.dp)
+                                            .align(Alignment.TopStart)
+                                    )
+                                }
+                            }
+                        }
+                    }
+
+                    item {
+                        EntryEditorButton(entry = Entry(type = "info")) {
+                            if (it != null) {
+                                route.introduction.entries.add(it)
+                                ++editorState.updateCounter
+                                selectedEntry = it
+                            }
+                        }
+                        HorizontalDivider(
+                            color = infoBgColor,
+                            modifier = Modifier.padding(vertical = 10.dp)
+                        )
+                    }
+
+                    // Chapters
+                    stickyHeader { StickyHeader("Chapters") }
+
+                    items(route.chapters) {
+                        ChapterEditor(it, route.conditions, editorState)
+                    }
+
+                    item {
+                        TextButton(onClick = {
+                            route.chapters.add(Chapter(index = route.chapters.size))
+                            ++editorState.updateCounter
+                            ++editorState.chapterCount
+                        }) {
+                            Text(
+                                text = "Add Chapter",
+                                style = SpiraGPSText.typography.info,
+                                color = SpiraGPSColours.text
+                            )
+                        }
+                    }
+                }
+            }
+        }
+
+        LaunchedEffect(editorState.chapterCount) {
+            scrollState.animateScrollToItem(route.introduction.entries.size + route.chapters.size + 5)
         }
 
         ControlPanel(
