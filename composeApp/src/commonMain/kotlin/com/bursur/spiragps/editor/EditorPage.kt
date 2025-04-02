@@ -121,143 +121,147 @@ fun EditorPage(navigationState: NavigationState) {
             }
 
             key(editorState.updateCounter) {
-                // Route
-                LazyColumn(
-                    state = scrollState,
-                    modifier = Modifier
-                        .fillMaxWidth(.75f)
-                        //.align(Alignment.TopCenter)
-                        .padding(top = 25.dp)
+                Column(
+                    horizontalAlignment = Alignment.CenterHorizontally,
+                    modifier = Modifier.fillMaxWidth()
                 ) {
-                    // Title
-                    item {
-                        TitleEditor(title = title) {
-                            title = it
-                            route.title = it
+                    // Route
+                    LazyColumn(
+                        state = scrollState,
+                        modifier = Modifier
+                            .fillMaxWidth(.75f)
+                            .padding(top = 25.dp)
+                    ) {
+                        // Title
+                        item {
+                            TitleEditor(title = title) {
+                                title = it
+                                route.title = it
+                            }
+                            HorizontalDivider(
+                                color = infoBgColor,
+                                modifier = Modifier.padding(vertical = 10.dp)
+                            )
                         }
-                        HorizontalDivider(
-                            color = infoBgColor,
-                            modifier = Modifier.padding(vertical = 10.dp)
-                        )
-                    }
 
-                    stickyHeader { StickyHeader("Introduction") }
+                        stickyHeader { StickyHeader("Introduction") }
 
-                    // Intro
-                    items(route.introduction.entries) {
-                        Box(
-                            modifier = Modifier
-                                .clickable {
+                        // Intro
+                        items(route.introduction.entries) {
+                            Box(
+                                modifier = Modifier
+                                    .clickable {
+                                        selectedEntry = it
+                                    }
+                            ) {
+                                Column(
+                                    horizontalAlignment = Alignment.CenterHorizontally,
+                                    modifier = Modifier.animateContentSize()
+                                ) {
+                                    if (it == selectedEntry)
+                                        ControlPanel(
+                                            entry = it,
+                                            conditions = route.conditions,
+                                            onEntryDeleted = {
+                                                if (route.introduction.entries.remove(it))
+                                                    ++editorState.updateCounter
+                                            },
+                                            onMoveUp = {
+                                                route.introduction.entries.apply {
+                                                    val index = indexOf(it)
+                                                    if (index >= 1) {
+                                                        add(index - 1, removeAt(index))
+                                                        ++editorState.updateCounter
+                                                    }
+                                                }
+                                            },
+                                            onMoveDown = {
+                                                route.introduction.entries.apply {
+                                                    val index = indexOf(it)
+                                                    if (index != -1 && index < size - 1) {
+                                                        add(index + 1, removeAt(index))
+                                                        ++editorState.updateCounter
+                                                    }
+                                                }
+                                            }
+                                        )
+
+                                    createEntry(
+                                        entry = it,
+                                        editor = true,
+                                        selectedEntry = selectedEntry
+                                    )
+                                }
+
+                                if (it.requirement.isNotEmpty()) {
+                                    val tooltipPosition =
+                                        TooltipDefaults.rememberPlainTooltipPositionProvider()
+                                    val tooltipState = rememberBasicTooltipState()
+                                    BasicTooltipBox(
+                                        positionProvider = tooltipPosition,
+                                        state = tooltipState,
+                                        tooltip = {
+                                            Surface(
+                                                shadowElevation = 5.dp,
+                                                shape = RoundedCornerShape(5.dp),
+                                                color = SpiraGPSColours.background,
+                                                modifier = Modifier.padding(2.dp)
+                                            ) {
+                                                Text(
+                                                    text = getConditionString(it),
+                                                    style = SpiraGPSText.typography.info,
+                                                    color = SpiraGPSColours.text
+                                                )
+                                            }
+                                        },
+                                        modifier = Modifier.offset(x = (-20).dp)
+                                    ) {
+                                        AsyncImage(
+                                            model = "https://bursur.github.io/SpiraGPS/condition_arrow.png",
+                                            contentDescription = "",
+                                            colorFilter = ColorFilter.tint(textColour),
+                                            modifier = Modifier
+                                                .sizeIn(maxWidth = 20.dp, maxHeight = 20.dp)
+                                                .align(Alignment.TopStart)
+                                        )
+                                    }
+                                }
+                            }
+                        }
+
+                        item {
+                            EntryEditorButton(entry = Entry(type = "info")) {
+                                if (it != null) {
+                                    route.introduction.entries.add(it)
+                                    ++editorState.updateCounter
                                     selectedEntry = it
                                 }
-                        ) {
-                            Column(
-                                horizontalAlignment = Alignment.CenterHorizontally,
-                                modifier = Modifier.animateContentSize()
-                            ) {
-                                if (it == selectedEntry)
-                                    ControlPanel(
-                                        entry = it,
-                                        conditions = route.conditions,
-                                        onEntryDeleted = {
-                                            if (route.introduction.entries.remove(it))
-                                                ++editorState.updateCounter
-                                        },
-                                        onMoveUp = {
-                                            route.introduction.entries.apply {
-                                                val index = indexOf(it)
-                                                if (index >= 1) {
-                                                    add(index - 1, removeAt(index))
-                                                    ++editorState.updateCounter
-                                                }
-                                            }
-                                        },
-                                        onMoveDown = {
-                                            route.introduction.entries.apply {
-                                                val index = indexOf(it)
-                                                if (index != -1 && index < size - 1) {
-                                                    add(index + 1, removeAt(index))
-                                                    ++editorState.updateCounter
-                                                }
-                                            }
-                                        }
-                                    )
+                            }
+                            HorizontalDivider(
+                                color = infoBgColor,
+                                modifier = Modifier.padding(vertical = 10.dp)
+                            )
+                        }
 
-                                createEntry(
-                                    entry = it,
-                                    editor = true,
-                                    selectedEntry = selectedEntry
+                        // Chapters
+                        stickyHeader { StickyHeader("Chapters") }
+
+                        items(route.chapters) {
+                            ChapterEditor(it, route.conditions, editorState)
+                        }
+
+                        item {
+                            TextButton(onClick = {
+                                route.chapters.add(Chapter(index = route.chapters.size))
+                                ++editorState.updateCounter
+                                ++editorState.chapterCount
+                            }) {
+                                Text(
+                                    text = "Add Chapter",
+                                    style = SpiraGPSText.typography.info,
+                                    color = SpiraGPSColours.text
                                 )
                             }
-
-                            if (it.requirement.isNotEmpty()) {
-                                val tooltipPosition =
-                                    TooltipDefaults.rememberPlainTooltipPositionProvider()
-                                val tooltipState = rememberBasicTooltipState()
-                                BasicTooltipBox(
-                                    positionProvider = tooltipPosition,
-                                    state = tooltipState,
-                                    tooltip = {
-                                        Surface(
-                                            shadowElevation = 5.dp,
-                                            shape = RoundedCornerShape(5.dp),
-                                            color = SpiraGPSColours.background,
-                                            modifier = Modifier.padding(2.dp)
-                                        ) {
-                                            Text(
-                                                text = getConditionString(it),
-                                                style = SpiraGPSText.typography.info,
-                                                color = SpiraGPSColours.text
-                                            )
-                                        }
-                                    },
-                                    modifier = Modifier.offset(x = (-20).dp)
-                                ) {
-                                    AsyncImage(
-                                        model = "https://bursur.github.io/SpiraGPS/condition_arrow.png",
-                                        contentDescription = "",
-                                        colorFilter = ColorFilter.tint(textColour),
-                                        modifier = Modifier
-                                            .sizeIn(maxWidth = 20.dp, maxHeight = 20.dp)
-                                            .align(Alignment.TopStart)
-                                    )
-                                }
-                            }
-                        }
-                    }
-
-                    item {
-                        EntryEditorButton(entry = Entry(type = "info")) {
-                            if (it != null) {
-                                route.introduction.entries.add(it)
-                                ++editorState.updateCounter
-                                selectedEntry = it
-                            }
-                        }
-                        HorizontalDivider(
-                            color = infoBgColor,
-                            modifier = Modifier.padding(vertical = 10.dp)
-                        )
-                    }
-
-                    // Chapters
-                    stickyHeader { StickyHeader("Chapters") }
-
-                    items(route.chapters) {
-                        ChapterEditor(it, route.conditions, editorState)
-                    }
-
-                    item {
-                        TextButton(onClick = {
-                            route.chapters.add(Chapter(index = route.chapters.size))
-                            ++editorState.updateCounter
-                            ++editorState.chapterCount
-                        }) {
-                            Text(
-                                text = "Add Chapter",
-                                style = SpiraGPSText.typography.info,
-                                color = SpiraGPSColours.text
-                            )
                         }
                     }
                 }
