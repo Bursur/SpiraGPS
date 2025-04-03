@@ -72,7 +72,8 @@ kotlin {
             implementation(libs.coil.compose)
             implementation(libs.coil.network.ktor)
 
-            implementation("com.mohamedrejeb.richeditor:richeditor-compose:1.0.0-rc09")
+            implementation(libs.richeditor.compose)
+            //implementation("io.github.khubaibkhan4:mediaplayer-kmp:2.0.9")
         }
         desktopMain.dependencies {
             implementation(compose.desktop.currentOs)

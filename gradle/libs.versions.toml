@@ -21,6 +21,7 @@ kotlinxDatetime = "0.6.0"
 kotlinxSerializationCore = "1.7.3"
 ktorClientJs = "3.0.0-wasm2"
 retrofit = "2.11.0"
+richeditorCompose = "1.0.0-rc09"
 
 [libraries]
 coil-compose = { module = "io.coil-kt.coil3:coil-compose", version.ref = "coilCompose" }
@@ -49,6 +50,7 @@ kotlinx-serialization-json = { module = "org.jetbrains.kotlinx:kotlinx-serializa
 ktor-client-js = { module = "io.ktor:ktor-client-js", version.ref = "ktorClientJs" }
 ktor-client-okhttp = { module = "io.ktor:ktor-client-okhttp", version.ref = "ktorClientJs" }
 retrofit = { module = "com.squareup.retrofit2:retrofit", version.ref = "retrofit" }
+richeditor-compose = { module = "com.mohamedrejeb.richeditor:richeditor-compose", version.ref = "richeditorCompose" }
 
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "agp" }
