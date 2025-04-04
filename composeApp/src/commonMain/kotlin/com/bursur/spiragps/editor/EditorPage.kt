@@ -4,6 +4,7 @@ import androidx.compose.animation.animateColorAsState
 import androidx.compose.animation.animateContentSize
 import androidx.compose.foundation.BasicTooltipBox
 import androidx.compose.foundation.ExperimentalFoundationApi
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.gestures.Orientation
@@ -45,7 +46,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.graphics.ColorFilter
 import androidx.compose.ui.unit.dp
-import coil3.compose.AsyncImage
 import com.bursur.spiragps.components.backbutton.BackButton
 import com.bursur.spiragps.navigation.NavigationState
 import com.bursur.spiragps.route.chapter.ChapterEditor
@@ -62,6 +62,10 @@ import com.bursur.spiragps.spherecounter.SphereCounterEditor
 import com.bursur.spiragps.theme.SpiraGPSColours
 import com.bursur.spiragps.theme.SpiraGPSText
 import com.bursur.spiragps.utils.FileService
+import com.seiko.imageloader.rememberImagePainter
+import io.github.vinceglb.filekit.core.FileKit
+import io.github.vinceglb.filekit.core.PickerMode
+import io.github.vinceglb.filekit.core.PickerType
 import kotlinx.coroutines.launch
 import kotlinx.serialization.encodeToString
 import kotlinx.serialization.json.Json
@@ -82,7 +86,7 @@ fun EditorPage(navigationState: NavigationState) {
 
     val infoBgColor by animateColorAsState(SpiraGPSColours.infoBackground)
     val textColour by animateColorAsState(SpiraGPSColours.text)
-    var awaitingData by remember { mutableStateOf(false) }
+    val scope = rememberCoroutineScope()
 
     Box(
         modifier = Modifier
@@ -216,8 +220,8 @@ fun EditorPage(navigationState: NavigationState) {
                                         },
                                         modifier = Modifier.offset(x = (-20).dp)
                                     ) {
-                                        AsyncImage(
-                                            model = "https://bursur.github.io/SpiraGPS/condition_arrow.png",
+                                        Image(
+                                            rememberImagePainter("https://bursur.github.io/SpiraGPS/condition_arrow.png"),
                                             contentDescription = "",
                                             colorFilter = ColorFilter.tint(textColour),
                                             modifier = Modifier
@@ -275,10 +279,34 @@ fun EditorPage(navigationState: NavigationState) {
         ControlPanel(
             route = route,
             onSave = {
-                val data = Json.encodeToString(route)
-                FileService.saveFile(data, route.title.ifEmpty { "Untitled Guide" })
+                scope.launch {
+                    val data = Json.encodeToString(route)
+                    FileKit.saveFile(
+                        baseName = route.title.ifEmpty { "Untitled Guide" },
+                        extension = "json",
+                        initialDirectory = "/custom/initial/path",
+                        bytes = data.encodeToByteArray()
+                    )
+                }
             },
-            onLoad = { awaitingData = true },
+            onLoad = {
+                scope.launch {
+                    FileKit.pickFile(
+                        type = PickerType.File(extensions = listOf("json")),
+                        mode = PickerMode.Single,
+                        title = "Select a Destination",
+                        initialDirectory = ""
+                    )?.let { file ->
+                        val data = file.readBytes().decodeToString()
+                        Json.decodeFromString<Route>(data).let {
+                            SpiraGPSText.addKeywords(it.keywords)
+                            route = it
+                            title = route.title
+                            ++editorState.updateCounter
+                        }
+                    }
+                }
+            },
             onModifyConditions = { conditionDialogOpen = true },
             modifier = Modifier.align(Alignment.BottomCenter),
             onKeywordsUpdated = { ++editorState.updateCounter },
@@ -292,25 +320,6 @@ fun EditorPage(navigationState: NavigationState) {
 
     if(sphereDialogOpen) {
         SphereCounterEditor(route) { sphereDialogOpen = false }
-    }
-
-    // Load in the saved
-    LaunchedEffect(awaitingData) {
-        if(awaitingData) {
-            val data = FileService.loadFile()
-
-            awaitingData = false
-
-            if(data != "cancelled") {
-                println(data)
-                Json.decodeFromString<Route>(data).let {
-                    SpiraGPSText.addKeywords(it.keywords)
-                    route = it
-                    title = route.title
-                    ++editorState.updateCounter
-                }
-            }
-        }
     }
 }
 

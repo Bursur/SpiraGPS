@@ -1,6 +1,7 @@
 package com.bursur.spiragps.dialogs
 
 import androidx.compose.animation.animateColorAsState
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.hoverable
 import androidx.compose.foundation.interaction.MutableInteractionSource
@@ -34,7 +35,6 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.window.Dialog
-import coil3.compose.AsyncImage
 import com.bursur.spiragps.preferences.setDarkModePreference
 import com.bursur.spiragps.preferences.setDyslexicModePreference
 import com.bursur.spiragps.preferences.setKhaegarModePreference
@@ -53,6 +53,7 @@ import com.bursur.spiragps.theme.large
 import com.bursur.spiragps.theme.lightScheme
 import com.bursur.spiragps.theme.medium
 import com.bursur.spiragps.theme.small
+import com.seiko.imageloader.rememberImagePainter
 
 external fun playAudio(file: String)
 
@@ -70,7 +71,7 @@ fun SettingsActionButton(modifier: Modifier = Modifier) {
         contentColor = SpiraGPSColours.fabIconColour,
         modifier = modifier.hoverable(interactionSource)
     ) {
-        AsyncImage(model = "https://bursur.github.io/SpiraGPS/settings.png", contentDescription = null, modifier = Modifier.padding(5.dp).width(24.dp).height(24.dp))
+        Image(rememberImagePainter("https://bursur.github.io/SpiraGPS/settings.png"), contentDescription = null, modifier = Modifier.padding(5.dp).width(24.dp).height(24.dp))
     }
 
     if(openAlertDialog)
@@ -144,8 +145,8 @@ private fun KhaegarModeButton() {
                 uncheckedThumbColor = SpiraGPSColours.toggleUnselectedThumbColour,
             )
         )
-        AsyncImage(
-            model = "https://bursur.github.io/SpiraGPS/khaegar.png",
+        Image(
+            rememberImagePainter("https://bursur.github.io/SpiraGPS/khaegar.png"),
             contentDescription = "",
             contentScale = ContentScale.FillHeight,
             modifier = Modifier.height(25.dp).padding(horizontal = 3.dp)

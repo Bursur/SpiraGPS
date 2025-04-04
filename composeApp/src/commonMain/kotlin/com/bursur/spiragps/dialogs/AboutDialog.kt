@@ -1,6 +1,7 @@
 package com.bursur.spiragps.dialogs
 
 import androidx.compose.animation.animateColorAsState
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.hoverable
 import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.Column
@@ -22,10 +23,10 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.window.Dialog
 import androidx.compose.ui.window.DialogProperties
-import coil3.compose.AsyncImage
 import com.bursur.spiragps.theme.SpiraGPSColours
 import com.bursur.spiragps.theme.SpiraGPSText
 import com.bursur.spiragps.title.SpiraGPSTitle
+import com.seiko.imageloader.rememberImagePainter
 
 @Composable
 fun AboutActionButton(modifier: Modifier = Modifier) {
@@ -40,8 +41,8 @@ fun AboutActionButton(modifier: Modifier = Modifier) {
         contentColor = SpiraGPSColours.fabIconColour,
         modifier = modifier.hoverable(interactionSource)
     ) {
-        AsyncImage(
-            model = "https://bursur.github.io/SpiraGPS/info.png",
+        Image(
+            rememberImagePainter("https://bursur.github.io/SpiraGPS/info.png"),
             contentDescription = null,
             modifier = Modifier.padding(5.dp).width(24.dp).height(24.dp)
         )

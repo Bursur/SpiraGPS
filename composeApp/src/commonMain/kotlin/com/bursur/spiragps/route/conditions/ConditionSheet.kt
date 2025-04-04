@@ -21,7 +21,7 @@ fun ConditionalSheet(conditions: ArrayList<Condition>, conditionState: Condition
         ModalBottomSheet(
             sheetState = sheetState,
             onDismissRequest = { conditionState.sheetOpen = false },
-            windowInsets = WindowInsets.navigationBars
+            //windowInsets = WindowInsets.navigationBars
         ) {
             FlowRow(
                 modifier = Modifier.windowInsetsPadding(WindowInsets.navigationBars)

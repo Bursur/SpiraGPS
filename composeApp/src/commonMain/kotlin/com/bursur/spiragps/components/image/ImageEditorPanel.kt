@@ -18,12 +18,10 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import coil3.compose.AsyncImage
 import com.bursur.spiragps.editor.components.TextEdit
 import com.bursur.spiragps.route.data.Entry
 import com.bursur.spiragps.theme.SpiraGPSColours
 import com.bursur.spiragps.theme.SpiraGPSText
-import org.jetbrains.compose.resources.painterResource
 
 @Composable
 fun ImageEditorPanel(entry: Entry, selectedEntry: Entry) {

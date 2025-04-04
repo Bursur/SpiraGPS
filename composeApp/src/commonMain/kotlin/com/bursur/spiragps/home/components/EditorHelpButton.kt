@@ -2,6 +2,7 @@ package com.bursur.spiragps.home.components
 
 import androidx.compose.animation.animateColorAsState
 import androidx.compose.animation.animateContentSize
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.hoverable
@@ -24,10 +25,10 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
-import coil3.compose.AsyncImage
 import com.bursur.spiragps.navigation.NavigationState
 import com.bursur.spiragps.theme.SpiraGPSColours
 import com.bursur.spiragps.theme.SpiraGPSText
+import com.seiko.imageloader.rememberImagePainter
 
 @Composable
 fun EditorHelpButton(navigationState: NavigationState) {
@@ -51,8 +52,8 @@ fun EditorHelpButton(navigationState: NavigationState) {
                         navigationState.currentPage = NavigationState.ROUTE
                     }
             ) {
-                AsyncImage(
-                    model = "https://bursur.github.io/SpiraGPS/editor-help.jpg",
+                Image(
+                    painter = rememberImagePainter("https://bursur.github.io/SpiraGPS/editor-help.jpg"),
                     contentDescription = ""
                 )
             }

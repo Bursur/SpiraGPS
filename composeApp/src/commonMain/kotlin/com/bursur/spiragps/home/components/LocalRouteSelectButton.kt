@@ -2,6 +2,7 @@ package com.bursur.spiragps.home.components
 
 import androidx.compose.animation.animateColorAsState
 import androidx.compose.animation.animateContentSize
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.hoverable
@@ -17,7 +18,6 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -28,17 +28,18 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
-import coil3.compose.AsyncImage
 import com.bursur.spiragps.navigation.NavigationState
 import com.bursur.spiragps.theme.SpiraGPSColours
 import com.bursur.spiragps.theme.SpiraGPSText
-import com.bursur.spiragps.utils.FileService
+import com.seiko.imageloader.rememberImagePainter
+import io.github.vinceglb.filekit.core.FileKit
+import io.github.vinceglb.filekit.core.PickerMode
+import io.github.vinceglb.filekit.core.PickerType
 import kotlinx.coroutines.launch
 
 @Composable
 fun LocalRouteSelectButton(navigationState: NavigationState) {
     val scope = rememberCoroutineScope()
-    var awaitingData by remember { mutableStateOf(false) }
     val bgColour = animateColorAsState(SpiraGPSColours.infoBackground)
     val textColour = animateColorAsState(SpiraGPSColours.text)
     val interactionSource = remember { MutableInteractionSource() }
@@ -56,12 +57,21 @@ fun LocalRouteSelectButton(navigationState: NavigationState) {
                     .width(200.dp)
                     .clickable {
                         scope.launch {
-                            awaitingData = true
+                            FileKit.pickFile(
+                                type = PickerType.File(extensions = listOf("json")),
+                                mode = PickerMode.Single,
+                                title = "Select a Destination",
+                                initialDirectory = ""
+                            )?. let {
+                                val data = it.readBytes().decodeToString()
+                                navigationState.data = data
+                                navigationState.currentPage = NavigationState.ROUTE
+                            }
                         }
                     }
             ) {
-                AsyncImage(
-                    model = "https://bursur.github.io/SpiraGPS/placeholder-map.jpg",
+                Image(
+                    painter = rememberImagePainter("https://bursur.github.io/SpiraGPS/placeholder-map.jpg"),
                     contentDescription = ""
                 )
             }
@@ -72,19 +82,6 @@ fun LocalRouteSelectButton(navigationState: NavigationState) {
                 modifier = Modifier.align(Alignment.BottomCenter),
                 isExpanded = isHovered
             )
-        }
-    }
-
-    LaunchedEffect(awaitingData) {
-        if(awaitingData) {
-            val data = FileService.loadFile()
-
-            awaitingData = false
-
-            if(data != "cancelled") {
-                navigationState.data = data
-                navigationState.currentPage = NavigationState.ROUTE
-            }
         }
     }
 }

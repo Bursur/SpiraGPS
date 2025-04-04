@@ -67,13 +67,15 @@ kotlin {
             implementation(libs.kotlinx.serialization.core)
             implementation(libs.kotlinx.serialization.json)
 
-            implementation(libs.coil.compose.core)
-            implementation(libs.coil.mp)
-            implementation(libs.coil.compose)
-            implementation(libs.coil.network.ktor)
 
             implementation(libs.richeditor.compose)
             //implementation("io.github.khubaibkhan4:mediaplayer-kmp:2.0.9")
+            //implementation("com.github.Hamamas:Kotlin-Wasm-Html-Interop:Version")
+
+            implementation("io.github.vinceglb:filekit-core:0.8.8")
+            implementation("io.github.vinceglb:filekit-compose:0.8.8")
+
+            implementation(libs.image.loader)
         }
         desktopMain.dependencies {
             implementation(compose.desktop.currentOs)

@@ -4,6 +4,7 @@ import androidx.compose.animation.animateColorAsState
 import androidx.compose.animation.animateContentSize
 import androidx.compose.foundation.BasicTooltipBox
 import androidx.compose.foundation.ExperimentalFoundationApi
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -29,7 +30,6 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.ColorFilter
 import androidx.compose.ui.unit.dp
-import coil3.compose.AsyncImage
 import com.bursur.spiragps.editor.ControlPanel
 import com.bursur.spiragps.editor.EditorState
 import com.bursur.spiragps.editor.selectedEntry
@@ -42,6 +42,7 @@ import com.bursur.spiragps.route.entries.createEntry
 import com.bursur.spiragps.route.title.TitleEditor
 import com.bursur.spiragps.theme.SpiraGPSColours
 import com.bursur.spiragps.theme.SpiraGPSText
+import com.seiko.imageloader.rememberImagePainter
 
 @OptIn(ExperimentalMaterial3Api::class, ExperimentalFoundationApi::class)
 @Composable
@@ -125,8 +126,8 @@ fun ChapterEditor(chapter: Chapter, conditions: ArrayList<Condition>, editorStat
                             },
                             modifier = Modifier.offset(x = (-20).dp)
                         ) {
-                            AsyncImage(
-                                model = "https://bursur.github.io/SpiraGPS/condition_arrow.png",
+                            Image(
+                                painter = rememberImagePainter("https://bursur.github.io/SpiraGPS/condition_arrow.png"),
                                 contentDescription = "",
                                 colorFilter = ColorFilter.tint(textColour),
                                 modifier = Modifier

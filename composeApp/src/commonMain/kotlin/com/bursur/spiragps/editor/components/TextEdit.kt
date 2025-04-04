@@ -1,6 +1,7 @@
 package com.bursur.spiragps.editor.components
 
 import androidx.compose.animation.animateColorAsState
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
@@ -29,10 +30,10 @@ import androidx.compose.ui.input.key.key
 import androidx.compose.ui.input.key.onKeyEvent
 import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.unit.dp
-import coil3.compose.AsyncImage
 import com.bursur.spiragps.theme.SpiraGPSColours
 import com.bursur.spiragps.theme.SpiraGPSText
 import com.bursur.spiragps.utils.ClipboardService
+import com.seiko.imageloader.rememberImagePainter
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -100,8 +101,8 @@ fun TextEdit(modifier: Modifier = Modifier, text: String, placeholderText: Strin
                 contentPadding = PaddingValues(3.dp),
                 modifier = Modifier.defaultMinSize(1.dp, 1.dp)
             ) {
-                AsyncImage(
-                    model = "https://bursur.github.io/SpiraGPS/paste.png",
+                Image(
+                    painter = rememberImagePainter("https://bursur.github.io/SpiraGPS/paste.png"),
                     contentDescription = null,
                     modifier = Modifier.padding(2.dp).width(15.dp).height(15.dp)
                 )
