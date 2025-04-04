@@ -69,11 +69,9 @@ kotlin {
 
 
             implementation(libs.richeditor.compose)
-            //implementation("io.github.khubaibkhan4:mediaplayer-kmp:2.0.9")
-            //implementation("com.github.Hamamas:Kotlin-Wasm-Html-Interop:Version")
 
-            implementation("io.github.vinceglb:filekit-core:0.8.8")
-            implementation("io.github.vinceglb:filekit-compose:0.8.8")
+            implementation(libs.filekit.core)
+            implementation(libs.filekit.compose)
 
             implementation(libs.image.loader)
         }

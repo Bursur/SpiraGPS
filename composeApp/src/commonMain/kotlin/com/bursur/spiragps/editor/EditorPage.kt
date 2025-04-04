@@ -284,7 +284,7 @@ fun EditorPage(navigationState: NavigationState) {
                     FileKit.saveFile(
                         baseName = route.title.ifEmpty { "Untitled Guide" },
                         extension = "json",
-                        initialDirectory = "/custom/initial/path",
+                        initialDirectory = "",
                         bytes = data.encodeToByteArray()
                     )
                 }

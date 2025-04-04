@@ -6,6 +6,7 @@ androidx-activityCompose = "1.10.1"
 androidx-lifecycle = "2.8.4"
 compose-plugin = "1.7.3"
 decompose = "3.0.0-alpha01"
+filekitCore = "0.8.8"
 imageLoader = "1.10.0"
 kotlin = "2.1.10"
 kotlinx-coroutines = "1.10.1"
@@ -22,6 +23,8 @@ decompose = { module = "com.arkivanov.decompose:decompose", version.ref = "decom
 androidx-activity-compose = { module = "androidx.activity:activity-compose", version.ref = "androidx-activityCompose" }
 androidx-lifecycle-viewmodel = { group = "org.jetbrains.androidx.lifecycle", name = "lifecycle-viewmodel", version.ref = "androidx-lifecycle" }
 androidx-lifecycle-runtime-compose = { group = "org.jetbrains.androidx.lifecycle", name = "lifecycle-runtime-compose", version.ref = "androidx-lifecycle" }
+filekit-compose = { module = "io.github.vinceglb:filekit-compose", version.ref = "filekitCore" }
+filekit-core = { module = "io.github.vinceglb:filekit-core", version.ref = "filekitCore" }
 image-loader = { module = "io.github.qdsfdhvh:image-loader", version.ref = "imageLoader" }
 kotlinx-coroutines-swing = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-swing", version.ref = "kotlinx-coroutines" }
 kotlinx-datetime = { module = "org.jetbrains.kotlinx:kotlinx-datetime", version.ref = "kotlinxDatetime" }
