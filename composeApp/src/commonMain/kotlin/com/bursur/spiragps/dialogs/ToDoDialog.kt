@@ -79,7 +79,6 @@ fun ToDoDialog(onDismissRequest: () -> Unit) {
                     entry = Entry(
                         guide = arrayListOf(
                             "Routes: GIF Support?",
-                            "Routes: YouTube Video Embedding?",
                             "Routes: Links",
                             "Misc: Version History Page (Since you've been gone page?)",
                             "Routes: BUG! Tables HAVE to have entries totaling a multiple of 2, this shouldn't be the case",

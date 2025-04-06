@@ -32,7 +32,7 @@ fun HomePage(navigationState: NavigationState) {
     val textColour = animateColorAsState(SpiraGPSColours.text)
 
     Column(modifier = Modifier.fillMaxSize().padding(top = 20.dp), horizontalAlignment = Alignment.CenterHorizontally) {
-        SpiraGPSTitle()
+        SpiraGPSTitle()F
 
         Text(
             text = "Select your destination",
