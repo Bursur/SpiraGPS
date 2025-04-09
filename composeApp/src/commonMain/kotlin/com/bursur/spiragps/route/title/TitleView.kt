@@ -6,6 +6,7 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.onGloballyPositioned
 import androidx.compose.ui.layout.positionInRoot
@@ -17,19 +18,19 @@ import com.bursur.spiragps.theme.SpiraGPSText
 
 @Composable
 fun TitleView(modifier: Modifier = Modifier, title: String, isChapter: Boolean = false, positionCallback: (Float) -> Unit = { _: Float -> }) {
-    val textColour = animateColorAsState(SpiraGPSColours.text)
+    val textColour by animateColorAsState(SpiraGPSColours.text)
     Column(modifier = Modifier.fillMaxWidth(if(isChapter) 1f else { if(isWebSite()) .75f else .95f })) {
         Text(
             text = title,
             textAlign = TextAlign.Right,
             style = SpiraGPSText.typography.routeTitle,
-            color = textColour.value,
+            color = textColour,
             modifier = modifier
                 .fillMaxWidth()
                 .onGloballyPositioned {
                     positionCallback(it.positionInRoot().y)
                 }
         )
-        HorizontalDivider(color = textColour.value, thickness = 2.dp)
+        HorizontalDivider(color = textColour, thickness = 2.dp)
     }
 }

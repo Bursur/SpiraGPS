@@ -61,10 +61,10 @@ fun ToDoDialog(onDismissRequest: () -> Unit) {
             onDismissRequest()
         }
     ) {
-        val textColour = animateColorAsState(SpiraGPSColours.text)
-        val bgColour = animateColorAsState(SpiraGPSColours.infoBackground)
+        val textColour by animateColorAsState(SpiraGPSColours.text)
+        val bgColour by animateColorAsState(SpiraGPSColours.infoBackground)
 
-        Card(colors = CardDefaults.cardColors(containerColor = bgColour.value, contentColor = bgColour.value)) {
+        Card(colors = CardDefaults.cardColors(containerColor = bgColour, contentColor = bgColour)) {
             Column(
                 horizontalAlignment = Alignment.CenterHorizontally,
                 modifier = Modifier
@@ -72,8 +72,8 @@ fun ToDoDialog(onDismissRequest: () -> Unit) {
                     .padding(10.dp)
             ) {
                 Column {
-                    Text(text = "To Do List", style = SpiraGPSText.typography.landingTitle, color = textColour.value, textAlign = TextAlign.Center, modifier = Modifier.fillMaxWidth())
-                    Text(text = "(In no particular order)", style = SpiraGPSText.typography.info, color = textColour.value, textAlign = TextAlign.Center, modifier = Modifier.fillMaxWidth())
+                    Text(text = "To Do List", style = SpiraGPSText.typography.landingTitle, color = textColour, textAlign = TextAlign.Center, modifier = Modifier.fillMaxWidth())
+                    Text(text = "(In no particular order)", style = SpiraGPSText.typography.info, color = textColour, textAlign = TextAlign.Center, modifier = Modifier.fillMaxWidth())
                 }
                 BulletedList(
                     entry = Entry(
@@ -90,7 +90,7 @@ fun ToDoDialog(onDismissRequest: () -> Unit) {
                     onClick = { onDismissRequest() },
                     modifier = Modifier.padding(8.dp),
                 ) {
-                    Text("Close", style = SpiraGPSText.typography.info, color = textColour.value)
+                    Text("Close", style = SpiraGPSText.typography.info, color = textColour)
                 }
             }
         }

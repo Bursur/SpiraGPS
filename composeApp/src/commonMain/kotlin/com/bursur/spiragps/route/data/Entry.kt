@@ -47,7 +47,10 @@ data class Entry(
     var item: String = "",
 
     // Image
-    var scale: Float = 1f
+    var scale: Float = 1f,
+
+    // Link
+    var link: String = ""
 ) {
     fun hasRequirement(name: String) = requirement.any { it.condition == name }
     fun getRequirementState(name: String) = requirement.first { it.condition == name }.state

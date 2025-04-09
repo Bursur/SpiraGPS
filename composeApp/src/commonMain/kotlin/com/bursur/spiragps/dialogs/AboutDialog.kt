@@ -60,10 +60,10 @@ fun AboutDialog(onDismissRequest: () -> Unit) {
             onDismissRequest()
         }
     ) {
-        val textColour = animateColorAsState(SpiraGPSColours.text)
-        val bgColour = animateColorAsState(SpiraGPSColours.infoBackground)
+        val textColour by animateColorAsState(SpiraGPSColours.text)
+        val bgColour by animateColorAsState(SpiraGPSColours.infoBackground)
 
-        Card(colors = CardDefaults.cardColors(containerColor = bgColour.value, contentColor = bgColour.value)) {
+        Card(colors = CardDefaults.cardColors(containerColor = bgColour, contentColor = bgColour)) {
             Column(
                 horizontalAlignment = Alignment.CenterHorizontally,
                 modifier = Modifier
@@ -81,13 +81,13 @@ fun AboutDialog(onDismissRequest: () -> Unit) {
                             "The editor section allows you to build up a route, complete with custom keywords and " +
                             "conditional values, and view it as a user would see it when they load it up. There's a " +
                             "(hopefully!) helpful guide to help you through creating a new set of notes.",
-                    style = SpiraGPSText.typography.info, color = textColour.value
+                    style = SpiraGPSText.typography.info, color = textColour
                 )
                 TextButton(
                     onClick = { onDismissRequest() },
                     modifier = Modifier.padding(8.dp),
                 ) {
-                    Text("Close", style = SpiraGPSText.typography.info, color = textColour.value)
+                    Text("Close", style = SpiraGPSText.typography.info, color = textColour)
                 }
             }
         }

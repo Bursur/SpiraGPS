@@ -7,6 +7,7 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import com.bursur.spiragps.route.data.Entry
 import com.bursur.spiragps.theme.SpiraGPSColours
@@ -33,16 +34,16 @@ fun TableView(entry: Entry) {
 fun TableColumn(modifier: Modifier = Modifier, entries: List<String>) {
     Column(modifier = modifier) {
         entries.forEachIndexed { index, text ->
-            val bgColour = animateColorAsState(SpiraGPSColours.itemSortBackground[index % 2])
-            val textColour = animateColorAsState(SpiraGPSColours.text)
+            val bgColour by animateColorAsState(SpiraGPSColours.itemSortBackground[index % 2])
+            val textColour by animateColorAsState(SpiraGPSColours.text)
             Text(
                 text = highlightKeywords(text),
                 fontWeight = SpiraGPSColours.itemSortWeights[index % 2],
                 style = SpiraGPSText.typography.info,
-                color = textColour.value,
+                color = textColour,
                 modifier = Modifier
                     .fillMaxWidth()
-                    .background(bgColour.value)
+                    .background(bgColour)
             )
         }
     }

@@ -8,6 +8,7 @@ import androidx.compose.material3.Text
 import androidx.compose.material3.TextField
 import androidx.compose.material3.TextFieldDefaults
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
@@ -16,9 +17,9 @@ import com.bursur.spiragps.theme.SpiraGPSText
 
 @Composable
 fun TitleEditor(title: String, onValueChange: (String) -> Unit) {
-    val textColour = animateColorAsState(SpiraGPSColours.text)
-    val bgColour = animateColorAsState(SpiraGPSColours.infoBackground)
-    val indicatorColour = animateColorAsState(SpiraGPSColours.toggleSelectedTrackColour)
+    val textColour by animateColorAsState(SpiraGPSColours.text)
+    val bgColour by animateColorAsState(SpiraGPSColours.infoBackground)
+    val indicatorColour by animateColorAsState(SpiraGPSColours.toggleSelectedTrackColour)
 
     TextField(
         value = title,
@@ -27,12 +28,12 @@ fun TitleEditor(title: String, onValueChange: (String) -> Unit) {
             onValueChange(it)
         },
         colors = TextFieldDefaults.colors(
-            unfocusedTextColor = textColour.value,
-            focusedTextColor = textColour.value,
-            cursorColor = textColour.value,
-            unfocusedContainerColor = bgColour.value,
-            focusedContainerColor = bgColour.value,
-            focusedIndicatorColor = indicatorColour.value
+            unfocusedTextColor = textColour,
+            focusedTextColor = textColour,
+            cursorColor = textColour,
+            unfocusedContainerColor = bgColour,
+            focusedContainerColor = bgColour,
+            focusedIndicatorColor = indicatorColour
         ),
         textStyle = SpiraGPSText.typography.routeTitle,
         placeholder = {

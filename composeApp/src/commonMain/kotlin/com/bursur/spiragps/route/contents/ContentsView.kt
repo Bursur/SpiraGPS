@@ -10,6 +10,7 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.bursur.spiragps.components.backbutton.BackButton
@@ -20,7 +21,7 @@ import com.bursur.spiragps.theme.SpiraGPSText
 
 @Composable
 fun ContentsView(modifier: Modifier = Modifier, chapters: ArrayList<Chapter>, contentsState: ContentsState, navigationState: NavigationState) {
-    val textColour = animateColorAsState(SpiraGPSColours.text)
+    val textColour by animateColorAsState(SpiraGPSColours.text)
 
     Column(
         modifier = modifier.padding(10.dp).width(150.dp)
@@ -33,7 +34,7 @@ fun ContentsView(modifier: Modifier = Modifier, chapters: ArrayList<Chapter>, co
         Text(
             text = "Chapters:",
             style = SpiraGPSText.typography.contentsTitle,
-            color = textColour.value,
+            color = textColour,
             modifier = Modifier.wrapContentSize()
         )
 
@@ -45,7 +46,7 @@ fun ContentsView(modifier: Modifier = Modifier, chapters: ArrayList<Chapter>, co
                 Text(
                     text = chapter.title,
                     style = SpiraGPSText.typography.contentsEntry,
-                    color = textColour.value,
+                    color = textColour,
                     modifier = Modifier
                         .wrapContentSize()
                         .width(150.dp)

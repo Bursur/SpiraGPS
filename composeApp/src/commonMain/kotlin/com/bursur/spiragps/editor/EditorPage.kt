@@ -325,12 +325,12 @@ fun EditorPage(navigationState: NavigationState) {
 
 @Composable
 private fun StickyHeader(title: String) {
-    val bgColor = animateColorAsState(SpiraGPSColours.background)
+    val bgColor by animateColorAsState(SpiraGPSColours.background)
     Text(
         text = title,
         fontFamily = SpiraGPSText.fontFamily,
         color = SpiraGPSColours.text,
-        modifier = Modifier.fillMaxWidth().background(bgColor.value).alpha(.5f)
+        modifier = Modifier.fillMaxWidth().background(bgColor).alpha(.5f)
     )
 }
 
@@ -343,24 +343,24 @@ private fun ControlPanel(
     onKeywordsUpdated: () -> Unit,
     onSetSphereRequirement: () -> Unit
 ) {
-    val textColour = animateColorAsState(SpiraGPSColours.text)
-    val bgColour = animateColorAsState(SpiraGPSColours.editorControlBackground)
+    val textColour by animateColorAsState(SpiraGPSColours.text)
+    val bgColour by animateColorAsState(SpiraGPSColours.editorControlBackground)
 
-    Row(modifier = modifier.padding(10.dp).background(bgColour.value, RoundedCornerShape(10.dp))) {
+    Row(modifier = modifier.padding(10.dp).background(bgColour, RoundedCornerShape(10.dp))) {
         TextButton(onClick = { onSave() }, modifier = Modifier.padding(end = 5.dp)) {
-            Text(text = "Save Route", style = SpiraGPSText.typography.info, color = textColour.value)
+            Text(text = "Save Route", style = SpiraGPSText.typography.info, color = textColour)
         }
 
         TextButton(onClick = { onLoad() }) {
-            Text(text = "Load Route", style = SpiraGPSText.typography.info, color = textColour.value)
+            Text(text = "Load Route", style = SpiraGPSText.typography.info, color = textColour)
         }
 
         TextButton(onClick = { onModifyConditions() }) {
-            Text(text = "Update Conditions", style = SpiraGPSText.typography.info, color = textColour.value)
+            Text(text = "Update Conditions", style = SpiraGPSText.typography.info, color = textColour)
         }
 
         TextButton(onClick = { onSetSphereRequirement() }) {
-            Text(text = "Set Spheres", style = SpiraGPSText.typography.info, color = textColour.value)
+            Text(text = "Set Spheres", style = SpiraGPSText.typography.info, color = textColour)
         }
 
         KeywordsEditorButton(route = route, onDismiss = { onKeywordsUpdated() })

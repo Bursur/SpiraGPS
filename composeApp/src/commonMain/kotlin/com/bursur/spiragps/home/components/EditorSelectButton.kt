@@ -32,15 +32,15 @@ import com.seiko.imageloader.rememberImagePainter
 
 @Composable
 fun EditorSelectButton(navigationState: NavigationState) {
-    val bgColour = animateColorAsState(SpiraGPSColours.infoBackground)
-    val textColour = animateColorAsState(SpiraGPSColours.text)
+    val bgColour by animateColorAsState(SpiraGPSColours.infoBackground)
+    val textColour by animateColorAsState(SpiraGPSColours.text)
     val interactionSource = remember { MutableInteractionSource() }
     val isHovered by interactionSource.collectIsHoveredAsState()
 
     Surface(
         shadowElevation = 5.dp,
         shape = RoundedCornerShape(10.dp),
-        color = bgColour.value,
+        color = bgColour,
         modifier = Modifier.hoverable(interactionSource).padding(bottom = 10.dp)
     ) {
         Box(modifier = Modifier.width(200.dp)) {
@@ -58,8 +58,8 @@ fun EditorSelectButton(navigationState: NavigationState) {
             }
 
             Overlay(
-                textColour = textColour.value,
-                bgColour = bgColour.value,
+                textColour = textColour,
+                bgColour = bgColour,
                 modifier = Modifier.align(Alignment.BottomCenter),
                 isExpanded = isHovered
             )

@@ -6,6 +6,7 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
@@ -24,7 +25,7 @@ fun HeaderView(conditions: ArrayList<Condition>, conditionState: ConditionState)
             }
         }
 
-        val textColour = animateColorAsState(SpiraGPSColours.text)
-        HorizontalDivider(thickness = 1.dp, color = textColour.value, modifier = Modifier.fillMaxWidth(.65f))
+        val textColour by animateColorAsState(SpiraGPSColours.text)
+        HorizontalDivider(thickness = 1.dp, color = textColour, modifier = Modifier.fillMaxWidth(.65f))
     }
 }

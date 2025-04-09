@@ -27,24 +27,24 @@ import com.bursur.spiragps.theme.SpiraGPSText
 fun BasePanelView(title: String, border: Color, minimised: Boolean = false, content: @Composable () -> Unit) {
     var expanded by remember { mutableStateOf(!minimised) }
 
-    val borderColour = animateColorAsState(border)
-    val bgColour = animateColorAsState(SpiraGPSColours.infoBackground)
-    val textColour = animateColorAsState(SpiraGPSColours.text)
+    val borderColour by animateColorAsState(border)
+    val bgColour by animateColorAsState(SpiraGPSColours.infoBackground)
+    val textColour by animateColorAsState(SpiraGPSColours.text)
 
     Surface(
         shadowElevation = 5.dp,
         shape = RoundedCornerShape(10.dp),
-        border = BorderStroke(2.dp, borderColour.value),
-        color = bgColour.value,
+        border = BorderStroke(2.dp, borderColour),
+        color = bgColour,
     ) {
         Column {
             Text(
                 text = title,
                 textAlign = TextAlign.Center,
                 style = SpiraGPSText.typography.info,
-                color = textColour.value,
+                color = textColour,
                 modifier = Modifier
-                    .background(borderColour.value)
+                    .background(borderColour)
                     .fillMaxWidth()
                     .padding(vertical = 4.dp)
                     .clickable {

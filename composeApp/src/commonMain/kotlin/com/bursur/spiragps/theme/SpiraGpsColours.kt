@@ -13,6 +13,7 @@ data class ColourScheme(
     val onBackground: Color,
 
     val text: Color,
+    val link: Color,
     val infoBackground: Color,
     val editorControlBackground: Color,
 
@@ -71,6 +72,7 @@ val lightScheme = ColourScheme(
     onBackground = Color(0xFF19191C),
 
     text = Color(0xFF000000),
+    link = Color(0xFF548AF7),
     infoBackground = Color(0xFFF2F2F2),
     editorControlBackground = Color(0xFFE2E2E2),
 
@@ -129,6 +131,7 @@ val darkScheme = ColourScheme(
     onBackground = Color(0xFF19191C),
 
     text = Color(0xFFC7C7C7),
+    link = Color(0xFF548AF7),
     infoBackground = Color(0xFF3C3C3C),
     editorControlBackground = Color(0xFF4C4C4C),
 
@@ -187,6 +190,7 @@ val khaegarScheme = ColourScheme(
     onBackground = Color(0xFF19191C),
 
     text = Color(0xFF68303E),
+    link = Color(0xFF548AF7),
     infoBackground = Color(0xFFED9CAC),
     editorControlBackground = Color(0xFFFFE5E9),
 

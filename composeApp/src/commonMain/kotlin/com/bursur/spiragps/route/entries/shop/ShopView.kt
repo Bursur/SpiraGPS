@@ -5,6 +5,7 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.bursur.spiragps.components.bulletedlist.BulletedList
@@ -18,14 +19,14 @@ import com.bursur.spiragps.utils.formatWithCommas
 fun ShopView(entry: Entry) {
     BasePanelView(title = "SHOP - ${entry.cost.formatWithCommas()} GIL", border = SpiraGPSColours.shopBorder, minimised = entry.minimised) {
         Column(modifier = Modifier.padding(vertical = 30.dp, horizontal = 40.dp)) {
-            val textColour = animateColorAsState(SpiraGPSColours.text)
+            val textColour by animateColorAsState(SpiraGPSColours.text)
             if (entry.sell.isNotEmpty()) {
-                Text("Sell:", style = SpiraGPSText.typography.infoBold, color = textColour.value)
+                Text("Sell:", style = SpiraGPSText.typography.infoBold, color = textColour)
                 BulletedList(points = entry.sell)
             }
 
             if (entry.buy.isNotEmpty()) {
-                Text("Buy:", style = SpiraGPSText.typography.infoBold, color = textColour.value)
+                Text("Buy:", style = SpiraGPSText.typography.infoBold, color = textColour)
                 BulletedList(points = entry.buy)
             }
         }

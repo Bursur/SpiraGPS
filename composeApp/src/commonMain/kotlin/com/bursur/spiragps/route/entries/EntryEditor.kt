@@ -46,6 +46,7 @@ fun EntryEditorButton(modifier: Modifier = Modifier, entry: Entry, isPanel: Bool
         EntryType("image", onClick = typeSelectedCallback)
         EntryType("bullets", onClick = typeSelectedCallback)
         EntryType("table", onClick = typeSelectedCallback)
+        EntryType("link", onClick = typeSelectedCallback)
         if(!isPanel) {
             HorizontalDivider(
                 color = SpiraGPSColours.text,

@@ -11,6 +11,8 @@ import com.bursur.spiragps.components.image.ImageEditorPanel
 import com.bursur.spiragps.components.image.ImageView
 import com.bursur.spiragps.components.info.InfoEditorPanel
 import com.bursur.spiragps.components.info.InfoView
+import com.bursur.spiragps.components.link.Link
+import com.bursur.spiragps.components.link.LinkEditorPanel
 import com.bursur.spiragps.components.table.TableEditorPanel
 import com.bursur.spiragps.components.table.TableView
 import com.bursur.spiragps.route.data.Condition
@@ -55,6 +57,7 @@ fun createEntry(entry: Entry, editor: Boolean = false, selectedEntry: Entry = En
         "bullets" -> if(!editor) BulletedList(entry) else BulletEditorPanel(entry, selectedEntry)
         "image" -> if(!editor) ImageView(entry) else ImageEditorPanel(entry, selectedEntry)
         "table" -> if(!editor) TableView(entry) else TableEditorPanel(entry, selectedEntry)
+        "link" -> if(!editor) Link(entry) else LinkEditorPanel(entry, selectedEntry)
         else -> Text("Unknown Entry Type", fontWeight = FontWeight.Bold, color = Color.Red, textDecoration = TextDecoration.Underline)
     }
 }

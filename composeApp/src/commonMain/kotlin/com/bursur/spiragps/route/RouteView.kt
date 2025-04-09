@@ -48,7 +48,7 @@ fun RouteView(route: Route, conditionState: ConditionState, contentsState: Conte
     val scrollableState = rememberScrollState()
     val scope = rememberCoroutineScope()
 
-    val bgColour = animateColorAsState(SpiraGPSColours.background)
+    val bgColour by animateColorAsState(SpiraGPSColours.background)
 
     val titlePositions: MutableMap<Int, Float> = mutableMapOf()
     var scrollOffset = 0f
@@ -61,7 +61,7 @@ fun RouteView(route: Route, conditionState: ConditionState, contentsState: Conte
             .onGloballyPositioned {
                 scrollOffset = it.positionInRoot().y
             }
-            .background(bgColour.value)
+            .background(bgColour)
     ) {
         Column(
             horizontalAlignment = Alignment.CenterHorizontally,

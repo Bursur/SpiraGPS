@@ -10,6 +10,7 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import com.bursur.spiragps.components.discord.DiscordButton
 import com.bursur.spiragps.deeplinks.followEditorLink
 import com.bursur.spiragps.deeplinks.followRouteLink
 import com.bursur.spiragps.destinations.SpiraDestinations
@@ -35,10 +36,10 @@ fun SpiraGPS() {
     SpiraGPSTheme {
         var loading by remember { mutableStateOf(true) }
         val navigationState = rememberNavigationState()
-        val bgColour = animateColorAsState(SpiraGPSColours.background)
+        val bgColour by animateColorAsState(SpiraGPSColours.background)
 
         if(!loading) {
-            Box(modifier = Modifier.fillMaxSize().background(bgColour.value)) {
+            Box(modifier = Modifier.fillMaxSize().background(bgColour)) {
                 when (navigationState.currentPage) {
                     NavigationState.HOME -> HomePage(navigationState)
                     NavigationState.ROUTE -> RoutePage(navigationState)
@@ -53,9 +54,9 @@ fun SpiraGPS() {
                     ToDoActionButton()
                 }
 
-                Row(modifier = Modifier.align(Alignment.BottomStart).padding(10.dp)) {
-
-                }
+                /*Row(modifier = Modifier.align(Alignment.BottomStart).padding(10.dp)) {
+                    DiscordButton()
+                }*/
             }
         }
         else

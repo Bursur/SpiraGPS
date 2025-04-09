@@ -85,20 +85,20 @@ fun SettingsDialog(onDismissRequest: () -> Unit) {
             onDismissRequest()
         }
     ) {
-        val textColour = animateColorAsState(SpiraGPSColours.text)
-        val bgColour = animateColorAsState(SpiraGPSColours.infoBackground)
+        val textColour by animateColorAsState(SpiraGPSColours.text)
+        val bgColour by animateColorAsState(SpiraGPSColours.infoBackground)
 
-        Card(colors = CardDefaults.cardColors(containerColor = bgColour.value, contentColor = bgColour.value)) {
+        Card(colors = CardDefaults.cardColors(containerColor = bgColour, contentColor = bgColour)) {
             Column(
                 horizontalAlignment = Alignment.CenterHorizontally,
                 modifier = Modifier
                     .fillMaxWidth()
             ) {
-                Text("Settings", style = SpiraGPSText.typography.chapterTitle, color = textColour.value, textAlign = TextAlign.Center, modifier = Modifier.fillMaxWidth().padding(20.dp))
-                Text("UI Theme", style = SpiraGPSText.typography.info, color = textColour.value, textAlign = TextAlign.Center, modifier = Modifier.fillMaxWidth())
+                Text("Settings", style = SpiraGPSText.typography.chapterTitle, color = textColour, textAlign = TextAlign.Center, modifier = Modifier.fillMaxWidth().padding(20.dp))
+                Text("UI Theme", style = SpiraGPSText.typography.info, color = textColour, textAlign = TextAlign.Center, modifier = Modifier.fillMaxWidth())
                 ThemeSelector()
 
-                Text("Text Size", style = SpiraGPSText.typography.info, color = textColour.value, textAlign = TextAlign.Center, modifier = Modifier.fillMaxWidth().padding(top = 20.dp))
+                Text("Text Size", style = SpiraGPSText.typography.info, color = textColour, textAlign = TextAlign.Center, modifier = Modifier.fillMaxWidth().padding(top = 20.dp))
                 TextSizeSelector()
 
                 DyslexicSelector()
@@ -111,7 +111,7 @@ fun SettingsDialog(onDismissRequest: () -> Unit) {
                     onClick = { onDismissRequest() },
                     modifier = Modifier.padding(8.dp),
                 ) {
-                    Text("Close", style = SpiraGPSText.typography.info, color = textColour.value)
+                    Text("Close", style = SpiraGPSText.typography.info, color = textColour)
                 }
             }
         }

@@ -6,6 +6,7 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.ParagraphStyle
 import androidx.compose.ui.text.buildAnnotatedString
@@ -22,13 +23,13 @@ private val paragraphStyle = ParagraphStyle(textIndent = TextIndent(restLine = 1
 
 @Composable
 fun BulletedList(entry: Entry) {
-    val textColour = animateColorAsState(SpiraGPSColours.text)
+    val textColour by animateColorAsState(SpiraGPSColours.text)
     Column(modifier = Modifier.fillMaxWidth()) {
         if(entry.text.isNotEmpty())
             Text(
                 highlightKeywords(entry.text),
                 style = if(entry.bold) SpiraGPSText.typography.bulletTitleBold else SpiraGPSText.typography.bulletTitle,
-                color = textColour.value
+                color = textColour
             )
 
         Text(
@@ -42,7 +43,7 @@ fun BulletedList(entry: Entry) {
                 }
             },
             style = SpiraGPSText.typography.bulletPoint,
-            color = textColour.value,
+            color = textColour,
             modifier = Modifier.padding(horizontal = 10.dp)
         )
     }
@@ -50,13 +51,13 @@ fun BulletedList(entry: Entry) {
 
 @Composable
 fun BulletedList(title: String = "", points: ArrayList<String>) {
-    val textColour = animateColorAsState(SpiraGPSColours.text)
+    val textColour by animateColorAsState(SpiraGPSColours.text)
     Column(modifier = Modifier.fillMaxWidth()) {
         if(title.isNotEmpty())
             Text(
                 title,
                 style = SpiraGPSText.typography.bulletTitle,
-                color = textColour.value
+                color = textColour
             )
 
         Text(
@@ -70,7 +71,7 @@ fun BulletedList(title: String = "", points: ArrayList<String>) {
                 }
             },
             style = SpiraGPSText.typography.bulletPoint,
-            color = textColour.value,
+            color = textColour,
             modifier = Modifier.padding(horizontal = 10.dp)
         )
     }
