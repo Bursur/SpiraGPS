@@ -9,8 +9,12 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.outlined.Checklist
+import androidx.compose.material.icons.outlined.Info
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
+import androidx.compose.material3.Icon
 import androidx.compose.material3.SmallFloatingActionButton
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
@@ -43,8 +47,8 @@ fun ToDoActionButton(modifier: Modifier = Modifier) {
         contentColor = SpiraGPSColours.fabIconColour,
         modifier = modifier.hoverable(interactionSource)
     ) {
-        Image(
-            painter = rememberImagePainter("https://bursur.github.io/SpiraGPS/todo.png"),
+        Icon(
+            imageVector = Icons.Outlined.Checklist,
             contentDescription = null,
             modifier = Modifier.padding(5.dp).width(24.dp).height(24.dp)
         )

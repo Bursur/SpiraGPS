@@ -43,7 +43,7 @@ fun createEntry(entry: Entry, editor: Boolean = false, selectedEntry: Entry = En
     return when(entry.type) {
         //Panels
         "battle" -> if(!editor) BattleView(entry) else BattleEditorPanel(entry, selectedEntry, conditions)
-        "encounter" -> if(!editor) EncounterView(entry) else EncounterEditorPanel(entry, selectedEntry)
+        "encounter" -> if(!editor) EncounterView(entry) else EncounterEditorPanel(entry, selectedEntry, conditions)
         "trial" -> if(!editor) TrialsView(entry) else TrialEditorPanel(entry, selectedEntry, conditions)
         "shop" -> if(!editor) ShopView(entry) else ShopEditorPanel(entry, selectedEntry)
         "equipment" -> if(!editor) EquipmentView(entry) else EquipmentEditorPanel(entry, selectedEntry)

@@ -13,8 +13,12 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.outlined.Info
+import androidx.compose.material.icons.outlined.Settings
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
+import androidx.compose.material3.Icon
 import androidx.compose.material3.RadioButton
 import androidx.compose.material3.RadioButtonDefaults
 import androidx.compose.material3.SmallFloatingActionButton
@@ -71,7 +75,11 @@ fun SettingsActionButton(modifier: Modifier = Modifier) {
         contentColor = SpiraGPSColours.fabIconColour,
         modifier = modifier.hoverable(interactionSource)
     ) {
-        Image(rememberImagePainter("https://bursur.github.io/SpiraGPS/settings.png"), contentDescription = null, modifier = Modifier.padding(5.dp).width(24.dp).height(24.dp))
+        Icon(
+            imageVector = Icons.Outlined.Settings,
+            contentDescription = null,
+            modifier = Modifier.padding(5.dp).width(24.dp).height(24.dp)
+        )
     }
 
     if(openAlertDialog)

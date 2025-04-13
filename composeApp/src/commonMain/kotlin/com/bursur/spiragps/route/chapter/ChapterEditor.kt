@@ -16,7 +16,10 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.sizeIn
 import androidx.compose.foundation.rememberBasicTooltipState
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.outlined.ForkRight
 import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.Icon
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.material3.TooltipDefaults
@@ -126,10 +129,10 @@ fun ChapterEditor(chapter: Chapter, conditions: ArrayList<Condition>, editorStat
                             },
                             modifier = Modifier.offset(x = (-20).dp)
                         ) {
-                            Image(
-                                painter = rememberImagePainter("https://bursur.github.io/SpiraGPS/condition_arrow.png"),
+                            Icon(
+                                imageVector = Icons.Outlined.ForkRight,
                                 contentDescription = "",
-                                colorFilter = ColorFilter.tint(textColour),
+                                tint = textColour,
                                 modifier = Modifier
                                     .sizeIn(maxWidth = 20.dp, maxHeight = 20.dp)
                                     .align(Alignment.TopStart)

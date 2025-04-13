@@ -1,5 +1,7 @@
 package com.bursur.spiragps.route.entries.encounter
 
+import androidx.compose.foundation.clickable
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Text
@@ -10,73 +12,78 @@ import androidx.compose.runtime.key
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.bursur.spiragps.components.bulletedlist.BulletPointEditor
+import com.bursur.spiragps.editor.ControlPanel
 import com.bursur.spiragps.editor.components.TextEdit
+import com.bursur.spiragps.editor.isPanel
+import com.bursur.spiragps.editor.secondaryEntry
 import com.bursur.spiragps.route.BasePanelEditor
+import com.bursur.spiragps.route.data.Condition
 import com.bursur.spiragps.route.data.Entry
+import com.bursur.spiragps.route.entries.EntryEditorButton
+import com.bursur.spiragps.route.entries.createEntry
 import com.bursur.spiragps.theme.SpiraGPSColours
 import com.bursur.spiragps.theme.SpiraGPSText
 
 @Composable
-fun EncounterEditorPanel(entry: Entry, selectedEntry: Entry) {
-    val steps by remember { mutableStateOf(entry.guide) }
-    var newStep by remember { mutableStateOf("") }
+fun EncounterEditorPanel(entry: Entry, selectedEntry: Entry, conditions: ArrayList<Condition>) {
+    val entries by remember { mutableStateOf(entry.entries) }
     var updates by remember { mutableStateOf(0) }
 
     if(entry == selectedEntry) {
         BasePanelEditor(border = SpiraGPSColours.encounterBorder) {
-            Text(
-                text = "Steps:",
-                style = SpiraGPSText.typography.info,
-                color = SpiraGPSColours.text,
-                modifier = Modifier.padding(horizontal = 5.dp)
-            )
             key(updates) {
-                steps.forEachIndexed { index, step ->
-                    BulletPointEditor(
-                        text = step,
-                        placeholderText = "Update Step...",
-                        onUpdated = {
-                            steps[index] = it
-                            entry.guide = steps
-                        },
-                        onDeleted = {
-                            steps.removeAt(index)
-                            entry.guide = steps
-                            ++updates
+                Column(modifier = Modifier.padding(10.dp)) {
+                    entries.forEach {
+                        Column(
+                            horizontalAlignment = Alignment.CenterHorizontally,
+                            modifier = Modifier
+                                .clickable {
+                                    secondaryEntry = it
+                                }
+                        ) {
+                            if(it == secondaryEntry)
+                                ControlPanel(
+                                    entry = it,
+                                    conditions = conditions,
+                                    onEntryDeleted = {
+                                        if(entry.entries.remove(it))
+                                            ++updates
+                                    },
+                                    onMoveUp = {
+                                        entry.entries.apply {
+                                            val index = indexOf(it)
+                                            if(index >= 1) {
+                                                add(index - 1, removeAt(index))
+                                                ++updates
+                                            }
+                                        }
+                                    },
+                                    onMoveDown = {
+                                        entry.entries.apply {
+                                            val index = indexOf(it)
+                                            if(index != -1 && index < size - 1) {
+                                                add(index + 1, removeAt(index))
+                                                ++updates
+                                            }
+                                        }
+                                    }
+                                )
+
+                            createEntry(entry = it, editor = true, selectedEntry = secondaryEntry, conditions = conditions)
                         }
-                    )
-                }
-            }
-
-            Row(modifier = Modifier.padding(horizontal = 10.dp)) {
-                TextEdit(
-                    text = newStep,
-                    placeholderText = "Enter New Step...",
-                    hasPasteButton = true,
-                    multiLine = false,
-                    onEnterKey = {
-                        steps.add(newStep)
-                        newStep = ""
-                        entry.guide = steps
-                    },
-                    modifier = Modifier.weight(1f)
-                ) { newStep = it }
-
-                TextButton(
-                    onClick = {
-                        steps.add(newStep)
-                        newStep = ""
-                        entry.guide = steps
                     }
-                ) {
-                    Text(
-                        text = "Add",
-                        style = SpiraGPSText.typography.info,
-                        color = SpiraGPSColours.text
-                    )
+
+                    EntryEditorButton(entry = Entry(type = "info"), isPanel = isPanel(entry)) {
+                        if (it != null) {
+                            entry.entries.add(it)
+                            ++updates
+                            secondaryEntry = it
+                        }
+                    }
                 }
             }
         }

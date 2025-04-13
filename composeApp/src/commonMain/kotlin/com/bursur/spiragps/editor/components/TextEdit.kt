@@ -11,9 +11,12 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.text.BasicTextField
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.outlined.ContentPaste
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.Icon
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextFieldDefaults
 import androidx.compose.runtime.Composable
@@ -101,8 +104,8 @@ fun TextEdit(modifier: Modifier = Modifier, text: String, placeholderText: Strin
                 contentPadding = PaddingValues(3.dp),
                 modifier = Modifier.defaultMinSize(1.dp, 1.dp)
             ) {
-                Image(
-                    painter = rememberImagePainter("https://bursur.github.io/SpiraGPS/paste.png"),
+                Icon(
+                    imageVector = Icons.Outlined.ContentPaste,
                     contentDescription = null,
                     modifier = Modifier.padding(2.dp).width(15.dp).height(15.dp)
                 )
