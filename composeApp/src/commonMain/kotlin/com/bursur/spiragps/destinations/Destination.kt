@@ -8,5 +8,6 @@ data class Destination(
     val data: String = "",
     val image: String = "",
     val author: String = "",
-    val id: String
+    val id: String,
+    val enabled: Boolean = true
 )

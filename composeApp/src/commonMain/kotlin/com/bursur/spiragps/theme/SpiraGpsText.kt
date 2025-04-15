@@ -491,7 +491,7 @@ object SpiraGPSText {
     const val BULLET_CHAR = "\u2022"
 
     suspend fun loadFonts() {
-        fontFamily = loadFont("SpiraGPS/fonts/Kanit-Light.ttf", "Kanit", FontWeight.Normal)
+        fontFamily = loadFont("SpiraGPS/fonts/SignikaNegative-Medium.ttf", "Signika Negative", FontWeight.Normal)
 
         dyslexicFont = loadFont("SpiraGPS/fonts/Lexend-ExtraLight.ttf", "ReadexPro", FontWeight.Normal)
 
@@ -531,7 +531,11 @@ object SpiraGPSText {
         "↓",
         "←",
         "→",
-        "↑"
+        "↑",
+        "↖",
+        "↘",
+        "↗",
+        "↙"
     )
 
     fun addKeywords(newKeywords: ArrayList<String>) {

@@ -52,7 +52,8 @@ fun HomePage(navigationState: NavigationState) {
                 .verticalScroll(scrollState)
         ) {
             SpiraDestinations.list.destinations.forEach {
-                RouteSelectButton(destination = it, navigationState = navigationState)
+                if(it.enabled)
+                    RouteSelectButton(destination = it, navigationState = navigationState)
             }
 
             if(isWebSite()) {
