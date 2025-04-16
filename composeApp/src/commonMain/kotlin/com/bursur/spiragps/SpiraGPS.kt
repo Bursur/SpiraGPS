@@ -51,7 +51,7 @@ fun SpiraGPS() {
                 Row(modifier = Modifier.align(Alignment.BottomEnd).padding(10.dp)) {
                     AboutActionButton()
                     SettingsActionButton()
-                    ToDoActionButton()
+                    //ToDoActionButton()
                 }
 
                 /*Row(modifier = Modifier.align(Alignment.BottomStart).padding(10.dp)) {

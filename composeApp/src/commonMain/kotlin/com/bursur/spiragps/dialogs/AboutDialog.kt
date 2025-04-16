@@ -75,7 +75,7 @@ fun AboutDialog(onDismissRequest: () -> Unit) {
                     .padding(15.dp)
             ) {
                 SpiraGPSTitle()
-                Text(
+                /*Text(
                     text = "This tool provides a way to edit new or existing notes with a visual WYSIWYG editor.\n\n" +
                             "To get started select a route from the landing page, from there you can " +
                             "jump around the run using the contents list on the left. Clicking the title of each " +
@@ -86,7 +86,7 @@ fun AboutDialog(onDismissRequest: () -> Unit) {
                             "conditional values, and view it as a user would see it when they load it up. There's a " +
                             "(hopefully!) helpful guide to help you through creating a new set of notes.",
                     style = SpiraGPSText.typography.info, color = textColour
-                )
+                )*/
                 TextButton(
                     onClick = { onDismissRequest() },
                     modifier = Modifier.padding(8.dp),

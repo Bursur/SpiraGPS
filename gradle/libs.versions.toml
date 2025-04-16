@@ -11,6 +11,7 @@ imageLoader = "1.10.0"
 kotlin = "2.1.10"
 kotlinx-coroutines = "1.10.1"
 kotlinxDatetime = "0.6.0"
+kotlinxDatetimeVersion = "0.6.2"
 kotlinxSerializationCore = "1.8.0"
 ktorClientJs = "3.0.0-wasm2"
 retrofit = "2.11.0"
@@ -28,6 +29,7 @@ filekit-core = { module = "io.github.vinceglb:filekit-core", version.ref = "file
 image-loader = { module = "io.github.qdsfdhvh:image-loader", version.ref = "imageLoader" }
 kotlinx-coroutines-swing = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-swing", version.ref = "kotlinx-coroutines" }
 kotlinx-datetime = { module = "org.jetbrains.kotlinx:kotlinx-datetime", version.ref = "kotlinxDatetime" }
+kotlinx-datetime-v062 = { module = "org.jetbrains.kotlinx:kotlinx-datetime", version.ref = "kotlinxDatetimeVersion" }
 kotlinx-serialization-core = { module = "org.jetbrains.kotlinx:kotlinx-serialization-core", version.ref = "kotlinxSerializationCore" }
 kotlinx-serialization-json = { module = "org.jetbrains.kotlinx:kotlinx-serialization-json", version.ref = "kotlinxSerializationCore" }
 ktor-client-js = { module = "io.ktor:ktor-client-js", version.ref = "ktorClientJs" }
