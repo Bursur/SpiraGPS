@@ -46,6 +46,8 @@ import com.bursur.spiragps.route.title.TitleEditor
 import com.bursur.spiragps.theme.SpiraGPSColours
 import com.bursur.spiragps.theme.SpiraGPSText
 import com.seiko.imageloader.rememberImagePainter
+import kotlinx.datetime.Clock
+import kotlinx.serialization.json.Json
 
 @OptIn(ExperimentalMaterial3Api::class, ExperimentalFoundationApi::class)
 @Composable
@@ -100,6 +102,16 @@ fun ChapterEditor(chapter: Chapter, conditions: ArrayList<Condition>, editorStat
                                             ++updateCount
                                         }
                                     }
+                                },
+                                onDuplicate = {
+                                    val data = Json.encodeToString<Entry>(it)
+                                    val newEntry = Json.decodeFromString<Entry>(data).apply {
+                                        id = Clock.System.now().epochSeconds
+                                    }
+
+                                    chapter.entries.add(newEntry)
+                                    ++editorState.updateCounter
+                                    selectedEntry = newEntry
                                 }
                             )
 

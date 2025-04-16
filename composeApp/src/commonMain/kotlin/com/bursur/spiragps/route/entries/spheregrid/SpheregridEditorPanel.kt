@@ -21,6 +21,8 @@ import com.bursur.spiragps.route.data.Entry
 import com.bursur.spiragps.route.entries.EntryEditorButton
 import com.bursur.spiragps.route.entries.createEntry
 import com.bursur.spiragps.theme.SpiraGPSColours
+import kotlinx.datetime.Clock
+import kotlinx.serialization.json.Json
 
 @Composable
 fun SpheregridEditorPanel(entry: Entry, selectedEntry: Entry, conditions: ArrayList<Condition>) {
@@ -67,6 +69,16 @@ fun SpheregridEditorPanel(entry: Entry, selectedEntry: Entry, conditions: ArrayL
                                                 ++updates
                                             }
                                         }
+                                    },
+                                    onDuplicate = {
+                                        val data = Json.encodeToString<Entry>(it)
+                                        val newEntry = Json.decodeFromString<Entry>(data).apply {
+                                            id = Clock.System.now().epochSeconds
+                                        }
+
+                                        entry.entries.add(newEntry)
+                                        secondaryEntry = newEntry
+                                        ++updates
                                     }
                                 )
 

@@ -476,6 +476,7 @@ val dyslexicLarge: TextStyles
 object SpiraGPSText {
     var fontFamily: FontFamily? = null
     var dyslexicFont: FontFamily? = null
+    var specialFont: FontFamily? = null
 
     var typography by mutableStateOf(small)
     var selectedFontSize by mutableStateOf(getTextSizePreference())
@@ -491,9 +492,11 @@ object SpiraGPSText {
     const val BULLET_CHAR = "\u2022"
 
     suspend fun loadFonts() {
-        fontFamily = loadFont("SpiraGPS/fonts/SignikaNegative-Medium.ttf", "Signika Negative", FontWeight.Normal)
+        fontFamily = loadFont("SpiraGPS/fonts/Kanit-Light.ttf", "Kanit", FontWeight.Normal)
 
         dyslexicFont = loadFont("SpiraGPS/fonts/Lexend-ExtraLight.ttf", "ReadexPro", FontWeight.Normal)
+
+        specialFont = loadFont("SpiraGPS/fonts/SignikaNegative-Medium.ttf", "ReadexPro", FontWeight.Normal)
 
         typography = getUpdatedFont()
     }

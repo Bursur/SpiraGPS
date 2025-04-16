@@ -72,6 +72,7 @@ import io.github.vinceglb.filekit.core.FileKit
 import io.github.vinceglb.filekit.core.PickerMode
 import io.github.vinceglb.filekit.core.PickerType
 import kotlinx.coroutines.launch
+import kotlinx.datetime.Clock
 import kotlinx.serialization.encodeToString
 import kotlinx.serialization.json.Json
 
@@ -192,6 +193,16 @@ fun EditorPage(navigationState: NavigationState) {
                                                         ++editorState.updateCounter
                                                     }
                                                 }
+                                            },
+                                            onDuplicate = {
+                                                val data = Json.encodeToString<Entry>(it)
+                                                val newEntry = Json.decodeFromString<Entry>(data).apply {
+                                                    id = Clock.System.now().epochSeconds
+                                                }
+
+                                                route.introduction.entries.add(newEntry)
+                                                ++editorState.updateCounter
+                                                selectedEntry = newEntry
                                             }
                                         )
 

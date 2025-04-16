@@ -5,28 +5,32 @@
             "data": "SpiraGPS/any_percent_example.json",
             "image": "SpiraGPS/boosters.png",
             "author": "",
-            "id": "b6692d34-39ea-4361-b9fc-1cb6be0ceaff"
+            "id": "b6692d34-39ea-4361-b9fc-1cb6be0ceaff",
+            "enabled": true
         },
         {
             "name": "Any% w/Boosters (OLD)",
             "data": "SpiraGPS/boosters.json",
             "image": "SpiraGPS/boosters.png",
             "author": "MtBanger",
-            "id": "f4f936ea-2849-4d2c-8638-3b80f5ccee44"
+            "id": "f4f936ea-2849-4d2c-8638-3b80f5ccee44",
+            "enabled": false
         },
         {
             "name": "Any% w/Boosters Wakka",
             "data": "SpiraGPS/boosters_wakka.json",
             "image": "SpiraGPS/boosters.png",
             "author": "MtBanger",
-            "id": "59ebcd16-59c6-4d91-8797-82d1d177c195"
+            "id": "59ebcd16-59c6-4d91-8797-82d1d177c195",
+            "enabled": true
         },
         {
             "name": "Any% w/Boosters (Chinese)",
             "data": "SpiraGPS/boosters-chinese.json",
             "image": "SpiraGPS/boosters-chinese.jpg",
             "author": "Bursur",
-            "id": "1e714612-afb2-42cc-96b2-87bd30b8fde5"
+            "id": "1e714612-afb2-42cc-96b2-87bd30b8fde5",
+            "enabled": false
         }
     ]
 }

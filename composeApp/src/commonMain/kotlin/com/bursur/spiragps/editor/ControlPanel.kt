@@ -9,6 +9,7 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.outlined.ArrowDownward
 import androidx.compose.material.icons.outlined.ArrowUpward
 import androidx.compose.material.icons.outlined.Checklist
+import androidx.compose.material.icons.outlined.ContentCopy
 import androidx.compose.material.icons.outlined.Delete
 import androidx.compose.material3.Checkbox
 import androidx.compose.material3.CheckboxDefaults
@@ -30,7 +31,6 @@ import com.bursur.spiragps.route.data.Condition
 import com.bursur.spiragps.route.data.Entry
 import com.bursur.spiragps.theme.SpiraGPSColours
 import com.bursur.spiragps.theme.SpiraGPSText
-import com.seiko.imageloader.rememberImagePainter
 
 @Composable
 fun ControlPanel(
@@ -38,7 +38,8 @@ fun ControlPanel(
     conditions: ArrayList<Condition>,
     onEntryDeleted: (Entry) -> Unit,
     onMoveUp: (Entry) -> Unit,
-    onMoveDown: (Entry) -> Unit
+    onMoveDown: (Entry) -> Unit,
+    onDuplicate: (Entry) -> Unit
 ) {
     var conditionExpanded by remember { mutableStateOf(false) }
     var selected by remember { mutableStateOf(entry.minimised) }
@@ -67,6 +68,11 @@ fun ControlPanel(
         // Delete
         ControlPanelButton(Icons.Outlined.Delete) {
             onEntryDeleted(entry)
+        }
+
+        // Duplicate
+        ControlPanelButton(Icons.Outlined.ContentCopy) {
+            onDuplicate(entry)
         }
 
         // Down

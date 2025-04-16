@@ -74,6 +74,8 @@ kotlin {
             implementation(libs.filekit.compose)
 
             implementation(libs.image.loader)
+
+            implementation("org.jetbrains.kotlinx:kotlinx-datetime:0.6.2")
         }
         desktopMain.dependencies {
             implementation(compose.desktop.currentOs)

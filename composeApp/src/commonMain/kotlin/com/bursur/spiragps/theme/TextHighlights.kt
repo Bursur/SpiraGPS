@@ -50,7 +50,7 @@ private fun highlightSpecialCharacters(text: String, builder: AnnotatedString.Bu
 
             builder.addStyle(
                 style = SpanStyle(
-                    fontFamily = SpiraGPSText.fontFamily,
+                    fontFamily = SpiraGPSText.specialFont,
                     color = SpiraGPSText.getKeywordColour(it),
                     fontWeight = FontWeight.Bold,
                     fontSize = SpiraGPSText.typography.info.fontSize

@@ -1,5 +1,7 @@
 package com.bursur.spiragps.route.data
 
+import kotlinx.datetime.Clock
+import kotlinx.serialization.SerialInfo
 import kotlinx.serialization.Serializable
 
 @Serializable
@@ -50,7 +52,9 @@ data class Entry(
     var scale: Float = 1f,
 
     // Link
-    var link: String = ""
+    var link: String = "",
+
+    var id: Long = 0
 ) {
     fun hasRequirement(name: String) = requirement.any { it.condition == name }
     fun getRequirementState(name: String) = requirement.first { it.condition == name }.state
