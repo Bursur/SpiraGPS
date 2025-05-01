@@ -50,6 +50,7 @@ data class Entry(
 
     // Image
     var scale: Float = 1f,
+    var imageData: List<Int> = listOf(),
 
     // Link
     var link: String = "",
