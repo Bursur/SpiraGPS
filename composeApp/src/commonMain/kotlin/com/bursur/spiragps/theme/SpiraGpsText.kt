@@ -517,6 +517,7 @@ object SpiraGPSText {
         "Keepa",
         "Balgerda",
         "Abus",
+        "All",
 
         // Aeons
         "Valefor",

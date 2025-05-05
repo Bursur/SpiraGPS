@@ -9,6 +9,7 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import com.bursur.spiragps.components.AnimatableContent
 import com.bursur.spiragps.platform.isWebSite
 import com.bursur.spiragps.route.conditions.ConditionState
 import com.bursur.spiragps.route.entries.createEntry
@@ -25,7 +26,7 @@ fun IntroductionView(intro: Introduction, conditionState: ConditionState) {
             val changes = conditionState.lastChange
             val showEntry = conditionState.areConditionsMet(it.requirement)
 
-            AnimatedVisibility(visible = showEntry) {
+            AnimatableContent(visible = showEntry) {
                 Column {
                     createEntry(entry = it)
 

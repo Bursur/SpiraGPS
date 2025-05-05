@@ -20,6 +20,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
+import com.bursur.spiragps.components.AnimatableContent
 import com.bursur.spiragps.theme.SpiraGPSColours
 import com.bursur.spiragps.theme.SpiraGPSText
 
@@ -52,7 +53,7 @@ fun BasePanelView(title: String, border: Color, minimised: Boolean = false, cont
                     }
             )
 
-            AnimatedVisibility(expanded) {
+            AnimatableContent(expanded) {
                 content()
             }
         }

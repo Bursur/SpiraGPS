@@ -4,16 +4,19 @@ external fun loadDarkModePreference(): Int
 external fun loadTextSizePreference(): Int
 external fun loadDyslexicModePreference(): Int
 external fun loadKhaegarModePreference(): Int
+external fun loadAnimationEnabledPreference(): Int
 
 external fun saveDarkModePreference(enabled: Int)
 external fun saveTextSizePreference(size: Int)
 external fun saveDyslexicModePreference(enabled: Int)
 external fun saveKhaegarModePreference(enabled: Int)
+external fun saveAnimationEnabledPreference(enabled: Int)
 
 actual fun getDarkModePreference(): Int = loadDarkModePreference()
 actual fun getTextSizePreference(): Int = loadTextSizePreference()
 actual fun getDyslexicModePreference(): Int = loadDyslexicModePreference()
 actual fun getKhaegarModePreference(): Int = loadKhaegarModePreference()
+actual fun getAnimationsEnabledPreference(): Int = loadAnimationEnabledPreference()
 
 actual fun setDarkModePreference(enabled: Int) {
     saveDarkModePreference(enabled)
@@ -29,4 +32,8 @@ actual fun setDyslexicModePreference(enabled: Int) {
 
 actual fun setKhaegarModePreference(enabled: Int) {
     saveKhaegarModePreference(enabled)
+}
+
+actual fun setAnimationsEnabledPreference(enabled: Int) {
+    saveAnimationEnabledPreference(enabled)
 }

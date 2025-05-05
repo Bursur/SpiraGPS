@@ -44,6 +44,7 @@ import com.bursur.spiragps.preferences.setDyslexicModePreference
 import com.bursur.spiragps.preferences.setKhaegarModePreference
 import com.bursur.spiragps.preferences.setTextSizePreference
 import com.bursur.spiragps.theme.ColourScheme
+import com.bursur.spiragps.theme.SpiraGPSAnimationsEnabled
 import com.bursur.spiragps.theme.SpiraGPSColours
 import com.bursur.spiragps.theme.SpiraGPSDarkMode
 import com.bursur.spiragps.theme.SpiraGPSKhaegarMode
@@ -110,6 +111,8 @@ fun SettingsDialog(onDismissRequest: () -> Unit) {
                 TextSizeSelector()
 
                 DyslexicSelector()
+
+                AnimationSelector()
 
                 // Khaegar Mode
                 KhaegarModeButton()
@@ -286,5 +289,31 @@ private fun DyslexicSelector() {
             color = textColour,
             modifier = Modifier.padding(start = 4.dp)
         )
+    }
+}
+
+@Composable
+private fun AnimationSelector() {
+    val selectedColour by animateColorAsState(SpiraGPSColours.toggleSelectedTrackColour)
+    val unselectedColour by animateColorAsState(SpiraGPSColours.toggleUnselectedTrackColour)
+    val textColour by animateColorAsState(SpiraGPSColours.text)
+
+    Row(verticalAlignment = Alignment.CenterVertically, modifier = Modifier.padding(top = 20.dp)) {
+        Switch(
+            checked = SpiraGPSAnimationsEnabled,
+            onCheckedChange = {
+                SpiraGPSAnimationsEnabled = it
+                setDyslexicModePreference(if(SpiraGPSAnimationsEnabled) 1 else 0)
+            },
+            colors = SwitchDefaults.colors(
+                checkedThumbColor = SpiraGPSColours.toggleSelectedThumbColour,
+                checkedTrackColor = selectedColour,
+                uncheckedTrackColor = unselectedColour,
+                uncheckedThumbColor = SpiraGPSColours.toggleUnselectedThumbColour,
+            ),
+            modifier = Modifier.padding(start = 10.dp)
+        )
+
+        Text(text = "Animations Enabled", style = SpiraGPSText.typography.info, color = textColour, modifier = Modifier.padding(start = 4.dp))
     }
 }

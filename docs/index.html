@@ -96,6 +96,17 @@
             return 0
         }
 
+        function saveAnimationEnabledPreference(enabled) {
+            localStorage.animationEnabled = enabled;
+        }
+
+        function loadAnimationEnabledPreference() {
+            if(localStorage.animationEnabled)
+                return Number(localStorage.dyslexicMode);
+
+            return 0
+        }
+
         // File I/O
         var data = "#DEADFACE";
         function getLoadedData() {
