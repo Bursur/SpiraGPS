@@ -15,6 +15,10 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.layout.wrapContentHeight
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Download
+import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -73,6 +77,17 @@ fun RouteSelectButton(destination: Destination, navigationState: NavigationState
                 modifier = Modifier.align(Alignment.BottomCenter),
                 isExpanded = isHovered
             )
+
+            // Download button
+            if(isHovered) {
+                IconButton(
+                    onClick = {
+
+                    }
+                ) {
+                    Icon(imageVector = Icons.Default.Download, contentDescription = null)
+                }
+            }
         }
     }
 }
