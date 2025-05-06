@@ -62,7 +62,7 @@ fun RouteSelectButton(destination: Destination, navigationState: NavigationState
                 Image(
                     painter = rememberImagePainter(
                         if (destination.image.isEmpty())
-                            "https://bursur.github.io/SpiraGPS/placeholder-map.jpg"
+                            "https://bursur.github.io/SpiraGPS/AnyPercent.jpg"
                         else
                             "https://bursur.github.io/${destination.image}"
                     ),

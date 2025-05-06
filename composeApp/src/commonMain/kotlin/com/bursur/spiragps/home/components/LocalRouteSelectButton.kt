@@ -71,7 +71,7 @@ fun LocalRouteSelectButton(navigationState: NavigationState) {
                     }
             ) {
                 Image(
-                    painter = rememberImagePainter("https://bursur.github.io/SpiraGPS/placeholder-map.jpg"),
+                    painter = rememberImagePainter("https://bursur.github.io/SpiraGPS/load.jpg"),
                     contentDescription = ""
                 )
             }

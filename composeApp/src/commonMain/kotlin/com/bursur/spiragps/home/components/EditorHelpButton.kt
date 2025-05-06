@@ -53,7 +53,7 @@ fun EditorHelpButton(navigationState: NavigationState) {
                     }
             ) {
                 Image(
-                    painter = rememberImagePainter("https://bursur.github.io/SpiraGPS/editor-help.jpg"),
+                    painter = rememberImagePainter("https://bursur.github.io/SpiraGPS/help.jpg"),
                     contentDescription = ""
                 )
             }

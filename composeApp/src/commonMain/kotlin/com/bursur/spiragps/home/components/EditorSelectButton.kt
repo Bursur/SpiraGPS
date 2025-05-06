@@ -52,7 +52,7 @@ fun EditorSelectButton(navigationState: NavigationState) {
                     }
             ) {
                 Image(
-                    painter = rememberImagePainter("https://bursur.github.io/SpiraGPS/editor.png"),
+                    painter = rememberImagePainter("https://bursur.github.io/SpiraGPS/editor.jpg"),
                     contentDescription = ""
                 )
             }
