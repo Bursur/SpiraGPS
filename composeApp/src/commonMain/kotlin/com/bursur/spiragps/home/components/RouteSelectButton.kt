@@ -27,6 +27,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalUriHandler
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import com.bursur.spiragps.destinations.Destination
@@ -43,6 +44,7 @@ fun RouteSelectButton(destination: Destination, navigationState: NavigationState
     val textColour by animateColorAsState(SpiraGPSColours.text)
     val interactionSource = remember { MutableInteractionSource() }
     val isHovered by interactionSource.collectIsHoveredAsState()
+    val uriHandler = LocalUriHandler.current
 
     Surface(
         shadowElevation = 5.dp,
@@ -82,7 +84,7 @@ fun RouteSelectButton(destination: Destination, navigationState: NavigationState
             if(isHovered) {
                 IconButton(
                     onClick = {
-
+                        uriHandler.openUri("https://bursur.github.io/${destination.data}")
                     }
                 ) {
                     Icon(imageVector = Icons.Default.Download, contentDescription = null)

@@ -76,6 +76,9 @@ kotlin {
             implementation(libs.image.loader)
 
             implementation(libs.kotlinx.datetime.v062)
+
+            implementation("io.github.jmseb3:capturable:1.1.0")
+            implementation("io.github.alexzhirkevich:qrose:1.0.0")
         }
         desktopMain.dependencies {
             implementation(compose.desktop.currentOs)

@@ -32,7 +32,12 @@ import com.bursur.spiragps.title.SpiraGPSTitle
 fun HomePage(navigationState: NavigationState) {
     val textColour by animateColorAsState(SpiraGPSColours.text)
 
-    Column(modifier = Modifier.fillMaxSize().padding(top = 20.dp), horizontalAlignment = Alignment.CenterHorizontally) {
+    Column(
+        modifier = Modifier
+            .fillMaxSize()
+            .padding(top = 20.dp),
+        horizontalAlignment = Alignment.CenterHorizontally
+    ) {
         SpiraGPSTitle()
 
         Text(
