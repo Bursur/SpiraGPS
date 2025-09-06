@@ -1,196 +1,52 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SpiraGPS</title>
-    <link rel="icon" type="image/x-icon" href="./favicon.ico">
-    <link type="text/css" rel="stylesheet" href="styles.css">
-    <script type="application/javascript" src="SpiraGPS.js"></script>
+	<head>
+		<meta charset="utf-8" />
+		<title>Spira GPS</title>
+		<link rel="icon" href="./favicon.png" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		
+		<link href="./_app/immutable/assets/states.CLRy5aN_.css" rel="stylesheet">
+		<link rel="modulepreload" href="./_app/immutable/entry/start.DkU4BLmw.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/6_D1rz-X.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/CMAo_ZkR.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/CLHjS8NO.js">
+		<link rel="modulepreload" href="./_app/immutable/entry/app.DvR1f3oQ.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/CRYyEhQB.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/BSvYFtAb.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/0R_fgGSy.js">
+		<link rel="modulepreload" href="./_app/immutable/nodes/0.Diku8aCp.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/B6RVm4ww.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/LV1lmQdI.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/D0sYy9DP.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/a3ieqKcp.js">
+		<link rel="modulepreload" href="./_app/immutable/nodes/2.oSoe8aJD.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/CR0z0WeG.js">
+	</head>
+	<body data-sveltekit-preload-data="hover">
+		<div style="display: contents"><!--[--><!--[--><!----><!----><h1 class="title-text">SpiraGPS</h1> <p class="version-text">(v2.0.0)</p><!----> <div class="landing-grid"><div class="grid grid-cols-3 gap-4"><!--[--><!--]--> <div class="relative route-thumb"><a><img src="./load.jpg" alt="" class="route-thumb"> <div class="bg-base-100 border-base-300 text-base-content"><p class="absolute bottom-0 route-thumb-text bg-base-200 rounded-lg">Load Route File</p></div></a></div><!----> <div class="relative route-thumb"><a href="./editor"><img src="./editor.jpg" alt="" class="route-thumb"> <div class="bg-base-100 border-base-300 text-base-content"><p class="absolute bottom-0 route-thumb-text bg-base-200 rounded-lg">Route Editor</p></div></a></div><!----> <div class="relative route-thumb"><a href="./viewer/help"><img src="./help.jpg" alt="" class="route-thumb"> <p class="absolute bottom-0 route-thumb-text bg-base-200 rounded-lg">Editor Help</p></a></div><!----></div></div><!----><!----> <div class="sticky bottom-0"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined&amp;icon_names=download,info,keyboard_arrow_up,settings"> <ul class="menu menu-horizontal bg-base-200 rounded-box absolute bottom-5 right-5"><li><button class="btn btn-square btn-ghost"><span class="material-symbols-outlined">info</span></button></li> <li><button class="btn btn-square btn-ghost"><span class="material-symbols-outlined">settings</span></button></li> <!--[!--><!--]--></ul></div> <dialog id="info_dialog" class="modal"><div class="modal-box"><h3 class="text-lg font-bold">SpiraGPS</h3> <p class="py-4">This is SpiraGPS, have fun!</p> <div class="modal-action"><form method="dialog"><button class="btn">Close</button></form></div></div></dialog><!----> <dialog id="settings_dialog" class="modal"><div class="modal-box"><h3 class="text-lg font-bold">Settings</h3> <div class="collapse collapse-arrow bg-base-100 border border-base-300 mb-5"><input type="radio" name="my-accordion-2" checked="checked"> <div class="collapse-title font-semibold flex">Colour: Light <!--[!--><!--]--></div> <div class="collapse-content panel-content"><fieldset class="fieldset"><label class="flex gap-2 cursor-pointer items-center p-2  standard-font small-font"><input type="radio" name="theme-radios" class="radio radio-sm theme-controller my-auto" value="light" checked> Light Mode</label> <label class="flex gap-2 cursor-pointer items-center p-2  standard-font small-font"><input type="radio" name="theme-radios" class="radio radio-sm theme-controller my-auto" value="dark"> Dark Mode</label> <label class="flex gap-2 cursor-pointer items-center flex p-2  standard-font small-font"><input type="radio" name="theme-radios" class="radio radio-sm theme-controller my-auto" value="khaegar"> Khaegar Mode <img src="../khaegar.png" alt="" style="height: 25px"></label></fieldset><!----></div></div> <div class="collapse collapse-arrow bg-base-100 border border-base-300 mb-5"><input type="radio" name="my-accordion-2"> <div class="collapse-title font-semibold">Font Family: Standard</div> <div class="collapse-content panel-content text-sm"><div><div class="flex gap-2 p-2 standard-font"><input type="radio" name="font" class="radio radio-sm my-auto" checked> <p>Standard</p></div> <div class="flex gap-2 p-2 dyslexic-font"><input type="radio" name="font" class="radio radio-sm my-auto"> <p>Dyslexic</p></div></div><!----></div></div> <div class="collapse collapse-arrow bg-base-100 border border-base-300"><input type="radio" name="my-accordion-2"> <div class="collapse-title font-semibold">Font Size: Small</div> <div class="collapse-content panel-content text-sm"><div><div class="flex gap-2 p-2 small-font"><input type="radio" name="font-size" class="radio radio-sm my-auto" checked> <p>Small</p></div> <div class="flex gap-2 p-2 medium-font"><input type="radio" name="font-size" class="radio radio-sm my-auto"> <p>Medium</p></div> <div class="flex gap-2 p-2 large-font"><input type="radio" name="font-size" class="radio radio-sm my-auto"> <p>Large</p></div></div><!----></div></div> <div class="modal-action"><form method="dialog"><button class="btn">Close</button></form></div></div></dialog><!----><!----><!--]--> <!--[!--><!--]--><!--]-->
+			
+			<script>
+				{
+					__sveltekit_1irkid3 = {
+						base: new URL(".", location).pathname.slice(0, -1)
+					};
 
-    <script>
-        // Refresh Handling
-        var isEditing = false;
-        function setIsEditing(editing) {
-            isEditing = editing;
-        }
+					const element = document.currentScript.parentElement;
 
-        window.addEventListener('beforeunload', (event) => {
-            const message = 'Are you sure you want to leave? Have you saved your work?';
-            if(isEditing === true) {
-                event.returnValue = message;
-                return message;
-            }
-
-            return ""
-        });
-
-        // Preferences
-        function saveDarkModePreference(enabled) {
-            localStorage.darkMode = enabled;
-        }
-
-        function loadDarkModePreference() {
-            if(localStorage.darkMode)
-                return Number(localStorage.darkMode);
-
-            return 0
-        }
-
-        function saveTextSizePreference(size) {
-            localStorage.textSize = size;
-        }
-
-        function loadTextSizePreference() {
-            if(localStorage.textSize)
-                return Number(localStorage.textSize);
-
-            return 0
-        }
-
-        function saveDyslexicModePreference(enabled) {
-            localStorage.dyslexicMode = enabled;
-        }
-
-        function loadDyslexicModePreference() {
-            if(localStorage.dyslexicMode)
-                return Number(localStorage.dyslexicMode);
-
-            return 0
-        }
-
-        function saveKhaegarModePreference(enabled) {
-            localStorage.khaegarMode = enabled;
-
-            var link = document.querySelector("link[rel~='icon']");
-            if (!link) {
-                link = document.createElement('link');
-                link.rel = 'icon';
-                document.head.appendChild(link);
-            }
-
-            if(enabled == 1)
-                link.href = './khaegar_icon.ico';
-            else
-                link.href = './favicon.ico';
-        }
-
-        function loadKhaegarModePreference() {
-            if(localStorage.khaegarMode) {
-                var enabled = Number(localStorage.khaegarMode);
-                var link = document.querySelector("link[rel~='icon']");
-                if (!link) {
-                    link = document.createElement('link');
-                    link.rel = 'icon';
-                    document.head.appendChild(link);
-                }
-
-                if(enabled == 1)
-                    link.href = './khaegar_icon.ico';
-                else
-                    link.href = './favicon.ico';
-
-                return Number(localStorage.khaegarMode)
-            }
-
-            return 0
-        }
-
-        function saveAnimationEnabledPreference(enabled) {
-            localStorage.animationEnabled = enabled;
-        }
-
-        function loadAnimationEnabledPreference() {
-            if(localStorage.animationEnabled)
-                return Number(localStorage.animationEnabled);
-
-            return 0
-        }
-
-        // File I/O
-        var data = "#DEADFACE";
-        function getLoadedData() {
-            return data;
-        }
-
-        function openFile() {
-            data = "#DEADFACE";
-            const fileInputElement = document.createElement('input');
-            fileInputElement.type = 'file';
-            fileInputElement.style.opacity = '0';
-            fileInputElement.accept = "application/JSON";
-            fileInputElement.addEventListener('change', () => {
-                const file = fileInputElement.files[0];
-                console.log('File "' + file.name + '" selected.');
-
-                var reader = new FileReader();
-                reader.onload = readerEvent => {
-                    var content = readerEvent.target.result;
-                    data = content
-                }
-                reader.readAsText(file, 'UTF-8');
-
-                document.body.removeChild(fileInputElement);
-            });
-            document.body.appendChild(fileInputElement);
-            setTimeout(_ => {
-                fileInputElement.click();
-                const onFocus = () => {
-                    window.removeEventListener('focus', onFocus);
-                    document.body.addEventListener('mousemove', onMouseMove);
-                };
-                const onMouseMove = () => {
-                    document.body.removeEventListener('mousemove', onMouseMove);
-                    if (!fileInputElement.files.length) {
-                        document.body.removeChild(fileInputElement);
-                        console.log('No file selected.');
-                        data = "cancelled";
-                    }
-                }
-                window.addEventListener('focus', onFocus);
-            }, 0);
-        }
-
-        function writeFile(data, fileName) {
-            const link = document.createElement("a");
-            const file = new Blob([data], { type: 'application/json' });
-            link.href = URL.createObjectURL(file);
-            link.download = `${fileName}-${Date.now()}.json`;
-            link.click();
-            URL.revokeObjectURL(link.href);
-        }
-
-        // Clipboard
-        var clipboardData = "#DEADFACE";
-        function getClipboard() {
-            return clipboardData;
-        }
-
-        function loadClipboardData() {
-            clipboardData = "#DEADFACE";
-            navigator.clipboard.readText()
-                .then((clipText) => {
-                    clipboardData = clipText
-                });
-        }
-
-        function setClipboard(data) {
-            navigator.clipboard.writeText(data)
-        }
-
-        // Browser State
-        function getUrl() {
-            return window.location.href;
-        }
-
-        // Audio
-        function playAudio(file) {
-            var audio = new Audio(file);
-            audio.play();
-        }
-    </script>
-</head>
-<body>
-    <div id="components"></div>
-</body>
+					Promise.all([
+						import("./_app/immutable/entry/start.DkU4BLmw.js"),
+						import("./_app/immutable/entry/app.DvR1f3oQ.js")
+					]).then(([kit, app]) => {
+						kit.start(app, element, {
+							node_ids: [0, 2],
+							data: [null,null],
+							form: null,
+							error: null
+						});
+					});
+				}
+			</script>
+		</div>
+	</body>
 </html>
