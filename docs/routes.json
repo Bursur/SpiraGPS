@@ -2,8 +2,8 @@
     "destinations": [
         {
             "name": "Any% Example",
-            "data": "SpiraGPS/any_percent_example.json",
-            "image": "SpiraGPS/AnyPercent.jpg",
+            "data": "https://bursur.github.io/SpiraGPS/any_percent_example.json",
+            "image": "https://bursur.github.io/SpiraGPS/AnyPercent.jpg",
             "author": "",
             "id": "b6692d34-39ea-4361-b9fc-1cb6be0ceaff",
             "enabled": true

@@ -1,196 +1,38 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SpiraGPS</title>
-    <link rel="icon" type="image/x-icon" href="./favicon.ico">
-    <link type="text/css" rel="stylesheet" href="styles.css">
-    <script type="application/javascript" src="SpiraGPS.js"></script>
+	<head>
+		<meta charset="utf-8" />
+		<title>Spira GPS</title>
+		<link rel="icon" href="/favicon.png" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		
+		<link rel="modulepreload" href="/_app/immutable/entry/start.CUe7cPpB.js">
+		<link rel="modulepreload" href="/_app/immutable/chunks/DoXx0ZC7.js">
+		<link rel="modulepreload" href="/_app/immutable/chunks/CMAo_ZkR.js">
+		<link rel="modulepreload" href="/_app/immutable/chunks/CLHjS8NO.js">
+		<link rel="modulepreload" href="/_app/immutable/entry/app.BRz3hYoG.js">
+		<link rel="modulepreload" href="/_app/immutable/chunks/CRYyEhQB.js">
+		<link rel="modulepreload" href="/_app/immutable/chunks/BSvYFtAb.js">
+		<link rel="modulepreload" href="/_app/immutable/chunks/0R_fgGSy.js">
+	</head>
+	<body data-sveltekit-preload-data="hover">
+		<div style="display: contents">
+			<script>
+				{
+					__sveltekit_16yu6wr = {
+						base: ""
+					};
 
-    <script>
-        // Refresh Handling
-        var isEditing = false;
-        function setIsEditing(editing) {
-            isEditing = editing;
-        }
+					const element = document.currentScript.parentElement;
 
-        window.addEventListener('beforeunload', (event) => {
-            const message = 'Are you sure you want to leave? Have you saved your work?';
-            if(isEditing === true) {
-                event.returnValue = message;
-                return message;
-            }
-
-            return ""
-        });
-
-        // Preferences
-        function saveDarkModePreference(enabled) {
-            localStorage.darkMode = enabled;
-        }
-
-        function loadDarkModePreference() {
-            if(localStorage.darkMode)
-                return Number(localStorage.darkMode);
-
-            return 0
-        }
-
-        function saveTextSizePreference(size) {
-            localStorage.textSize = size;
-        }
-
-        function loadTextSizePreference() {
-            if(localStorage.textSize)
-                return Number(localStorage.textSize);
-
-            return 0
-        }
-
-        function saveDyslexicModePreference(enabled) {
-            localStorage.dyslexicMode = enabled;
-        }
-
-        function loadDyslexicModePreference() {
-            if(localStorage.dyslexicMode)
-                return Number(localStorage.dyslexicMode);
-
-            return 0
-        }
-
-        function saveKhaegarModePreference(enabled) {
-            localStorage.khaegarMode = enabled;
-
-            var link = document.querySelector("link[rel~='icon']");
-            if (!link) {
-                link = document.createElement('link');
-                link.rel = 'icon';
-                document.head.appendChild(link);
-            }
-
-            if(enabled == 1)
-                link.href = './khaegar_icon.ico';
-            else
-                link.href = './favicon.ico';
-        }
-
-        function loadKhaegarModePreference() {
-            if(localStorage.khaegarMode) {
-                var enabled = Number(localStorage.khaegarMode);
-                var link = document.querySelector("link[rel~='icon']");
-                if (!link) {
-                    link = document.createElement('link');
-                    link.rel = 'icon';
-                    document.head.appendChild(link);
-                }
-
-                if(enabled == 1)
-                    link.href = './khaegar_icon.ico';
-                else
-                    link.href = './favicon.ico';
-
-                return Number(localStorage.khaegarMode)
-            }
-
-            return 0
-        }
-
-        function saveAnimationEnabledPreference(enabled) {
-            localStorage.animationEnabled = enabled;
-        }
-
-        function loadAnimationEnabledPreference() {
-            if(localStorage.animationEnabled)
-                return Number(localStorage.animationEnabled);
-
-            return 0
-        }
-
-        // File I/O
-        var data = "#DEADFACE";
-        function getLoadedData() {
-            return data;
-        }
-
-        function openFile() {
-            data = "#DEADFACE";
-            const fileInputElement = document.createElement('input');
-            fileInputElement.type = 'file';
-            fileInputElement.style.opacity = '0';
-            fileInputElement.accept = "application/JSON";
-            fileInputElement.addEventListener('change', () => {
-                const file = fileInputElement.files[0];
-                console.log('File "' + file.name + '" selected.');
-
-                var reader = new FileReader();
-                reader.onload = readerEvent => {
-                    var content = readerEvent.target.result;
-                    data = content
-                }
-                reader.readAsText(file, 'UTF-8');
-
-                document.body.removeChild(fileInputElement);
-            });
-            document.body.appendChild(fileInputElement);
-            setTimeout(_ => {
-                fileInputElement.click();
-                const onFocus = () => {
-                    window.removeEventListener('focus', onFocus);
-                    document.body.addEventListener('mousemove', onMouseMove);
-                };
-                const onMouseMove = () => {
-                    document.body.removeEventListener('mousemove', onMouseMove);
-                    if (!fileInputElement.files.length) {
-                        document.body.removeChild(fileInputElement);
-                        console.log('No file selected.');
-                        data = "cancelled";
-                    }
-                }
-                window.addEventListener('focus', onFocus);
-            }, 0);
-        }
-
-        function writeFile(data, fileName) {
-            const link = document.createElement("a");
-            const file = new Blob([data], { type: 'application/json' });
-            link.href = URL.createObjectURL(file);
-            link.download = `${fileName}-${Date.now()}.json`;
-            link.click();
-            URL.revokeObjectURL(link.href);
-        }
-
-        // Clipboard
-        var clipboardData = "#DEADFACE";
-        function getClipboard() {
-            return clipboardData;
-        }
-
-        function loadClipboardData() {
-            clipboardData = "#DEADFACE";
-            navigator.clipboard.readText()
-                .then((clipText) => {
-                    clipboardData = clipText
-                });
-        }
-
-        function setClipboard(data) {
-            navigator.clipboard.writeText(data)
-        }
-
-        // Browser State
-        function getUrl() {
-            return window.location.href;
-        }
-
-        // Audio
-        function playAudio(file) {
-            var audio = new Audio(file);
-            audio.play();
-        }
-    </script>
-</head>
-<body>
-    <div id="components"></div>
-</body>
+					Promise.all([
+						import("/_app/immutable/entry/start.CUe7cPpB.js"),
+						import("/_app/immutable/entry/app.BRz3hYoG.js")
+					]).then(([kit, app]) => {
+						kit.start(app, element);
+					});
+				}
+			</script>
+		</div>
+	</body>
 </html>
