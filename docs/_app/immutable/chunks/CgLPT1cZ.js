@@ -1,0 +1,1 @@
+import{t as e,a as r}from"./CX5ooH0W.js";import"./B3iQa5AD.js";import{n as o}from"./Dzkymkdr.js";var s=e('<h1 class="title-text">SpiraGPS</h1> <p class="version-text">Sorry, it looks like you got a little lost!</p> <p class="version-text">Head back to the main page <a href="/" class="link">here</a>.</p>',1);function n(t){var a=s();o(4),r(t,a)}export{n as E};
